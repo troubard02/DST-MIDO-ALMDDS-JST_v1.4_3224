@@ -1,0 +1,127 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR       27/Dec/2020  15:43:07
+# Copyright 1996-2019 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for Atmel AVR
+#
+#    Source file  =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\main.c
+#    Command line =  
+#        -f C:\Users\troubard\AppData\Local\Temp\EW483C.tmp
+#        ("C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\main.c" --cpu=m168pa -ms -o
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj" -lC
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List" -lA
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List"
+#        --initializers_in_flash --no_cse --no_inline --no_code_motion
+#        --no_cross_call --no_clustering --no_tbaa --debug -e -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\" --eeprom_size 512 --dlib
+#        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
+#    Locale       =  Korean_KOR.949
+#    List file    =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List\main.lst
+#    Object file  =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\main.r90
+#
+###############################################################################
+
+C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\main.c
+      1          #include "include.h"
+      2          
+      3          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+      4          int main( void )
+   \                     main:
+      5          {
+      6          
+      7            Gpio_Initialize();
+   \   00000000   ........           CALL    Gpio_Initialize
+      8            Timer2_Initialize();
+   \   00000004   ........           CALL    Timer2_Initialize
+      9            ADC_Initialize();
+   \   00000008   ........           CALL    ADC_Initialize
+     10            Uasrt_Initialize();
+   \   0000000C   ........           CALL    Uasrt_Initialize
+     11            RD_EEP_Value();
+   \   00000010   ........           CALL    RD_EEP_Value
+     12            Twi_Adc_Push_Coef();
+   \   00000014   ........           CALL    Twi_Adc_Push_Coef
+     13            TWI_Master_Initialise();
+   \   00000018   ........           CALL    TWI_Master_Initialise
+     14            __enable_interrupt();    
+   \   0000001C   9478               SEI
+     15          
+     16            
+     17            while(1)
+     18            {
+     19          
+     20              ADC_Get_Standard_Pressure_Value();
+   \                     ??main_0:
+   \   0000001E   ........           CALL    ADC_Get_Standard_Pressure_Value
+     21              TWI_Operation();
+   \   00000022   ........           CALL    TWI_Operation
+     22              Fnd_Display();
+   \   00000026   ........           CALL    Fnd_Display
+     23              Twi_Adc_Get_Pressure_Sensor_Value();
+   \   0000002A   ........           CALL    Twi_Adc_Get_Pressure_Sensor_Value
+     24              Usart_Operation();
+   \   0000002E   ........           CALL    Usart_Operation
+     25              Motor_Operation();
+   \   00000032   ........           CALL    Motor_Operation
+     26              System_Operation();
+   \   00000036   ........           CALL    System_Operation
+   \   0000003A   CFF1               RJMP    ??main_0
+     27            }
+     28          
+     29          }
+     30          
+
+   Maximum stack usage in bytes:
+
+   RSTACK Function
+   ------ --------
+      2   main
+        2   -> ADC_Get_Standard_Pressure_Value
+        2   -> ADC_Initialize
+        2   -> Fnd_Display
+        2   -> Gpio_Initialize
+        2   -> Motor_Operation
+        2   -> RD_EEP_Value
+        2   -> System_Operation
+        2   -> TWI_Master_Initialise
+        2   -> TWI_Operation
+        2   -> Timer2_Initialize
+        2   -> Twi_Adc_Get_Pressure_Sensor_Value
+        2   -> Twi_Adc_Push_Coef
+        2   -> Uasrt_Initialize
+        2   -> Usart_Operation
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      60  main
+
+ 
+ 60 bytes in segment CODE
+ 
+ 60 bytes of CODE memory
+
+Errors: none
+Warnings: none

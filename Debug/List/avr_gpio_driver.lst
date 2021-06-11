@@ -1,0 +1,507 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V6.11.1.50453 for Atmel AVR        12/Jun/2019  15:16:34 #
+# Copyright 1996-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Source file  =  C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.   #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\atmel_driver\ #
+#                    avr_gpio_driver.c                                        #
+#    Command line =  "C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\atmel_driver\ #
+#                    avr_gpio_driver.c" --cpu=m168pa -ms -o                   #
+#                    "C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Debug\Obj\" -lC              #
+#                    "C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\" -lA             #
+#                    "C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\"                 #
+#                    --initializers_in_flash --no_cse --no_inline             #
+#                    --no_code_motion --no_cross_call --no_clustering         #
+#                    --no_tbaa --debug -e -I "C:\Users\troub\CloudStation\Pub #
+#                    lic\3. DST\7. DH-OWC\3. FIRMWARE\2.                      #
+#                    MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Sour #
+#                    ce\drivers\min_driver\" -I "C:\Users\troub\CloudStation\ #
+#                    Public\3. DST\7. DH-OWC\3. FIRMWARE\2.                   #
+#                    MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Sour #
+#                    ce\drivers\atmel_driver\" -I                             #
+#                    "C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Source\" -I                  #
+#                    "C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\" --eeprom_size 512 --dlib   #
+#                    --dlib_config "C:\Program Files (x86)\IAR                #
+#                    Systems\Embedded Workbench 6.0\avr\LIB\DLIB\dlAVR-3s-ec_ #
+#                    mul-sf-n.h" -Ol                                          #
+#    List file    =  C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.   #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\avr_gpio_driver.l #
+#                    st                                                       #
+#    Object file  =  C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.   #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Debug\Obj\avr_gpio_driver.r9 #
+#                    0                                                        #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\atmel_driver\avr_gpio_driver.c
+      1          #include "include.h"
+
+   \                                 In  segment ABSOLUTE, at 0x2b
+   \   union <unnamed> volatile __io _A_PORTD
+   \                     _A_PORTD:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x28
+   \   union <unnamed> volatile __io _A_PORTC
+   \                     _A_PORTC:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x25
+   \   union <unnamed> volatile __io _A_PORTB
+   \                     _A_PORTB:
+   \   00000000                      DS8 1
+      2          
+      3          
+      4          
+      5          
+      6          /*
+      7          void GPIO_PortA_OutHigh(uint8_t PAx)
+      8          {
+      9            switch(PAx){
+     10            case BIT0: PORTA |= BIT0; break;
+     11            case BIT1: PORTA |= BIT1; break;
+     12            case BIT2: PORTA |= BIT2; break;
+     13            case BIT3: PORTA |= BIT3; break;
+     14            case BIT4: PORTA |= BIT4; break;
+     15            case BIT5: PORTA |= BIT5; break;
+     16            case BIT6: PORTA |= BIT6; break;
+     17            case BIT7: PORTA |= BIT7; break;
+     18            }
+     19          }
+     20          
+     21          void GPIO_PortA_OutLow(uint8_t PAx)
+     22          {
+     23          
+     24            switch(PAx){
+     25            case BIT0: PORTA &= ~(BIT0); break;
+     26            case BIT1: PORTA &= ~(BIT1); break;
+     27            case BIT2: PORTA &= ~(BIT2); break;
+     28            case BIT3: PORTA &= ~(BIT3); break;
+     29            case BIT4: PORTA &= ~(BIT4); break;
+     30            case BIT5: PORTA &= ~(BIT5); break;
+     31            case BIT6: PORTA &= ~(BIT6); break;
+     32            case BIT7: PORTA &= ~(BIT7); break;
+     33            }
+     34          
+     35          
+     36          }
+     37          
+     38          */
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     39          void GPIO_PortB_OutHigh(uint8_t PAx)
+   \                     GPIO_PortB_OutHigh:
+     40          {
+     41            switch(PAx){
+   \   00000000   5800               SUBI    R16, 128
+   \   00000002   F0E9               BREQ    ??GPIO_PortB_OutHigh_0
+   \   00000004   5801               SUBI    R16, 129
+   \   00000006   F069               BREQ    ??GPIO_PortB_OutHigh_1
+   \   00000008   950A               DEC     R16
+   \   0000000A   F069               BREQ    ??GPIO_PortB_OutHigh_2
+   \   0000000C   5002               SUBI    R16, 2
+   \   0000000E   F069               BREQ    ??GPIO_PortB_OutHigh_3
+   \   00000010   5004               SUBI    R16, 4
+   \   00000012   F069               BREQ    ??GPIO_PortB_OutHigh_4
+   \   00000014   5008               SUBI    R16, 8
+   \   00000016   F069               BREQ    ??GPIO_PortB_OutHigh_5
+   \   00000018   5100               SUBI    R16, 16
+   \   0000001A   F069               BREQ    ??GPIO_PortB_OutHigh_6
+   \   0000001C   5200               SUBI    R16, 32
+   \   0000001E   F069               BREQ    ??GPIO_PortB_OutHigh_7
+   \   00000020   9508               RET
+     42            case BIT0: PORTB |= BIT0; break;
+   \                     ??GPIO_PortB_OutHigh_1:
+   \   00000022   9A28               SBI     0x05, 0x00
+   \   00000024   9508               RET
+     43            case BIT1: PORTB |= BIT1; break;
+   \                     ??GPIO_PortB_OutHigh_2:
+   \   00000026   9A29               SBI     0x05, 0x01
+   \   00000028   9508               RET
+     44            case BIT2: PORTB |= BIT2; break;
+   \                     ??GPIO_PortB_OutHigh_3:
+   \   0000002A   9A2A               SBI     0x05, 0x02
+   \   0000002C   9508               RET
+     45            case BIT3: PORTB |= BIT3; break;
+   \                     ??GPIO_PortB_OutHigh_4:
+   \   0000002E   9A2B               SBI     0x05, 0x03
+   \   00000030   9508               RET
+     46            case BIT4: PORTB |= BIT4; break;
+   \                     ??GPIO_PortB_OutHigh_5:
+   \   00000032   9A2C               SBI     0x05, 0x04
+   \   00000034   9508               RET
+     47            case BIT5: PORTB |= BIT5; break;
+   \                     ??GPIO_PortB_OutHigh_6:
+   \   00000036   9A2D               SBI     0x05, 0x05
+   \   00000038   9508               RET
+     48            case BIT6: PORTB |= BIT6; break;
+   \                     ??GPIO_PortB_OutHigh_7:
+   \   0000003A   9A2E               SBI     0x05, 0x06
+   \   0000003C   9508               RET
+     49            case BIT7: PORTB |= BIT7; break;
+   \                     ??GPIO_PortB_OutHigh_0:
+   \   0000003E   9A2F               SBI     0x05, 0x07
+     50            }
+     51          }
+   \   00000040   9508               RET
+   \   00000042                      REQUIRE _A_PORTB
+     52          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     53          void GPIO_PortB_OutLow(uint8_t PAx)
+   \                     GPIO_PortB_OutLow:
+     54          {
+     55          
+     56            switch(PAx){
+   \   00000000   5800               SUBI    R16, 128
+   \   00000002   F0E9               BREQ    ??GPIO_PortB_OutLow_0
+   \   00000004   5801               SUBI    R16, 129
+   \   00000006   F069               BREQ    ??GPIO_PortB_OutLow_1
+   \   00000008   950A               DEC     R16
+   \   0000000A   F069               BREQ    ??GPIO_PortB_OutLow_2
+   \   0000000C   5002               SUBI    R16, 2
+   \   0000000E   F069               BREQ    ??GPIO_PortB_OutLow_3
+   \   00000010   5004               SUBI    R16, 4
+   \   00000012   F069               BREQ    ??GPIO_PortB_OutLow_4
+   \   00000014   5008               SUBI    R16, 8
+   \   00000016   F069               BREQ    ??GPIO_PortB_OutLow_5
+   \   00000018   5100               SUBI    R16, 16
+   \   0000001A   F069               BREQ    ??GPIO_PortB_OutLow_6
+   \   0000001C   5200               SUBI    R16, 32
+   \   0000001E   F069               BREQ    ??GPIO_PortB_OutLow_7
+   \   00000020   9508               RET
+     57            case BIT0: PORTB &= ~(BIT0); break;
+   \                     ??GPIO_PortB_OutLow_1:
+   \   00000022   9828               CBI     0x05, 0x00
+   \   00000024   9508               RET
+     58            case BIT1: PORTB &= ~(BIT1); break;
+   \                     ??GPIO_PortB_OutLow_2:
+   \   00000026   9829               CBI     0x05, 0x01
+   \   00000028   9508               RET
+     59            case BIT2: PORTB &= ~(BIT2); break;
+   \                     ??GPIO_PortB_OutLow_3:
+   \   0000002A   982A               CBI     0x05, 0x02
+   \   0000002C   9508               RET
+     60            case BIT3: PORTB &= ~(BIT3); break;
+   \                     ??GPIO_PortB_OutLow_4:
+   \   0000002E   982B               CBI     0x05, 0x03
+   \   00000030   9508               RET
+     61            case BIT4: PORTB &= ~(BIT4); break;
+   \                     ??GPIO_PortB_OutLow_5:
+   \   00000032   982C               CBI     0x05, 0x04
+   \   00000034   9508               RET
+     62            case BIT5: PORTB &= ~(BIT5); break;
+   \                     ??GPIO_PortB_OutLow_6:
+   \   00000036   982D               CBI     0x05, 0x05
+   \   00000038   9508               RET
+     63            case BIT6: PORTB &= ~(BIT6); break;
+   \                     ??GPIO_PortB_OutLow_7:
+   \   0000003A   982E               CBI     0x05, 0x06
+   \   0000003C   9508               RET
+     64            case BIT7: PORTB &= ~(BIT7); break;
+   \                     ??GPIO_PortB_OutLow_0:
+   \   0000003E   982F               CBI     0x05, 0x07
+     65            }
+     66          
+     67          
+     68          }
+   \   00000040   9508               RET
+   \   00000042                      REQUIRE _A_PORTB
+     69          
+     70          
+     71          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     72          void GPIO_PortC_OutHigh(uint8_t PAx)
+   \                     GPIO_PortC_OutHigh:
+     73          {
+     74            switch(PAx){
+   \   00000000   5800               SUBI    R16, 128
+   \   00000002   F0E9               BREQ    ??GPIO_PortC_OutHigh_0
+   \   00000004   5801               SUBI    R16, 129
+   \   00000006   F069               BREQ    ??GPIO_PortC_OutHigh_1
+   \   00000008   950A               DEC     R16
+   \   0000000A   F069               BREQ    ??GPIO_PortC_OutHigh_2
+   \   0000000C   5002               SUBI    R16, 2
+   \   0000000E   F069               BREQ    ??GPIO_PortC_OutHigh_3
+   \   00000010   5004               SUBI    R16, 4
+   \   00000012   F069               BREQ    ??GPIO_PortC_OutHigh_4
+   \   00000014   5008               SUBI    R16, 8
+   \   00000016   F069               BREQ    ??GPIO_PortC_OutHigh_5
+   \   00000018   5100               SUBI    R16, 16
+   \   0000001A   F069               BREQ    ??GPIO_PortC_OutHigh_6
+   \   0000001C   5200               SUBI    R16, 32
+   \   0000001E   F069               BREQ    ??GPIO_PortC_OutHigh_7
+   \   00000020   9508               RET
+     75            case BIT0: PORTC |= BIT0; break;
+   \                     ??GPIO_PortC_OutHigh_1:
+   \   00000022   9A40               SBI     0x08, 0x00
+   \   00000024   9508               RET
+     76            case BIT1: PORTC |= BIT1; break;
+   \                     ??GPIO_PortC_OutHigh_2:
+   \   00000026   9A41               SBI     0x08, 0x01
+   \   00000028   9508               RET
+     77            case BIT2: PORTC |= BIT2; break;
+   \                     ??GPIO_PortC_OutHigh_3:
+   \   0000002A   9A42               SBI     0x08, 0x02
+   \   0000002C   9508               RET
+     78            case BIT3: PORTC |= BIT3; break;
+   \                     ??GPIO_PortC_OutHigh_4:
+   \   0000002E   9A43               SBI     0x08, 0x03
+   \   00000030   9508               RET
+     79            case BIT4: PORTC |= BIT4; break;
+   \                     ??GPIO_PortC_OutHigh_5:
+   \   00000032   9A44               SBI     0x08, 0x04
+   \   00000034   9508               RET
+     80            case BIT5: PORTC |= BIT5; break;
+   \                     ??GPIO_PortC_OutHigh_6:
+   \   00000036   9A45               SBI     0x08, 0x05
+   \   00000038   9508               RET
+     81            case BIT6: PORTC |= BIT6; break;
+   \                     ??GPIO_PortC_OutHigh_7:
+   \   0000003A   9A46               SBI     0x08, 0x06
+   \   0000003C   9508               RET
+     82            case BIT7: PORTC |= BIT7; break;
+   \                     ??GPIO_PortC_OutHigh_0:
+   \   0000003E   9A47               SBI     0x08, 0x07
+     83            }
+     84          }
+   \   00000040   9508               RET
+   \   00000042                      REQUIRE _A_PORTC
+     85          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     86          void GPIO_PortC_OutLow(uint8_t PAx)
+   \                     GPIO_PortC_OutLow:
+     87          {
+     88          
+     89            switch(PAx){
+   \   00000000   5800               SUBI    R16, 128
+   \   00000002   F0E9               BREQ    ??GPIO_PortC_OutLow_0
+   \   00000004   5801               SUBI    R16, 129
+   \   00000006   F069               BREQ    ??GPIO_PortC_OutLow_1
+   \   00000008   950A               DEC     R16
+   \   0000000A   F069               BREQ    ??GPIO_PortC_OutLow_2
+   \   0000000C   5002               SUBI    R16, 2
+   \   0000000E   F069               BREQ    ??GPIO_PortC_OutLow_3
+   \   00000010   5004               SUBI    R16, 4
+   \   00000012   F069               BREQ    ??GPIO_PortC_OutLow_4
+   \   00000014   5008               SUBI    R16, 8
+   \   00000016   F069               BREQ    ??GPIO_PortC_OutLow_5
+   \   00000018   5100               SUBI    R16, 16
+   \   0000001A   F069               BREQ    ??GPIO_PortC_OutLow_6
+   \   0000001C   5200               SUBI    R16, 32
+   \   0000001E   F069               BREQ    ??GPIO_PortC_OutLow_7
+   \   00000020   9508               RET
+     90            case BIT0: PORTC &= ~(BIT0); break;
+   \                     ??GPIO_PortC_OutLow_1:
+   \   00000022   9840               CBI     0x08, 0x00
+   \   00000024   9508               RET
+     91            case BIT1: PORTC &= ~(BIT1); break;
+   \                     ??GPIO_PortC_OutLow_2:
+   \   00000026   9841               CBI     0x08, 0x01
+   \   00000028   9508               RET
+     92            case BIT2: PORTC &= ~(BIT2); break;
+   \                     ??GPIO_PortC_OutLow_3:
+   \   0000002A   9842               CBI     0x08, 0x02
+   \   0000002C   9508               RET
+     93            case BIT3: PORTC &= ~(BIT3); break;
+   \                     ??GPIO_PortC_OutLow_4:
+   \   0000002E   9843               CBI     0x08, 0x03
+   \   00000030   9508               RET
+     94            case BIT4: PORTC &= ~(BIT4); break;
+   \                     ??GPIO_PortC_OutLow_5:
+   \   00000032   9844               CBI     0x08, 0x04
+   \   00000034   9508               RET
+     95            case BIT5: PORTC &= ~(BIT5); break;
+   \                     ??GPIO_PortC_OutLow_6:
+   \   00000036   9845               CBI     0x08, 0x05
+   \   00000038   9508               RET
+     96            case BIT6: PORTC &= ~(BIT6); break;
+   \                     ??GPIO_PortC_OutLow_7:
+   \   0000003A   9846               CBI     0x08, 0x06
+   \   0000003C   9508               RET
+     97            case BIT7: PORTC &= ~(BIT7); break;
+   \                     ??GPIO_PortC_OutLow_0:
+   \   0000003E   9847               CBI     0x08, 0x07
+     98            }
+     99          
+    100          
+    101          }
+   \   00000040   9508               RET
+   \   00000042                      REQUIRE _A_PORTC
+    102          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    103          void GPIO_PortD_OutHigh(uint8_t PAx)
+   \                     GPIO_PortD_OutHigh:
+    104          {
+    105            switch(PAx){
+   \   00000000   5800               SUBI    R16, 128
+   \   00000002   F0E9               BREQ    ??GPIO_PortD_OutHigh_0
+   \   00000004   5801               SUBI    R16, 129
+   \   00000006   F069               BREQ    ??GPIO_PortD_OutHigh_1
+   \   00000008   950A               DEC     R16
+   \   0000000A   F069               BREQ    ??GPIO_PortD_OutHigh_2
+   \   0000000C   5002               SUBI    R16, 2
+   \   0000000E   F069               BREQ    ??GPIO_PortD_OutHigh_3
+   \   00000010   5004               SUBI    R16, 4
+   \   00000012   F069               BREQ    ??GPIO_PortD_OutHigh_4
+   \   00000014   5008               SUBI    R16, 8
+   \   00000016   F069               BREQ    ??GPIO_PortD_OutHigh_5
+   \   00000018   5100               SUBI    R16, 16
+   \   0000001A   F069               BREQ    ??GPIO_PortD_OutHigh_6
+   \   0000001C   5200               SUBI    R16, 32
+   \   0000001E   F069               BREQ    ??GPIO_PortD_OutHigh_7
+   \   00000020   9508               RET
+    106            case BIT0: PORTD |= BIT0; break;
+   \                     ??GPIO_PortD_OutHigh_1:
+   \   00000022   9A58               SBI     0x0B, 0x00
+   \   00000024   9508               RET
+    107            case BIT1: PORTD |= BIT1; break;
+   \                     ??GPIO_PortD_OutHigh_2:
+   \   00000026   9A59               SBI     0x0B, 0x01
+   \   00000028   9508               RET
+    108            case BIT2: PORTD |= BIT2; break;
+   \                     ??GPIO_PortD_OutHigh_3:
+   \   0000002A   9A5A               SBI     0x0B, 0x02
+   \   0000002C   9508               RET
+    109            case BIT3: PORTD |= BIT3; break;
+   \                     ??GPIO_PortD_OutHigh_4:
+   \   0000002E   9A5B               SBI     0x0B, 0x03
+   \   00000030   9508               RET
+    110            case BIT4: PORTD |= BIT4; break;
+   \                     ??GPIO_PortD_OutHigh_5:
+   \   00000032   9A5C               SBI     0x0B, 0x04
+   \   00000034   9508               RET
+    111            case BIT5: PORTD |= BIT5; break;
+   \                     ??GPIO_PortD_OutHigh_6:
+   \   00000036   9A5D               SBI     0x0B, 0x05
+   \   00000038   9508               RET
+    112            case BIT6: PORTD |= BIT6; break;
+   \                     ??GPIO_PortD_OutHigh_7:
+   \   0000003A   9A5E               SBI     0x0B, 0x06
+   \   0000003C   9508               RET
+    113            case BIT7: PORTD |= BIT7; break;
+   \                     ??GPIO_PortD_OutHigh_0:
+   \   0000003E   9A5F               SBI     0x0B, 0x07
+    114            }
+    115          }
+   \   00000040   9508               RET
+   \   00000042                      REQUIRE _A_PORTD
+    116          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    117          void GPIO_PortD_OutLow(uint8_t PAx)
+   \                     GPIO_PortD_OutLow:
+    118          {
+    119          
+    120            switch(PAx){
+   \   00000000   5800               SUBI    R16, 128
+   \   00000002   F0E9               BREQ    ??GPIO_PortD_OutLow_0
+   \   00000004   5801               SUBI    R16, 129
+   \   00000006   F069               BREQ    ??GPIO_PortD_OutLow_1
+   \   00000008   950A               DEC     R16
+   \   0000000A   F069               BREQ    ??GPIO_PortD_OutLow_2
+   \   0000000C   5002               SUBI    R16, 2
+   \   0000000E   F069               BREQ    ??GPIO_PortD_OutLow_3
+   \   00000010   5004               SUBI    R16, 4
+   \   00000012   F069               BREQ    ??GPIO_PortD_OutLow_4
+   \   00000014   5008               SUBI    R16, 8
+   \   00000016   F069               BREQ    ??GPIO_PortD_OutLow_5
+   \   00000018   5100               SUBI    R16, 16
+   \   0000001A   F069               BREQ    ??GPIO_PortD_OutLow_6
+   \   0000001C   5200               SUBI    R16, 32
+   \   0000001E   F069               BREQ    ??GPIO_PortD_OutLow_7
+   \   00000020   9508               RET
+    121            case BIT0: PORTD &= ~(BIT0); break;
+   \                     ??GPIO_PortD_OutLow_1:
+   \   00000022   9858               CBI     0x0B, 0x00
+   \   00000024   9508               RET
+    122            case BIT1: PORTD &= ~(BIT1); break;
+   \                     ??GPIO_PortD_OutLow_2:
+   \   00000026   9859               CBI     0x0B, 0x01
+   \   00000028   9508               RET
+    123            case BIT2: PORTD &= ~(BIT2); break;
+   \                     ??GPIO_PortD_OutLow_3:
+   \   0000002A   985A               CBI     0x0B, 0x02
+   \   0000002C   9508               RET
+    124            case BIT3: PORTD &= ~(BIT3); break;
+   \                     ??GPIO_PortD_OutLow_4:
+   \   0000002E   985B               CBI     0x0B, 0x03
+   \   00000030   9508               RET
+    125            case BIT4: PORTD &= ~(BIT4); break;
+   \                     ??GPIO_PortD_OutLow_5:
+   \   00000032   985C               CBI     0x0B, 0x04
+   \   00000034   9508               RET
+    126            case BIT5: PORTD &= ~(BIT5); break;
+   \                     ??GPIO_PortD_OutLow_6:
+   \   00000036   985D               CBI     0x0B, 0x05
+   \   00000038   9508               RET
+    127            case BIT6: PORTD &= ~(BIT6); break;
+   \                     ??GPIO_PortD_OutLow_7:
+   \   0000003A   985E               CBI     0x0B, 0x06
+   \   0000003C   9508               RET
+    128            case BIT7: PORTD &= ~(BIT7); break;
+   \                     ??GPIO_PortD_OutLow_0:
+   \   0000003E   985F               CBI     0x0B, 0x07
+    129            }
+    130          
+    131          
+    132          }
+   \   00000040   9508               RET
+   \   00000042                      REQUIRE _A_PORTD
+    133          
+
+   Maximum stack usage in bytes:
+
+   CSTACK RSTACK Function
+   ------ ------ --------
+       0      2  GPIO_PortB_OutHigh
+       0      2  GPIO_PortB_OutLow
+       0      2  GPIO_PortC_OutHigh
+       0      2  GPIO_PortC_OutLow
+       0      2  GPIO_PortD_OutHigh
+       0      2  GPIO_PortD_OutLow
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      66  GPIO_PortB_OutHigh
+      66  GPIO_PortB_OutLow
+      66  GPIO_PortC_OutHigh
+      66  GPIO_PortC_OutLow
+      66  GPIO_PortD_OutHigh
+      66  GPIO_PortD_OutLow
+       1  _A_PORTB
+       1  _A_PORTC
+       1  _A_PORTD
+
+ 
+   3 bytes in segment ABSOLUTE
+ 396 bytes in segment CODE
+ 
+ 396 bytes of CODE memory
+   0 bytes of DATA memory (+ 3 bytes shared)
+
+Errors: none
+Warnings: none

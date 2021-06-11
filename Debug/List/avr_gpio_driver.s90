@@ -1,0 +1,617 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V6.11.1.50453 for Atmel AVR       12/Jun/2019  15:16:34 /
+// Copyright 1996-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Source file  =  C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  /
+//                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                     /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\atmel_driver /
+//                    \avr_gpio_driver.c                                      /
+//    Command line =  "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\atmel_driver /
+//                    \avr_gpio_driver.c" --cpu=m168pa -ms -o                 /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Debug\Obj\" -lC             /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\" -lA            /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\"                /
+//                    --initializers_in_flash --no_cse --no_inline            /
+//                    --no_code_motion --no_cross_call --no_clustering        /
+//                    --no_tbaa --debug -e -I "C:\Users\troub\CloudStation\Pu /
+//                    blic\3. DST\7. DH-OWC\3. FIRMWARE\2.                    /
+//                    MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Sou /
+//                    rce\drivers\min_driver\" -I                             /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\atmel_driver /
+//                    \" -I "C:\Users\troub\CloudStation\Public\3. DST\7.     /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Source\" -I                 /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\" --eeprom_size 512 --dlib  /
+//                    --dlib_config "C:\Program Files (x86)\IAR               /
+//                    Systems\Embedded Workbench                              /
+//                    6.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol            /
+//    List file    =  C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  /
+//                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                     /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\avr_gpio_driver. /
+//                    s90                                                     /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME avr_gpio_driver
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega168PA"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        PUBLIC GPIO_PortB_OutHigh
+        FUNCTION GPIO_PortB_OutHigh,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC GPIO_PortB_OutLow
+        FUNCTION GPIO_PortB_OutLow,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC GPIO_PortC_OutHigh
+        FUNCTION GPIO_PortC_OutHigh,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC GPIO_PortC_OutLow
+        FUNCTION GPIO_PortC_OutLow,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC GPIO_PortD_OutHigh
+        FUNCTION GPIO_PortD_OutHigh,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC GPIO_PortD_OutLow
+        FUNCTION GPIO_PortD_OutLow,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBWEAK _A_PORTB
+        PUBWEAK _A_PORTC
+        PUBWEAK _A_PORTD
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_Y Y DATA
+          CFI StackFrame CFA_SP SP DATA
+          CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+          CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+          CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+          CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+          CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+          CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+          CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+          CFI ResourceParts SP SPH, SPL
+          CFI ResourceParts Y R29, R28
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign 1
+          CFI ReturnAddress ?Ret CODE
+          CFI CFA_Y Y+0
+          CFI CFA_SP SP+2
+          CFI ?RetPad 0
+          CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+          CFI ?RetLow Frame(CFA_SP, 0)
+          CFI ?Ret Concat
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI R8 SameValue
+          CFI R9 SameValue
+          CFI R10 SameValue
+          CFI R11 SameValue
+          CFI R12 SameValue
+          CFI R13 SameValue
+          CFI R14 SameValue
+          CFI R15 SameValue
+          CFI R16 Undefined
+          CFI R17 Undefined
+          CFI R18 Undefined
+          CFI R19 Undefined
+          CFI R20 Undefined
+          CFI R21 Undefined
+          CFI R22 Undefined
+          CFI R23 Undefined
+          CFI R24 SameValue
+          CFI R25 SameValue
+          CFI R26 SameValue
+          CFI R27 SameValue
+          CFI R28 Undefined
+          CFI R29 Undefined
+          CFI R30 Undefined
+          CFI R31 Undefined
+          CFI ?RetHighByteMask SameValue
+          CFI SPH Undefined
+          CFI SPL Undefined
+          CFI EndCommon cfiCommon0
+        
+// C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\atmel_driver\avr_gpio_driver.c
+//    1 #include "include.h"
+
+        ASEGN ABSOLUTE:DATA:NOROOT,02bH
+// union <unnamed> volatile __io _A_PORTD
+_A_PORTD:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,028H
+// union <unnamed> volatile __io _A_PORTC
+_A_PORTC:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,025H
+// union <unnamed> volatile __io _A_PORTB
+_A_PORTB:
+        DS8 1
+//    2 
+//    3 
+//    4 
+//    5 
+//    6 /*
+//    7 void GPIO_PortA_OutHigh(uint8_t PAx)
+//    8 {
+//    9   switch(PAx){
+//   10   case BIT0: PORTA |= BIT0; break;
+//   11   case BIT1: PORTA |= BIT1; break;
+//   12   case BIT2: PORTA |= BIT2; break;
+//   13   case BIT3: PORTA |= BIT3; break;
+//   14   case BIT4: PORTA |= BIT4; break;
+//   15   case BIT5: PORTA |= BIT5; break;
+//   16   case BIT6: PORTA |= BIT6; break;
+//   17   case BIT7: PORTA |= BIT7; break;
+//   18   }
+//   19 }
+//   20 
+//   21 void GPIO_PortA_OutLow(uint8_t PAx)
+//   22 {
+//   23 
+//   24   switch(PAx){
+//   25   case BIT0: PORTA &= ~(BIT0); break;
+//   26   case BIT1: PORTA &= ~(BIT1); break;
+//   27   case BIT2: PORTA &= ~(BIT2); break;
+//   28   case BIT3: PORTA &= ~(BIT3); break;
+//   29   case BIT4: PORTA &= ~(BIT4); break;
+//   30   case BIT5: PORTA &= ~(BIT5); break;
+//   31   case BIT6: PORTA &= ~(BIT6); break;
+//   32   case BIT7: PORTA &= ~(BIT7); break;
+//   33   }
+//   34 
+//   35 
+//   36 }
+//   37 
+//   38 */
+
+        RSEG CODE:CODE:NOROOT(1)
+//   39 void GPIO_PortB_OutHigh(uint8_t PAx)
+GPIO_PortB_OutHigh:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function GPIO_PortB_OutHigh
+//   40 {
+//   41   switch(PAx){
+        SUBI    R16, 128
+        BREQ    ??GPIO_PortB_OutHigh_0
+        SUBI    R16, 129
+        BREQ    ??GPIO_PortB_OutHigh_1
+        DEC     R16
+        BREQ    ??GPIO_PortB_OutHigh_2
+        SUBI    R16, 2
+        BREQ    ??GPIO_PortB_OutHigh_3
+        SUBI    R16, 4
+        BREQ    ??GPIO_PortB_OutHigh_4
+        SUBI    R16, 8
+        BREQ    ??GPIO_PortB_OutHigh_5
+        SUBI    R16, 16
+        BREQ    ??GPIO_PortB_OutHigh_6
+        SUBI    R16, 32
+        BREQ    ??GPIO_PortB_OutHigh_7
+        RET
+//   42   case BIT0: PORTB |= BIT0; break;
+??GPIO_PortB_OutHigh_1:
+        SBI     0x05, 0x00
+        RET
+//   43   case BIT1: PORTB |= BIT1; break;
+??GPIO_PortB_OutHigh_2:
+        SBI     0x05, 0x01
+        RET
+//   44   case BIT2: PORTB |= BIT2; break;
+??GPIO_PortB_OutHigh_3:
+        SBI     0x05, 0x02
+        RET
+//   45   case BIT3: PORTB |= BIT3; break;
+??GPIO_PortB_OutHigh_4:
+        SBI     0x05, 0x03
+        RET
+//   46   case BIT4: PORTB |= BIT4; break;
+??GPIO_PortB_OutHigh_5:
+        SBI     0x05, 0x04
+        RET
+//   47   case BIT5: PORTB |= BIT5; break;
+??GPIO_PortB_OutHigh_6:
+        SBI     0x05, 0x05
+        RET
+//   48   case BIT6: PORTB |= BIT6; break;
+??GPIO_PortB_OutHigh_7:
+        SBI     0x05, 0x06
+        RET
+//   49   case BIT7: PORTB |= BIT7; break;
+??GPIO_PortB_OutHigh_0:
+        SBI     0x05, 0x07
+//   50   }
+//   51 }
+        RET
+          CFI EndBlock cfiBlock0
+        REQUIRE _A_PORTB
+//   52 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   53 void GPIO_PortB_OutLow(uint8_t PAx)
+GPIO_PortB_OutLow:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function GPIO_PortB_OutLow
+//   54 {
+//   55 
+//   56   switch(PAx){
+        SUBI    R16, 128
+        BREQ    ??GPIO_PortB_OutLow_0
+        SUBI    R16, 129
+        BREQ    ??GPIO_PortB_OutLow_1
+        DEC     R16
+        BREQ    ??GPIO_PortB_OutLow_2
+        SUBI    R16, 2
+        BREQ    ??GPIO_PortB_OutLow_3
+        SUBI    R16, 4
+        BREQ    ??GPIO_PortB_OutLow_4
+        SUBI    R16, 8
+        BREQ    ??GPIO_PortB_OutLow_5
+        SUBI    R16, 16
+        BREQ    ??GPIO_PortB_OutLow_6
+        SUBI    R16, 32
+        BREQ    ??GPIO_PortB_OutLow_7
+        RET
+//   57   case BIT0: PORTB &= ~(BIT0); break;
+??GPIO_PortB_OutLow_1:
+        CBI     0x05, 0x00
+        RET
+//   58   case BIT1: PORTB &= ~(BIT1); break;
+??GPIO_PortB_OutLow_2:
+        CBI     0x05, 0x01
+        RET
+//   59   case BIT2: PORTB &= ~(BIT2); break;
+??GPIO_PortB_OutLow_3:
+        CBI     0x05, 0x02
+        RET
+//   60   case BIT3: PORTB &= ~(BIT3); break;
+??GPIO_PortB_OutLow_4:
+        CBI     0x05, 0x03
+        RET
+//   61   case BIT4: PORTB &= ~(BIT4); break;
+??GPIO_PortB_OutLow_5:
+        CBI     0x05, 0x04
+        RET
+//   62   case BIT5: PORTB &= ~(BIT5); break;
+??GPIO_PortB_OutLow_6:
+        CBI     0x05, 0x05
+        RET
+//   63   case BIT6: PORTB &= ~(BIT6); break;
+??GPIO_PortB_OutLow_7:
+        CBI     0x05, 0x06
+        RET
+//   64   case BIT7: PORTB &= ~(BIT7); break;
+??GPIO_PortB_OutLow_0:
+        CBI     0x05, 0x07
+//   65   }
+//   66 
+//   67 
+//   68 }
+        RET
+          CFI EndBlock cfiBlock1
+        REQUIRE _A_PORTB
+//   69 
+//   70 
+//   71 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   72 void GPIO_PortC_OutHigh(uint8_t PAx)
+GPIO_PortC_OutHigh:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function GPIO_PortC_OutHigh
+//   73 {
+//   74   switch(PAx){
+        SUBI    R16, 128
+        BREQ    ??GPIO_PortC_OutHigh_0
+        SUBI    R16, 129
+        BREQ    ??GPIO_PortC_OutHigh_1
+        DEC     R16
+        BREQ    ??GPIO_PortC_OutHigh_2
+        SUBI    R16, 2
+        BREQ    ??GPIO_PortC_OutHigh_3
+        SUBI    R16, 4
+        BREQ    ??GPIO_PortC_OutHigh_4
+        SUBI    R16, 8
+        BREQ    ??GPIO_PortC_OutHigh_5
+        SUBI    R16, 16
+        BREQ    ??GPIO_PortC_OutHigh_6
+        SUBI    R16, 32
+        BREQ    ??GPIO_PortC_OutHigh_7
+        RET
+//   75   case BIT0: PORTC |= BIT0; break;
+??GPIO_PortC_OutHigh_1:
+        SBI     0x08, 0x00
+        RET
+//   76   case BIT1: PORTC |= BIT1; break;
+??GPIO_PortC_OutHigh_2:
+        SBI     0x08, 0x01
+        RET
+//   77   case BIT2: PORTC |= BIT2; break;
+??GPIO_PortC_OutHigh_3:
+        SBI     0x08, 0x02
+        RET
+//   78   case BIT3: PORTC |= BIT3; break;
+??GPIO_PortC_OutHigh_4:
+        SBI     0x08, 0x03
+        RET
+//   79   case BIT4: PORTC |= BIT4; break;
+??GPIO_PortC_OutHigh_5:
+        SBI     0x08, 0x04
+        RET
+//   80   case BIT5: PORTC |= BIT5; break;
+??GPIO_PortC_OutHigh_6:
+        SBI     0x08, 0x05
+        RET
+//   81   case BIT6: PORTC |= BIT6; break;
+??GPIO_PortC_OutHigh_7:
+        SBI     0x08, 0x06
+        RET
+//   82   case BIT7: PORTC |= BIT7; break;
+??GPIO_PortC_OutHigh_0:
+        SBI     0x08, 0x07
+//   83   }
+//   84 }
+        RET
+          CFI EndBlock cfiBlock2
+        REQUIRE _A_PORTC
+//   85 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   86 void GPIO_PortC_OutLow(uint8_t PAx)
+GPIO_PortC_OutLow:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function GPIO_PortC_OutLow
+//   87 {
+//   88 
+//   89   switch(PAx){
+        SUBI    R16, 128
+        BREQ    ??GPIO_PortC_OutLow_0
+        SUBI    R16, 129
+        BREQ    ??GPIO_PortC_OutLow_1
+        DEC     R16
+        BREQ    ??GPIO_PortC_OutLow_2
+        SUBI    R16, 2
+        BREQ    ??GPIO_PortC_OutLow_3
+        SUBI    R16, 4
+        BREQ    ??GPIO_PortC_OutLow_4
+        SUBI    R16, 8
+        BREQ    ??GPIO_PortC_OutLow_5
+        SUBI    R16, 16
+        BREQ    ??GPIO_PortC_OutLow_6
+        SUBI    R16, 32
+        BREQ    ??GPIO_PortC_OutLow_7
+        RET
+//   90   case BIT0: PORTC &= ~(BIT0); break;
+??GPIO_PortC_OutLow_1:
+        CBI     0x08, 0x00
+        RET
+//   91   case BIT1: PORTC &= ~(BIT1); break;
+??GPIO_PortC_OutLow_2:
+        CBI     0x08, 0x01
+        RET
+//   92   case BIT2: PORTC &= ~(BIT2); break;
+??GPIO_PortC_OutLow_3:
+        CBI     0x08, 0x02
+        RET
+//   93   case BIT3: PORTC &= ~(BIT3); break;
+??GPIO_PortC_OutLow_4:
+        CBI     0x08, 0x03
+        RET
+//   94   case BIT4: PORTC &= ~(BIT4); break;
+??GPIO_PortC_OutLow_5:
+        CBI     0x08, 0x04
+        RET
+//   95   case BIT5: PORTC &= ~(BIT5); break;
+??GPIO_PortC_OutLow_6:
+        CBI     0x08, 0x05
+        RET
+//   96   case BIT6: PORTC &= ~(BIT6); break;
+??GPIO_PortC_OutLow_7:
+        CBI     0x08, 0x06
+        RET
+//   97   case BIT7: PORTC &= ~(BIT7); break;
+??GPIO_PortC_OutLow_0:
+        CBI     0x08, 0x07
+//   98   }
+//   99 
+//  100 
+//  101 }
+        RET
+          CFI EndBlock cfiBlock3
+        REQUIRE _A_PORTC
+//  102 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  103 void GPIO_PortD_OutHigh(uint8_t PAx)
+GPIO_PortD_OutHigh:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function GPIO_PortD_OutHigh
+//  104 {
+//  105   switch(PAx){
+        SUBI    R16, 128
+        BREQ    ??GPIO_PortD_OutHigh_0
+        SUBI    R16, 129
+        BREQ    ??GPIO_PortD_OutHigh_1
+        DEC     R16
+        BREQ    ??GPIO_PortD_OutHigh_2
+        SUBI    R16, 2
+        BREQ    ??GPIO_PortD_OutHigh_3
+        SUBI    R16, 4
+        BREQ    ??GPIO_PortD_OutHigh_4
+        SUBI    R16, 8
+        BREQ    ??GPIO_PortD_OutHigh_5
+        SUBI    R16, 16
+        BREQ    ??GPIO_PortD_OutHigh_6
+        SUBI    R16, 32
+        BREQ    ??GPIO_PortD_OutHigh_7
+        RET
+//  106   case BIT0: PORTD |= BIT0; break;
+??GPIO_PortD_OutHigh_1:
+        SBI     0x0B, 0x00
+        RET
+//  107   case BIT1: PORTD |= BIT1; break;
+??GPIO_PortD_OutHigh_2:
+        SBI     0x0B, 0x01
+        RET
+//  108   case BIT2: PORTD |= BIT2; break;
+??GPIO_PortD_OutHigh_3:
+        SBI     0x0B, 0x02
+        RET
+//  109   case BIT3: PORTD |= BIT3; break;
+??GPIO_PortD_OutHigh_4:
+        SBI     0x0B, 0x03
+        RET
+//  110   case BIT4: PORTD |= BIT4; break;
+??GPIO_PortD_OutHigh_5:
+        SBI     0x0B, 0x04
+        RET
+//  111   case BIT5: PORTD |= BIT5; break;
+??GPIO_PortD_OutHigh_6:
+        SBI     0x0B, 0x05
+        RET
+//  112   case BIT6: PORTD |= BIT6; break;
+??GPIO_PortD_OutHigh_7:
+        SBI     0x0B, 0x06
+        RET
+//  113   case BIT7: PORTD |= BIT7; break;
+??GPIO_PortD_OutHigh_0:
+        SBI     0x0B, 0x07
+//  114   }
+//  115 }
+        RET
+          CFI EndBlock cfiBlock4
+        REQUIRE _A_PORTD
+//  116 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  117 void GPIO_PortD_OutLow(uint8_t PAx)
+GPIO_PortD_OutLow:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function GPIO_PortD_OutLow
+//  118 {
+//  119 
+//  120   switch(PAx){
+        SUBI    R16, 128
+        BREQ    ??GPIO_PortD_OutLow_0
+        SUBI    R16, 129
+        BREQ    ??GPIO_PortD_OutLow_1
+        DEC     R16
+        BREQ    ??GPIO_PortD_OutLow_2
+        SUBI    R16, 2
+        BREQ    ??GPIO_PortD_OutLow_3
+        SUBI    R16, 4
+        BREQ    ??GPIO_PortD_OutLow_4
+        SUBI    R16, 8
+        BREQ    ??GPIO_PortD_OutLow_5
+        SUBI    R16, 16
+        BREQ    ??GPIO_PortD_OutLow_6
+        SUBI    R16, 32
+        BREQ    ??GPIO_PortD_OutLow_7
+        RET
+//  121   case BIT0: PORTD &= ~(BIT0); break;
+??GPIO_PortD_OutLow_1:
+        CBI     0x0B, 0x00
+        RET
+//  122   case BIT1: PORTD &= ~(BIT1); break;
+??GPIO_PortD_OutLow_2:
+        CBI     0x0B, 0x01
+        RET
+//  123   case BIT2: PORTD &= ~(BIT2); break;
+??GPIO_PortD_OutLow_3:
+        CBI     0x0B, 0x02
+        RET
+//  124   case BIT3: PORTD &= ~(BIT3); break;
+??GPIO_PortD_OutLow_4:
+        CBI     0x0B, 0x03
+        RET
+//  125   case BIT4: PORTD &= ~(BIT4); break;
+??GPIO_PortD_OutLow_5:
+        CBI     0x0B, 0x04
+        RET
+//  126   case BIT5: PORTD &= ~(BIT5); break;
+??GPIO_PortD_OutLow_6:
+        CBI     0x0B, 0x05
+        RET
+//  127   case BIT6: PORTD &= ~(BIT6); break;
+??GPIO_PortD_OutLow_7:
+        CBI     0x0B, 0x06
+        RET
+//  128   case BIT7: PORTD &= ~(BIT7); break;
+??GPIO_PortD_OutLow_0:
+        CBI     0x0B, 0x07
+//  129   }
+//  130 
+//  131 
+//  132 }
+        RET
+          CFI EndBlock cfiBlock5
+        REQUIRE _A_PORTD
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        END
+//  133 
+// 
+//   3 bytes in segment ABSOLUTE
+// 396 bytes in segment CODE
+// 
+// 396 bytes of CODE memory
+//   0 bytes of DATA memory (+ 3 bytes shared)
+//
+//Errors: none
+//Warnings: none

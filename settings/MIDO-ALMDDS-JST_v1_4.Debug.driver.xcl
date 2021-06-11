@@ -1,0 +1,21 @@
+"--cpu=m168pa" 
+
+"--enhanced_core" 
+
+"-p" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\avr\Config\iom168pa.ddf" 
+
+"--eeprom_size" 
+
+"512" 
+
+"--jtagice_leave_timers_running" 
+
+"--drv_communication=USB" 
+
+"--drv_debug_port=debugwire" 
+
+
+
+

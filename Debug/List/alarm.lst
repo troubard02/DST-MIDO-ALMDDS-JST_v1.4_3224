@@ -1,0 +1,510 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR       27/Dec/2020  15:41:44
+# Copyright 1996-2019 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for Atmel AVR
+#
+#    Source file  =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\alarm.c
+#    Command line =  
+#        -f C:\Users\troubard\AppData\Local\Temp\EW3A1.tmp
+#        ("C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\alarm.c" --cpu=m168pa -ms
+#        -o "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj" -lC
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List" -lA
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List"
+#        --initializers_in_flash --no_cse --no_inline --no_code_motion
+#        --no_cross_call --no_clustering --no_tbaa --debug -e -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\" --eeprom_size 512 --dlib
+#        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
+#    Locale       =  Korean_KOR.949
+#    List file    =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List\alarm.lst
+#    Object file  =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\alarm.r90
+#
+###############################################################################
+
+C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\alarm.c
+      1          #include "include.h"
+
+   \                                 In  segment ABSOLUTE, at 0x2b
+   \   union <unnamed> volatile __io _A_PORTD
+   \                     _A_PORTD:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x29
+   \   union <unnamed> volatile __io _A_PIND
+   \                     _A_PIND:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x25
+   \   union <unnamed> volatile __io _A_PORTB
+   \                     _A_PORTB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x23
+   \   union <unnamed> volatile __io _A_PINB
+   \                     _A_PINB:
+   \   00000000                      DS8 1
+      2          
+      3          
+      4          
+      5          #define ALARM1_MASKB 0x01
+      6          #define ALARM1_MASKD 0x01
+      7          #define ALARM2_MASKB1 0x02
+      8          #define ALARM2_MASKB2 0x04
+      9          #define ALARM2_MASKB 0x06
+     10          
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     11          uint8_t Temp_PortB,Temp_PortD;
+   \                     Temp_PortB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \                     Temp_PortD:
+   \   00000000                      DS8 1
+     12          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     13          void Alarm1_Off(void)
+   \                     Alarm1_Off:
+     14          {
+     15            
+     16            ///////////////////// ALARM2 ALL OFF /////////////////////////
+     17          
+     18            __disable_interrupt();
+   \   00000000   94F8               CLI
+     19            Temp_PortB = PINB&(~ALARM2_MASKB); // VDD : PB1, OFF
+   \   00000002   B103               IN      R16, 0x03
+   \   00000004   7F09               ANDI    R16, 0xF9
+   \   00000006   9300....           STS     Temp_PortB, R16
+     20            Temp_PortB |= START_PORT_VALUE; // START PULL UP
+   \   0000000A   ....               LDI     R30, LOW(Temp_PortB)
+   \   0000000C   ....               LDI     R31, (Temp_PortB) >> 8
+   \   0000000E   8100               LD      R16, Z
+   \   00000010   6100               ORI     R16, 0x10
+   \   00000012   8300               ST      Z, R16
+     21            PORTB = Temp_PortB;  
+   \   00000014   9100....           LDS     R16, Temp_PortB
+   \   00000018   B905               OUT     0x05, R16
+     22            __enable_interrupt();
+   \   0000001A   9478               SEI
+     23            
+     24            __delay_cycles(10);
+   \   0000001C   E003               LDI     R16, 3
+   \   0000001E   950A               DEC     R16
+   \   00000020   F7F1               BRNE    $-2
+   \   00000022   0000               NOP
+     25            ///////////////////// ALARM1 OFF ///////////////////////////// 
+     26            __disable_interrupt();
+   \   00000024   94F8               CLI
+     27            Temp_PortB = PINB&(~ALARM1_MASKB); // VDD : PB0, OFF
+   \   00000026   B103               IN      R16, 0x03
+   \   00000028   7F0E               ANDI    R16, 0xFE
+   \   0000002A   9300....           STS     Temp_PortB, R16
+     28            Temp_PortB |= START_PORT_VALUE; // START PULL UP
+   \   0000002E   ....               LDI     R30, LOW(Temp_PortB)
+   \   00000030   ....               LDI     R31, (Temp_PortB) >> 8
+   \   00000032   8100               LD      R16, Z
+   \   00000034   6100               ORI     R16, 0x10
+   \   00000036   8300               ST      Z, R16
+     29            PORTB = Temp_PortB;
+   \   00000038   9100....           LDS     R16, Temp_PortB
+   \   0000003C   B905               OUT     0x05, R16
+     30            Temp_PortD = PIND&(~ALARM1_MASKD); // VDD : PD0, OFF
+   \   0000003E   B109               IN      R16, 0x09
+   \   00000040   7F0E               ANDI    R16, 0xFE
+   \   00000042   9300....           STS     Temp_PortD, R16
+     31            PORTD = Temp_PortD;  
+   \   00000046   9100....           LDS     R16, Temp_PortD
+   \   0000004A   B90B               OUT     0x0B, R16
+     32            
+     33            
+     34            Temp_PortD = PIND&(~ALARM1_MASKD); // GND : PD0, ON
+   \   0000004C   B109               IN      R16, 0x09
+   \   0000004E   7F0E               ANDI    R16, 0xFE
+   \   00000050   9300....           STS     Temp_PortD, R16
+     35            Temp_PortD |= ALARM1_MASKD;
+   \   00000054   ....               LDI     R30, LOW(Temp_PortD)
+   \   00000056   ....               LDI     R31, (Temp_PortD) >> 8
+   \   00000058   8100               LD      R16, Z
+   \   0000005A   6001               ORI     R16, 0x01
+   \   0000005C   8300               ST      Z, R16
+     36            PORTD = Temp_PortD;
+   \   0000005E   9100....           LDS     R16, Temp_PortD
+   \   00000062   B90B               OUT     0x0B, R16
+     37            
+     38            
+     39            
+     40            
+     41            Temp_PortB = PINB&(~ALARM2_MASKB2); // GND : PB2, ON
+   \   00000064   B103               IN      R16, 0x03
+   \   00000066   7F0B               ANDI    R16, 0xFB
+   \   00000068   9300....           STS     Temp_PortB, R16
+     42            Temp_PortB |= ALARM2_MASKB2;
+   \   0000006C   ....               LDI     R30, LOW(Temp_PortB)
+   \   0000006E   ....               LDI     R31, (Temp_PortB) >> 8
+   \   00000070   8100               LD      R16, Z
+   \   00000072   6004               ORI     R16, 0x04
+   \   00000074   8300               ST      Z, R16
+     43            Temp_PortB |= START_PORT_VALUE; // START PULL UP
+   \   00000076   ....               LDI     R30, LOW(Temp_PortB)
+   \   00000078   ....               LDI     R31, (Temp_PortB) >> 8
+   \   0000007A   8100               LD      R16, Z
+   \   0000007C   6100               ORI     R16, 0x10
+   \   0000007E   8300               ST      Z, R16
+     44            PORTB = Temp_PortB;
+   \   00000080   9100....           LDS     R16, Temp_PortB
+   \   00000084   B905               OUT     0x05, R16
+     45            __enable_interrupt();
+   \   00000086   9478               SEI
+     46            
+     47          }
+   \   00000088   9508               RET
+   \   0000008A                      REQUIRE _A_PINB
+   \   0000008A                      REQUIRE _A_PORTB
+   \   0000008A                      REQUIRE _A_PIND
+   \   0000008A                      REQUIRE _A_PORTD
+     48          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     49          void Alarm2_Off(void)
+   \                     Alarm2_Off:
+     50          {
+     51            
+     52            
+     53            ////////////////////// ALARM1  All OFF//////////////////////
+     54            
+     55            __disable_interrupt();
+   \   00000000   94F8               CLI
+     56            Temp_PortB = PINB&(~ALARM1_MASKB); // VDD : PB0, OFF
+   \   00000002   B103               IN      R16, 0x03
+   \   00000004   7F0E               ANDI    R16, 0xFE
+   \   00000006   9300....           STS     Temp_PortB, R16
+     57            Temp_PortB |= START_PORT_VALUE; // START PULL UP
+   \   0000000A   ....               LDI     R30, LOW(Temp_PortB)
+   \   0000000C   ....               LDI     R31, (Temp_PortB) >> 8
+   \   0000000E   8100               LD      R16, Z
+   \   00000010   6100               ORI     R16, 0x10
+   \   00000012   8300               ST      Z, R16
+     58            PORTB = Temp_PortB;
+   \   00000014   9100....           LDS     R16, Temp_PortB
+   \   00000018   B905               OUT     0x05, R16
+     59            Temp_PortD = PIND&(~ALARM1_MASKD); // VDD : PD0, OFF
+   \   0000001A   B109               IN      R16, 0x09
+   \   0000001C   7F0E               ANDI    R16, 0xFE
+   \   0000001E   9300....           STS     Temp_PortD, R16
+     60            PORTD = Temp_PortD;  
+   \   00000022   9100....           LDS     R16, Temp_PortD
+   \   00000026   B90B               OUT     0x0B, R16
+     61            __enable_interrupt();
+   \   00000028   9478               SEI
+     62            __delay_cycles(10);
+   \   0000002A   E003               LDI     R16, 3
+   \   0000002C   950A               DEC     R16
+   \   0000002E   F7F1               BRNE    $-2
+   \   00000030   0000               NOP
+     63            
+     64            /////////////////////// ALARM2 OFF //////////////////////////
+     65            __disable_interrupt();
+   \   00000032   94F8               CLI
+     66            Temp_PortB = PINB&(~ALARM2_MASKB1); // VDD : PB1, OFF
+   \   00000034   B103               IN      R16, 0x03
+   \   00000036   7F0D               ANDI    R16, 0xFD
+   \   00000038   9300....           STS     Temp_PortB, R16
+     67            Temp_PortB |= START_PORT_VALUE; // START PULL UP
+   \   0000003C   ....               LDI     R30, LOW(Temp_PortB)
+   \   0000003E   ....               LDI     R31, (Temp_PortB) >> 8
+   \   00000040   8100               LD      R16, Z
+   \   00000042   6100               ORI     R16, 0x10
+   \   00000044   8300               ST      Z, R16
+     68            PORTB = Temp_PortB;
+   \   00000046   9100....           LDS     R16, Temp_PortB
+   \   0000004A   B905               OUT     0x05, R16
+     69            __enable_interrupt();
+   \   0000004C   9478               SEI
+     70            __delay_cycles(10);
+   \   0000004E   E003               LDI     R16, 3
+   \   00000050   950A               DEC     R16
+   \   00000052   F7F1               BRNE    $-2
+   \   00000054   0000               NOP
+     71            __disable_interrupt();
+   \   00000056   94F8               CLI
+     72            Temp_PortB = PINB&(~ALARM2_MASKB2); // GND : PB2, ON
+   \   00000058   B103               IN      R16, 0x03
+   \   0000005A   7F0B               ANDI    R16, 0xFB
+   \   0000005C   9300....           STS     Temp_PortB, R16
+     73            Temp_PortB |= ALARM2_MASKB2;
+   \   00000060   ....               LDI     R30, LOW(Temp_PortB)
+   \   00000062   ....               LDI     R31, (Temp_PortB) >> 8
+   \   00000064   8100               LD      R16, Z
+   \   00000066   6004               ORI     R16, 0x04
+   \   00000068   8300               ST      Z, R16
+     74            Temp_PortB |= START_PORT_VALUE; // START PULL UP
+   \   0000006A   ....               LDI     R30, LOW(Temp_PortB)
+   \   0000006C   ....               LDI     R31, (Temp_PortB) >> 8
+   \   0000006E   8100               LD      R16, Z
+   \   00000070   6100               ORI     R16, 0x10
+   \   00000072   8300               ST      Z, R16
+     75            PORTB = Temp_PortB;
+   \   00000074   9100....           LDS     R16, Temp_PortB
+   \   00000078   B905               OUT     0x05, R16
+     76            
+     77            Temp_PortD = PIND&(~ALARM1_MASKD); // GND : PD0, ON
+   \   0000007A   B109               IN      R16, 0x09
+   \   0000007C   7F0E               ANDI    R16, 0xFE
+   \   0000007E   9300....           STS     Temp_PortD, R16
+     78            Temp_PortD |= ALARM1_MASKD;
+   \   00000082   ....               LDI     R30, LOW(Temp_PortD)
+   \   00000084   ....               LDI     R31, (Temp_PortD) >> 8
+   \   00000086   8100               LD      R16, Z
+   \   00000088   6001               ORI     R16, 0x01
+   \   0000008A   8300               ST      Z, R16
+     79            PORTD = Temp_PortD;
+   \   0000008C   9100....           LDS     R16, Temp_PortD
+   \   00000090   B90B               OUT     0x0B, R16
+     80            __enable_interrupt();  
+   \   00000092   9478               SEI
+     81          }
+   \   00000094   9508               RET
+   \   00000096                      REQUIRE _A_PINB
+   \   00000096                      REQUIRE _A_PORTB
+   \   00000096                      REQUIRE _A_PIND
+   \   00000096                      REQUIRE _A_PORTD
+     82          
+     83          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     84          void Alarm1_Out(void)
+   \                     Alarm1_Out:
+     85          {
+     86            
+     87            
+     88            if(Motor_Status==MOTER_OPEN){
+   \   00000000   9100....           LDS     R16, Motor_Status
+   \   00000004   3003               CPI     R16, 3
+   \   00000006   F411               BRNE    ??Alarm1_Out_0
+     89              //Alarm_All_Off();
+     90              Alarm1_Off();
+   \   00000008   ....               RCALL   Alarm1_Off
+   \   0000000A   9508               RET
+     91              
+     92            }
+     93            else {
+     94              
+     95            ///////////////////// ALARM2 OFF /////////////////////////  
+     96              
+     97            __disable_interrupt();
+   \                     ??Alarm1_Out_0:
+   \   0000000C   94F8               CLI
+     98            Temp_PortB = PINB&(~ALARM2_MASKB); // ALARM2 OFF 
+   \   0000000E   B103               IN      R16, 0x03
+   \   00000010   7F09               ANDI    R16, 0xF9
+   \   00000012   9300....           STS     Temp_PortB, R16
+     99            Temp_PortB |= START_PORT_VALUE; // START PULL UP
+   \   00000016   ....               LDI     R30, LOW(Temp_PortB)
+   \   00000018   ....               LDI     R31, (Temp_PortB) >> 8
+   \   0000001A   8100               LD      R16, Z
+   \   0000001C   6100               ORI     R16, 0x10
+   \   0000001E   8300               ST      Z, R16
+    100            PORTB = Temp_PortB;
+   \   00000020   9100....           LDS     R16, Temp_PortB
+   \   00000024   B905               OUT     0x05, R16
+    101            __enable_interrupt(); 
+   \   00000026   9478               SEI
+    102            
+    103            __delay_cycles(10);
+   \   00000028   E003               LDI     R16, 3
+   \   0000002A   950A               DEC     R16
+   \   0000002C   F7F1               BRNE    $-2
+   \   0000002E   0000               NOP
+    104            ///////////////////// ALARM1 ON //////////////////////////
+    105            
+    106            __disable_interrupt();
+   \   00000030   94F8               CLI
+    107            Temp_PortB = PINB&(~ALARM1_MASKB); // VDD : PB0,  ON
+   \   00000032   B103               IN      R16, 0x03
+   \   00000034   7F0E               ANDI    R16, 0xFE
+   \   00000036   9300....           STS     Temp_PortB, R16
+    108            Temp_PortB |= ALARM1_MASKB;
+   \   0000003A   ....               LDI     R30, LOW(Temp_PortB)
+   \   0000003C   ....               LDI     R31, (Temp_PortB) >> 8
+   \   0000003E   8100               LD      R16, Z
+   \   00000040   6001               ORI     R16, 0x01
+   \   00000042   8300               ST      Z, R16
+    109            Temp_PortB |= START_PORT_VALUE; // START PULL UP
+   \   00000044   ....               LDI     R30, LOW(Temp_PortB)
+   \   00000046   ....               LDI     R31, (Temp_PortB) >> 8
+   \   00000048   8100               LD      R16, Z
+   \   0000004A   6100               ORI     R16, 0x10
+   \   0000004C   8300               ST      Z, R16
+    110            PORTB = Temp_PortB;
+   \   0000004E   9100....           LDS     R16, Temp_PortB
+   \   00000052   B905               OUT     0x05, R16
+    111            
+    112            Temp_PortD = PIND&(~ALARM1_MASKD); // GND : PD0, ON
+   \   00000054   B109               IN      R16, 0x09
+   \   00000056   7F0E               ANDI    R16, 0xFE
+   \   00000058   9300....           STS     Temp_PortD, R16
+    113            Temp_PortD |= ALARM1_MASKD;
+   \   0000005C   ....               LDI     R30, LOW(Temp_PortD)
+   \   0000005E   ....               LDI     R31, (Temp_PortD) >> 8
+   \   00000060   8100               LD      R16, Z
+   \   00000062   6001               ORI     R16, 0x01
+   \   00000064   8300               ST      Z, R16
+    114            PORTD = Temp_PortD;
+   \   00000066   9100....           LDS     R16, Temp_PortD
+   \   0000006A   B90B               OUT     0x0B, R16
+    115            __enable_interrupt(); 
+   \   0000006C   9478               SEI
+    116            
+    117            }
+    118            
+    119          }
+   \   0000006E   9508               RET
+   \   00000070                      REQUIRE _A_PINB
+   \   00000070                      REQUIRE _A_PORTB
+   \   00000070                      REQUIRE _A_PIND
+   \   00000070                      REQUIRE _A_PORTD
+    120          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    121          void Alarm2_Out(void)
+   \                     Alarm2_Out:
+    122          {
+    123            
+    124            
+    125            if(Motor_Status==MOTER_CLOSE){
+   \   00000000   9100....           LDS     R16, Motor_Status
+   \   00000004   3001               CPI     R16, 1
+   \   00000006   F411               BRNE    ??Alarm2_Out_0
+    126              Alarm2_Off();
+   \   00000008   ....               RCALL   Alarm2_Off
+   \   0000000A   9508               RET
+    127              //Alarm_All_Off();
+    128              
+    129            }
+    130            else {
+    131            
+    132            ///////////////////// ALARM1 OFF /////////////////////////
+    133            __disable_interrupt();
+   \                     ??Alarm2_Out_0:
+   \   0000000C   94F8               CLI
+    134            Temp_PortB = PINB&(~ALARM1_MASKB); // VDD : PB0, OFF
+   \   0000000E   B103               IN      R16, 0x03
+   \   00000010   7F0E               ANDI    R16, 0xFE
+   \   00000012   9300....           STS     Temp_PortB, R16
+    135            Temp_PortB |= START_PORT_VALUE; // START PULL UP
+   \   00000016   ....               LDI     R30, LOW(Temp_PortB)
+   \   00000018   ....               LDI     R31, (Temp_PortB) >> 8
+   \   0000001A   8100               LD      R16, Z
+   \   0000001C   6100               ORI     R16, 0x10
+   \   0000001E   8300               ST      Z, R16
+    136            PORTB = Temp_PortB;
+   \   00000020   9100....           LDS     R16, Temp_PortB
+   \   00000024   B905               OUT     0x05, R16
+    137            
+    138            Temp_PortD = PIND&(~ALARM1_MASKD); // GND : PD0, OFF
+   \   00000026   B109               IN      R16, 0x09
+   \   00000028   7F0E               ANDI    R16, 0xFE
+   \   0000002A   9300....           STS     Temp_PortD, R16
+    139            PORTD = Temp_PortD;
+   \   0000002E   9100....           LDS     R16, Temp_PortD
+   \   00000032   B90B               OUT     0x0B, R16
+    140            __enable_interrupt(); 
+   \   00000034   9478               SEI
+    141            
+    142            __delay_cycles(10);
+   \   00000036   E003               LDI     R16, 3
+   \   00000038   950A               DEC     R16
+   \   0000003A   F7F1               BRNE    $-2
+   \   0000003C   0000               NOP
+    143            ///////////////////// ALARM2 ON //////////////////////////
+    144            __disable_interrupt();
+   \   0000003E   94F8               CLI
+    145            Temp_PortB = PINB&(~ALARM2_MASKB); // VDD : PB1, ON
+   \   00000040   B103               IN      R16, 0x03
+   \   00000042   7F09               ANDI    R16, 0xF9
+   \   00000044   9300....           STS     Temp_PortB, R16
+    146            Temp_PortB |= ALARM2_MASKB;        // GND : PB2, ON
+   \   00000048   9100....           LDS     R16, Temp_PortB
+   \   0000004C   6006               ORI     R16, 0x06
+   \   0000004E   9300....           STS     Temp_PortB, R16
+    147            Temp_PortB |= START_PORT_VALUE; // START PULL UP
+   \   00000052   ....               LDI     R30, LOW(Temp_PortB)
+   \   00000054   ....               LDI     R31, (Temp_PortB) >> 8
+   \   00000056   8100               LD      R16, Z
+   \   00000058   6100               ORI     R16, 0x10
+   \   0000005A   8300               ST      Z, R16
+    148            PORTB = Temp_PortB;
+   \   0000005C   9100....           LDS     R16, Temp_PortB
+   \   00000060   B905               OUT     0x05, R16
+    149            __enable_interrupt(); 
+   \   00000062   9478               SEI
+    150            
+    151            }
+    152            
+    153          }
+   \   00000064   9508               RET
+   \   00000066                      REQUIRE _A_PINB
+   \   00000066                      REQUIRE _A_PORTB
+   \   00000066                      REQUIRE _A_PIND
+   \   00000066                      REQUIRE _A_PORTD
+
+   Maximum stack usage in bytes:
+
+   RSTACK Function
+   ------ --------
+      2   Alarm1_Off
+      2   Alarm1_Out
+        2   -> Alarm1_Off
+      2   Alarm2_Off
+      2   Alarm2_Out
+        2   -> Alarm2_Off
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+     138  Alarm1_Off
+     112  Alarm1_Out
+     150  Alarm2_Off
+     102  Alarm2_Out
+       1  Temp_PortB
+       1  Temp_PortD
+       1  _A_PINB
+       1  _A_PIND
+       1  _A_PORTB
+       1  _A_PORTD
+       6  -- Other
+
+ 
+   4 bytes in segment ABSOLUTE
+ 502 bytes in segment CODE
+   6 bytes in segment INITTAB
+   2 bytes in segment NEAR_Z
+ 
+ 502 bytes of CODE memory (+ 6 bytes shared)
+   2 bytes of DATA memory (+ 4 bytes shared)
+
+Errors: none
+Warnings: none

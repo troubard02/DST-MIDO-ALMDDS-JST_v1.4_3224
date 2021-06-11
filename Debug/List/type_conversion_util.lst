@@ -1,0 +1,203 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V6.11.1.50453 for Atmel AVR        12/Jun/2019  15:16:34 #
+# Copyright 1996-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Source file  =  C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.   #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\min_driver\ty #
+#                    pe_conversion_util.c                                     #
+#    Command line =  "C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\min_driver\ty #
+#                    pe_conversion_util.c" --cpu=m168pa -ms -o                #
+#                    "C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Debug\Obj\" -lC              #
+#                    "C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\" -lA             #
+#                    "C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\"                 #
+#                    --initializers_in_flash --no_cse --no_inline             #
+#                    --no_code_motion --no_cross_call --no_clustering         #
+#                    --no_tbaa --debug -e -I "C:\Users\troub\CloudStation\Pub #
+#                    lic\3. DST\7. DH-OWC\3. FIRMWARE\2.                      #
+#                    MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Sour #
+#                    ce\drivers\min_driver\" -I "C:\Users\troub\CloudStation\ #
+#                    Public\3. DST\7. DH-OWC\3. FIRMWARE\2.                   #
+#                    MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Sour #
+#                    ce\drivers\atmel_driver\" -I                             #
+#                    "C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Source\" -I                  #
+#                    "C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\" --eeprom_size 512 --dlib   #
+#                    --dlib_config "C:\Program Files (x86)\IAR                #
+#                    Systems\Embedded Workbench 6.0\avr\LIB\DLIB\dlAVR-3s-ec_ #
+#                    mul-sf-n.h" -Ol                                          #
+#    List file    =  C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.   #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\type_conversion_u #
+#                    til.lst                                                  #
+#    Object file  =  C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.   #
+#                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                      #
+#                    MIDO-ALMDDS-JST_v1_4_190606\Debug\Obj\type_conversion_ut #
+#                    il.r90                                                   #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\min_driver\type_conversion_util.c
+      1          
+      2          
+      3          #include "include.h"
+      4          
+      5          /*! \brief Trans_Int_to_Char_HighByte(int int_value)
+      6           
+      7          * value 값의 high byte를 리턴해준다. 
+      8          
+      9          */
+     10          
+     11          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     12          uint8_t Trans_Int_to_Char_HighByte(uint16_t int_value)
+   \                     Trans_Int_to_Char_HighByte:
+     13          {
+     14            uint8_t temp_value;
+     15            temp_value = int_value>>8;
+   \   00000000   2F01               MOV     R16, R17
+     16            return temp_value;
+   \   00000002   9508               RET
+     17          }
+     18          
+     19          /*! \brief Trans_Int_to_Char_LowByte(int int_value)
+     20           
+     21          * value 값의 low byte를 리턴해준다. 
+     22          
+     23          */
+     24          
+     25          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     26          uint8_t Trans_Int_to_Char_LowByte(uint16_t int_value)
+   \                     Trans_Int_to_Char_LowByte:
+     27          {
+     28            uint8_t temp_value;
+     29            temp_value = int_value;
+     30            return temp_value;
+   \   00000000   9508               RET
+     31            
+     32          }
+     33          
+     34          /*! \brief Trans_Char_to_Int(char char_high_value,char char_low_value)
+     35           
+     36          * 두 byte를 합쳐서 하나의 integer 값을 만든다. 
+     37          
+     38          */
+     39          
+     40          
+     41          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     42          uint16_t Trans_Char_to_Int(uint8_t char_high_value,uint8_t char_low_value)
+   \                     Trans_Char_to_Int:
+     43          {
+     44            uint16_t temp_value;
+     45            temp_value = char_high_value;
+   \   00000000   2F20               MOV     R18, R16
+     46            temp_value = temp_value<<8;
+   \   00000002   2F32               MOV     R19, R18
+   \   00000004   E020               LDI     R18, 0
+     47            temp_value |=char_low_value;
+   \   00000006   2F41               MOV     R20, R17
+   \   00000008   E050               LDI     R21, 0
+   \   0000000A   2B24               OR      R18, R20
+   \   0000000C   2B35               OR      R19, R21
+     48            
+     49            return temp_value; 
+   \   0000000E   0189               MOVW    R17:R16, R19:R18
+   \   00000010   9508               RET
+     50          }
+     51          
+     52          
+     53          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     54          int16_t Trans_Scale_Cal_Value(int16_t value,
+   \                     Trans_Scale_Cal_Value:
+     55                                                    int16_t ADC_Zero_Set_Point,
+     56                                                    int16_t Scale_Zero_Set_Value,
+     57                                                    float Cal_Pressure_Coff)
+     58          {
+   \   00000000   ........           CALL    ?PROLOGUE8_L09
+   \   00000004                      REQUIRE ?Register_R4_is_cg_reg
+   \   00000004                      REQUIRE ?Register_R5_is_cg_reg
+   \   00000004                      REQUIRE ?Register_R6_is_cg_reg
+   \   00000004                      REQUIRE ?Register_R7_is_cg_reg
+   \   00000004   01CA               MOVW    R25:R24, R21:R20
+   \   00000006   8448               LDD     R4, Y+8
+   \   00000008   8459               LDD     R5, Y+9
+   \   0000000A   846A               LDD     R6, Y+10
+   \   0000000C   847B               LDD     R7, Y+11
+     59            int16_t Real_Value;
+     60            __disable_interrupt();
+   \   0000000E   94F8               CLI
+     61            Real_Value = (int)(((int)value-(int)ADC_Zero_Set_Point) 
+     62                               * Cal_Pressure_Coff);
+   \   00000010   1B02               SUB     R16, R18
+   \   00000012   0B13               SBC     R17, R19
+   \   00000014   2F21               MOV     R18, R17
+   \   00000016   0F22               LSL     R18
+   \   00000018   0B22               SBC     R18, R18
+   \   0000001A   2F32               MOV     R19, R18
+   \   0000001C   ........           CALL    ?SL2F_L04
+   \   00000020   01A8               MOVW    R21:R20, R17:R16
+   \   00000022   01B9               MOVW    R23:R22, R19:R18
+   \   00000024   0182               MOVW    R17:R16, R5:R4
+   \   00000026   0193               MOVW    R19:R18, R7:R6
+   \   00000028   ........           CALL    ?F_MUL_L04
+   \   0000002C   ........           CALL    ?F2SL_L04
+     63              Real_Value = Scale_Zero_Set_Value + Real_Value;    
+   \   00000030   0F08               ADD     R16, R24
+   \   00000032   1F19               ADC     R17, R25
+     64            __enable_interrupt();  
+   \   00000034   9478               SEI
+     65          
+     66            return Real_Value;
+   \   00000036   E0EC               LDI     R30, 12
+   \   00000038   ........           JMP     ?EPILOGUE_B8_L09
+     67          
+     68          }
+     69          
+     70          
+
+   Maximum stack usage in bytes:
+
+   CSTACK RSTACK Function
+   ------ ------ --------
+       0      2  Trans_Char_to_Int
+       0      2  Trans_Int_to_Char_HighByte
+       0      2  Trans_Int_to_Char_LowByte
+      12      4  Trans_Scale_Cal_Value
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      18  Trans_Char_to_Int
+       4  Trans_Int_to_Char_HighByte
+       2  Trans_Int_to_Char_LowByte
+      60  Trans_Scale_Cal_Value
+
+ 
+ 84 bytes in segment CODE
+ 
+ 84 bytes of CODE memory
+
+Errors: none
+Warnings: none

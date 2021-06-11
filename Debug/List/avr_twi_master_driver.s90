@@ -1,0 +1,919 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V6.11.1.50453 for Atmel AVR       12/Jun/2019  15:16:35 /
+// Copyright 1996-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Source file  =  C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  /
+//                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                     /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\atmel_driver /
+//                    \avr_twi_master_driver.c                                /
+//    Command line =  "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\atmel_driver /
+//                    \avr_twi_master_driver.c" --cpu=m168pa -ms -o           /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Debug\Obj\" -lC             /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\" -lA            /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\"                /
+//                    --initializers_in_flash --no_cse --no_inline            /
+//                    --no_code_motion --no_cross_call --no_clustering        /
+//                    --no_tbaa --debug -e -I "C:\Users\troub\CloudStation\Pu /
+//                    blic\3. DST\7. DH-OWC\3. FIRMWARE\2.                    /
+//                    MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Sou /
+//                    rce\drivers\min_driver\" -I                             /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\atmel_driver /
+//                    \" -I "C:\Users\troub\CloudStation\Public\3. DST\7.     /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Source\" -I                 /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\" --eeprom_size 512 --dlib  /
+//                    --dlib_config "C:\Program Files (x86)\IAR               /
+//                    Systems\Embedded Workbench                              /
+//                    6.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol            /
+//    List file    =  C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  /
+//                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                     /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\avr_twi_master_d /
+//                    river.s90                                               /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME avr_twi_master_driver
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega168PA"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?EPILOGUE_B3_L09
+        EXTERN ?EPILOGUE_B4_L09
+        EXTERN ?PROLOGUE3_L09
+        EXTERN ?PROLOGUE4_L09
+        EXTERN ?need_segment_init
+
+        PUBWEAK `?<Segment init: NEAR_I>`
+        PUBWEAK `?<Segment init: NEAR_Z>`
+        PUBWEAK `??twi_isr??INTVEC 96`
+        PUBLIC TWI_Act_On_Failure_In_Last_Transmission
+        FUNCTION TWI_Act_On_Failure_In_Last_Transmission,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC TWI_Get_Data_From_Transceiver
+        FUNCTION TWI_Get_Data_From_Transceiver,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC TWI_Get_State_Info
+        FUNCTION TWI_Get_State_Info,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC TWI_Master_Initialise
+        FUNCTION TWI_Master_Initialise,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC TWI_Start_Transceiver
+        FUNCTION TWI_Start_Transceiver,021203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC TWI_Start_Transceiver_With_Data
+        FUNCTION TWI_Start_Transceiver_With_Data,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC TWI_Transceiver_Busy
+        FUNCTION TWI_Transceiver_Busy,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC TWI_buf
+        PUBLIC TWI_statusReg
+        PUBWEAK _A_TWBR
+        PUBWEAK _A_TWCR
+        PUBWEAK _A_TWDR
+        PUBWEAK _A_TWSR
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        PUBLIC twi_isr
+        FUNCTION twi_isr,0231H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME RSTACK, 2, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_Y Y DATA
+          CFI StackFrame CFA_SP SP DATA
+          CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+          CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+          CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+          CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+          CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+          CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+          CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+          CFI ResourceParts SP SPH, SPL
+          CFI ResourceParts Y R29, R28
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign 1
+          CFI ReturnAddress ?Ret CODE
+          CFI CFA_Y Y+0
+          CFI CFA_SP SP+2
+          CFI ?RetPad 0
+          CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+          CFI ?RetLow Frame(CFA_SP, 0)
+          CFI ?Ret Concat
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI R8 SameValue
+          CFI R9 SameValue
+          CFI R10 SameValue
+          CFI R11 SameValue
+          CFI R12 SameValue
+          CFI R13 SameValue
+          CFI R14 SameValue
+          CFI R15 SameValue
+          CFI R16 Undefined
+          CFI R17 Undefined
+          CFI R18 Undefined
+          CFI R19 Undefined
+          CFI R20 Undefined
+          CFI R21 Undefined
+          CFI R22 Undefined
+          CFI R23 Undefined
+          CFI R24 SameValue
+          CFI R25 SameValue
+          CFI R26 SameValue
+          CFI R27 SameValue
+          CFI R28 Undefined
+          CFI R29 Undefined
+          CFI R30 Undefined
+          CFI R31 Undefined
+          CFI ?RetHighByteMask SameValue
+          CFI SPH Undefined
+          CFI SPL Undefined
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign 1
+          CFI ReturnAddress ?Ret CODE
+          CFI CFA_Y Y+0
+          CFI CFA_SP SP+2
+          CFI ?RetPad 0
+          CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+          CFI ?RetLow Frame(CFA_SP, 0)
+          CFI ?Ret Concat
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI R8 SameValue
+          CFI R9 SameValue
+          CFI R10 SameValue
+          CFI R11 SameValue
+          CFI R12 SameValue
+          CFI R13 SameValue
+          CFI R14 SameValue
+          CFI R15 SameValue
+          CFI R16 SameValue
+          CFI R17 SameValue
+          CFI R18 SameValue
+          CFI R19 SameValue
+          CFI R20 SameValue
+          CFI R21 SameValue
+          CFI R22 SameValue
+          CFI R23 SameValue
+          CFI R24 SameValue
+          CFI R25 SameValue
+          CFI R26 SameValue
+          CFI R27 SameValue
+          CFI R28 Undefined
+          CFI R29 Undefined
+          CFI R30 SameValue
+          CFI R31 SameValue
+          CFI ?RetHighByteMask SameValue
+          CFI SPH Undefined
+          CFI SPL Undefined
+          CFI EndCommon cfiCommon1
+        
+twi_isr             SYMBOL "twi_isr"
+`??twi_isr??INTVEC 96` SYMBOL "??INTVEC 96", twi_isr
+
+// C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\atmel_driver\avr_twi_master_driver.c
+//    1 /*****************************************************************************
+//    2 * Atmel Corporation
+//    3 * File              : TWI_master.c
+//    4 * Revision          : 1.13
+//    5 * Date              : 24. mai 2004 11:31:20
+//    6 * Updated by        : ltwa
+//    7 * Support mail      : avr@atmel.com
+//    8 * Supported devices : All devices with a TWI module can be used.
+//    9 * AppNote           : AVR315 - TWI master Implementation
+//   10 * Description       : This is a sample driver for the TWI hardware modules.
+//   11 *                     It is interrupt driven. All functionality is controlled through
+//   12 *                     passing information to and from functions. 
+//   13 ****************************************************************************/
+//   14 //#include "TWI_master.h"
+//   15 //#include <stdint.h>
+//   16 //#include <avr/io.h>
+//   17 //#include <avr/interrupt.h>
+//   18 
+//   19 #include "include.h"
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0bcH
+// union <unnamed> volatile __io _A_TWCR
+_A_TWCR:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0bbH
+// union <unnamed> volatile __io _A_TWDR
+_A_TWDR:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0b9H
+// union <unnamed> volatile __io _A_TWSR
+_A_TWSR:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0b8H
+// union <unnamed> volatile __io _A_TWBR
+_A_TWBR:
+        DS8 1
+//   20 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   21 uint8_t TWI_buf[TWI_BUFFER_SIZE];     // Transceiver buffer
+TWI_buf:
+        DS8 16
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   22 static uint8_t TWI_msgSize;                  // Number of bytes to be transmitted.
+TWI_msgSize:
+        DS8 1
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//   23 static uint8_t TWI_state = TWI_NO_STATE;     // State byte. Default set to TWI_NO_STATE.
+TWI_state:
+        DS8 1
+        REQUIRE `?<Initializer for TWI_state>`
+//   24 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   25 union TWI_statusReg_f TWI_statusReg = {0};         // TWI_statusReg is defined in TWI_master.h
+TWI_statusReg:
+        DS8 1
+//   26 
+//   27 /****************************************************************************
+//   28 Call this function to set up the TWI master to its initial standby state.
+//   29 Remember to enable interrupts from the main application after initializing the TWI.
+//   30 ****************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//   31 void TWI_Master_Initialise(void)
+TWI_Master_Initialise:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function TWI_Master_Initialise
+//   32 {
+//   33    TWBR = TWI_TWBR;                                // Set bit rate register (Baudrate). Defined in header file.
+        LDI     R16, 32
+        STS     _A_TWBR, R16
+//   34    TWSR = TWI_TWPS;                               // Set prescaler
+        LDI     R16, 0
+        STS     _A_TWSR, R16
+//   35    TWDR = 0xFF;                                    // Default content = SDA released.
+        LDI     R16, 255
+        STS     _A_TWDR, R16
+//   36    TWCR = (1<<TWEN)|                               // Enable TWI-interface and release TWI pins.
+//   37           (0<<TWIE)|(0<<TWINT)|                    // Disable Interrupt.
+//   38           (0<<TWEA)|(0<<TWSTA)|(0<<TWSTO)|         // No Signal requests.
+//   39           (0<<TWWC);
+        LDI     R16, 4
+        STS     _A_TWCR, R16
+//   40 }
+        RET
+          CFI EndBlock cfiBlock0
+        REQUIRE _A_TWBR
+        REQUIRE _A_TWSR
+        REQUIRE _A_TWDR
+        REQUIRE _A_TWCR
+//   41 
+//   42 /****************************************************************************
+//   43 Call this function to test if the TWI_ISR is busy transmitting.
+//   44 ****************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//   45 uint8_t TWI_Transceiver_Busy(void)
+TWI_Transceiver_Busy:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function TWI_Transceiver_Busy
+//   46 {
+//   47    return TWCR & (1<<TWIE);                     // IF TWI Interrupt is enabled then the Transceiver is busy
+        LDS     R17, _A_TWCR
+        MOV     R16, R17
+        ANDI    R16, 0x01
+        RET
+          CFI EndBlock cfiBlock1
+        REQUIRE _A_TWCR
+//   48 }
+//   49 
+//   50 /****************************************************************************
+//   51 Call this function to fetch the state information of the previous operation. The function will hold execution (loop)
+//   52 until the TWI_ISR has completed with the previous operation. If there was an error, then the function
+//   53 will return the TWI State code.
+//   54 ****************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//   55 uint8_t TWI_Get_State_Info(void)
+TWI_Get_State_Info:
+??TWI_Get_State_Info_0:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function TWI_Get_State_Info
+//   56 {
+//   57    while(TWI_Transceiver_Busy());               // Wait until TWI has completed the transmission.
+        FUNCALL TWI_Get_State_Info, TWI_Transceiver_Busy
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        RCALL   TWI_Transceiver_Busy
+        TST     R16
+        BRNE    ??TWI_Get_State_Info_0
+//   58    return TWI_state;                            // Return error state.
+        LDS     R16, TWI_state
+        RET
+          CFI EndBlock cfiBlock2
+//   59 }
+//   60 
+//   61 /****************************************************************************
+//   62 Call this function to send a prepared message. The first byte must contain the slave address and the
+//   63 read/write bit. Consecutive bytes contain the data to be sent, or empty locations for data to be read
+//   64 from the slave. Also include how many bytes that should be sent/read including the address byte.
+//   65 The function will hold execution (loop) until the TWI_ISR has completed with the previous operation,
+//   66 then initialize the next operation and return.
+//   67 ****************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//   68 void TWI_Start_Transceiver_With_Data(uint8_t *msg, uint8_t msgSize)
+TWI_Start_Transceiver_With_Data:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function TWI_Start_Transceiver_With_Data
+//   69 {
+        FUNCALL TWI_Start_Transceiver_With_Data, TWI_Transceiver_Busy
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE4_L09
+          CFI R27 Frame(CFA_Y, -1)
+          CFI R26 Frame(CFA_Y, -2)
+          CFI R25 Frame(CFA_Y, -3)
+          CFI R24 Frame(CFA_Y, -4)
+          CFI CFA_Y Y+4
+        MOVW    R27:R26, R17:R16
+        MOV     R24, R18
+//   70    uint8_t temp;
+//   71    while(TWI_Transceiver_Busy());                // Wait until TWI is ready for next transmission.
+??TWI_Start_Transceiver_With_Data_0:
+        RCALL   TWI_Transceiver_Busy
+        TST     R16
+        BRNE    ??TWI_Start_Transceiver_With_Data_0
+//   72 
+//   73    TWI_msgSize = msgSize;                        // Number of data to transmit.
+        STS     TWI_msgSize, R24
+//   74    TWI_buf[0]  = msg[0];                         // Store slave address with R/W setting.
+        MOVW    R31:R30, R27:R26
+        LD      R16, Z
+        STS     TWI_buf, R16
+//   75    if(!(msg[0] & (TRUE<<TWI_READ_BIT)))          // If it is a write operation, then also copy data.
+        LD      R16, X
+        SBRC    R16, 0
+        RJMP    ??TWI_Start_Transceiver_With_Data_1
+//   76    {
+//   77       for(temp = 1; temp < msgSize; temp += 1)
+        LDI     R16, 1
+        RJMP    ??TWI_Start_Transceiver_With_Data_2
+//   78          TWI_buf[temp] = msg[temp];
+??TWI_Start_Transceiver_With_Data_3:
+        LDI     R17, 0
+        MOVW    R31:R30, R27:R26
+        ADD     R30, R16
+        ADC     R31, R17
+        LD      R18, Z
+        LDI     R17, 0
+        MOVW    R31:R30, R17:R16
+        SUBI    R30, LOW((-(TWI_buf) & 0xFFFF))
+        SBCI    R31, (-(TWI_buf) & 0xFFFF) >> 8
+        ST      Z, R18
+        INC     R16
+??TWI_Start_Transceiver_With_Data_2:
+        CP      R16, R24
+        BRCS    ??TWI_Start_Transceiver_With_Data_3
+//   79    }
+//   80 
+//   81    TWI_statusReg.all = 0;
+??TWI_Start_Transceiver_With_Data_1:
+        LDI     R16, 0
+        STS     TWI_statusReg, R16
+//   82    TWI_state = TWI_NO_STATE;
+        LDI     R16, 248
+        STS     TWI_state, R16
+//   83    TWCR = (1<<TWEN)|                             // TWI Interface enabled.
+//   84           (1<<TWIE)|(1<<TWINT)|                  // Enable TWI Interrupt and clear the flag.
+//   85           (0<<TWEA)|(1<<TWSTA)|(0<<TWSTO)|       // Initiate a START condition.
+//   86           (0<<TWWC);
+        LDI     R16, 165
+        STS     _A_TWCR, R16
+//   87 }
+        LDI     R30, 4
+        JMP     ?EPILOGUE_B4_L09
+          CFI EndBlock cfiBlock3
+        REQUIRE _A_TWCR
+//   88 
+//   89 /****************************************************************************
+//   90 Call this function to resend the last message. The driver will reuse the data previously put in the transceiver buffers.
+//   91 The function will hold execution (loop) until the TWI_ISR has completed with the previous operation,
+//   92 then initialize the next operation and return.
+//   93 ****************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//   94 void TWI_Start_Transceiver(void)
+TWI_Start_Transceiver:
+??TWI_Start_Transceiver_0:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function TWI_Start_Transceiver
+//   95 {
+//   96    while(TWI_Transceiver_Busy());                // Wait until TWI is ready for next transmission.
+        FUNCALL TWI_Start_Transceiver, TWI_Transceiver_Busy
+        LOCFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        RCALL   TWI_Transceiver_Busy
+        TST     R16
+        BRNE    ??TWI_Start_Transceiver_0
+//   97    TWI_statusReg.all = 0;
+        LDI     R16, 0
+        STS     TWI_statusReg, R16
+//   98    TWI_state = TWI_NO_STATE;
+        LDI     R16, 248
+        STS     TWI_state, R16
+//   99    TWCR = (1<<TWEN)|                             // TWI Interface enabled.
+//  100           (1<<TWIE)|(1<<TWINT)|                  // Enable TWI Interrupt and clear the flag.
+//  101           (0<<TWEA)|(1<<TWSTA)|(0<<TWSTO)|       // Initiate a START condition.
+//  102           (0<<TWWC);
+        LDI     R16, 165
+        STS     _A_TWCR, R16
+//  103 }
+        RET
+          CFI EndBlock cfiBlock4
+        REQUIRE _A_TWCR
+//  104 
+//  105 /****************************************************************************
+//  106 Call this function to read out the requested data from the TWI transceiver buffer. I.e. first call
+//  107 TWI_Start_Transceiver to send a request for data to the slave. Then Run this function to collect the
+//  108 data when they have arrived. Include a pointer to where to place the data and the number of bytes
+//  109 requested (including the address field) in the function call. The function will hold execution (loop)
+//  110 until the TWI_ISR has completed with the previous operation, before reading out the data and returning.
+//  111 If there was an error in the previous transmission the function will return the TWI error code.
+//  112 ****************************************************************************/
+
+        RSEG CODE:CODE:NOROOT(1)
+//  113 uint8_t TWI_Get_Data_From_Transceiver(uint8_t *msg, uint8_t msgSize)
+TWI_Get_Data_From_Transceiver:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function TWI_Get_Data_From_Transceiver
+//  114 {
+        FUNCALL TWI_Get_Data_From_Transceiver, TWI_Transceiver_Busy
+        LOCFRAME CSTACK, 3, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        CALL    ?PROLOGUE3_L09
+          CFI R26 Frame(CFA_Y, -1)
+          CFI R25 Frame(CFA_Y, -2)
+          CFI R24 Frame(CFA_Y, -3)
+          CFI CFA_Y Y+3
+        MOVW    R25:R24, R17:R16
+        MOV     R26, R18
+//  115    uint8_t i;
+//  116    while(TWI_Transceiver_Busy());               // Wait until TWI is ready for next transmission.
+??TWI_Get_Data_From_Transceiver_0:
+        RCALL   TWI_Transceiver_Busy
+        TST     R16
+        BRNE    ??TWI_Get_Data_From_Transceiver_0
+//  117 
+//  118    if(TWI_statusReg.lastTransOK)                // Last transmission competed successfully.
+        LDI     R30, LOW(TWI_statusReg)
+        LDI     R31, (TWI_statusReg) >> 8
+        LD      R16, Z
+        SBRS    R16, 0
+        RJMP    ??TWI_Get_Data_From_Transceiver_1
+//  119    {
+//  120       for(i = 0; i < msgSize; i += 1)           // Copy data from Transceiver buffer.
+        LDI     R16, 0
+        RJMP    ??TWI_Get_Data_From_Transceiver_2
+//  121          msg[i] = TWI_buf[i];
+??TWI_Get_Data_From_Transceiver_3:
+        LDI     R17, 0
+        MOVW    R31:R30, R17:R16
+        SUBI    R30, LOW((-(TWI_buf) & 0xFFFF))
+        SBCI    R31, (-(TWI_buf) & 0xFFFF) >> 8
+        LD      R18, Z
+        LDI     R17, 0
+        MOVW    R31:R30, R25:R24
+        ADD     R30, R16
+        ADC     R31, R17
+        ST      Z, R18
+        INC     R16
+??TWI_Get_Data_From_Transceiver_2:
+        CP      R16, R26
+        BRCS    ??TWI_Get_Data_From_Transceiver_3
+//  122    }
+//  123    return TWI_statusReg.lastTransOK;
+??TWI_Get_Data_From_Transceiver_1:
+        LDI     R30, LOW(TWI_statusReg)
+        LDI     R31, (TWI_statusReg) >> 8
+        LD      R16, Z
+        ANDI    R16, 0x01
+        LDI     R30, 3
+        JMP     ?EPILOGUE_B3_L09
+          CFI EndBlock cfiBlock5
+//  124 }
+//  125 
+//  126 // ********** Interrupt Handlers ********** //
+//  127 /****************************************************************************
+//  128 This function is the Interrupt Service Routine (ISR), and called when the TWI interrupt is triggered;
+//  129 that is whenever a TWI event has occurred. This function should not be called directly from the main
+//  130 application.
+//  131 ****************************************************************************/
+//  132 
+//  133 //ISR(TWI_vect)
+//  134 
+//  135 #pragma   vector=TWI_vect // 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  136 __interrupt void twi_isr()
+twi_isr:
+          CFI Block cfiBlock6 Using cfiCommon1
+          CFI Function twi_isr
+//  137 {
+        ST      -Y, R25
+          CFI R25 Frame(CFA_Y, -1)
+          CFI CFA_Y Y+1
+        ST      -Y, R24
+          CFI R24 Frame(CFA_Y, -2)
+          CFI CFA_Y Y+2
+        ST      -Y, R31
+          CFI R31 Frame(CFA_Y, -3)
+          CFI CFA_Y Y+3
+        ST      -Y, R30
+          CFI R30 Frame(CFA_Y, -4)
+          CFI CFA_Y Y+4
+        ST      -Y, R19
+          CFI R19 Frame(CFA_Y, -5)
+          CFI CFA_Y Y+5
+        ST      -Y, R18
+          CFI R18 Frame(CFA_Y, -6)
+          CFI CFA_Y Y+6
+        ST      -Y, R17
+          CFI R17 Frame(CFA_Y, -7)
+          CFI CFA_Y Y+7
+        ST      -Y, R16
+          CFI R16 Frame(CFA_Y, -8)
+          CFI CFA_Y Y+8
+        IN      R19, 0x3F
+//  138 
+//  139    static uint8_t TWI_bufPtr;
+//  140    switch(TWSR)
+        LDS     R16, _A_TWSR
+        SUBI    R16, 8
+        BREQ    ??twi_isr_0
+        SUBI    R16, 8
+        BREQ    ??twi_isr_0
+        SUBI    R16, 8
+        BREQ    ??twi_isr_1
+        SUBI    R16, 16
+        BREQ    ??twi_isr_1
+        SUBI    R16, 16
+        BRNE    $+2+2
+        RJMP    ??twi_isr_2
+        SUBI    R16, 8
+        BREQ    ??twi_isr_3
+        SUBI    R16, 16
+        BREQ    ??twi_isr_4
+        SUBI    R16, 8
+        BRNE    $+2+2
+        RJMP    ??twi_isr_5
+        RJMP    ??twi_isr_6
+//  141    {
+//  142       case TWI_START:             // START has been transmitted
+//  143       case TWI_REP_START:         // Repeated START has been transmitted
+//  144          TWI_bufPtr = 0;          // Set buffer pointer to the TWI Address location
+??twi_isr_0:
+        LDI     R16, 0
+        STS     ??TWI_bufPtr, R16
+//  145       case TWI_MTX_ADR_ACK:       // SLA+W has been transmitted and ACK received
+//  146       case TWI_MTX_DATA_ACK:      // Data byte has been transmitted and ACK received
+//  147          if(TWI_bufPtr < TWI_msgSize)
+??twi_isr_1:
+        LDS     R16, ??TWI_bufPtr
+        LDS     R17, TWI_msgSize
+        CP      R16, R17
+        BRCC    ??twi_isr_7
+//  148          {
+//  149             TWDR = TWI_buf[TWI_bufPtr++];
+        LDS     R16, ??TWI_bufPtr
+        LDI     R17, 0
+        MOVW    R31:R30, R17:R16
+        SUBI    R30, LOW((-(TWI_buf) & 0xFFFF))
+        SBCI    R31, (-(TWI_buf) & 0xFFFF) >> 8
+        LD      R16, Z
+        STS     _A_TWDR, R16
+        LDS     R16, ??TWI_bufPtr
+        INC     R16
+        STS     ??TWI_bufPtr, R16
+//  150             TWCR = (1<<TWEN)|                          // TWI Interface enabled
+//  151                    (1<<TWIE)|(1<<TWINT)|               // Enable TWI Interrupt and clear the flag to send byte
+//  152                    (0<<TWEA)|(0<<TWSTA)|(0<<TWSTO)|
+//  153                    (0<<TWWC);
+        LDI     R16, 133
+        STS     _A_TWCR, R16
+        RJMP    ??twi_isr_8
+//  154          }
+//  155          else                     // Send STOP after last byte
+//  156          {
+//  157             TWI_statusReg.lastTransOK = TRUE;          // Set status bits to completed successfully.
+??twi_isr_7:
+        LDI     R30, LOW(TWI_statusReg)
+        LDI     R31, (TWI_statusReg) >> 8
+        LD      R16, Z
+        ORI     R16, 0x01
+        ST      Z, R16
+//  158             TWCR = (1<<TWEN)|                          // TWI Interface enabled
+//  159                    (0<<TWIE)|(1<<TWINT)|               // Disable TWI Interrupt and clear the flag
+//  160                    (0<<TWEA)|(0<<TWSTA)|(1<<TWSTO)|    // Initiate a STOP condition.
+//  161                    (0<<TWWC);
+        LDI     R16, 148
+        STS     _A_TWCR, R16
+//  162          }
+//  163          break;
+        RJMP    ??twi_isr_8
+//  164       case TWI_MRX_DATA_ACK:      // Data byte has been received and ACK transmitted
+//  165          TWI_buf[TWI_bufPtr++] = TWDR;
+??twi_isr_4:
+        LDS     R18, _A_TWDR
+        LDS     R16, ??TWI_bufPtr
+        LDI     R17, 0
+        MOVW    R31:R30, R17:R16
+        SUBI    R30, LOW((-(TWI_buf) & 0xFFFF))
+        SBCI    R31, (-(TWI_buf) & 0xFFFF) >> 8
+        ST      Z, R18
+        LDS     R16, ??TWI_bufPtr
+        INC     R16
+        STS     ??TWI_bufPtr, R16
+//  166       case TWI_MRX_ADR_ACK:       // SLA+R has been transmitted and ACK received
+//  167          if(TWI_bufPtr < (TWI_msgSize-1))              // Detect the last byte to NACK it.
+??twi_isr_3:
+        LDS     R16, ??TWI_bufPtr
+        LDI     R17, 0
+        LDS     R24, TWI_msgSize
+        LDI     R25, 0
+        SBIW    R25:R24, 1
+        CP      R16, R24
+        CPC     R17, R25
+        BRGE    ??twi_isr_9
+//  168          {
+//  169             TWCR = (1<<TWEN)|                          // TWI Interface enabled
+//  170                    (1<<TWIE)|(1<<TWINT)|               // Enable TWI Interrupt and clear the flag to read next byte
+//  171                    (1<<TWEA)|(0<<TWSTA)|(0<<TWSTO)|    // Send ACK after reception
+//  172                    (0<<TWWC);
+        LDI     R16, 197
+        STS     _A_TWCR, R16
+        RJMP    ??twi_isr_8
+//  173          }
+//  174          else                     // Send NACK after next reception
+//  175          {
+//  176             TWCR = (1<<TWEN)|                          // TWI Interface enabled
+//  177                (1<<TWIE)|(1<<TWINT)|                   // Enable TWI Interrupt and clear the flag to read next byte
+//  178                (0<<TWEA)|(0<<TWSTA)|(0<<TWSTO)|        // Send NACK after reception
+//  179                (0<<TWWC);
+??twi_isr_9:
+        LDI     R16, 133
+        STS     _A_TWCR, R16
+//  180          }
+//  181          break;
+        RJMP    ??twi_isr_8
+//  182       case TWI_MRX_DATA_NACK:     // Data byte has been received and NACK transmitted
+//  183          TWI_buf[TWI_bufPtr] = TWDR;
+??twi_isr_5:
+        LDS     R18, _A_TWDR
+        LDS     R16, ??TWI_bufPtr
+        LDI     R17, 0
+        MOVW    R31:R30, R17:R16
+        SUBI    R30, LOW((-(TWI_buf) & 0xFFFF))
+        SBCI    R31, (-(TWI_buf) & 0xFFFF) >> 8
+        ST      Z, R18
+//  184          TWI_statusReg.lastTransOK = TRUE;             // Set status bits to completed successfully.
+        LDI     R30, LOW(TWI_statusReg)
+        LDI     R31, (TWI_statusReg) >> 8
+        LD      R16, Z
+        ORI     R16, 0x01
+        ST      Z, R16
+//  185          TWCR = (1<<TWEN)|                             // TWI Interface enabled
+//  186                 (0<<TWIE)|(1<<TWINT)|                  // Disable TWI Interrupt and clear the flag
+//  187                 (0<<TWEA)|(0<<TWSTA)|(1<<TWSTO)|       // Initiate a STOP condition.
+//  188                 (0<<TWWC);
+        LDI     R16, 148
+        STS     _A_TWCR, R16
+//  189          break;
+        RJMP    ??twi_isr_8
+//  190       case TWI_ARB_LOST:          // Arbitration lost
+//  191          TWCR = (1<<TWEN)|                             // TWI Interface enabled
+//  192                 (1<<TWIE)|(1<<TWINT)|                  // Enable TWI Interrupt and clear the flag
+//  193                 (0<<TWEA)|(1<<TWSTA)|(0<<TWSTO)|       // Initiate a (RE)START condition.
+//  194                 (0<<TWWC);
+??twi_isr_2:
+        LDI     R16, 165
+        STS     _A_TWCR, R16
+//  195          break;
+        RJMP    ??twi_isr_8
+//  196       case TWI_BUS_ERROR:         // Bus error due to an illegal START or STOP condition
+//  197       case TWI_MTX_ADR_NACK:      // SLA+W has been transmitted and NACK received
+//  198       case TWI_MRX_ADR_NACK:      // SLA+R has been transmitted and NACK received
+//  199       case TWI_MTX_DATA_NACK:     // Data byte has been transmitted and NACK received
+//  200 //      case TWI_NO_STATE           // No relevant state information available; TWINT = '0'
+//  201       default:
+//  202          TWI_state = TWSR;                              // Store TWSR and automatically clears no Errors bit.
+??twi_isr_6:
+        LDS     R16, _A_TWSR
+        STS     TWI_state, R16
+//  203                                                         // Reset TWI Interface
+//  204          TWCR = (1<<TWEN)|                              // Enable TWI-interface and release TWI pins
+//  205                 (0<<TWIE)|(1<<TWINT)|                   // Disable Interrupt
+//  206                 (0<<TWEA)|(0<<TWSTA)|(1<<TWSTO)|        // Initiate a STOP condition.
+//  207                 (0<<TWWC);
+        LDI     R16, 148
+        STS     _A_TWCR, R16
+//  208    }
+//  209 }
+??twi_isr_8:
+        OUT     0x3F, R19
+        LD      R16, Y+
+          CFI R16 SameValue
+          CFI CFA_Y Y+7
+        LD      R17, Y+
+          CFI R17 SameValue
+          CFI CFA_Y Y+6
+        LD      R18, Y+
+          CFI R18 SameValue
+          CFI CFA_Y Y+5
+        LD      R19, Y+
+          CFI R19 SameValue
+          CFI CFA_Y Y+4
+        LD      R30, Y+
+          CFI R30 SameValue
+          CFI CFA_Y Y+3
+        LD      R31, Y+
+          CFI R31 SameValue
+          CFI CFA_Y Y+2
+        LD      R24, Y+
+          CFI R24 SameValue
+          CFI CFA_Y Y+1
+        LD      R25, Y+
+          CFI R25 SameValue
+          CFI CFA_Y Y+0
+        RETI
+          CFI EndBlock cfiBlock6
+        REQUIRE _A_TWDR
+        REQUIRE _A_TWCR
+        REQUIRE _A_TWSR
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+??TWI_bufPtr:
+        DS8 1
+//  210 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  211 uint8_t TWI_Act_On_Failure_In_Last_Transmission (uint8_t TWIerrorMsg)
+TWI_Act_On_Failure_In_Last_Transmission:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function TWI_Act_On_Failure_In_Last_Transmission
+//  212 {
+        FUNCALL TWI_Act_On_Failure_In_Last_Transmission, TWI_Start_Transceiver
+        LOCFRAME CSTACK, 1, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ST      -Y, R24
+          CFI R24 Frame(CFA_Y, -1)
+          CFI CFA_Y Y+1
+        MOV     R24, R16
+//  213    // A failure has occurred, use TWIerrorMsg to determine the nature of the failure
+//  214    // and take appropriate actions.
+//  215    // See header file for a list of possible failures messages.
+//  216 
+//  217    // Here is a simple sample, where if received a NACK on the slave address,
+//  218    // then a retransmission will be initiated.
+//  219    if((TWIerrorMsg == TWI_MTX_ADR_NACK) | (TWIerrorMsg == TWI_MRX_ADR_NACK))
+        CPI     R24, 32
+        BREQ    ??TWI_Act_On_Failure_In_Last_Transmission_0
+        LDI     R16, 0
+        CPI     R24, 72
+        BREQ    ??TWI_Act_On_Failure_In_Last_Transmission_0
+        ORI     R16, 0x00
+        TST     R16
+        BREQ    ??TWI_Act_On_Failure_In_Last_Transmission_1
+//  220       TWI_Start_Transceiver();
+??TWI_Act_On_Failure_In_Last_Transmission_0:
+        RCALL   TWI_Start_Transceiver
+//  221    return TWIerrorMsg;
+??TWI_Act_On_Failure_In_Last_Transmission_1:
+        MOV     R16, R24
+        LD      R24, Y+
+          CFI R24 SameValue
+          CFI CFA_Y Y+0
+        RET
+          CFI EndBlock cfiBlock7
+//  222 }
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        COMMON INTVEC:CODE:ROOT(1)
+        ORG 96
+`??twi_isr??INTVEC 96`:
+        JMP     twi_isr
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_Z>`:
+        DC16    SFE(NEAR_Z) - SFB(NEAR_Z)
+        DC16    SFB(NEAR_Z)
+        DC16    0
+        REQUIRE ?need_segment_init
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for TWI_state>`:
+        DC8 248
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_I>`:
+        DC16    SFE(NEAR_I) - SFB(NEAR_I)
+        DC16    SFB(NEAR_I)
+        DC16    SFB(NEAR_ID)
+        REQUIRE ?need_segment_init
+
+        END
+// 
+//   4 bytes in segment ABSOLUTE
+// 530 bytes in segment CODE
+//  12 bytes in segment INITTAB
+//   4 bytes in segment INTVEC
+//   1 byte  in segment NEAR_I
+//   1 byte  in segment NEAR_ID
+//  19 bytes in segment NEAR_Z
+// 
+// 531 bytes of CODE memory (+ 16 bytes shared)
+//  20 bytes of DATA memory (+  4 bytes shared)
+//
+//Errors: none
+//Warnings: none

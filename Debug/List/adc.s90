@@ -1,0 +1,797 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR      27/Dec/2020  15:41:44
+// Copyright 1996-2019 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for Atmel AVR
+//
+//    Source file  =  
+//        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\adc.c
+//    Command line =  
+//        -f C:\Users\troubard\AppData\Local\Temp\EW3A0.tmp
+//        ("C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\adc.c" --cpu=m168pa -ms -o
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj" -lC
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List" -lA
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List"
+//        --initializers_in_flash --no_cse --no_inline --no_code_motion
+//        --no_cross_call --no_clustering --no_tbaa --debug -e -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver\" -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver\" -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\" -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\" --eeprom_size 512 --dlib
+//        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+//        8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
+//    Locale       =  Korean_KOR.949
+//    List file    =  
+//        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List\adc.s90
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME `adc`
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega168PA"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+        RTMODEL "__vtable_memory", "__nearflash"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?US_DIVMOD_L02
+        EXTERN ?need_segment_init
+        EXTERN __eeput16_16
+
+        PUBWEAK `?<Segment init: NEAR_Z>`
+        PUBWEAK `??ADC_CONVERSION_VECT::??INTVEC 84`
+        PUBLIC ADC_AutoZero_Point
+        PUBLIC ADC_Auto_Zero_Process
+        PUBLIC ADC_CONVERSION_VECT
+        PUBLIC ADC_Delay_Timer
+        PUBLIC ADC_Delay_Timer_Cnt
+        PUBLIC ADC_Delay_Timer_Reg
+        PUBLIC ADC_Get_Standard_Pressure_Value
+        PUBLIC ADC_Initialize
+        PUBLIC ADC_Motor_Switch_Value
+        PUBLIC ADC_Overcurrent_Value
+        PUBLIC ADC_Standard_Set_Value
+        PUBLIC ADC_raw_value
+        PUBLIC AD_CompleteFlag
+        PUBLIC EEP_AutoZero_ADC_Point
+        PUBLIC Real_Pressure_Value
+        PUBLIC Stadnard_Pressure_OldValue
+        PUBLIC Standard_Pressure_Value
+        PUBWEAK _A_ADC
+        PUBWEAK _A_ADCSRA
+        PUBWEAK _A_ADMUX
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_Y Y DATA
+          CFI StackFrame CFA_SP SP DATA
+          CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+          CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+          CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+          CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+          CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+          CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+          CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+          CFI ResourceParts SP SPH, SPL
+          CFI ResourceParts Y R29, R28
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign 1
+          CFI ReturnAddress ?Ret CODE
+          CFI CFA_Y Y+0
+          CFI CFA_SP SP+2
+          CFI ?RetPad 0
+          CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+          CFI ?RetLow Frame(CFA_SP, 0)
+          CFI ?Ret Concat
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI R8 SameValue
+          CFI R9 SameValue
+          CFI R10 SameValue
+          CFI R11 SameValue
+          CFI R12 SameValue
+          CFI R13 SameValue
+          CFI R14 SameValue
+          CFI R15 SameValue
+          CFI R16 SameValue
+          CFI R17 SameValue
+          CFI R18 SameValue
+          CFI R19 SameValue
+          CFI R20 SameValue
+          CFI R21 SameValue
+          CFI R22 SameValue
+          CFI R23 SameValue
+          CFI R24 SameValue
+          CFI R25 SameValue
+          CFI R26 SameValue
+          CFI R27 SameValue
+          CFI R28 Undefined
+          CFI R29 Undefined
+          CFI R30 SameValue
+          CFI R31 SameValue
+          CFI ?RetHighByteMask SameValue
+          CFI SPH Undefined
+          CFI SPL Undefined
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign 1
+          CFI ReturnAddress ?Ret CODE
+          CFI CFA_Y Y+0
+          CFI CFA_SP SP+2
+          CFI ?RetPad 0
+          CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+          CFI ?RetLow Frame(CFA_SP, 0)
+          CFI ?Ret Concat
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI R8 SameValue
+          CFI R9 SameValue
+          CFI R10 SameValue
+          CFI R11 SameValue
+          CFI R12 SameValue
+          CFI R13 SameValue
+          CFI R14 SameValue
+          CFI R15 SameValue
+          CFI R16 Undefined
+          CFI R17 Undefined
+          CFI R18 Undefined
+          CFI R19 Undefined
+          CFI R20 Undefined
+          CFI R21 Undefined
+          CFI R22 Undefined
+          CFI R23 Undefined
+          CFI R24 SameValue
+          CFI R25 SameValue
+          CFI R26 SameValue
+          CFI R27 SameValue
+          CFI R28 Undefined
+          CFI R29 Undefined
+          CFI R30 Undefined
+          CFI R31 Undefined
+          CFI ?RetHighByteMask SameValue
+          CFI SPH Undefined
+          CFI SPL Undefined
+          CFI EndCommon cfiCommon1
+        
+ADC_CONVERSION_VECT SYMBOL "ADC_CONVERSION_VECT"
+`??ADC_CONVERSION_VECT::??INTVEC 84` SYMBOL "??INTVEC 84", ADC_CONVERSION_VECT
+
+        EXTERN Display_Delay_Cnt
+        EXTERN Display_Mode
+        EXTERN Motor_Get_LimitSwitch_Value
+        EXTERN Pressure_PA_Value
+
+// C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\adc.c
+//    1 #include "include.h"
+
+        ASEGN ABSOLUTE:DATA:NOROOT,07cH
+// union <unnamed> volatile __io _A_ADMUX
+_A_ADMUX:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,07aH
+// union <unnamed> volatile __io _A_ADCSRA
+_A_ADCSRA:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,078H
+// union <unnamed> volatile __io _A_ADC
+_A_ADC:
+        DS8 2
+//    2 
+
+        RSEG EEPROM_N:XDATA:NOROOT(0)
+//    3 __no_init __eeprom  int EEP_AutoZero_ADC_Point;
+EEP_AutoZero_ADC_Point:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//    4 int16_t ADC_AutoZero_Point;
+ADC_AutoZero_Point:
+        DS8 2
+//    5 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//    6 uint16_t ADC_raw_value; 
+ADC_raw_value:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//    7 uint16_t ADC_Standard_Set_Value;
+ADC_Standard_Set_Value:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//    8 uint16_t ADC_Motor_Switch_Value;
+ADC_Motor_Switch_Value:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//    9 uint16_t ADC_Overcurrent_Value;
+ADC_Overcurrent_Value:
+        DS8 2
+//   10 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   11 uint8_t AD_CompleteFlag;
+AD_CompleteFlag:
+        DS8 1
+//   12 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   13 uint8_t ADC_Delay_Timer_Reg;
+ADC_Delay_Timer_Reg:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   14 uint16_t ADC_Delay_Timer_Cnt;
+ADC_Delay_Timer_Cnt:
+        DS8 2
+//   15 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   16 int16_t Standard_Pressure_Value;
+Standard_Pressure_Value:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   17 int16_t Stadnard_Pressure_OldValue;
+Stadnard_Pressure_OldValue:
+        DS8 2
+//   18 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   19 int16_t Real_Pressure_Value;
+Real_Pressure_Value:
+        DS8 2
+//   20 
+//   21 #pragma   vector=ADC_vect
+
+        RSEG CODE:CODE:NOROOT(1)
+        CALL_GRAPH_ROOT ADC_CONVERSION_VECT, "interrupt"
+//   22 __interrupt void ADC_CONVERSION_VECT()
+ADC_CONVERSION_VECT:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function ADC_CONVERSION_VECT
+//   23 {
+        ST      -Y, R24
+          CFI R24 Frame(CFA_Y, -1)
+          CFI CFA_Y Y+1
+        ST      -Y, R31
+          CFI R31 Frame(CFA_Y, -2)
+          CFI CFA_Y Y+2
+        ST      -Y, R30
+          CFI R30 Frame(CFA_Y, -3)
+          CFI CFA_Y Y+3
+        ST      -Y, R3
+          CFI R3 Frame(CFA_Y, -4)
+          CFI CFA_Y Y+4
+        ST      -Y, R2
+          CFI R2 Frame(CFA_Y, -5)
+          CFI CFA_Y Y+5
+        ST      -Y, R1
+          CFI R1 Frame(CFA_Y, -6)
+          CFI CFA_Y Y+6
+        ST      -Y, R0
+          CFI R0 Frame(CFA_Y, -7)
+          CFI CFA_Y Y+7
+        ST      -Y, R23
+          CFI R23 Frame(CFA_Y, -8)
+          CFI CFA_Y Y+8
+        ST      -Y, R22
+          CFI R22 Frame(CFA_Y, -9)
+          CFI CFA_Y Y+9
+        ST      -Y, R21
+          CFI R21 Frame(CFA_Y, -10)
+          CFI CFA_Y Y+10
+        ST      -Y, R20
+          CFI R20 Frame(CFA_Y, -11)
+          CFI CFA_Y Y+11
+        ST      -Y, R19
+          CFI R19 Frame(CFA_Y, -12)
+          CFI CFA_Y Y+12
+        ST      -Y, R18
+          CFI R18 Frame(CFA_Y, -13)
+          CFI CFA_Y Y+13
+        ST      -Y, R17
+          CFI R17 Frame(CFA_Y, -14)
+          CFI CFA_Y Y+14
+        ST      -Y, R16
+          CFI R16 Frame(CFA_Y, -15)
+          CFI CFA_Y Y+15
+        IN      R24, 0x3F
+//   24   
+//   25   
+//   26   uint16_t i;
+//   27   uint8_t ADC_LowByte, ADC_HighByte;
+//   28   
+//   29   ADC_LowByte =ADCL;          // A/D값을 저장할 임시변수  LSB
+        LDS     R18, _A_ADC
+//   30   ADC_HighByte =ADCH;          // A/D값을 저장할 임시변수  MSB
+        LDS     R16, 121
+//   31   i = ADC_HighByte;                   // A/D  MSB 임시 변수에 저장             
+//   32   i= ( 0X0FFF & ( i << 8 ) );  // A/D값을 MSB(상위)로 보냄
+        MOV     R17, R16
+        LDI     R16, 0
+        ANDI    R16, 0xFF
+        ANDI    R17, 0x0F
+//   33   ADC_raw_value = ( i | ADC_LowByte );   // CHAR를 INT로 변환
+        LDI     R19, 0
+        OR      R16, R18
+        OR      R17, R19
+        STS     ADC_raw_value, R16
+        STS     (ADC_raw_value + 1), R17
+//   34   AD_CompleteFlag=1;        
+        LDI     R16, 1
+        STS     AD_CompleteFlag, R16
+//   35 
+//   36   __disable_interrupt();
+        CLI
+//   37   if(ADMUX==0x40){ // ADC0 Motor Switch Value
+        LDS     R16, _A_ADMUX
+        CPI     R16, 64
+        BRNE    ??ADC_CONVERSION_VECT_0
+//   38 
+//   39     ADC_Motor_Switch_Value = ADC_raw_value;
+        LDS     R16, ADC_raw_value
+        LDS     R17, (ADC_raw_value + 1)
+        STS     ADC_Motor_Switch_Value, R16
+        STS     (ADC_Motor_Switch_Value + 1), R17
+//   40     ADC_Delay_Timer_Reg=1;
+        LDI     R16, 1
+        STS     ADC_Delay_Timer_Reg, R16
+//   41 
+//   42     Motor_Get_LimitSwitch_Value();
+          CFI FunCall Motor_Get_LimitSwitch_Value
+        CALL    Motor_Get_LimitSwitch_Value
+//   43     
+//   44     ADCSRA = 0;
+        LDI     R16, 0
+        STS     _A_ADCSRA, R16
+//   45     ADMUX=0x41;   
+        LDI     R16, 65
+        STS     _A_ADMUX, R16
+        RJMP    ??ADC_CONVERSION_VECT_1
+//   46 
+//   47   }
+//   48   else if (ADMUX==0x41){ // Overcurrent Check
+??ADC_CONVERSION_VECT_0:
+        LDS     R16, _A_ADMUX
+        CPI     R16, 65
+        BRNE    ??ADC_CONVERSION_VECT_2
+//   49     ADC_Overcurrent_Value = ADC_raw_value;  
+        LDS     R16, ADC_raw_value
+        LDS     R17, (ADC_raw_value + 1)
+        STS     ADC_Overcurrent_Value, R16
+        STS     (ADC_Overcurrent_Value + 1), R17
+//   50     ADC_Delay_Timer_Reg=1;
+        LDI     R16, 1
+        STS     ADC_Delay_Timer_Reg, R16
+//   51 
+//   52     ADCSRA =0;
+        LDI     R16, 0
+        STS     _A_ADCSRA, R16
+//   53     ADMUX=0x42;
+        LDI     R16, 66
+        STS     _A_ADMUX, R16
+        RJMP    ??ADC_CONVERSION_VECT_1
+//   54   }
+//   55   else if (ADMUX==0x42){ // VR2 
+??ADC_CONVERSION_VECT_2:
+        LDS     R16, _A_ADMUX
+        CPI     R16, 66
+        BRNE    ??ADC_CONVERSION_VECT_3
+//   56 
+//   57     ADC_Standard_Set_Value = ADC_raw_value;
+        LDS     R16, ADC_raw_value
+        LDS     R17, (ADC_raw_value + 1)
+        STS     ADC_Standard_Set_Value, R16
+        STS     (ADC_Standard_Set_Value + 1), R17
+//   58     ADC_Delay_Timer_Reg=1;
+        LDI     R16, 1
+        STS     ADC_Delay_Timer_Reg, R16
+//   59     ADCSRA =0;
+        LDI     R16, 0
+        STS     _A_ADCSRA, R16
+//   60     ADMUX=0x40;
+        LDI     R16, 64
+        STS     _A_ADMUX, R16
+        RJMP    ??ADC_CONVERSION_VECT_1
+//   61 
+//   62   }
+//   63   else {
+//   64     ADC_Delay_Timer_Reg=1;
+??ADC_CONVERSION_VECT_3:
+        LDI     R16, 1
+        STS     ADC_Delay_Timer_Reg, R16
+//   65     ADCSRA =0;
+        LDI     R16, 0
+        STS     _A_ADCSRA, R16
+//   66     ADMUX=0x40;
+        LDI     R16, 64
+        STS     _A_ADMUX, R16
+//   67   }
+//   68   
+//   69   __enable_interrupt();
+??ADC_CONVERSION_VECT_1:
+        SEI
+//   70     
+//   71   
+//   72 }
+        OUT     0x3F, R24
+        LD      R16, Y+
+          CFI R16 SameValue
+          CFI CFA_Y Y+14
+        LD      R17, Y+
+          CFI R17 SameValue
+          CFI CFA_Y Y+13
+        LD      R18, Y+
+          CFI R18 SameValue
+          CFI CFA_Y Y+12
+        LD      R19, Y+
+          CFI R19 SameValue
+          CFI CFA_Y Y+11
+        LD      R20, Y+
+          CFI R20 SameValue
+          CFI CFA_Y Y+10
+        LD      R21, Y+
+          CFI R21 SameValue
+          CFI CFA_Y Y+9
+        LD      R22, Y+
+          CFI R22 SameValue
+          CFI CFA_Y Y+8
+        LD      R23, Y+
+          CFI R23 SameValue
+          CFI CFA_Y Y+7
+        LD      R0, Y+
+          CFI R0 SameValue
+          CFI CFA_Y Y+6
+        LD      R1, Y+
+          CFI R1 SameValue
+          CFI CFA_Y Y+5
+        LD      R2, Y+
+          CFI R2 SameValue
+          CFI CFA_Y Y+4
+        LD      R3, Y+
+          CFI R3 SameValue
+          CFI CFA_Y Y+3
+        LD      R30, Y+
+          CFI R30 SameValue
+          CFI CFA_Y Y+2
+        LD      R31, Y+
+          CFI R31 SameValue
+          CFI CFA_Y Y+1
+        LD      R24, Y+
+          CFI R24 SameValue
+          CFI CFA_Y Y+0
+        RETI
+          CFI EndBlock cfiBlock0
+        REQUIRE _A_ADC
+        REQUIRE _A_ADMUX
+        REQUIRE _A_ADCSRA
+//   73 
+//   74 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   75 void ADC_Get_Standard_Pressure_Value(void)
+ADC_Get_Standard_Pressure_Value:
+          CFI Block cfiBlock1 Using cfiCommon1
+          CFI Function ADC_Get_Standard_Pressure_Value
+//   76 {
+//   77   
+//   78   uint16_t Temp_Value;
+//   79   
+//   80   /* 40~ 60 - 5point 
+//   81   Temp_Value = (ADC_Standard_Set_Value/250);// 분해능 1000/250 = 4 
+//   82   Standard_Pressure_Value = 40+ Temp_Value*5; // 4 * 5 = 20 
+//   83   */
+//   84   /* 40~60 - 1point  */
+//   85   Temp_Value = (ADC_Standard_Set_Value/50);// 분해능 1000/50 = 20 
+        LDI     R20, 50
+        LDI     R21, 0
+        LDI     R30, LOW(ADC_Standard_Set_Value)
+        LDI     R31, (ADC_Standard_Set_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+          CFI FunCall ?US_DIVMOD_L02
+        CALL    ?US_DIVMOD_L02
+//   86   Standard_Pressure_Value = 40+ Temp_Value;
+        SUBI    R16, 216
+        SBCI    R17, 255
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        ST      Z, R16
+        STD     Z+1, R17
+//   87   
+//   88   /* 70~80 - 1point  
+//   89   Temp_Value = (ADC_Standard_Set_Value/50);// 분해능 1000/50 = 20 
+//   90   Standard_Pressure_Value = 70+ Temp_Value;  
+//   91   */
+//   92   /* 20~80 - 1point 
+//   93   Temp_Value = (ADC_Standard_Set_Value/16);// 분해능 1000/16 = 60
+//   94   Standard_Pressure_Value = 20+ Temp_Value; 
+//   95   */
+//   96   if(Standard_Pressure_Value!=Stadnard_Pressure_OldValue){    
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(Stadnard_Pressure_OldValue)
+        LDI     R31, (Stadnard_Pressure_OldValue) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        CP      R16, R18
+        CPC     R17, R19
+        BREQ    ??ADC_Get_Standard_Pressure_Value_0
+//   97 
+//   98     Display_Delay_Cnt=0;
+        LDI     R30, LOW(Display_Delay_Cnt)
+        LDI     R31, (Display_Delay_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//   99     Display_Mode = D_Standard_Setting_Mode;
+        LDI     R16, 3
+        STS     Display_Mode, R16
+//  100     Stadnard_Pressure_OldValue=Standard_Pressure_Value;
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(Stadnard_Pressure_OldValue)
+        LDI     R31, (Stadnard_Pressure_OldValue) >> 8
+        ST      Z, R16
+        STD     Z+1, R17
+//  101   }
+//  102   
+//  103   //Standard_Pressure_Value = 50;
+//  104   
+//  105 }
+??ADC_Get_Standard_Pressure_Value_0:
+        RET
+          CFI EndBlock cfiBlock1
+//  106 
+//  107 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  108 void ADC_Delay_Timer(void)
+ADC_Delay_Timer:
+          CFI Block cfiBlock2 Using cfiCommon1
+          CFI Function ADC_Delay_Timer
+          CFI NoCalls
+//  109 {
+        MOVW    R19:R18, R27:R26
+//  110   //__disable_interrupt();
+//  111   if(ADC_Delay_Timer_Reg==1){
+        LDS     R16, ADC_Delay_Timer_Reg
+        CPI     R16, 1
+        BRNE    ??ADC_Delay_Timer_0
+//  112     ADC_Delay_Timer_Cnt++;
+        LDI     R30, LOW(ADC_Delay_Timer_Cnt)
+        LDI     R31, (ADC_Delay_Timer_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        SUBI    R16, 255
+        SBCI    R17, 255
+        ST      Z, R16
+        STD     Z+1, R17
+//  113     if(ADC_Delay_Timer_Cnt>2){
+        LDI     R26, LOW(ADC_Delay_Timer_Cnt)
+        LDI     R27, (ADC_Delay_Timer_Cnt) >> 8
+        LD      R30, X+
+        LD      R31, X
+        SBIW    R31:R30, 3
+        BRCS    ??ADC_Delay_Timer_0
+//  114       ADC_Delay_Timer_Reg=2;
+        LDI     R16, 2
+        STS     ADC_Delay_Timer_Reg, R16
+//  115       ADC_Delay_Timer_Cnt=0;
+        LDI     R30, LOW(ADC_Delay_Timer_Cnt)
+        LDI     R31, (ADC_Delay_Timer_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//  116 
+//  117     ADCSRA =ADCA_SETTING;
+        LDI     R16, 204
+        STS     _A_ADCSRA, R16
+//  118 
+//  119       //ADCSRA = ADCA_SETTING; //ADC_START
+//  120     }
+//  121   }
+//  122   //__enable_interrupt();
+//  123 }
+??ADC_Delay_Timer_0:
+        MOVW    R27:R26, R19:R18
+          CFI R26 R18
+        RET
+          CFI EndBlock cfiBlock2
+        REQUIRE _A_ADCSRA
+//  124 
+//  125 
+//  126 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  127 void ADC_Auto_Zero_Process(void)
+ADC_Auto_Zero_Process:
+          CFI Block cfiBlock3 Using cfiCommon1
+          CFI Function ADC_Auto_Zero_Process
+//  128 {
+//  129 
+//  130   
+//  131   //if(abs(Pressure_PA_Value)<50){ // Modify 2020-07-06
+//  132 
+//  133     __disable_interrupt();
+        CLI
+//  134     ADC_AutoZero_Point = Pressure_PA_Value;
+        LDI     R30, LOW(Pressure_PA_Value)
+        LDI     R31, (Pressure_PA_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(ADC_AutoZero_Point)
+        LDI     R31, (ADC_AutoZero_Point) >> 8
+        ST      Z, R16
+        STD     Z+1, R17
+//  135     __enable_interrupt();
+        SEI
+//  136     EEP_AutoZero_ADC_Point = ADC_AutoZero_Point;
+        LDI     R30, LOW(ADC_AutoZero_Point)
+        LDI     R31, (ADC_AutoZero_Point) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R20, LOW(EEP_AutoZero_ADC_Point)
+        LDI     R21, (EEP_AutoZero_ADC_Point) >> 8
+          CFI FunCall __eeput16_16
+        CALL    __eeput16_16
+//  137     
+//  138 /*
+//  139     if(Real_Pressure_Value>=0){
+//  140       ADC_AutoZero_Point = Real_Pressure_Value;
+//  141 
+//  142     }
+//  143     else {
+//  144       
+//  145 
+//  146     }*/
+//  147     Display_Delay_Cnt=0;
+        LDI     R30, LOW(Display_Delay_Cnt)
+        LDI     R31, (Display_Delay_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//  148     Display_Mode=D_AutoZero_Mode;
+        LDI     R16, 4
+        STS     Display_Mode, R16
+//  149   //}
+//  150 
+//  151 }
+        RET
+          CFI EndBlock cfiBlock3
+//  152 
+//  153 
+//  154 
+//  155 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  156 void ADC_Initialize(void)
+ADC_Initialize:
+          CFI Block cfiBlock4 Using cfiCommon1
+          CFI Function ADC_Initialize
+          CFI NoCalls
+//  157 {
+//  158 
+//  159   //ADCSRA = ADCA_SETTING;
+//  160   
+//  161 //#if MCU_TYPE
+//  162     //ADCSR =ADCA_SETTING;
+//  163 //#else 
+//  164     ADCSRA =ADCA_SETTING;
+        LDI     R16, 204
+        STS     _A_ADCSRA, R16
+//  165 //#endif    
+//  166     
+//  167   //ADCSRA = ADCA_SETTING; //ADC_START
+//  168   ADMUX = 0x40; // AREF, ADC5 Pressrue Value input
+        LDI     R16, 64
+        STS     _A_ADMUX, R16
+//  169   
+//  170 }
+        RET
+          CFI EndBlock cfiBlock4
+        REQUIRE _A_ADCSRA
+        REQUIRE _A_ADMUX
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        COMMON INTVEC:CODE:ROOT(1)
+        ORG 84
+`??ADC_CONVERSION_VECT::??INTVEC 84`:
+        JMP     ADC_CONVERSION_VECT
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_Z>`:
+        DC16    SFE(NEAR_Z) - SFB(NEAR_Z)
+        DC16    SFB(NEAR_Z)
+        DC16    0
+        REQUIRE ?need_segment_init
+
+        END
+//  171 
+// 
+//   4 bytes in segment ABSOLUTE
+// 482 bytes in segment CODE
+//   2 bytes in segment EEPROM_N
+//   6 bytes in segment INITTAB
+//   4 bytes in segment INTVEC
+//  20 bytes in segment NEAR_Z
+// 
+// 482 bytes of CODE  memory (+ 10 bytes shared)
+//  20 bytes of DATA  memory (+  4 bytes shared)
+//   2 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

@@ -1,0 +1,1216 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR       27/Dec/2020  15:41:44
+# Copyright 1996-2019 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for Atmel AVR
+#
+#    Source file  =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\fnd_display.c
+#    Command line =  
+#        -f C:\Users\troubard\AppData\Local\Temp\EW4CB.tmp
+#        ("C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\fnd_display.c" --cpu=m168pa
+#        -ms -o "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove
+#        Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj" -lC
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List" -lA
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List"
+#        --initializers_in_flash --no_cse --no_inline --no_code_motion
+#        --no_cross_call --no_clustering --no_tbaa --debug -e -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\" --eeprom_size 512 --dlib
+#        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
+#    Locale       =  Korean_KOR.949
+#    List file    =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List\fnd_display.lst
+#    Object file  =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\fnd_display.r90
+#
+###############################################################################
+
+C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\fnd_display.c
+      1          #include "include.h"
+
+   \                                 In  segment ABSOLUTE, at 0x2b
+   \   union <unnamed> volatile __io _A_PORTD
+   \                     _A_PORTD:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x29
+   \   union <unnamed> volatile __io _A_PIND
+   \                     _A_PIND:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x25
+   \   union <unnamed> volatile __io _A_PORTB
+   \                     _A_PORTB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x23
+   \   union <unnamed> volatile __io _A_PINB
+   \                     _A_PINB:
+   \   00000000                      DS8 1
+      2          
+      3          
+      4          //#define START_PORT_VALUE 0x10
+      5          
+
+   \                                 In  segment NEAR_I, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_I>`
+      6          uint8_t FND_char[12] =
+   \                     FND_char:
+   \   00000000                      DS8 12
+   \   0000000C                      REQUIRE `?<Initializer for FND_char>`
+      7          { 0xFC, 0x60, 0xDA, 0xF2, 0x66, 0xB6, 0xBE, 0xE4, 0xFE, 0xF6, 0x02, 0x00 };
+      8          // 표시할 FND 0 ~ 9까지 배열값
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+      9          uint8_t FND_value[3];         // FND 표시값
+   \                     FND_value:
+   \   00000000                      DS8 3
+     10          //unsigned char FND_select[3] = { 0xDC, 0xBC, 0x7C };
+     11          //unsigned char FND_select[3] = { 0x0B, 0x0D, 0x0E };
+
+   \                                 In  segment NEAR_I, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_I>`
+     12          uint8_t FND_select[3] = { 0xC0,0xA0,0x60};
+   \                     FND_select:
+   \   00000000                      DS8 3
+   \   00000003                      REQUIRE `?<Initializer for FND_select>`
+     13                                              // FND C1 ~ C3 1개씩 선택
+     14          
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     15          uint8_t Display_Mode;
+   \                     Display_Mode:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     16          uint8_t Display_Number_Enable;
+   \                     Display_Number_Enable:
+   \   00000000                      DS8 1
+     17          
+     18          //-------------------------------------------------------------------
+     19          //                              FND Display
+     20          //-------------------------------------------------------------------
+     21          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     22          void FND_NUMtoCHAR_Transfer(int16_t reg)
+   \                     FND_NUMtoCHAR_Transfer:
+     23          {
+   \   00000000   939A               ST      -Y, R25
+   \   00000002   938A               ST      -Y, R24
+   \   00000004   0198               MOVW    R19:R18, R17:R16
+     24          
+     25            unsigned char a, b, c;
+     26          
+     27            if(reg>=0){
+   \   00000006   2333               TST     R19
+   \   00000008   F1B2               BRMI    ??FND_NUMtoCHAR_Transfer_0
+     28          
+     29              a = reg / 100;
+   \   0000000A   E644               LDI     R20, 100
+   \   0000000C   E050               LDI     R21, 0
+   \   0000000E   0189               MOVW    R17:R16, R19:R18
+   \   00000010   ........           CALL    ?SS_DIVMOD_L02
+   \   00000014   2F60               MOV     R22, R16
+     30              reg = reg % 100;
+   \   00000016   E644               LDI     R20, 100
+   \   00000018   E050               LDI     R21, 0
+   \   0000001A   0189               MOVW    R17:R16, R19:R18
+   \   0000001C   ........           CALL    ?SS_DIVMOD_L02
+   \   00000020   019A               MOVW    R19:R18, R21:R20
+     31          
+     32              b = reg / 10;
+   \   00000022   E04A               LDI     R20, 10
+   \   00000024   E050               LDI     R21, 0
+   \   00000026   0189               MOVW    R17:R16, R19:R18
+   \   00000028   ........           CALL    ?SS_DIVMOD_L02
+   \   0000002C   2F80               MOV     R24, R16
+     33              reg = reg % 10;
+   \   0000002E   E04A               LDI     R20, 10
+   \   00000030   E050               LDI     R21, 0
+   \   00000032   0189               MOVW    R17:R16, R19:R18
+   \   00000034   ........           CALL    ?SS_DIVMOD_L02
+   \   00000038   019A               MOVW    R19:R18, R21:R20
+     34          
+     35              if ( a == 0 ) a = 11;
+   \   0000003A   2366               TST     R22
+   \   0000003C   F409               BRNE    ??FND_NUMtoCHAR_Transfer_1
+   \   0000003E   E06B               LDI     R22, 11
+     36          
+     37              if ( ( a == 11 ) && ( b == 0 ) ) b = 11;
+   \                     ??FND_NUMtoCHAR_Transfer_1:
+   \   00000040   306B               CPI     R22, 11
+   \   00000042   F419               BRNE    ??FND_NUMtoCHAR_Transfer_2
+   \   00000044   2388               TST     R24
+   \   00000046   F409               BRNE    ??FND_NUMtoCHAR_Transfer_2
+   \   00000048   E08B               LDI     R24, 11
+     38          
+     39              c = reg;
+     40          
+     41              FND_value[0] = FND_char[a];
+   \                     ??FND_NUMtoCHAR_Transfer_2:
+   \   0000004A   E070               LDI     R23, 0
+   \   0000004C   01FB               MOVW    R31:R30, R23:R22
+   \   0000004E   ....               SUBI    R30, LOW((-(FND_char) & 0xFFFF))
+   \   00000050   ....               SBCI    R31, (-(FND_char) & 0xFFFF) >> 8
+   \   00000052   8100               LD      R16, Z
+   \   00000054   9300....           STS     FND_value, R16
+     42              FND_value[1] = FND_char[b];
+   \   00000058   E090               LDI     R25, 0
+   \   0000005A   01FC               MOVW    R31:R30, R25:R24
+   \   0000005C   ....               SUBI    R30, LOW((-(FND_char) & 0xFFFF))
+   \   0000005E   ....               SBCI    R31, (-(FND_char) & 0xFFFF) >> 8
+   \   00000060   8100               LD      R16, Z
+   \   00000062   9300....           STS     (FND_value + 1), R16
+     43              FND_value[2] = FND_char[c];
+   \   00000066   E030               LDI     R19, 0
+   \   00000068   01F9               MOVW    R31:R30, R19:R18
+   \   0000006A   ....               SUBI    R30, LOW((-(FND_char) & 0xFFFF))
+   \   0000006C   ....               SBCI    R31, (-(FND_char) & 0xFFFF) >> 8
+   \   0000006E   8100               LD      R16, Z
+   \   00000070   9300....           STS     (FND_value + 2), R16
+   \   00000074   C028               RJMP    ??FND_NUMtoCHAR_Transfer_3
+     44            }
+     45            else {
+     46          
+     47              if(reg>(-100)){
+   \                     ??FND_NUMtoCHAR_Transfer_0:
+   \   00000076   392D               CPI     R18, 157
+   \   00000078   EF0F               LDI     R16, 255
+   \   0000007A   0730               CPC     R19, R16
+   \   0000007C   F124               BRLT    ??FND_NUMtoCHAR_Transfer_3
+     48                reg = abs(reg);
+   \   0000007E   0189               MOVW    R17:R16, R19:R18
+   \   00000080   ........           CALL    abs
+   \   00000084   0198               MOVW    R19:R18, R17:R16
+     49          
+     50                b = reg / 10;
+   \   00000086   E04A               LDI     R20, 10
+   \   00000088   E050               LDI     R21, 0
+   \   0000008A   0189               MOVW    R17:R16, R19:R18
+   \   0000008C   ........           CALL    ?SS_DIVMOD_L02
+   \   00000090   2F80               MOV     R24, R16
+     51                reg = reg % 10;
+   \   00000092   E04A               LDI     R20, 10
+   \   00000094   E050               LDI     R21, 0
+   \   00000096   0189               MOVW    R17:R16, R19:R18
+   \   00000098   ........           CALL    ?SS_DIVMOD_L02
+   \   0000009C   019A               MOVW    R19:R18, R21:R20
+     52          
+     53                if ( b == 0 ) b = 11;
+   \   0000009E   2388               TST     R24
+   \   000000A0   F409               BRNE    ??FND_NUMtoCHAR_Transfer_4
+   \   000000A2   E08B               LDI     R24, 11
+     54          
+     55                c = reg;
+     56          
+     57                FND_value[0] = 0x02;
+   \                     ??FND_NUMtoCHAR_Transfer_4:
+   \   000000A4   E002               LDI     R16, 2
+   \   000000A6   9300....           STS     FND_value, R16
+     58                FND_value[1] = FND_char[b];
+   \   000000AA   E090               LDI     R25, 0
+   \   000000AC   01FC               MOVW    R31:R30, R25:R24
+   \   000000AE   ....               SUBI    R30, LOW((-(FND_char) & 0xFFFF))
+   \   000000B0   ....               SBCI    R31, (-(FND_char) & 0xFFFF) >> 8
+   \   000000B2   8100               LD      R16, Z
+   \   000000B4   9300....           STS     (FND_value + 1), R16
+     59                FND_value[2] = FND_char[c];
+   \   000000B8   E030               LDI     R19, 0
+   \   000000BA   01F9               MOVW    R31:R30, R19:R18
+   \   000000BC   ....               SUBI    R30, LOW((-(FND_char) & 0xFFFF))
+   \   000000BE   ....               SBCI    R31, (-(FND_char) & 0xFFFF) >> 8
+   \   000000C0   8100               LD      R16, Z
+   \   000000C2   9300....           STS     (FND_value + 2), R16
+     60              }
+     61              else {
+     62          
+     63          
+     64              }
+     65            }
+     66          }
+   \                     ??FND_NUMtoCHAR_Transfer_3:
+   \   000000C6   9189               LD      R24, Y+
+   \   000000C8   9199               LD      R25, Y+
+   \   000000CA   9508               RET
+     67          
+     68          
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     69          unsigned int Fnd_Display_Cnt;
+   \                     Fnd_Display_Cnt:
+   \   00000000                      DS8 2
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     70          unsigned int Fnd_Digit_Mode;
+   \                     Fnd_Digit_Mode:
+   \   00000000                      DS8 2
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     71          unsigned int DISPLAY_MASK;
+   \                     DISPLAY_MASK:
+   \   00000000                      DS8 2
+     72          
+     73          
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     74          uint8_t SYSTEM_MODE;
+   \                     SYSTEM_MODE:
+   \   00000000                      DS8 1
+     75          
+     76          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     77          void Fnd_Flicking_Rutine(uint8_t Fnd_Fir_Digit_Value,
+   \                     Fnd_Flicking_Rutine:
+     78                                              uint8_t Fnd_Sec_Digit_Value,
+     79                                              uint8_t Fnd_thi_Digit_Value)
+     80          {
+     81            
+     82            if(Display_Delay_Cnt<1000){
+   \   00000000   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   00000002   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   00000004   8140               LD      R20, Z
+   \   00000006   8151               LDD     R21, Z+1
+   \   00000008   3E48               CPI     R20, 232
+   \   0000000A   E033               LDI     R19, 3
+   \   0000000C   0753               CPC     R21, R19
+   \   0000000E   F438               BRCC    ??Fnd_Flicking_Rutine_0
+     83              FND_value[0] = Fnd_Fir_Digit_Value;            // -
+   \   00000010   9300....           STS     FND_value, R16
+     84              FND_value[1] = Fnd_Sec_Digit_Value;            // -
+   \   00000014   9310....           STS     (FND_value + 1), R17
+     85              FND_value[2] = Fnd_thi_Digit_Value;            // -
+   \   00000018   9320....           STS     (FND_value + 2), R18
+   \   0000001C   9508               RET
+     86            }
+     87            else if((Display_Delay_Cnt>=1000)&&(Display_Delay_Cnt<2000)){
+   \                     ??Fnd_Flicking_Rutine_0:
+   \   0000001E   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   00000020   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   00000022   8140               LD      R20, Z
+   \   00000024   8151               LDD     R21, Z+1
+   \   00000026   5E48               SUBI    R20, 232
+   \   00000028   4053               SBCI    R21, 3
+   \   0000002A   3E48               CPI     R20, 232
+   \   0000002C   E033               LDI     R19, 3
+   \   0000002E   0753               CPC     R21, R19
+   \   00000030   F450               BRCC    ??Fnd_Flicking_Rutine_1
+     88              FND_value[0] = 0x00;           // 
+   \   00000032   E000               LDI     R16, 0
+   \   00000034   9300....           STS     FND_value, R16
+     89              FND_value[1] = 0x00;           // 
+   \   00000038   E000               LDI     R16, 0
+   \   0000003A   9300....           STS     (FND_value + 1), R16
+     90              FND_value[2] = 0x00;           //  
+   \   0000003E   E000               LDI     R16, 0
+   \   00000040   9300....           STS     (FND_value + 2), R16
+   \   00000044   9508               RET
+     91            }
+     92            else if((Display_Delay_Cnt>=2000)&&(Display_Delay_Cnt<3000)){
+   \                     ??Fnd_Flicking_Rutine_1:
+   \   00000046   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   00000048   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   0000004A   8140               LD      R20, Z
+   \   0000004C   8151               LDD     R21, Z+1
+   \   0000004E   5D40               SUBI    R20, 208
+   \   00000050   4057               SBCI    R21, 7
+   \   00000052   3E48               CPI     R20, 232
+   \   00000054   E033               LDI     R19, 3
+   \   00000056   0753               CPC     R21, R19
+   \   00000058   F438               BRCC    ??Fnd_Flicking_Rutine_2
+     93              FND_value[0] = Fnd_Fir_Digit_Value;            // -
+   \   0000005A   9300....           STS     FND_value, R16
+     94              FND_value[1] = Fnd_Sec_Digit_Value;            // -
+   \   0000005E   9310....           STS     (FND_value + 1), R17
+     95              FND_value[2] = Fnd_thi_Digit_Value;            // -
+   \   00000062   9320....           STS     (FND_value + 2), R18
+   \   00000066   9508               RET
+     96            }
+     97            else if((Display_Delay_Cnt>=3000)&&(Display_Delay_Cnt<4000)){
+   \                     ??Fnd_Flicking_Rutine_2:
+   \   00000068   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   0000006A   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   0000006C   8100               LD      R16, Z
+   \   0000006E   8111               LDD     R17, Z+1
+   \   00000070   5B08               SUBI    R16, 184
+   \   00000072   401B               SBCI    R17, 11
+   \   00000074   3E08               CPI     R16, 232
+   \   00000076   E023               LDI     R18, 3
+   \   00000078   0712               CPC     R17, R18
+   \   0000007A   F450               BRCC    ??Fnd_Flicking_Rutine_3
+     98              FND_value[0] = 0x00;           // 
+   \   0000007C   E000               LDI     R16, 0
+   \   0000007E   9300....           STS     FND_value, R16
+     99              FND_value[1] = 0x00;           // 
+   \   00000082   E000               LDI     R16, 0
+   \   00000084   9300....           STS     (FND_value + 1), R16
+    100              FND_value[2] = 0x00;           //  
+   \   00000088   E000               LDI     R16, 0
+   \   0000008A   9300....           STS     (FND_value + 2), R16
+   \   0000008E   9508               RET
+    101            }
+    102            else if(Display_Delay_Cnt>4000){
+   \                     ??Fnd_Flicking_Rutine_3:
+   \   00000090   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   00000092   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   00000094   8100               LD      R16, Z
+   \   00000096   8111               LDD     R17, Z+1
+   \   00000098   3A01               CPI     R16, 161
+   \   0000009A   E02F               LDI     R18, 15
+   \   0000009C   0712               CPC     R17, R18
+   \   0000009E   F048               BRCS    ??Fnd_Flicking_Rutine_4
+    103              Display_Delay_Cnt=0;
+   \   000000A0   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   000000A2   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   000000A4   E000               LDI     R16, 0
+   \   000000A6   8300               ST      Z, R16
+   \   000000A8   E000               LDI     R16, 0
+   \   000000AA   8301               STD     Z+1, R16
+    104              Display_Mode=D_Init_Mode;
+   \   000000AC   E000               LDI     R16, 0
+   \   000000AE   9300....           STS     Display_Mode, R16
+    105            }      
+    106          
+    107          }
+   \                     ??Fnd_Flicking_Rutine_4:
+   \   000000B2   9508               RET
+    108          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    109          void Fnd_Display_Timer(void)
+   \                     Fnd_Display_Timer:
+    110          {
+    111          
+    112            switch(Display_Mode){
+   \   00000000   9100....           LDS     R16, Display_Mode
+   \   00000004   5000               SUBI    R16, 0
+   \   00000006   F051               BREQ    ??Fnd_Display_Timer_0
+   \   00000008   950A               DEC     R16
+   \   0000000A   F111               BREQ    ??Fnd_Display_Timer_1
+   \   0000000C   950A               DEC     R16
+   \   0000000E   F169               BREQ    ??Fnd_Display_Timer_2
+   \   00000010   950A               DEC     R16
+   \   00000012   F1C1               BREQ    ??Fnd_Display_Timer_3
+   \   00000014   950A               DEC     R16
+   \   00000016   F409               BRNE    $+2+2
+   \   00000018   C04F               RJMP    ??Fnd_Display_Timer_4
+   \   0000001A   9508               RET
+    113            case D_Init_Mode:
+    114          
+    115              Display_Delay_Cnt++;
+   \                     ??Fnd_Display_Timer_0:
+   \   0000001C   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   0000001E   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   00000020   8100               LD      R16, Z
+   \   00000022   8111               LDD     R17, Z+1
+   \   00000024   5F0F               SUBI    R16, 255
+   \   00000026   4F1F               SBCI    R17, 255
+   \   00000028   8300               ST      Z, R16
+   \   0000002A   8311               STD     Z+1, R17
+    116              if(Display_Delay_Cnt>2000){// 0.2 X 2000 = 400ms
+   \   0000002C   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   0000002E   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   00000030   8100               LD      R16, Z
+   \   00000032   8111               LDD     R17, Z+1
+   \   00000034   3D01               CPI     R16, 209
+   \   00000036   E027               LDI     R18, 7
+   \   00000038   0712               CPC     R17, R18
+   \   0000003A   F048               BRCS    ??Fnd_Display_Timer_5
+    117                Display_Number_Enable=1;
+   \   0000003C   E001               LDI     R16, 1
+   \   0000003E   9300....           STS     Display_Number_Enable, R16
+    118                Display_Delay_Cnt=0;
+   \   00000042   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   00000044   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   00000046   E000               LDI     R16, 0
+   \   00000048   8300               ST      Z, R16
+   \   0000004A   E000               LDI     R16, 0
+   \   0000004C   8301               STD     Z+1, R16
+    119              }      
+    120          
+    121              break;
+   \                     ??Fnd_Display_Timer_5:
+   \   0000004E   9508               RET
+    122            case D_Zero_Setting_Mode:
+    123              if(System_Mode!=S_RUN_MODE){
+   \                     ??Fnd_Display_Timer_1:
+   \   00000050   9100....           LDS     R16, System_Mode
+   \   00000054   3001               CPI     R16, 1
+   \   00000056   F1E1               BREQ    ??Fnd_Display_Timer_6
+    124          
+    125                Display_Delay_Cnt++;
+   \   00000058   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   0000005A   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   0000005C   8100               LD      R16, Z
+   \   0000005E   8111               LDD     R17, Z+1
+   \   00000060   5F0F               SUBI    R16, 255
+   \   00000062   4F1F               SBCI    R17, 255
+   \   00000064   8300               ST      Z, R16
+   \   00000066   8311               STD     Z+1, R17
+    126                //Fnd_Flicking_Rutine(FND_Z,FND__,FND_Z);
+    127              }
+    128              break;
+   \   00000068   9508               RET
+    129            case D_High_Setting_Mode:
+    130              if(System_Mode!=S_RUN_MODE){
+   \                     ??Fnd_Display_Timer_2:
+   \   0000006A   9100....           LDS     R16, System_Mode
+   \   0000006E   3001               CPI     R16, 1
+   \   00000070   F179               BREQ    ??Fnd_Display_Timer_6
+    131          
+    132                Display_Delay_Cnt++;
+   \   00000072   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   00000074   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   00000076   8100               LD      R16, Z
+   \   00000078   8111               LDD     R17, Z+1
+   \   0000007A   5F0F               SUBI    R16, 255
+   \   0000007C   4F1F               SBCI    R17, 255
+   \   0000007E   8300               ST      Z, R16
+   \   00000080   8311               STD     Z+1, R17
+    133                //Fnd_Flicking_Rutine(FND_H,FND__,FND_H);
+    134              }
+    135              break;
+   \   00000082   9508               RET
+    136            case D_Standard_Setting_Mode:
+    137              Display_Delay_Cnt++;
+   \                     ??Fnd_Display_Timer_3:
+   \   00000084   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   00000086   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   00000088   8100               LD      R16, Z
+   \   0000008A   8111               LDD     R17, Z+1
+   \   0000008C   5F0F               SUBI    R16, 255
+   \   0000008E   4F1F               SBCI    R17, 255
+   \   00000090   8300               ST      Z, R16
+   \   00000092   8311               STD     Z+1, R17
+    138              
+    139              if(Display_Delay_Cnt>5000){
+   \   00000094   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   00000096   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   00000098   8100               LD      R16, Z
+   \   0000009A   8111               LDD     R17, Z+1
+   \   0000009C   3809               CPI     R16, 137
+   \   0000009E   E123               LDI     R18, 19
+   \   000000A0   0712               CPC     R17, R18
+   \   000000A2   F0B0               BRCS    ??Fnd_Display_Timer_6
+    140                Display_Delay_Cnt=0;
+   \   000000A4   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   000000A6   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   000000A8   E000               LDI     R16, 0
+   \   000000AA   8300               ST      Z, R16
+   \   000000AC   E000               LDI     R16, 0
+   \   000000AE   8301               STD     Z+1, R16
+    141                Display_Mode=D_Init_Mode;
+   \   000000B0   E000               LDI     R16, 0
+   \   000000B2   9300....           STS     Display_Mode, R16
+    142              }
+    143          
+    144              break;
+   \   000000B6   9508               RET
+    145            case D_AutoZero_Mode:
+    146          
+    147              Display_Delay_Cnt++;
+   \                     ??Fnd_Display_Timer_4:
+   \   000000B8   ....               LDI     R30, LOW(Display_Delay_Cnt)
+   \   000000BA   ....               LDI     R31, (Display_Delay_Cnt) >> 8
+   \   000000BC   8100               LD      R16, Z
+   \   000000BE   8111               LDD     R17, Z+1
+   \   000000C0   5F0F               SUBI    R16, 255
+   \   000000C2   4F1F               SBCI    R17, 255
+   \   000000C4   8300               ST      Z, R16
+   \   000000C6   8311               STD     Z+1, R17
+    148              Fnd_Flicking_Rutine(0x02,0x02,0x02);
+   \   000000C8   E022               LDI     R18, 2
+   \   000000CA   E012               LDI     R17, 2
+   \   000000CC   E002               LDI     R16, 2
+   \   000000CE   ....               RCALL   Fnd_Flicking_Rutine
+    149              break;
+    150              
+    151            }
+    152          
+    153          
+    154          }
+   \                     ??Fnd_Display_Timer_6:
+   \   000000D0   9508               RET
+    155          
+    156          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    157          void Fnd_Display(void)
+   \                     Fnd_Display:
+    158          {
+    159          
+    160            //FND_NUMtoCHAR_Transfer(123);
+    161          
+    162          
+    163          
+    164            switch(Display_Mode){
+   \   00000000   9100....           LDS     R16, Display_Mode
+   \   00000004   5000               SUBI    R16, 0
+   \   00000006   F051               BREQ    ??Fnd_Display_0
+   \   00000008   950A               DEC     R16
+   \   0000000A   F409               BRNE    $+2+2
+   \   0000000C   C04C               RJMP    ??Fnd_Display_1
+   \   0000000E   950A               DEC     R16
+   \   00000010   F409               BRNE    $+2+2
+   \   00000012   C049               RJMP    ??Fnd_Display_1
+   \   00000014   950A               DEC     R16
+   \   00000016   F409               BRNE    $+2+2
+   \   00000018   C041               RJMP    ??Fnd_Display_2
+   \   0000001A   9508               RET
+    165            case D_Init_Mode:
+    166          
+    167              switch(System_Mode){
+   \                     ??Fnd_Display_0:
+   \   0000001C   9100....           LDS     R16, System_Mode
+   \   00000020   5000               SUBI    R16, 0
+   \   00000022   F021               BREQ    ??Fnd_Display_3
+   \   00000024   950A               DEC     R16
+   \   00000026   F031               BREQ    ??Fnd_Display_4
+   \   00000028   950A               DEC     R16
+   \   0000002A   F5B9               BRNE    ??Fnd_Display_5
+    168              case S_INIT_MODE:
+    169              case S_STOP_MODE:
+    170                FND_NUMtoCHAR_Transfer(0);
+   \                     ??Fnd_Display_3:
+   \   0000002C   E000               LDI     R16, 0
+   \   0000002E   E010               LDI     R17, 0
+   \   00000030   ....               RCALL   FND_NUMtoCHAR_Transfer
+    171                //FND_value[0] = FND_o;
+    172                //FND_value[1] = FND_F;
+    173                //FND_value[2] = FND_F;
+    174                break;
+   \   00000032   9508               RET
+    175              case S_RUN_MODE:
+    176                if(Display_Number_Enable==1){
+   \                     ??Fnd_Display_4:
+   \   00000034   9100....           LDS     R16, Display_Number_Enable
+   \   00000038   3001               CPI     R16, 1
+   \   0000003A   F5A9               BRNE    ??Fnd_Display_1
+    177                  Display_Number_Enable=0;
+   \   0000003C   E000               LDI     R16, 0
+   \   0000003E   9300....           STS     Display_Number_Enable, R16
+    178                  if(Real_Pressure_Value<=200){
+   \   00000042   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   00000044   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   00000046   8100               LD      R16, Z
+   \   00000048   8111               LDD     R17, Z+1
+   \   0000004A   3C09               CPI     R16, 201
+   \   0000004C   E020               LDI     R18, 0
+   \   0000004E   0712               CPC     R17, R18
+   \   00000050   F484               BRGE    ??Fnd_Display_6
+    179                    if(abs(Real_Pressure_Value)<6)// 0~5 ==> Dispaly 0
+   \   00000052   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   00000054   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   00000056   8100               LD      R16, Z
+   \   00000058   8111               LDD     R17, Z+1
+   \   0000005A   ........           CALL    abs
+   \   0000005E   3006               CPI     R16, 6
+   \   00000060   4010               SBCI    R17, 0
+   \   00000062   F46C               BRGE    ??Fnd_Display_7
+    180                      Real_Pressure_Value=0;
+   \   00000064   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   00000066   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   00000068   E000               LDI     R16, 0
+   \   0000006A   8300               ST      Z, R16
+   \   0000006C   E000               LDI     R16, 0
+   \   0000006E   8301               STD     Z+1, R16
+   \   00000070   C006               RJMP    ??Fnd_Display_7
+    181                  }
+    182                  else {
+    183                    Real_Pressure_Value = 200;
+   \                     ??Fnd_Display_6:
+   \   00000072   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   00000074   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   00000076   EC08               LDI     R16, 200
+   \   00000078   E010               LDI     R17, 0
+   \   0000007A   8300               ST      Z, R16
+   \   0000007C   8311               STD     Z+1, R17
+    184                  }
+    185                  if(Real_Pressure_Value<0)// disable minus (negative) number
+   \                     ??Fnd_Display_7:
+   \   0000007E   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   00000080   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   00000082   8111               LDD     R17, Z+1
+   \   00000084   2311               TST     R17
+   \   00000086   F422               BRPL    ??Fnd_Display_8
+    186                    FND_NUMtoCHAR_Transfer(0);
+   \   00000088   E000               LDI     R16, 0
+   \   0000008A   E010               LDI     R17, 0
+   \   0000008C   ....               RCALL   FND_NUMtoCHAR_Transfer
+   \   0000008E   9508               RET
+    187                  else 
+    188                    FND_NUMtoCHAR_Transfer(Real_Pressure_Value);
+   \                     ??Fnd_Display_8:
+   \   00000090   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   00000092   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   00000094   8100               LD      R16, Z
+   \   00000096   8111               LDD     R17, Z+1
+   \   00000098   ....               RCALL   FND_NUMtoCHAR_Transfer
+    189                }
+    190                break;
+    191              }    
+    192              break;
+   \                     ??Fnd_Display_5:
+   \   0000009A   9508               RET
+    193              
+    194            case D_Zero_Setting_Mode:
+    195              break;
+    196            case D_High_Setting_Mode:
+    197              break;
+    198            case D_Standard_Setting_Mode:
+    199              FND_NUMtoCHAR_Transfer(Standard_Pressure_Value);
+   \                     ??Fnd_Display_2:
+   \   0000009C   ....               LDI     R30, LOW(Standard_Pressure_Value)
+   \   0000009E   ....               LDI     R31, (Standard_Pressure_Value) >> 8
+   \   000000A0   8100               LD      R16, Z
+   \   000000A2   8111               LDD     R17, Z+1
+   \   000000A4   ....               RCALL   FND_NUMtoCHAR_Transfer
+    200              break;
+    201            }
+    202          
+    203          
+    204          
+    205            
+    206          /*
+    207            switch(Display_Mode){
+    208            case D_Init_Mode:      
+    209              if(System_Mode==S_Run_Mode){
+    210                if(Display_Number_Enable==1){
+    211                  if(Real_Pressure_Value<200){
+    212          
+    213                    if(abs(Real_Pressure_Value)<3){
+    214                      FND_NUMtoCHAR_Transfer(0);
+    215                    }
+    216                    else {
+    217                      FND_NUMtoCHAR_Transfer(Real_Pressure_Value);
+    218                    }
+    219          
+    220                  }
+    221                  else {
+    222                    FND_value[0]=FND_P;
+    223                    FND_value[1]=FND__;
+    224                    FND_value[2]=FND_u;
+    225                  }
+    226                      
+    227                  Display_Number_Enable=0;
+    228                }
+    229              }
+    230              else
+    231                //if(Display_Number_Enable==1){
+    232                  FND_NUMtoCHAR_Transfer(0);
+    233                  //Display_Number_Enable=0;
+    234                //}
+    235              break;
+    236                
+    237            case D_Standard_Setting_Mode:
+    238              FND_NUMtoCHAR_Transfer(Standard_Pressure_Value);
+    239                
+    240              break;
+    241          
+    242            }
+    243          */
+    244          }
+   \                     ??Fnd_Display_1:
+   \   000000A6   9508               RET
+    245          
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+    246          uint16_t Display_Delay_Cnt;
+   \                     Display_Delay_Cnt:
+   \   00000000                      DS8 2
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+    247          uint8_t Display_Delay_Reg;
+   \                     Display_Delay_Reg:
+   \   00000000                      DS8 1
+    248          
+    249          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    250          void Fnd_All_Off(void)
+   \                     Fnd_All_Off:
+    251          {
+    252            PORTD &= ~(0xFC); 
+   \   00000000   B10B               IN      R16, 0x0B
+   \   00000002   7003               ANDI    R16, 0x03
+   \   00000004   B90B               OUT     0x0B, R16
+    253            //PORTB &= ~(0xE0); // PB3 -> FND_5
+    254          
+    255          }
+   \   00000006   9508               RET
+   \   00000008                      REQUIRE _A_PORTD
+    256          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    257          void Fnd_Get_Port_Value(uint8_t Fnd_Value_Buf,
+   \                     Fnd_Get_Port_Value:
+    258                                            uint8_t Fnd_Digit_Buf)
+    259          {
+    260            uint8_t TempD_Port,TempB_Port;
+    261          
+    262          
+    263            if((Fnd_Value_Buf&0x02)==0x02)// if FND's PD1 is ON
+   \   00000000   FB01               BST     R16, 1
+   \   00000002   F416               BRTC    ??Fnd_Get_Port_Value_0
+    264              PORTB |=0x08;
+   \   00000004   9A2B               SBI     0x05, 0x03
+   \   00000006   C001               RJMP    ??Fnd_Get_Port_Value_1
+    265            else PORTB &= ~(0x08);
+   \                     ??Fnd_Get_Port_Value_0:
+   \   00000008   982B               CBI     0x05, 0x03
+    266          
+    267            TempD_Port = PIND&0x03; Fnd_Value_Buf = Fnd_Value_Buf&0xFC;
+   \                     ??Fnd_Get_Port_Value_1:
+   \   0000000A   B129               IN      R18, 0x09
+   \   0000000C   7023               ANDI    R18, 0x03
+   \   0000000E   7F0C               ANDI    R16, 0xFC
+    268            TempD_Port = TempD_Port+Fnd_Value_Buf; 
+   \   00000010   0F20               ADD     R18, R16
+    269            PORTD = TempD_Port;
+   \   00000012   B92B               OUT     0x0B, R18
+    270          
+    271          
+    272            TempB_Port = PINB&0x1F; Fnd_Digit_Buf = Fnd_Digit_Buf&0xE0;
+   \   00000014   B103               IN      R16, 0x03
+   \   00000016   710F               ANDI    R16, 0x1F
+   \   00000018   7E10               ANDI    R17, 0xE0
+    273            TempB_Port = TempB_Port+Fnd_Digit_Buf; 
+   \   0000001A   0F01               ADD     R16, R17
+    274            PORTB = TempB_Port;  
+   \   0000001C   B905               OUT     0x05, R16
+    275          
+    276          }
+   \   0000001E   9508               RET
+   \   00000020                      REQUIRE _A_PORTB
+   \   00000020                      REQUIRE _A_PIND
+   \   00000020                      REQUIRE _A_PORTD
+   \   00000020                      REQUIRE _A_PINB
+    277          
+    278          
+    279          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    280          void Fnd_Put_Data_Timer(void)
+   \                     Fnd_Put_Data_Timer:
+    281          {
+   \   00000000   93BA               ST      -Y, R27
+   \   00000002   93AA               ST      -Y, R26
+    282            
+    283          
+    284            Fnd_Display_Cnt++;
+   \   00000004   ....               LDI     R30, LOW(Fnd_Display_Cnt)
+   \   00000006   ....               LDI     R31, (Fnd_Display_Cnt) >> 8
+   \   00000008   8100               LD      R16, Z
+   \   0000000A   8111               LDD     R17, Z+1
+   \   0000000C   5F0F               SUBI    R16, 255
+   \   0000000E   4F1F               SBCI    R17, 255
+   \   00000010   8300               ST      Z, R16
+   \   00000012   8311               STD     Z+1, R17
+    285            
+    286            switch(Fnd_Digit_Mode){
+   \   00000014   ....               LDI     R30, LOW(Fnd_Digit_Mode)
+   \   00000016   ....               LDI     R31, (Fnd_Digit_Mode) >> 8
+   \   00000018   8100               LD      R16, Z
+   \   0000001A   8111               LDD     R17, Z+1
+   \   0000001C   ....               LDI     R30, LOW(`?<Jumptable for Fnd_Put_Data_Timer>_0`)
+   \   0000001E   ....               LDI     R31, (`?<Jumptable for Fnd_Put_Data_Timer>_0`) >> 8
+   \   00000020   ........           JMP     ?SV_SWITCH_L06
+    287            case 0: // 처음에 먼저 FND를 끈다. 
+    288              Fnd_All_Off();
+   \                     ??Fnd_Put_Data_Timer_0:
+   \   00000024   ....               RCALL   Fnd_All_Off
+    289              if(Fnd_Display_Cnt>2){ Fnd_Digit_Mode=1; Fnd_Display_Cnt=0; }
+   \   00000026   ....               LDI     R26, LOW(Fnd_Display_Cnt)
+   \   00000028   ....               LDI     R27, (Fnd_Display_Cnt) >> 8
+   \   0000002A   91ED               LD      R30, X+
+   \   0000002C   91FC               LD      R31, X
+   \   0000002E   9733               SBIW    R31:R30, 3
+   \   00000030   F060               BRCS    ??Fnd_Put_Data_Timer_1
+   \   00000032   ....               LDI     R30, LOW(Fnd_Digit_Mode)
+   \   00000034   ....               LDI     R31, (Fnd_Digit_Mode) >> 8
+   \   00000036   E001               LDI     R16, 1
+   \   00000038   E010               LDI     R17, 0
+   \   0000003A   8300               ST      Z, R16
+   \   0000003C   8311               STD     Z+1, R17
+   \   0000003E   ....               LDI     R30, LOW(Fnd_Display_Cnt)
+   \   00000040   ....               LDI     R31, (Fnd_Display_Cnt) >> 8
+   \   00000042   E000               LDI     R16, 0
+   \   00000044   8300               ST      Z, R16
+   \   00000046   E000               LDI     R16, 0
+   \   00000048   8301               STD     Z+1, R16
+    290              break;
+   \                     ??Fnd_Put_Data_Timer_1:
+   \   0000004A   C06F               RJMP    ??Fnd_Put_Data_Timer_2
+    291            case 1: // 첫번째 자릿수 ON 
+    292          
+    293              Fnd_Get_Port_Value(FND_value[0],FND_select[0]);
+   \                     ??Fnd_Put_Data_Timer_3:
+   \   0000004C   9110....           LDS     R17, FND_select
+   \   00000050   9100....           LDS     R16, FND_value
+   \   00000054   ....               RCALL   Fnd_Get_Port_Value
+    294              
+    295              if(Fnd_Display_Cnt>10){ Fnd_Digit_Mode=2; Fnd_Display_Cnt=0; }
+   \   00000056   ....               LDI     R26, LOW(Fnd_Display_Cnt)
+   \   00000058   ....               LDI     R27, (Fnd_Display_Cnt) >> 8
+   \   0000005A   91ED               LD      R30, X+
+   \   0000005C   91FC               LD      R31, X
+   \   0000005E   973B               SBIW    R31:R30, 11
+   \   00000060   F060               BRCS    ??Fnd_Put_Data_Timer_4
+   \   00000062   ....               LDI     R30, LOW(Fnd_Digit_Mode)
+   \   00000064   ....               LDI     R31, (Fnd_Digit_Mode) >> 8
+   \   00000066   E002               LDI     R16, 2
+   \   00000068   E010               LDI     R17, 0
+   \   0000006A   8300               ST      Z, R16
+   \   0000006C   8311               STD     Z+1, R17
+   \   0000006E   ....               LDI     R30, LOW(Fnd_Display_Cnt)
+   \   00000070   ....               LDI     R31, (Fnd_Display_Cnt) >> 8
+   \   00000072   E000               LDI     R16, 0
+   \   00000074   8300               ST      Z, R16
+   \   00000076   E000               LDI     R16, 0
+   \   00000078   8301               STD     Z+1, R16
+    296              break;    
+   \                     ??Fnd_Put_Data_Timer_4:
+   \   0000007A   C057               RJMP    ??Fnd_Put_Data_Timer_2
+    297            case 2:    
+    298          
+    299              Fnd_All_Off();
+   \                     ??Fnd_Put_Data_Timer_5:
+   \   0000007C   ....               RCALL   Fnd_All_Off
+    300              if(Fnd_Display_Cnt>2){ Fnd_Digit_Mode=3; Fnd_Display_Cnt=0; }
+   \   0000007E   ....               LDI     R26, LOW(Fnd_Display_Cnt)
+   \   00000080   ....               LDI     R27, (Fnd_Display_Cnt) >> 8
+   \   00000082   91ED               LD      R30, X+
+   \   00000084   91FC               LD      R31, X
+   \   00000086   9733               SBIW    R31:R30, 3
+   \   00000088   F060               BRCS    ??Fnd_Put_Data_Timer_6
+   \   0000008A   ....               LDI     R30, LOW(Fnd_Digit_Mode)
+   \   0000008C   ....               LDI     R31, (Fnd_Digit_Mode) >> 8
+   \   0000008E   E003               LDI     R16, 3
+   \   00000090   E010               LDI     R17, 0
+   \   00000092   8300               ST      Z, R16
+   \   00000094   8311               STD     Z+1, R17
+   \   00000096   ....               LDI     R30, LOW(Fnd_Display_Cnt)
+   \   00000098   ....               LDI     R31, (Fnd_Display_Cnt) >> 8
+   \   0000009A   E000               LDI     R16, 0
+   \   0000009C   8300               ST      Z, R16
+   \   0000009E   E000               LDI     R16, 0
+   \   000000A0   8301               STD     Z+1, R16
+    301              break;
+   \                     ??Fnd_Put_Data_Timer_6:
+   \   000000A2   C043               RJMP    ??Fnd_Put_Data_Timer_2
+    302            case 3:
+    303          
+    304              Fnd_Get_Port_Value(FND_value[1],FND_select[1]);
+   \                     ??Fnd_Put_Data_Timer_7:
+   \   000000A4   9110....           LDS     R17, (FND_select + 1)
+   \   000000A8   9100....           LDS     R16, (FND_value + 1)
+   \   000000AC   ....               RCALL   Fnd_Get_Port_Value
+    305              
+    306              if(Fnd_Display_Cnt>10){ Fnd_Digit_Mode=4; Fnd_Display_Cnt=0; }
+   \   000000AE   ....               LDI     R26, LOW(Fnd_Display_Cnt)
+   \   000000B0   ....               LDI     R27, (Fnd_Display_Cnt) >> 8
+   \   000000B2   91ED               LD      R30, X+
+   \   000000B4   91FC               LD      R31, X
+   \   000000B6   973B               SBIW    R31:R30, 11
+   \   000000B8   F1C0               BRCS    ??Fnd_Put_Data_Timer_2
+   \   000000BA   ....               LDI     R30, LOW(Fnd_Digit_Mode)
+   \   000000BC   ....               LDI     R31, (Fnd_Digit_Mode) >> 8
+   \   000000BE   E004               LDI     R16, 4
+   \   000000C0   E010               LDI     R17, 0
+   \   000000C2   8300               ST      Z, R16
+   \   000000C4   8311               STD     Z+1, R17
+   \   000000C6   ....               LDI     R30, LOW(Fnd_Display_Cnt)
+   \   000000C8   ....               LDI     R31, (Fnd_Display_Cnt) >> 8
+   \   000000CA   E000               LDI     R16, 0
+   \   000000CC   8300               ST      Z, R16
+   \   000000CE   E000               LDI     R16, 0
+   \   000000D0   8301               STD     Z+1, R16
+    307              break;    
+   \   000000D2   C02B               RJMP    ??Fnd_Put_Data_Timer_2
+    308            case 4:    
+    309          
+    310              Fnd_All_Off();
+   \                     ??Fnd_Put_Data_Timer_8:
+   \   000000D4   ....               RCALL   Fnd_All_Off
+    311              if(Fnd_Display_Cnt>2){ Fnd_Digit_Mode=5; Fnd_Display_Cnt=0; }
+   \   000000D6   ....               LDI     R26, LOW(Fnd_Display_Cnt)
+   \   000000D8   ....               LDI     R27, (Fnd_Display_Cnt) >> 8
+   \   000000DA   91ED               LD      R30, X+
+   \   000000DC   91FC               LD      R31, X
+   \   000000DE   9733               SBIW    R31:R30, 3
+   \   000000E0   F120               BRCS    ??Fnd_Put_Data_Timer_2
+   \   000000E2   ....               LDI     R30, LOW(Fnd_Digit_Mode)
+   \   000000E4   ....               LDI     R31, (Fnd_Digit_Mode) >> 8
+   \   000000E6   E005               LDI     R16, 5
+   \   000000E8   E010               LDI     R17, 0
+   \   000000EA   8300               ST      Z, R16
+   \   000000EC   8311               STD     Z+1, R17
+   \   000000EE   ....               LDI     R30, LOW(Fnd_Display_Cnt)
+   \   000000F0   ....               LDI     R31, (Fnd_Display_Cnt) >> 8
+   \   000000F2   E000               LDI     R16, 0
+   \   000000F4   8300               ST      Z, R16
+   \   000000F6   E000               LDI     R16, 0
+   \   000000F8   8301               STD     Z+1, R16
+    312              break;
+   \   000000FA   C017               RJMP    ??Fnd_Put_Data_Timer_2
+    313            case 5:
+    314          
+    315              Fnd_Get_Port_Value(FND_value[2],FND_select[2]);
+   \                     ??Fnd_Put_Data_Timer_9:
+   \   000000FC   9110....           LDS     R17, (FND_select + 2)
+   \   00000100   9100....           LDS     R16, (FND_value + 2)
+   \   00000104   ....               RCALL   Fnd_Get_Port_Value
+    316              
+    317              if(Fnd_Display_Cnt>10){ Fnd_Digit_Mode=0; Fnd_Display_Cnt=0; }
+   \   00000106   ....               LDI     R26, LOW(Fnd_Display_Cnt)
+   \   00000108   ....               LDI     R27, (Fnd_Display_Cnt) >> 8
+   \   0000010A   91ED               LD      R30, X+
+   \   0000010C   91FC               LD      R31, X
+   \   0000010E   973B               SBIW    R31:R30, 11
+   \   00000110   F060               BRCS    ??Fnd_Put_Data_Timer_2
+   \   00000112   ....               LDI     R30, LOW(Fnd_Digit_Mode)
+   \   00000114   ....               LDI     R31, (Fnd_Digit_Mode) >> 8
+   \   00000116   E000               LDI     R16, 0
+   \   00000118   8300               ST      Z, R16
+   \   0000011A   E000               LDI     R16, 0
+   \   0000011C   8301               STD     Z+1, R16
+   \   0000011E   ....               LDI     R30, LOW(Fnd_Display_Cnt)
+   \   00000120   ....               LDI     R31, (Fnd_Display_Cnt) >> 8
+   \   00000122   E000               LDI     R16, 0
+   \   00000124   8300               ST      Z, R16
+   \   00000126   E000               LDI     R16, 0
+   \   00000128   8301               STD     Z+1, R16
+    318              break;    
+    319            }    
+    320            
+    321          
+    322            /*
+    323            switch(System_Mode){
+    324            case S_Init_Mode:
+    325              
+    326              break;
+    327            case S_Run_Mode:
+    328              // 300ms마다 압력값을 디스플레이 해준다. 
+    329              
+    330              switch(Display_Mode){
+    331              case D_Init_Mode:
+    332                
+    333                Display_Delay_Cnt++;
+    334                if(Display_Delay_Cnt>2000){// 0.2 X 2000 = 400ms
+    335                  Display_Number_Enable=1;
+    336                  Display_Delay_Cnt=0;
+    337                }      
+    338                
+    339                break;
+    340              case D_Standard_Setting_Mode:
+    341                
+    342                Display_Delay_Cnt++;
+    343                
+    344                if(Display_Delay_Cnt>5000){
+    345                  Display_Delay_Cnt=0;
+    346                  Display_Mode=D_Init_Mode;
+    347                }
+    348                
+    349                break;
+    350                
+    351              case D_AutoZero_Mode:
+    352                
+    353                Display_Delay_Cnt++;
+    354                if(Display_Delay_Cnt<1000){
+    355                  FND_value[0] = 0x02;            // -
+    356                  FND_value[1] = 0x02;            // -
+    357                  FND_value[2] = 0x02;            // -
+    358                }
+    359                else if((Display_Delay_Cnt>=1000)&&(Display_Delay_Cnt<2000)){
+    360                  FND_value[0] = 0x00;           // 
+    361                  FND_value[1] = 0x00;           // 
+    362                  FND_value[2] = 0x00;           //  
+    363                }
+    364                else if((Display_Delay_Cnt>=2000)&&(Display_Delay_Cnt<3000)){
+    365                  FND_value[0] = 0x02;            // -
+    366                  FND_value[1] = 0x02;            // -
+    367                  FND_value[2] = 0x02;            // -
+    368                }
+    369                else if((Display_Delay_Cnt>=3000)&&(Display_Delay_Cnt<4000)){
+    370                  FND_value[0] = 0x00;           // 
+    371                  FND_value[1] = 0x00;           // 
+    372                  FND_value[2] = 0x00;           //  
+    373                }
+    374                else if(Display_Delay_Cnt>4000){
+    375                  Display_Delay_Cnt=0;
+    376                  Display_Mode=D_Init_Mode;
+    377                }      
+    378                break;      
+    379                
+    380              }
+    381              
+    382          
+    383          
+    384              break;
+    385            case S_Stop_Mode:
+    386              switch(Display_Mode){
+    387              case D_Init_Mode:
+    388                Display_Number_Enable=1;
+    389                break;
+    390              case D_Standard_Setting_Mode:
+    391                Display_Delay_Cnt++;
+    392                if(Display_Delay_Cnt>5000){
+    393                  Display_Delay_Cnt=0;
+    394                  Display_Mode=D_Init_Mode;
+    395                }
+    396                
+    397                break;
+    398              case D_AutoZero_Mode:
+    399                
+    400                Display_Delay_Cnt++;
+    401                if(Display_Delay_Cnt<1000){
+    402                  FND_value[0] = 0x02;            // -
+    403                  FND_value[1] = 0x02;            // -
+    404                  FND_value[2] = 0x02;            // -
+    405                }
+    406                else if((Display_Delay_Cnt>=1000)&&(Display_Delay_Cnt<2000)){
+    407                  FND_value[0] = 0x00;           // 
+    408                  FND_value[1] = 0x00;           // 
+    409                  FND_value[2] = 0x00;           //  
+    410                }
+    411                else if((Display_Delay_Cnt>=2000)&&(Display_Delay_Cnt<3000)){
+    412                  FND_value[0] = 0x02;            // -
+    413                  FND_value[1] = 0x02;            // -
+    414                  FND_value[2] = 0x02;            // -
+    415                }
+    416                else if((Display_Delay_Cnt>=3000)&&(Display_Delay_Cnt<4000)){
+    417                  FND_value[0] = 0x00;           // 
+    418                  FND_value[1] = 0x00;           // 
+    419                  FND_value[2] = 0x00;           //  
+    420                }
+    421                else if(Display_Delay_Cnt>4000){
+    422                  Display_Delay_Cnt=0;
+    423                  Display_Mode=D_Init_Mode;
+    424                }      
+    425                break;
+    426                
+    427              }
+    428              
+    429              break;
+    430            }
+    431            */
+    432            
+    433          }
+   \                     ??Fnd_Put_Data_Timer_2:
+   \   0000012A   91A9               LD      R26, Y+
+   \   0000012C   91B9               LD      R27, Y+
+   \   0000012E   9508               RET
+
+   \                                 In  segment NEAR_ID, align 1, keep-with-next
+   \                     `?<Initializer for FND_char>`:
+   \   00000000   60FCF2DAB666       DC8 252, 96, 218, 242, 102, 182, 190, 228, 254, 246, 2, 0
+   \              E4BEF6FE0002
+
+   \                                 In  segment NEAR_ID, align 1, keep-with-next
+   \                     `?<Initializer for FND_select>`:
+   \   00000000   A0C060             DC8 192, 160, 96
+
+   \                                 In  segment SWITCH, align 2, keep-with-next
+   \                     `?<Jumptable for Fnd_Put_Data_Timer>_0`:
+   \   00000000   0000               DW      0
+   \   00000002   00                 DB      0
+   \   00000003   ....               DW      (??Fnd_Put_Data_Timer_2) /2
+   \   00000005   0006               DW      6
+   \   00000007   ....               DW      (??Fnd_Put_Data_Timer_0) /2
+   \   00000009   ....               DW      (??Fnd_Put_Data_Timer_3) /2
+   \   0000000B   ....               DW      (??Fnd_Put_Data_Timer_5) /2
+   \   0000000D   ....               DW      (??Fnd_Put_Data_Timer_7) /2
+   \   0000000F   ....               DW      (??Fnd_Put_Data_Timer_8) /2
+   \   00000011   ....               DW      (??Fnd_Put_Data_Timer_9) /2
+   \   00000013   00                 DB      0
+
+   Maximum stack usage in bytes:
+
+   CSTACK RSTACK Function
+   ------ ------ --------
+      2      2   FND_NUMtoCHAR_Transfer
+        2      2   -> abs
+        2      2 ?SS_DIVMOD_L02
+      0      2   Fnd_All_Off
+      0      2   Fnd_Display
+        0      2   -> FND_NUMtoCHAR_Transfer
+        0      2   -> abs
+      0      2   Fnd_Display_Timer
+        0      2   -> Fnd_Flicking_Rutine
+      0      2   Fnd_Flicking_Rutine
+      0      2   Fnd_Get_Port_Value
+      2      2   Fnd_Put_Data_Timer
+        2      2   -> Fnd_All_Off
+        2      2   -> Fnd_Get_Port_Value
+        2      2 ?SV_SWITCH_L06
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      12  ?<Initializer for FND_char>
+       3  ?<Initializer for FND_select>
+      20  ?<Jumptable for Fnd_Put_Data_Timer>_0
+       2  DISPLAY_MASK
+       2  Display_Delay_Cnt
+       1  Display_Delay_Reg
+       1  Display_Mode
+       1  Display_Number_Enable
+     204  FND_NUMtoCHAR_Transfer
+      12  FND_char
+       3  FND_select
+       3  FND_value
+       8  Fnd_All_Off
+       2  Fnd_Digit_Mode
+     168  Fnd_Display
+       2  Fnd_Display_Cnt
+     210  Fnd_Display_Timer
+     180  Fnd_Flicking_Rutine
+      32  Fnd_Get_Port_Value
+     304  Fnd_Put_Data_Timer
+       1  SYSTEM_MODE
+       1  _A_PINB
+       1  _A_PIND
+       1  _A_PORTB
+       1  _A_PORTD
+      12  -- Other
+
+ 
+     4 bytes in segment ABSOLUTE
+ 1 106 bytes in segment CODE
+    12 bytes in segment INITTAB
+    15 bytes in segment NEAR_I
+    15 bytes in segment NEAR_ID
+    15 bytes in segment NEAR_Z
+    20 bytes in segment SWITCH
+ 
+ 1 141 bytes of CODE memory (+ 12 bytes shared)
+    30 bytes of DATA memory (+  4 bytes shared)
+
+Errors: none
+Warnings: none

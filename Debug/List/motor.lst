@@ -1,0 +1,1553 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR       27/Dec/2020  15:46:51
+# Copyright 1996-2019 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for Atmel AVR
+#
+#    Source file  =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\motor.c
+#    Command line =  
+#        -f C:\Users\troubard\AppData\Local\Temp\EWB15E.tmp
+#        ("C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\motor.c" --cpu=m168pa -ms
+#        -o "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj" -lC
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List" -lA
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List"
+#        --initializers_in_flash --no_cse --no_inline --no_code_motion
+#        --no_cross_call --no_clustering --no_tbaa --debug -e -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\" --eeprom_size 512 --dlib
+#        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
+#    Locale       =  Korean_KOR.949
+#    List file    =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List\motor.lst
+#    Object file  =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\motor.r90
+#
+###############################################################################
+
+C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\motor.c
+      1          #include "include.h"
+
+   \                                 In  segment ABSOLUTE, at 0x28
+   \   union <unnamed> volatile __io _A_PORTC
+   \                     _A_PORTC:
+   \   00000000                      DS8 1
+      2          
+      3          
+      4          
+      5          
+      6          uint8_t Motor_Status;
+      7          #define MOTER_CLOSE 1
+      8          #define MOTER_ACT 2
+      9          #define MOTER_OPEN 3
+     10          #define MOTER_OFF 4
+     11          #define MOTER_AUTO_ZERO 5
+     12          
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     13          uint8_t OverCurrent_Status;
+   \                     OverCurrent_Status:
+   \   00000000                      DS8 1
+     14          #define OVERCURRENT 1
+     15          #define NORMALCURRENT 0
+     16          
+     17          uint16_t PWM_Count;
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     18          uint8_t PWM_Enable;
+   \                     PWM_Enable:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     19          uint8_t Timer_Motor_TimeOver_Reg;
+   \                     Timer_Motor_TimeOver_Reg:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     20          uint32_t Timer_Motor_TimeOver_Cnt;
+   \                     Timer_Motor_TimeOver_Cnt:
+   \   00000000                      DS8 4
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     21          uint8_t Timer_Motor_OverCurrent_Reg;
+   \                     Timer_Motor_OverCurrent_Reg:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     22          uint16_t Timer_Motor_OverCurrent_Cnt;
+   \                     Timer_Motor_OverCurrent_Cnt:
+   \   00000000                      DS8 2
+     23          
+     24          #define OVER_CURRENT_TIME 300 // 300* 0.2ms = 60ms
+     25          #define TIME_OVER_TIME 150000 // 60000 * 0.2ms = 12000ms
+     26          
+     27          
+     28          #define PWM_ALL_COUNT 5000 // 5000 * 0.2ms = 1000ms 
+
+   \                                 In  segment NEAR_I, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_I>`
+     29          uint16_t PWM_Off_Count=4950;
+   \                     PWM_Off_Count:
+   \   00000000                      DS8 2
+   \   00000002                      REQUIRE `?<Initializer for PWM_Off_Count>`
+     30          
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     31          int16_t PWM_Current_Value;
+   \                     PWM_Current_Value:
+   \   00000000                      DS8 2
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     32          uint16_t PWM_Count;
+   \                     PWM_Count:
+   \   00000000                      DS8 2
+     33          
+     34          
+     35          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     36          void Motor_REG_Initialize(void)
+   \                     Motor_REG_Initialize:
+     37          {
+     38            PWM_Count=0; 
+   \   00000000   ....               LDI     R30, LOW(PWM_Count)
+   \   00000002   ....               LDI     R31, (PWM_Count) >> 8
+   \   00000004   E000               LDI     R16, 0
+   \   00000006   8300               ST      Z, R16
+   \   00000008   E000               LDI     R16, 0
+   \   0000000A   8301               STD     Z+1, R16
+     39            PWM_Enable=0;
+   \   0000000C   E000               LDI     R16, 0
+   \   0000000E   9300....           STS     PWM_Enable, R16
+     40            Timer_Motor_TimeOver_Reg=0;
+   \   00000012   E000               LDI     R16, 0
+   \   00000014   9300....           STS     Timer_Motor_TimeOver_Reg, R16
+     41            Timer_Motor_TimeOver_Cnt=0;
+   \   00000018   ....               LDI     R30, LOW(Timer_Motor_TimeOver_Cnt)
+   \   0000001A   ....               LDI     R31, (Timer_Motor_TimeOver_Cnt) >> 8
+   \   0000001C   E000               LDI     R16, 0
+   \   0000001E   8300               ST      Z, R16
+   \   00000020   E000               LDI     R16, 0
+   \   00000022   8301               STD     Z+1, R16
+   \   00000024   E000               LDI     R16, 0
+   \   00000026   8302               STD     Z+2, R16
+   \   00000028   E000               LDI     R16, 0
+   \   0000002A   8303               STD     Z+3, R16
+     42            Timer_Motor_OverCurrent_Reg=0;
+   \   0000002C   E000               LDI     R16, 0
+   \   0000002E   9300....           STS     Timer_Motor_OverCurrent_Reg, R16
+     43            Timer_Motor_OverCurrent_Cnt=0;
+   \   00000032   ....               LDI     R30, LOW(Timer_Motor_OverCurrent_Cnt)
+   \   00000034   ....               LDI     R31, (Timer_Motor_OverCurrent_Cnt) >> 8
+   \   00000036   E000               LDI     R16, 0
+   \   00000038   8300               ST      Z, R16
+   \   0000003A   E000               LDI     R16, 0
+   \   0000003C   8301               STD     Z+1, R16
+     44            
+     45          }
+   \   0000003E   9508               RET
+     46          
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     47          uint8_t Pressure_Status;
+   \                     Pressure_Status:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     48          uint8_t Pressure_Old_Status;
+   \                     Pressure_Old_Status:
+   \   00000000                      DS8 1
+     49          #define NO_PRESSURE 1
+     50          #define LOW_PRESSURE 2
+     51          #define LOW_PWM_PRESSURE 3
+     52          #define MIDDLE_PRESSURE 4
+     53          #define HIGH_PWM_PRESSURE 5
+     54          #define HIGH_PRESSURE 6
+     55          
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     56          uint8_t Motor_Status;
+   \                     Motor_Status:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     57          uint8_t Motor_Close_Stop;
+   \                     Motor_Close_Stop:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     58          uint8_t Motor_Open_Stop;
+   \                     Motor_Open_Stop:
+   \   00000000                      DS8 1
+     59          
+     60          
+     61          #define LOW_PRESSURE_DIFF_VALUE 5
+     62          #define HIGH_PRESSURE_DIFF_VALUE 5
+     63          #define LOW_PWM_DIFF_VALUE 0
+     64          #define HIGH_PWM_DIFF_VALUE 0
+     65          
+     66          
+     67          //#define STANDARD_PRESSURE 50
+     68          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     69          void Motor_Get_Pressure_Status(void)
+   \                     Motor_Get_Pressure_Status:
+     70          {
+   \   00000000   01AC               MOVW    R21:R20, R25:R24
+     71            
+     72            if(System_Mode==S_Run_Mode){
+   \   00000002   9100....           LDS     R16, System_Mode
+   \   00000006   3001               CPI     R16, 1
+   \   00000008   F009               BREQ    $+2+2
+   \   0000000A   C08E               RJMP    ??Motor_Get_Pressure_Status_0
+     73              
+     74              // ���� �з��� ���� �з�-3 ���� �۾����� 
+     75              if((Real_Pressure_Value<Standard_Pressure_Value-LOW_PRESSURE_DIFF_VALUE)){//3
+   \   0000000C   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   0000000E   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   00000010   8100               LD      R16, Z
+   \   00000012   8111               LDD     R17, Z+1
+   \   00000014   ....               LDI     R30, LOW(Standard_Pressure_Value)
+   \   00000016   ....               LDI     R31, (Standard_Pressure_Value) >> 8
+   \   00000018   8180               LD      R24, Z
+   \   0000001A   8191               LDD     R25, Z+1
+   \   0000001C   9705               SBIW    R25:R24, 5
+   \   0000001E   1708               CP      R16, R24
+   \   00000020   0719               CPC     R17, R25
+   \   00000022   F4CC               BRGE    ??Motor_Get_Pressure_Status_1
+     76                
+     77                if(Pressure_Status==LOW_PWM_PRESSURE){
+   \   00000024   9100....           LDS     R16, Pressure_Status
+   \   00000028   3003               CPI     R16, 3
+   \   0000002A   F489               BRNE    ??Motor_Get_Pressure_Status_2
+     78                  if(Real_Pressure_Value==Standard_Pressure_Value-LOW_PRESSURE_DIFF_VALUE-1){//4
+   \   0000002C   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   0000002E   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   00000030   8100               LD      R16, Z
+   \   00000032   8111               LDD     R17, Z+1
+   \   00000034   ....               LDI     R30, LOW(Standard_Pressure_Value)
+   \   00000036   ....               LDI     R31, (Standard_Pressure_Value) >> 8
+   \   00000038   8180               LD      R24, Z
+   \   0000003A   8191               LDD     R25, Z+1
+   \   0000003C   9706               SBIW    R25:R24, 6
+   \   0000003E   1708               CP      R16, R24
+   \   00000040   0719               CPC     R17, R25
+   \   00000042   F409               BRNE    $+2+2
+   \   00000044   C078               RJMP    ??Motor_Get_Pressure_Status_3
+     79                    
+     80                  }
+     81                  else{
+     82                    Pressure_Status=LOW_PRESSURE;
+   \   00000046   E002               LDI     R16, 2
+   \   00000048   9300....           STS     Pressure_Status, R16
+   \   0000004C   C074               RJMP    ??Motor_Get_Pressure_Status_3
+     83                  }
+     84                }
+     85                else Pressure_Status=LOW_PRESSURE;
+   \                     ??Motor_Get_Pressure_Status_2:
+   \   0000004E   E002               LDI     R16, 2
+   \   00000050   9300....           STS     Pressure_Status, R16
+   \   00000054   C070               RJMP    ??Motor_Get_Pressure_Status_3
+     86              }
+     87              // ���� �з��� ���� �з� -3�� ���� �з� ���̿� ������ 
+     88              else if((Real_Pressure_Value>=Standard_Pressure_Value-LOW_PRESSURE_DIFF_VALUE) //3
+     89                      &&(Real_Pressure_Value<Standard_Pressure_Value-LOW_PWM_DIFF_VALUE))//0
+   \                     ??Motor_Get_Pressure_Status_1:
+   \   00000056   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   00000058   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   0000005A   8100               LD      R16, Z
+   \   0000005C   8111               LDD     R17, Z+1
+   \   0000005E   ....               LDI     R30, LOW(Standard_Pressure_Value)
+   \   00000060   ....               LDI     R31, (Standard_Pressure_Value) >> 8
+   \   00000062   8180               LD      R24, Z
+   \   00000064   8191               LDD     R25, Z+1
+   \   00000066   9705               SBIW    R25:R24, 5
+   \   00000068   1708               CP      R16, R24
+   \   0000006A   0719               CPC     R17, R25
+   \   0000006C   F07C               BRLT    ??Motor_Get_Pressure_Status_4
+   \   0000006E   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   00000070   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   00000072   8100               LD      R16, Z
+   \   00000074   8111               LDD     R17, Z+1
+   \   00000076   ....               LDI     R30, LOW(Standard_Pressure_Value)
+   \   00000078   ....               LDI     R31, (Standard_Pressure_Value) >> 8
+   \   0000007A   8120               LD      R18, Z
+   \   0000007C   8131               LDD     R19, Z+1
+   \   0000007E   1702               CP      R16, R18
+   \   00000080   0713               CPC     R17, R19
+   \   00000082   F424               BRGE    ??Motor_Get_Pressure_Status_4
+     90                Pressure_Status=LOW_PWM_PRESSURE;
+   \   00000084   E003               LDI     R16, 3
+   \   00000086   9300....           STS     Pressure_Status, R16
+   \   0000008A   C055               RJMP    ??Motor_Get_Pressure_Status_3
+     91              // ���� �з��� ���ؾз� �̸� 
+     92              /*
+     93              else if((Real_Pressure_Value<=Standard_Pressure_Value+HIGH_PWM_DIFF_VALUE)
+     94                      &&(Real_Pressure_Value>=Standard_Pressure_Value-LOW_PWM_DIFF_VALUE))
+     95              */
+     96              else if(Real_Pressure_Value==Standard_Pressure_Value)
+   \                     ??Motor_Get_Pressure_Status_4:
+   \   0000008C   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   0000008E   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   00000090   8100               LD      R16, Z
+   \   00000092   8111               LDD     R17, Z+1
+   \   00000094   ....               LDI     R30, LOW(Standard_Pressure_Value)
+   \   00000096   ....               LDI     R31, (Standard_Pressure_Value) >> 8
+   \   00000098   8120               LD      R18, Z
+   \   0000009A   8131               LDD     R19, Z+1
+   \   0000009C   1702               CP      R16, R18
+   \   0000009E   0713               CPC     R17, R19
+   \   000000A0   F421               BRNE    ??Motor_Get_Pressure_Status_5
+     97                Pressure_Status=MIDDLE_PRESSURE;
+   \   000000A2   E004               LDI     R16, 4
+   \   000000A4   9300....           STS     Pressure_Status, R16
+   \   000000A8   C046               RJMP    ??Motor_Get_Pressure_Status_3
+     98              // ���� �з��� ���� �з� +3�� ���ؾз� ���̿� ������ 
+     99              else if((Real_Pressure_Value>=Standard_Pressure_Value+HIGH_PWM_DIFF_VALUE)&&
+    100                      (Real_Pressure_Value<Standard_Pressure_Value+HIGH_PRESSURE_DIFF_VALUE))
+   \                     ??Motor_Get_Pressure_Status_5:
+   \   000000AA   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   000000AC   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   000000AE   8100               LD      R16, Z
+   \   000000B0   8111               LDD     R17, Z+1
+   \   000000B2   ....               LDI     R30, LOW(Standard_Pressure_Value)
+   \   000000B4   ....               LDI     R31, (Standard_Pressure_Value) >> 8
+   \   000000B6   8120               LD      R18, Z
+   \   000000B8   8131               LDD     R19, Z+1
+   \   000000BA   1702               CP      R16, R18
+   \   000000BC   0713               CPC     R17, R19
+   \   000000BE   F084               BRLT    ??Motor_Get_Pressure_Status_6
+   \   000000C0   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   000000C2   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   000000C4   8100               LD      R16, Z
+   \   000000C6   8111               LDD     R17, Z+1
+   \   000000C8   ....               LDI     R30, LOW(Standard_Pressure_Value)
+   \   000000CA   ....               LDI     R31, (Standard_Pressure_Value) >> 8
+   \   000000CC   8180               LD      R24, Z
+   \   000000CE   8191               LDD     R25, Z+1
+   \   000000D0   9605               ADIW    R25:R24, 5
+   \   000000D2   1708               CP      R16, R24
+   \   000000D4   0719               CPC     R17, R25
+   \   000000D6   F424               BRGE    ??Motor_Get_Pressure_Status_6
+    101                Pressure_Status=HIGH_PWM_PRESSURE;
+   \   000000D8   E005               LDI     R16, 5
+   \   000000DA   9300....           STS     Pressure_Status, R16
+   \   000000DE   C02B               RJMP    ??Motor_Get_Pressure_Status_3
+    102              // ���� �з��� ���� �з� +3 ���� ũ�� 200 �̳��� ������ 
+    103              else if((Real_Pressure_Value>Standard_Pressure_Value+HIGH_PRESSURE_DIFF_VALUE))
+   \                     ??Motor_Get_Pressure_Status_6:
+   \   000000E0   ....               LDI     R30, LOW(Standard_Pressure_Value)
+   \   000000E2   ....               LDI     R31, (Standard_Pressure_Value) >> 8
+   \   000000E4   8180               LD      R24, Z
+   \   000000E6   8191               LDD     R25, Z+1
+   \   000000E8   9605               ADIW    R25:R24, 5
+   \   000000EA   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   000000EC   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   000000EE   8100               LD      R16, Z
+   \   000000F0   8111               LDD     R17, Z+1
+   \   000000F2   1780               CP      R24, R16
+   \   000000F4   0791               CPC     R25, R17
+   \   000000F6   F4FC               BRGE    ??Motor_Get_Pressure_Status_3
+    104              {
+    105              
+    106                if(Pressure_Status==HIGH_PWM_PRESSURE){
+   \   000000F8   9100....           LDS     R16, Pressure_Status
+   \   000000FC   3005               CPI     R16, 5
+   \   000000FE   F481               BRNE    ??Motor_Get_Pressure_Status_7
+    107                  if(Real_Pressure_Value==Standard_Pressure_Value+HIGH_PRESSURE_DIFF_VALUE+1){
+   \   00000100   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   00000102   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   00000104   8100               LD      R16, Z
+   \   00000106   8111               LDD     R17, Z+1
+   \   00000108   ....               LDI     R30, LOW(Standard_Pressure_Value)
+   \   0000010A   ....               LDI     R31, (Standard_Pressure_Value) >> 8
+   \   0000010C   8180               LD      R24, Z
+   \   0000010E   8191               LDD     R25, Z+1
+   \   00000110   9606               ADIW    R25:R24, 6
+   \   00000112   1708               CP      R16, R24
+   \   00000114   0719               CPC     R17, R25
+   \   00000116   F079               BREQ    ??Motor_Get_Pressure_Status_3
+    108                  }
+    109                  else{
+    110                    Pressure_Status=HIGH_PRESSURE;
+   \   00000118   E006               LDI     R16, 6
+   \   0000011A   9300....           STS     Pressure_Status, R16
+   \   0000011E   C00B               RJMP    ??Motor_Get_Pressure_Status_3
+    111                  }
+    112                }
+    113                else Pressure_Status=HIGH_PRESSURE;      
+   \                     ??Motor_Get_Pressure_Status_7:
+   \   00000120   E006               LDI     R16, 6
+   \   00000122   9300....           STS     Pressure_Status, R16
+   \   00000126   C007               RJMP    ??Motor_Get_Pressure_Status_3
+    114            
+    115              }
+    116              
+    117          
+    118              
+    119            }
+    120            else if(System_Mode==S_Stop_Mode)Pressure_Status=NO_PRESSURE;
+   \                     ??Motor_Get_Pressure_Status_0:
+   \   00000128   9100....           LDS     R16, System_Mode
+   \   0000012C   3002               CPI     R16, 2
+   \   0000012E   F419               BRNE    ??Motor_Get_Pressure_Status_3
+   \   00000130   E001               LDI     R16, 1
+   \   00000132   9300....           STS     Pressure_Status, R16
+    121            
+    122          
+    123          }
+   \                     ??Motor_Get_Pressure_Status_3:
+   \   00000136   01CA               MOVW    R25:R24, R21:R20
+   \   00000138   9508               RET
+    124          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    125          void Motor_Change_Status_Process(void)
+   \                     Motor_Change_Status_Process:
+    126          {
+    127            
+    128            /*  ��� ��ȭ�� ���� �� , Timer_Motor_TimeOver_Reg,
+    129                Motor_Open_Stop, Motor_Close_Stop ���� */
+    130            if(Pressure_Status!=Pressure_Old_Status){
+   \   00000000   9100....           LDS     R16, Pressure_Status
+   \   00000004   9110....           LDS     R17, Pressure_Old_Status
+   \   00000008   1701               CP      R16, R17
+   \   0000000A   F409               BRNE    $+2+2
+   \   0000000C   C04F               RJMP    ??Motor_Change_Status_Process_0
+    131              //������ ���ؼ� ��� ��ȭ�� ������ �ѹ� �����Ѵ�. 
+    132              
+    133              Motor_REG_Initialize();//���õ� Ÿ�̸ӵ��� ������ �ʱ�ȭ ���ش�. 
+   \   0000000E   ....               RCALL   Motor_REG_Initialize
+    134              
+    135              switch(Pressure_Status){
+   \   00000010   9100....           LDS     R16, Pressure_Status
+   \   00000014   5001               SUBI    R16, 1
+   \   00000016   F051               BREQ    ??Motor_Change_Status_Process_1
+   \   00000018   950A               DEC     R16
+   \   0000001A   F111               BREQ    ??Motor_Change_Status_Process_2
+   \   0000001C   950A               DEC     R16
+   \   0000001E   F1D1               BREQ    ??Motor_Change_Status_Process_3
+   \   00000020   950A               DEC     R16
+   \   00000022   F1E1               BREQ    ??Motor_Change_Status_Process_4
+   \   00000024   950A               DEC     R16
+   \   00000026   F1D9               BREQ    ??Motor_Change_Status_Process_5
+   \   00000028   950A               DEC     R16
+   \   0000002A   F5E1               BRNE    ??Motor_Change_Status_Process_6
+    136              case NO_PRESSURE:
+    137              case HIGH_PRESSURE:
+    138                if((Pressure_Old_Status)==HIGH_PWM_PRESSURE){
+   \                     ??Motor_Change_Status_Process_1:
+   \   0000002C   9100....           LDS     R16, Pressure_Old_Status
+   \   00000030   3005               CPI     R16, 5
+   \   00000032   F479               BRNE    ??Motor_Change_Status_Process_7
+    139                  // HIGH_PWM ���� HIGH�� �ö� ��� 
+    140                  if(Motor_Status== MOTER_CLOSE){
+   \   00000034   9100....           LDS     R16, Motor_Status
+   \   00000038   3001               CPI     R16, 1
+   \   0000003A   F421               BRNE    ??Motor_Change_Status_Process_8
+    141                    //���Ͱ� �̹� ���� ��쿡�� 
+    142                    Motor_Close_Stop=1;
+   \   0000003C   E001               LDI     R16, 1
+   \   0000003E   9300....           STS     Motor_Close_Stop, R16
+   \   00000042   C030               RJMP    ??Motor_Change_Status_Process_6
+    143                  }
+    144                  else {
+    145                    //���Ͱ� �� ���� ��쿡�� 
+    146                    Timer_Motor_TimeOver_Reg=1;// Ÿ�̸� ���� 
+   \                     ??Motor_Change_Status_Process_8:
+   \   00000044   E001               LDI     R16, 1
+   \   00000046   9300....           STS     Timer_Motor_TimeOver_Reg, R16
+    147                    Motor_Open_Stop=0;//
+   \   0000004A   E000               LDI     R16, 0
+   \   0000004C   9300....           STS     Motor_Open_Stop, R16
+   \   00000050   C029               RJMP    ??Motor_Change_Status_Process_6
+    148                  }
+    149                }
+    150                else {
+    151                  // ������ ��忡�� HIGH�� �ö� ��� 
+    152                    Timer_Motor_TimeOver_Reg=1;// Ÿ�̸� ���� 
+   \                     ??Motor_Change_Status_Process_7:
+   \   00000052   E001               LDI     R16, 1
+   \   00000054   9300....           STS     Timer_Motor_TimeOver_Reg, R16
+    153                    Motor_Open_Stop=0;//
+   \   00000058   E000               LDI     R16, 0
+   \   0000005A   9300....           STS     Motor_Open_Stop, R16
+    154                }
+    155              break;
+   \   0000005E   C022               RJMP    ??Motor_Change_Status_Process_6
+    156              case LOW_PRESSURE:
+    157                if(Pressure_Old_Status==LOW_PWM_PRESSURE){ 
+   \                     ??Motor_Change_Status_Process_2:
+   \   00000060   9100....           LDS     R16, Pressure_Old_Status
+   \   00000064   3003               CPI     R16, 3
+   \   00000066   F479               BRNE    ??Motor_Change_Status_Process_9
+    158                  // LOW_PWM ���� LOW�� ������ ��� 
+    159                  if(Motor_Status== MOTER_OPEN){
+   \   00000068   9100....           LDS     R16, Motor_Status
+   \   0000006C   3003               CPI     R16, 3
+   \   0000006E   F421               BRNE    ??Motor_Change_Status_Process_10
+    160                    // ���Ͱ� �̹� ���µ� �����̸� 
+    161                    Motor_Open_Stop=1;
+   \   00000070   E001               LDI     R16, 1
+   \   00000072   9300....           STS     Motor_Open_Stop, R16
+   \   00000076   C016               RJMP    ??Motor_Change_Status_Process_6
+    162                  }
+    163                  else {
+    164                    // ���Ͱ� �� ���� �����̸� 
+    165                    Timer_Motor_TimeOver_Reg=1;
+   \                     ??Motor_Change_Status_Process_10:
+   \   00000078   E001               LDI     R16, 1
+   \   0000007A   9300....           STS     Timer_Motor_TimeOver_Reg, R16
+    166                    Motor_Close_Stop=0;
+   \   0000007E   E000               LDI     R16, 0
+   \   00000080   9300....           STS     Motor_Close_Stop, R16
+   \   00000084   C00F               RJMP    ??Motor_Change_Status_Process_6
+    167                  }
+    168                }
+    169                else {
+    170                  // ������ ��忡�� �ö�� �����̸� 
+    171                    Timer_Motor_TimeOver_Reg=1;//
+   \                     ??Motor_Change_Status_Process_9:
+   \   00000086   E001               LDI     R16, 1
+   \   00000088   9300....           STS     Timer_Motor_TimeOver_Reg, R16
+    172                    Motor_Close_Stop=0;//
+   \   0000008C   E000               LDI     R16, 0
+   \   0000008E   9300....           STS     Motor_Close_Stop, R16
+    173                }
+    174              
+    175              break;
+   \   00000092   C008               RJMP    ??Motor_Change_Status_Process_6
+    176              case LOW_PWM_PRESSURE:
+    177                Motor_Close_Stop=0;
+   \                     ??Motor_Change_Status_Process_3:
+   \   00000094   E000               LDI     R16, 0
+   \   00000096   9300....           STS     Motor_Close_Stop, R16
+    178                
+    179              break;
+   \   0000009A   C004               RJMP    ??Motor_Change_Status_Process_6
+    180              case MIDDLE_PRESSURE:
+    181          
+    182              break;
+   \                     ??Motor_Change_Status_Process_4:
+   \   0000009C   C003               RJMP    ??Motor_Change_Status_Process_6
+    183              case HIGH_PWM_PRESSURE:
+    184                Motor_Open_Stop=0;
+   \                     ??Motor_Change_Status_Process_5:
+   \   0000009E   E000               LDI     R16, 0
+   \   000000A0   9300....           STS     Motor_Open_Stop, R16
+    185              break;
+    186              }
+    187              Pressure_Old_Status=Pressure_Status;
+   \                     ??Motor_Change_Status_Process_6:
+   \   000000A4   9100....           LDS     R16, Pressure_Status
+   \   000000A8   9300....           STS     Pressure_Old_Status, R16
+    188              
+    189              
+    190            }  
+    191          }
+   \                     ??Motor_Change_Status_Process_0:
+   \   000000AC   9508               RET
+    192          
+    193          
+    194          
+    195          
+    196          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    197          void Motor_Control(void)
+   \                     Motor_Control:
+    198          {
+    199            
+    200            //if(Motor_Delay_Timer_Reg!=1){
+    201            
+    202            /* ������ ���¿� ���� ���͸� �����Ѵ�. */
+    203            switch(Pressure_Status){
+   \   00000000   9100....           LDS     R16, Pressure_Status
+   \   00000004   5001               SUBI    R16, 1
+   \   00000006   F059               BREQ    ??Motor_Control_0
+   \   00000008   950A               DEC     R16
+   \   0000000A   F099               BREQ    ??Motor_Control_1
+   \   0000000C   950A               DEC     R16
+   \   0000000E   F0D9               BREQ    ??Motor_Control_2
+   \   00000010   950A               DEC     R16
+   \   00000012   F0E9               BREQ    ??Motor_Control_3
+   \   00000014   950A               DEC     R16
+   \   00000016   F101               BREQ    ??Motor_Control_4
+   \   00000018   950A               DEC     R16
+   \   0000001A   F111               BREQ    ??Motor_Control_5
+   \   0000001C   C02B               RJMP    ??Motor_Control_6
+    204            case NO_PRESSURE:
+    205              if(Motor_Close_Stop==0){ // ���Ͱ� �� ������ ���� �����̸� 
+   \                     ??Motor_Control_0:
+   \   0000001E   9100....           LDS     R16, Motor_Close_Stop
+   \   00000022   2300               TST     R16
+   \   00000024   F419               BRNE    ??Motor_Control_7
+    206                  Alarm2_Out();//���� 
+   \   00000026   ........           CALL    Alarm2_Out
+   \   0000002A   9508               RET
+    207              }
+    208              else 
+    209                Alarm2_Off();
+   \                     ??Motor_Control_7:
+   \   0000002C   ........           CALL    Alarm2_Off
+    210              break;
+   \   00000030   9508               RET
+    211            case LOW_PRESSURE:
+    212              if(Motor_Open_Stop==0){// ���Ͱ� �� ������ ���� �����̸� 
+   \                     ??Motor_Control_1:
+   \   00000032   9100....           LDS     R16, Motor_Open_Stop
+   \   00000036   2300               TST     R16
+   \   00000038   F419               BRNE    ??Motor_Control_8
+    213                Alarm1_Out();//����
+   \   0000003A   ........           CALL    Alarm1_Out
+   \   0000003E   9508               RET
+    214            }
+    215              else 
+    216                Alarm1_Off();
+   \                     ??Motor_Control_8:
+   \   00000040   ........           CALL    Alarm1_Off
+    217              break;
+   \   00000044   9508               RET
+    218            case LOW_PWM_PRESSURE:
+    219              PWM_Enable=1;
+   \                     ??Motor_Control_2:
+   \   00000046   E001               LDI     R16, 1
+   \   00000048   9300....           STS     PWM_Enable, R16
+    220              break;
+   \   0000004C   9508               RET
+    221            case MIDDLE_PRESSURE:
+    222          
+    223              Alarm1_Off();
+   \                     ??Motor_Control_3:
+   \   0000004E   ........           CALL    Alarm1_Off
+    224              Alarm2_Off();
+   \   00000052   ........           CALL    Alarm2_Off
+    225              break;
+   \   00000056   9508               RET
+    226            case HIGH_PWM_PRESSURE:
+    227              PWM_Enable=1;
+   \                     ??Motor_Control_4:
+   \   00000058   E001               LDI     R16, 1
+   \   0000005A   9300....           STS     PWM_Enable, R16
+    228              break;
+   \   0000005E   9508               RET
+    229            case HIGH_PRESSURE:
+    230              if(Motor_Close_Stop==0){
+   \                     ??Motor_Control_5:
+   \   00000060   9100....           LDS     R16, Motor_Close_Stop
+   \   00000064   2300               TST     R16
+   \   00000066   F419               BRNE    ??Motor_Control_9
+    231                Alarm2_Out();//����
+   \   00000068   ........           CALL    Alarm2_Out
+   \   0000006C   9508               RET
+    232              }
+    233              else 
+    234                Alarm2_Off();
+   \                     ??Motor_Control_9:
+   \   0000006E   ........           CALL    Alarm2_Off
+    235              break;
+   \   00000072   9508               RET
+    236            default:
+    237          
+    238              Alarm1_Off();
+   \                     ??Motor_Control_6:
+   \   00000074   ........           CALL    Alarm1_Off
+    239              Alarm2_Off();
+   \   00000078   ........           CALL    Alarm2_Off
+    240              break;
+    241            }
+    242            
+    243          }
+   \   0000007C   9508               RET
+    244          
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+    245          uint8_t Motor_Status_old;
+   \                     Motor_Status_old:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+    246          uint8_t Motor_Status_Cnt;
+   \                     Motor_Status_Cnt:
+   \   00000000                      DS8 1
+    247          
+    248          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    249          void Motor_Get_LimitSwitch_Value(void)
+   \                     Motor_Get_LimitSwitch_Value:
+    250          {
+    251            
+    252            if((ADC_Motor_Switch_Value>400)&&(ADC_Motor_Switch_Value<550)){
+   \   00000000   ....               LDI     R30, LOW(ADC_Motor_Switch_Value)
+   \   00000002   ....               LDI     R31, (ADC_Motor_Switch_Value) >> 8
+   \   00000004   8100               LD      R16, Z
+   \   00000006   8111               LDD     R17, Z+1
+   \   00000008   5901               SUBI    R16, 145
+   \   0000000A   4011               SBCI    R17, 1
+   \   0000000C   3905               CPI     R16, 149
+   \   0000000E   E020               LDI     R18, 0
+   \   00000010   0712               CPC     R17, R18
+   \   00000012   F4A8               BRCC    ??Motor_Get_LimitSwitch_Value_0
+    253              if(Motor_Status_old!=Motor_Status){
+   \   00000014   9100....           LDS     R16, Motor_Status_old
+   \   00000018   9110....           LDS     R17, Motor_Status
+   \   0000001C   1701               CP      R16, R17
+   \   0000001E   F059               BREQ    ??Motor_Get_LimitSwitch_Value_1
+    254                if(Motor_Status_old==MOTER_ACT)
+   \   00000020   9100....           LDS     R16, Motor_Status_old
+   \   00000024   3002               CPI     R16, 2
+   \   00000026   F419               BRNE    ??Motor_Get_LimitSwitch_Value_2
+    255                  Motor_Status=MOTER_ACT;
+   \   00000028   E002               LDI     R16, 2
+   \   0000002A   9300....           STS     Motor_Status, R16
+    256                Motor_Status_old = MOTER_ACT;
+   \                     ??Motor_Get_LimitSwitch_Value_2:
+   \   0000002E   E002               LDI     R16, 2
+   \   00000030   9300....           STS     Motor_Status_old, R16
+   \   00000034   9508               RET
+    257              }
+    258              else Motor_Status_old = MOTER_ACT;
+   \                     ??Motor_Get_LimitSwitch_Value_1:
+   \   00000036   E002               LDI     R16, 2
+   \   00000038   9300....           STS     Motor_Status_old, R16
+   \   0000003C   9508               RET
+    259            }
+    260            else if((ADC_Motor_Switch_Value>580)&&(ADC_Motor_Switch_Value<=800)){
+   \                     ??Motor_Get_LimitSwitch_Value_0:
+   \   0000003E   ....               LDI     R30, LOW(ADC_Motor_Switch_Value)
+   \   00000040   ....               LDI     R31, (ADC_Motor_Switch_Value) >> 8
+   \   00000042   8100               LD      R16, Z
+   \   00000044   8111               LDD     R17, Z+1
+   \   00000046   5405               SUBI    R16, 69
+   \   00000048   4012               SBCI    R17, 2
+   \   0000004A   3D0C               CPI     R16, 220
+   \   0000004C   E020               LDI     R18, 0
+   \   0000004E   0712               CPC     R17, R18
+   \   00000050   F4A8               BRCC    ??Motor_Get_LimitSwitch_Value_3
+    261              
+    262          
+    263              if(Motor_Status_old!=Motor_Status){
+   \   00000052   9100....           LDS     R16, Motor_Status_old
+   \   00000056   9110....           LDS     R17, Motor_Status
+   \   0000005A   1701               CP      R16, R17
+   \   0000005C   F059               BREQ    ??Motor_Get_LimitSwitch_Value_4
+    264                if(Motor_Status_old==MOTER_OPEN)
+   \   0000005E   9100....           LDS     R16, Motor_Status_old
+   \   00000062   3003               CPI     R16, 3
+   \   00000064   F419               BRNE    ??Motor_Get_LimitSwitch_Value_5
+    265                  Motor_Status=MOTER_OPEN;
+   \   00000066   E003               LDI     R16, 3
+   \   00000068   9300....           STS     Motor_Status, R16
+    266                Motor_Status_old = MOTER_OPEN;
+   \                     ??Motor_Get_LimitSwitch_Value_5:
+   \   0000006C   E003               LDI     R16, 3
+   \   0000006E   9300....           STS     Motor_Status_old, R16
+   \   00000072   9508               RET
+    267              }    
+    268              else Motor_Status_old = MOTER_OPEN;
+   \                     ??Motor_Get_LimitSwitch_Value_4:
+   \   00000074   E003               LDI     R16, 3
+   \   00000076   9300....           STS     Motor_Status_old, R16
+   \   0000007A   9508               RET
+    269            }
+    270            else if(ADC_Motor_Switch_Value>800){
+   \                     ??Motor_Get_LimitSwitch_Value_3:
+   \   0000007C   ....               LDI     R30, LOW(ADC_Motor_Switch_Value)
+   \   0000007E   ....               LDI     R31, (ADC_Motor_Switch_Value) >> 8
+   \   00000080   8100               LD      R16, Z
+   \   00000082   8111               LDD     R17, Z+1
+   \   00000084   3201               CPI     R16, 33
+   \   00000086   E023               LDI     R18, 3
+   \   00000088   0712               CPC     R17, R18
+   \   0000008A   F0A8               BRCS    ??Motor_Get_LimitSwitch_Value_6
+    271          
+    272          
+    273              
+    274              if(Motor_Status_old!=Motor_Status){
+   \   0000008C   9100....           LDS     R16, Motor_Status_old
+   \   00000090   9110....           LDS     R17, Motor_Status
+   \   00000094   1701               CP      R16, R17
+   \   00000096   F059               BREQ    ??Motor_Get_LimitSwitch_Value_7
+    275                if(Motor_Status_old==MOTER_CLOSE)
+   \   00000098   9100....           LDS     R16, Motor_Status_old
+   \   0000009C   3001               CPI     R16, 1
+   \   0000009E   F419               BRNE    ??Motor_Get_LimitSwitch_Value_8
+    276                  Motor_Status=MOTER_CLOSE;
+   \   000000A0   E001               LDI     R16, 1
+   \   000000A2   9300....           STS     Motor_Status, R16
+    277                Motor_Status_old = MOTER_CLOSE;
+   \                     ??Motor_Get_LimitSwitch_Value_8:
+   \   000000A6   E001               LDI     R16, 1
+   \   000000A8   9300....           STS     Motor_Status_old, R16
+   \   000000AC   9508               RET
+    278              }    
+    279              else Motor_Status_old = MOTER_CLOSE;
+   \                     ??Motor_Get_LimitSwitch_Value_7:
+   \   000000AE   E001               LDI     R16, 1
+   \   000000B0   9300....           STS     Motor_Status_old, R16
+   \   000000B4   9508               RET
+    280            }
+    281            
+    282            else if(ADC_Motor_Switch_Value<200){
+   \                     ??Motor_Get_LimitSwitch_Value_6:
+   \   000000B6   ....               LDI     R30, LOW(ADC_Motor_Switch_Value)
+   \   000000B8   ....               LDI     R31, (ADC_Motor_Switch_Value) >> 8
+   \   000000BA   8100               LD      R16, Z
+   \   000000BC   8111               LDD     R17, Z+1
+   \   000000BE   3C08               CPI     R16, 200
+   \   000000C0   E020               LDI     R18, 0
+   \   000000C2   0712               CPC     R17, R18
+   \   000000C4   F4A0               BRCC    ??Motor_Get_LimitSwitch_Value_9
+    283          
+    284              
+    285              if(Motor_Status_old!=Motor_Status){
+   \   000000C6   9100....           LDS     R16, Motor_Status_old
+   \   000000CA   9110....           LDS     R17, Motor_Status
+   \   000000CE   1701               CP      R16, R17
+   \   000000D0   F059               BREQ    ??Motor_Get_LimitSwitch_Value_10
+    286                if(Motor_Status_old==MOTER_AUTO_ZERO)
+   \   000000D2   9100....           LDS     R16, Motor_Status_old
+   \   000000D6   3005               CPI     R16, 5
+   \   000000D8   F419               BRNE    ??Motor_Get_LimitSwitch_Value_11
+    287                  Motor_Status=MOTER_AUTO_ZERO;
+   \   000000DA   E005               LDI     R16, 5
+   \   000000DC   9300....           STS     Motor_Status, R16
+    288                Motor_Status_old = MOTER_AUTO_ZERO;
+   \                     ??Motor_Get_LimitSwitch_Value_11:
+   \   000000E0   E005               LDI     R16, 5
+   \   000000E2   9300....           STS     Motor_Status_old, R16
+   \   000000E6   9508               RET
+    289              }    
+    290              else Motor_Status_old = MOTER_AUTO_ZERO;
+   \                     ??Motor_Get_LimitSwitch_Value_10:
+   \   000000E8   E005               LDI     R16, 5
+   \   000000EA   9300....           STS     Motor_Status_old, R16
+    291            }
+    292          }
+   \                     ??Motor_Get_LimitSwitch_Value_9:
+   \   000000EE   9508               RET
+    293            
+    294            
+    295          
+    296          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    297          void Motor_AutoZero_Process(void)
+   \                     Motor_AutoZero_Process:
+    298          {
+    299            
+    300            if(Motor_Status == MOTER_AUTO_ZERO)
+   \   00000000   9100....           LDS     R16, Motor_Status
+   \   00000004   3005               CPI     R16, 5
+   \   00000006   F411               BRNE    ??Motor_AutoZero_Process_0
+    301              ADC_Auto_Zero_Process();
+   \   00000008   ........           CALL    ADC_Auto_Zero_Process
+    302            
+    303          }
+   \                     ??Motor_AutoZero_Process_0:
+   \   0000000C   9508               RET
+    304          
+    305          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    306          void Motor_Get_OverCurrent_Value(void)
+   \                     Motor_Get_OverCurrent_Value:
+    307          {
+    308            
+    309            /* ����Ŀ��Ʈ�� �Է��� �޾� Timer_Motor_OverCurrent_Reg�� �����Ѵ�.. */
+    310            
+    311            if(ADC_Overcurrent_Value>200){
+   \   00000000   ....               LDI     R30, LOW(ADC_Overcurrent_Value)
+   \   00000002   ....               LDI     R31, (ADC_Overcurrent_Value) >> 8
+   \   00000004   8100               LD      R16, Z
+   \   00000006   8111               LDD     R17, Z+1
+   \   00000008   3C09               CPI     R16, 201
+   \   0000000A   E020               LDI     R18, 0
+   \   0000000C   0712               CPC     R17, R18
+   \   0000000E   F040               BRCS    ??Motor_Get_OverCurrent_Value_0
+    312              if(Timer_Motor_OverCurrent_Reg!=1){
+   \   00000010   9100....           LDS     R16, Timer_Motor_OverCurrent_Reg
+   \   00000014   3001               CPI     R16, 1
+   \   00000016   F069               BREQ    ??Motor_Get_OverCurrent_Value_1
+    313                Timer_Motor_OverCurrent_Reg=1;
+   \   00000018   E001               LDI     R16, 1
+   \   0000001A   9300....           STS     Timer_Motor_OverCurrent_Reg, R16
+   \   0000001E   9508               RET
+    314              }
+    315            }
+    316            else {
+    317              Timer_Motor_OverCurrent_Reg=0;
+   \                     ??Motor_Get_OverCurrent_Value_0:
+   \   00000020   E000               LDI     R16, 0
+   \   00000022   9300....           STS     Timer_Motor_OverCurrent_Reg, R16
+    318              Timer_Motor_OverCurrent_Cnt=0;
+   \   00000026   ....               LDI     R30, LOW(Timer_Motor_OverCurrent_Cnt)
+   \   00000028   ....               LDI     R31, (Timer_Motor_OverCurrent_Cnt) >> 8
+   \   0000002A   E000               LDI     R16, 0
+   \   0000002C   8300               ST      Z, R16
+   \   0000002E   E000               LDI     R16, 0
+   \   00000030   8301               STD     Z+1, R16
+    319            }
+    320              
+    321          }
+   \                     ??Motor_Get_OverCurrent_Value_1:
+   \   00000032   9508               RET
+    322          
+    323          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    324          void Motor_Timer(void)
+   \                     Motor_Timer:
+    325          {
+   \   00000000   939A               ST      -Y, R25
+   \   00000002   938A               ST      -Y, R24
+    326            
+    327             /////////////// OVERCURRENT SENSEING TIMER ////////////////////
+    328            /*System_Mode <= S_OverCurrent_Error_Mode */
+    329            
+    330            if(Timer_Motor_OverCurrent_Reg==1){
+   \   00000004   9100....           LDS     R16, Timer_Motor_OverCurrent_Reg
+   \   00000008   3001               CPI     R16, 1
+   \   0000000A   F5A1               BRNE    ??Motor_Timer_0
+    331              Timer_Motor_OverCurrent_Cnt++;
+   \   0000000C   ....               LDI     R30, LOW(Timer_Motor_OverCurrent_Cnt)
+   \   0000000E   ....               LDI     R31, (Timer_Motor_OverCurrent_Cnt) >> 8
+   \   00000010   8100               LD      R16, Z
+   \   00000012   8111               LDD     R17, Z+1
+   \   00000014   5F0F               SUBI    R16, 255
+   \   00000016   4F1F               SBCI    R17, 255
+   \   00000018   8300               ST      Z, R16
+   \   0000001A   8311               STD     Z+1, R17
+    332              if(Timer_Motor_OverCurrent_Cnt==5000){// 0.2ms * = 2000
+   \   0000001C   ....               LDI     R30, LOW(Timer_Motor_OverCurrent_Cnt)
+   \   0000001E   ....               LDI     R31, (Timer_Motor_OverCurrent_Cnt) >> 8
+   \   00000020   8100               LD      R16, Z
+   \   00000022   8111               LDD     R17, Z+1
+   \   00000024   3808               CPI     R16, 136
+   \   00000026   E123               LDI     R18, 19
+   \   00000028   0712               CPC     R17, R18
+   \   0000002A   F521               BRNE    ??Motor_Timer_0
+    333          
+    334                Timer_Motor_OverCurrent_Cnt=0;
+   \   0000002C   ....               LDI     R30, LOW(Timer_Motor_OverCurrent_Cnt)
+   \   0000002E   ....               LDI     R31, (Timer_Motor_OverCurrent_Cnt) >> 8
+   \   00000030   E000               LDI     R16, 0
+   \   00000032   8300               ST      Z, R16
+   \   00000034   E000               LDI     R16, 0
+   \   00000036   8301               STD     Z+1, R16
+    335                Timer_Motor_OverCurrent_Reg=2;
+   \   00000038   E002               LDI     R16, 2
+   \   0000003A   9300....           STS     Timer_Motor_OverCurrent_Reg, R16
+    336                Alarm1_Off();
+   \   0000003E   ........           CALL    Alarm1_Off
+    337                Alarm2_Off();
+   \   00000042   ........           CALL    Alarm2_Off
+    338                
+    339                Motor_REG_Initialize();
+   \   00000046   ....               RCALL   Motor_REG_Initialize
+    340                //System_Mode=S_OverCurrent_Error_Mode;
+    341                //PORTC |= 0x08;// Ȯ�� ��ȣ 
+    342                
+    343                switch(Pressure_Status){
+   \   00000048   9100....           LDS     R16, Pressure_Status
+   \   0000004C   5001               SUBI    R16, 1
+   \   0000004E   F029               BREQ    ??Motor_Timer_1
+   \   00000050   950A               DEC     R16
+   \   00000052   F041               BREQ    ??Motor_Timer_2
+   \   00000054   5004               SUBI    R16, 4
+   \   00000056   F059               BREQ    ??Motor_Timer_3
+   \   00000058   C00D               RJMP    ??Motor_Timer_0
+    344                case NO_PRESSURE: // if the system is in off mode..
+    345                  Motor_Close_Stop=1; 
+   \                     ??Motor_Timer_1:
+   \   0000005A   E001               LDI     R16, 1
+   \   0000005C   9300....           STS     Motor_Close_Stop, R16
+    346                  PORTC&=(~0x08);
+   \   00000060   9843               CBI     0x08, 0x03
+    347                  
+    348                  break;
+   \   00000062   C008               RJMP    ??Motor_Timer_0
+    349                case LOW_PRESSURE: // if the system is in run mode.. and low pressure mode  
+    350                  Motor_Open_Stop=1;
+   \                     ??Motor_Timer_2:
+   \   00000064   E001               LDI     R16, 1
+   \   00000066   9300....           STS     Motor_Open_Stop, R16
+    351                  PORTC |= 0x08;// Ȯ�� ��ȣ 
+   \   0000006A   9A43               SBI     0x08, 0x03
+    352                  break;
+   \   0000006C   C003               RJMP    ??Motor_Timer_0
+    353                case HIGH_PRESSURE:
+    354                  Motor_Close_Stop=1;
+   \                     ??Motor_Timer_3:
+   \   0000006E   E001               LDI     R16, 1
+   \   00000070   9300....           STS     Motor_Close_Stop, R16
+    355                  //PORTC&=(~0x08);
+    356                  break;
+    357                default:
+    358                  break;
+    359                }
+    360                
+    361              }
+    362            }
+    363          
+    364            if(Pressure_Status==HIGH_PRESSURE)PORTC |= 0x08;// Ȯ�� ��ȣ 
+   \                     ??Motor_Timer_0:
+   \   00000074   9100....           LDS     R16, Pressure_Status
+   \   00000078   3006               CPI     R16, 6
+   \   0000007A   F409               BRNE    ??Motor_Timer_4
+   \   0000007C   9A43               SBI     0x08, 0x03
+    365            ////////////////// MOTOR TIMEOVER TIMER ///////////////////////
+    366            /**/
+    367            if(Timer_Motor_TimeOver_Reg==1){
+   \                     ??Motor_Timer_4:
+   \   0000007E   9100....           LDS     R16, Timer_Motor_TimeOver_Reg
+   \   00000082   3001               CPI     R16, 1
+   \   00000084   F009               BREQ    $+2+2
+   \   00000086   C075               RJMP    ??Motor_Timer_5
+    368              Timer_Motor_TimeOver_Cnt++;
+   \   00000088   ....               LDI     R30, LOW(Timer_Motor_TimeOver_Cnt)
+   \   0000008A   ....               LDI     R31, (Timer_Motor_TimeOver_Cnt) >> 8
+   \   0000008C   8100               LD      R16, Z
+   \   0000008E   8111               LDD     R17, Z+1
+   \   00000090   8122               LDD     R18, Z+2
+   \   00000092   8133               LDD     R19, Z+3
+   \   00000094   5F0F               SUBI    R16, 255
+   \   00000096   4F1F               SBCI    R17, 255
+   \   00000098   4F2F               SBCI    R18, 255
+   \   0000009A   4F3F               SBCI    R19, 255
+   \   0000009C   8300               ST      Z, R16
+   \   0000009E   8311               STD     Z+1, R17
+   \   000000A0   8322               STD     Z+2, R18
+   \   000000A2   8333               STD     Z+3, R19
+    369              
+    370              if((Timer_Motor_TimeOver_Cnt<TIME_OVER_TIME)){
+   \   000000A4   ....               LDI     R30, LOW(Timer_Motor_TimeOver_Cnt)
+   \   000000A6   ....               LDI     R31, (Timer_Motor_TimeOver_Cnt) >> 8
+   \   000000A8   8100               LD      R16, Z
+   \   000000AA   8111               LDD     R17, Z+1
+   \   000000AC   8122               LDD     R18, Z+2
+   \   000000AE   8133               LDD     R19, Z+3
+   \   000000B0   3F00               CPI     R16, 240
+   \   000000B2   E449               LDI     R20, 73
+   \   000000B4   0714               CPC     R17, R20
+   \   000000B6   E042               LDI     R20, 2
+   \   000000B8   0724               CPC     R18, R20
+   \   000000BA   E040               LDI     R20, 0
+   \   000000BC   0734               CPC     R19, R20
+   \   000000BE   F530               BRCC    ??Motor_Timer_6
+    371          
+    372                switch(Pressure_Status){
+   \   000000C0   9100....           LDS     R16, Pressure_Status
+   \   000000C4   5001               SUBI    R16, 1
+   \   000000C6   F021               BREQ    ??Motor_Timer_7
+   \   000000C8   950A               DEC     R16
+   \   000000CA   F089               BREQ    ??Motor_Timer_8
+   \   000000CC   5004               SUBI    R16, 4
+   \   000000CE   F4F1               BRNE    ??Motor_Timer_6
+    373                case NO_PRESSURE:
+    374                case HIGH_PRESSURE:
+    375                  if(Motor_Status == MOTER_CLOSE){
+   \                     ??Motor_Timer_7:
+   \   000000D0   9100....           LDS     R16, Motor_Status
+   \   000000D4   3001               CPI     R16, 1
+   \   000000D6   F419               BRNE    ??Motor_Timer_9
+    376                    Motor_Close_Stop=1;
+   \   000000D8   E001               LDI     R16, 1
+   \   000000DA   9300....           STS     Motor_Close_Stop, R16
+    377                  }
+    378                  if(Motor_Status == MOTER_ACT){
+   \                     ??Motor_Timer_9:
+   \   000000DE   9100....           LDS     R16, Motor_Status
+   \   000000E2   3002               CPI     R16, 2
+   \   000000E4   F499               BRNE    ??Motor_Timer_6
+    379                    Motor_Close_Stop=0;
+   \   000000E6   E000               LDI     R16, 0
+   \   000000E8   9300....           STS     Motor_Close_Stop, R16
+    380                  }
+    381                  
+    382                  //if(Pressure_Status==NO_PRESSURE)PORTC&=(~0x08);
+    383                  break;
+   \   000000EC   C00F               RJMP    ??Motor_Timer_6
+    384                case LOW_PRESSURE:
+    385                  if(Motor_Status == MOTER_OPEN){//������ ������ Ȯ�ν�ȣ�� �����ش�. 
+   \                     ??Motor_Timer_8:
+   \   000000EE   9100....           LDS     R16, Motor_Status
+   \   000000F2   3003               CPI     R16, 3
+   \   000000F4   F421               BRNE    ??Motor_Timer_10
+    386                    Motor_Open_Stop=1;
+   \   000000F6   E001               LDI     R16, 1
+   \   000000F8   9300....           STS     Motor_Open_Stop, R16
+    387                    PORTC |= 0x08;// Ȯ�� ��ȣ 
+   \   000000FC   9A43               SBI     0x08, 0x03
+    388                  }
+    389                  if(Motor_Status == MOTER_ACT){
+   \                     ??Motor_Timer_10:
+   \   000000FE   9100....           LDS     R16, Motor_Status
+   \   00000102   3002               CPI     R16, 2
+   \   00000104   F419               BRNE    ??Motor_Timer_6
+    390                    Motor_Open_Stop=0;
+   \   00000106   E000               LDI     R16, 0
+   \   00000108   9300....           STS     Motor_Open_Stop, R16
+    391                  }          
+    392                  break;
+    393                default:
+    394                  break;
+    395                }
+    396            
+    397              }
+    398              
+    399              if(Timer_Motor_TimeOver_Cnt>=TIME_OVER_TIME ){
+   \                     ??Motor_Timer_6:
+   \   0000010C   ....               LDI     R30, LOW(Timer_Motor_TimeOver_Cnt)
+   \   0000010E   ....               LDI     R31, (Timer_Motor_TimeOver_Cnt) >> 8
+   \   00000110   8100               LD      R16, Z
+   \   00000112   8111               LDD     R17, Z+1
+   \   00000114   8122               LDD     R18, Z+2
+   \   00000116   8133               LDD     R19, Z+3
+   \   00000118   3F00               CPI     R16, 240
+   \   0000011A   E449               LDI     R20, 73
+   \   0000011C   0714               CPC     R17, R20
+   \   0000011E   E042               LDI     R20, 2
+   \   00000120   0724               CPC     R18, R20
+   \   00000122   E040               LDI     R20, 0
+   \   00000124   0734               CPC     R19, R20
+   \   00000126   F128               BRCS    ??Motor_Timer_5
+    400                Timer_Motor_TimeOver_Cnt=0;
+   \   00000128   ....               LDI     R30, LOW(Timer_Motor_TimeOver_Cnt)
+   \   0000012A   ....               LDI     R31, (Timer_Motor_TimeOver_Cnt) >> 8
+   \   0000012C   E000               LDI     R16, 0
+   \   0000012E   8300               ST      Z, R16
+   \   00000130   E000               LDI     R16, 0
+   \   00000132   8301               STD     Z+1, R16
+   \   00000134   E000               LDI     R16, 0
+   \   00000136   8302               STD     Z+2, R16
+   \   00000138   E000               LDI     R16, 0
+   \   0000013A   8303               STD     Z+3, R16
+    401                Timer_Motor_TimeOver_Reg=2;
+   \   0000013C   E002               LDI     R16, 2
+   \   0000013E   9300....           STS     Timer_Motor_TimeOver_Reg, R16
+    402                if((Pressure_Status==NO_PRESSURE)||(Pressure_Status==HIGH_PRESSURE))
+   \   00000142   9100....           LDS     R16, Pressure_Status
+   \   00000146   3001               CPI     R16, 1
+   \   00000148   F021               BREQ    ??Motor_Timer_11
+   \   0000014A   9100....           LDS     R16, Pressure_Status
+   \   0000014E   3006               CPI     R16, 6
+   \   00000150   F421               BRNE    ??Motor_Timer_12
+    403                  Motor_Close_Stop=1;
+   \                     ??Motor_Timer_11:
+   \   00000152   E001               LDI     R16, 1
+   \   00000154   9300....           STS     Motor_Close_Stop, R16
+   \   00000158   C007               RJMP    ??Motor_Timer_13
+    404                else if((Pressure_Status==LOW_PRESSURE))
+   \                     ??Motor_Timer_12:
+   \   0000015A   9100....           LDS     R16, Pressure_Status
+   \   0000015E   3002               CPI     R16, 2
+   \   00000160   F419               BRNE    ??Motor_Timer_13
+    405                  Motor_Open_Stop=1;
+   \   00000162   E001               LDI     R16, 1
+   \   00000164   9300....           STS     Motor_Open_Stop, R16
+    406                
+    407                if(Pressure_Status==NO_PRESSURE)PORTC&=(~0x08);
+   \                     ??Motor_Timer_13:
+   \   00000168   9100....           LDS     R16, Pressure_Status
+   \   0000016C   3001               CPI     R16, 1
+   \   0000016E   F409               BRNE    ??Motor_Timer_5
+   \   00000170   9843               CBI     0x08, 0x03
+    408              }
+    409              
+    410            }
+    411              
+    412            if(System_Mode==S_Stop_Mode)
+   \                     ??Motor_Timer_5:
+   \   00000172   9100....           LDS     R16, System_Mode
+   \   00000176   3002               CPI     R16, 2
+   \   00000178   F429               BRNE    ??Motor_Timer_14
+    413              if(Motor_Status == MOTER_CLOSE) //0V �� ������ 
+   \   0000017A   9100....           LDS     R16, Motor_Status
+   \   0000017E   3001               CPI     R16, 1
+   \   00000180   F409               BRNE    ??Motor_Timer_14
+    414              PORTC&=(~0x08);
+   \   00000182   9843               CBI     0x08, 0x03
+    415          
+    416            
+    417            if(PWM_Enable==1){
+   \                     ??Motor_Timer_14:
+   \   00000184   9100....           LDS     R16, PWM_Enable
+   \   00000188   3001               CPI     R16, 1
+   \   0000018A   F009               BREQ    $+2+2
+   \   0000018C   C0A3               RJMP    ??Motor_Timer_15
+    418          
+    419              switch(Pressure_Status){
+   \   0000018E   9100....           LDS     R16, Pressure_Status
+   \   00000192   5001               SUBI    R16, 1
+   \   00000194   F1E1               BREQ    ??Motor_Timer_16
+   \   00000196   950A               DEC     R16
+   \   00000198   F1D1               BREQ    ??Motor_Timer_16
+   \   0000019A   950A               DEC     R16
+   \   0000019C   F029               BREQ    ??Motor_Timer_17
+   \   0000019E   950A               DEC     R16
+   \   000001A0   F1B1               BREQ    ??Motor_Timer_16
+   \   000001A2   950A               DEC     R16
+   \   000001A4   F0D9               BREQ    ??Motor_Timer_18
+   \   000001A6   C033               RJMP    ??Motor_Timer_16
+    420              case LOW_PRESSURE:
+    421                
+    422                break;
+    423              case LOW_PWM_PRESSURE:
+    424                
+    425                if(Real_Pressure_Value > Standard_Pressure_Value-6){
+   \                     ??Motor_Timer_17:
+   \   000001A8   ....               LDI     R30, LOW(Standard_Pressure_Value)
+   \   000001AA   ....               LDI     R31, (Standard_Pressure_Value) >> 8
+   \   000001AC   8180               LD      R24, Z
+   \   000001AE   8191               LDD     R25, Z+1
+   \   000001B0   9706               SBIW    R25:R24, 6
+   \   000001B2   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   000001B4   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   000001B6   8100               LD      R16, Z
+   \   000001B8   8111               LDD     R17, Z+1
+   \   000001BA   1780               CP      R24, R16
+   \   000001BC   0791               CPC     R25, R17
+   \   000001BE   F43C               BRGE    ??Motor_Timer_19
+    426                  PWM_Off_Count = 4850;//970ms  /* 2020-02-09 Modify */
+   \   000001C0   ....               LDI     R30, LOW(PWM_Off_Count)
+   \   000001C2   ....               LDI     R31, (PWM_Off_Count) >> 8
+   \   000001C4   EF02               LDI     R16, 242
+   \   000001C6   E112               LDI     R17, 18
+   \   000001C8   8300               ST      Z, R16
+   \   000001CA   8311               STD     Z+1, R17
+   \   000001CC   C020               RJMP    ??Motor_Timer_16
+    427                  //PWM_Off_Count = 4500;// 900ms
+    428                }
+    429                
+    430                
+    431                else { /* 2020-02-09 Modify */
+    432                  //PWM_Off_Count = Standard_Pressure_Value*5;
+    433                  PWM_Off_Count = 4500;// 900ms
+   \                     ??Motor_Timer_19:
+   \   000001CE   ....               LDI     R30, LOW(PWM_Off_Count)
+   \   000001D0   ....               LDI     R31, (PWM_Off_Count) >> 8
+   \   000001D2   E904               LDI     R16, 148
+   \   000001D4   E111               LDI     R17, 17
+   \   000001D6   8300               ST      Z, R16
+   \   000001D8   8311               STD     Z+1, R17
+    434                }
+    435                
+    436          
+    437                break;
+   \   000001DA   C019               RJMP    ??Motor_Timer_16
+    438              case MIDDLE_PRESSURE:
+    439                break;
+    440              case HIGH_PWM_PRESSURE:
+    441                
+    442                if(Real_Pressure_Value < Standard_Pressure_Value+6){
+   \                     ??Motor_Timer_18:
+   \   000001DC   ....               LDI     R30, LOW(Real_Pressure_Value)
+   \   000001DE   ....               LDI     R31, (Real_Pressure_Value) >> 8
+   \   000001E0   8100               LD      R16, Z
+   \   000001E2   8111               LDD     R17, Z+1
+   \   000001E4   ....               LDI     R30, LOW(Standard_Pressure_Value)
+   \   000001E6   ....               LDI     R31, (Standard_Pressure_Value) >> 8
+   \   000001E8   8180               LD      R24, Z
+   \   000001EA   8191               LDD     R25, Z+1
+   \   000001EC   9606               ADIW    R25:R24, 6
+   \   000001EE   1708               CP      R16, R24
+   \   000001F0   0719               CPC     R17, R25
+   \   000001F2   F43C               BRGE    ??Motor_Timer_20
+    443                  PWM_Off_Count = 4850;//970ms  /* 2020-02-09 Modify */ 
+   \   000001F4   ....               LDI     R30, LOW(PWM_Off_Count)
+   \   000001F6   ....               LDI     R31, (PWM_Off_Count) >> 8
+   \   000001F8   EF02               LDI     R16, 242
+   \   000001FA   E112               LDI     R17, 18
+   \   000001FC   8300               ST      Z, R16
+   \   000001FE   8311               STD     Z+1, R17
+   \   00000200   C006               RJMP    ??Motor_Timer_16
+    444                  //PWM_Off_Count = 4500;// 900ms 
+    445                }
+    446                
+    447                else { /* 2020-02-09 Modify */
+    448                  //PWM_Off_Count = Standard_Pressure_Value*5;
+    449                  PWM_Off_Count = 4500;// 900ms
+   \                     ??Motor_Timer_20:
+   \   00000202   ....               LDI     R30, LOW(PWM_Off_Count)
+   \   00000204   ....               LDI     R31, (PWM_Off_Count) >> 8
+   \   00000206   E904               LDI     R16, 148
+   \   00000208   E111               LDI     R17, 17
+   \   0000020A   8300               ST      Z, R16
+   \   0000020C   8311               STD     Z+1, R17
+    450                }
+    451                
+    452          
+    453                break;
+    454              case HIGH_PRESSURE:
+    455                break;
+    456              case NO_PRESSURE:
+    457                break;
+    458              default:
+    459                break;
+    460              }
+    461              
+    462              
+    463              
+    464              PWM_Count++;
+   \                     ??Motor_Timer_16:
+   \   0000020E   ....               LDI     R30, LOW(PWM_Count)
+   \   00000210   ....               LDI     R31, (PWM_Count) >> 8
+   \   00000212   8100               LD      R16, Z
+   \   00000214   8111               LDD     R17, Z+1
+   \   00000216   5F0F               SUBI    R16, 255
+   \   00000218   4F1F               SBCI    R17, 255
+   \   0000021A   8300               ST      Z, R16
+   \   0000021C   8311               STD     Z+1, R17
+    465              if(PWM_Count<PWM_Off_Count){// ������ 4500
+   \   0000021E   ....               LDI     R30, LOW(PWM_Count)
+   \   00000220   ....               LDI     R31, (PWM_Count) >> 8
+   \   00000222   8100               LD      R16, Z
+   \   00000224   8111               LDD     R17, Z+1
+   \   00000226   ....               LDI     R30, LOW(PWM_Off_Count)
+   \   00000228   ....               LDI     R31, (PWM_Off_Count) >> 8
+   \   0000022A   8120               LD      R18, Z
+   \   0000022C   8131               LDD     R19, Z+1
+   \   0000022E   1702               CP      R16, R18
+   \   00000230   0713               CPC     R17, R19
+   \   00000232   F428               BRCC    ??Motor_Timer_21
+    466                Alarm1_Off();
+   \   00000234   ........           CALL    Alarm1_Off
+    467                Alarm2_Off();
+   \   00000238   ........           CALL    Alarm2_Off
+   \   0000023C   C03D               RJMP    ??Motor_Timer_22
+    468              }
+    469              else if((PWM_Count>=PWM_Off_Count)&&(PWM_Count<PWM_ALL_COUNT)){ // ������ 4500 5000
+   \                     ??Motor_Timer_21:
+   \   0000023E   ....               LDI     R30, LOW(PWM_Count)
+   \   00000240   ....               LDI     R31, (PWM_Count) >> 8
+   \   00000242   8100               LD      R16, Z
+   \   00000244   8111               LDD     R17, Z+1
+   \   00000246   ....               LDI     R30, LOW(PWM_Off_Count)
+   \   00000248   ....               LDI     R31, (PWM_Off_Count) >> 8
+   \   0000024A   8120               LD      R18, Z
+   \   0000024C   8131               LDD     R19, Z+1
+   \   0000024E   1702               CP      R16, R18
+   \   00000250   0713               CPC     R17, R19
+   \   00000252   F190               BRCS    ??Motor_Timer_22
+   \   00000254   ....               LDI     R30, LOW(PWM_Count)
+   \   00000256   ....               LDI     R31, (PWM_Count) >> 8
+   \   00000258   8100               LD      R16, Z
+   \   0000025A   8111               LDD     R17, Z+1
+   \   0000025C   3808               CPI     R16, 136
+   \   0000025E   E123               LDI     R18, 19
+   \   00000260   0712               CPC     R17, R18
+   \   00000262   F550               BRCC    ??Motor_Timer_22
+    470                if(Pressure_Status==LOW_PWM_PRESSURE)
+   \   00000264   9100....           LDS     R16, Pressure_Status
+   \   00000268   3003               CPI     R16, 3
+   \   0000026A   F491               BRNE    ??Motor_Timer_23
+    471                  if(Motor_Open_Stop==0){
+   \   0000026C   9100....           LDS     R16, Motor_Open_Stop
+   \   00000270   2300               TST     R16
+   \   00000272   F459               BRNE    ??Motor_Timer_24
+    472                    if(Motor_Status == MOTER_OPEN){// ������ ������ Ȯ�ν�ȣ�� �����ش�. 
+   \   00000274   9100....           LDS     R16, Motor_Status
+   \   00000278   3003               CPI     R16, 3
+   \   0000027A   F421               BRNE    ??Motor_Timer_25
+    473                      PORTC |= 0x08;// Ȯ�� ��ȣ 
+   \   0000027C   9A43               SBI     0x08, 0x03
+    474                      Alarm1_Off();
+   \   0000027E   ........           CALL    Alarm1_Off
+   \   00000282   C01A               RJMP    ??Motor_Timer_22
+    475                    }
+    476                    else Alarm1_Out();
+   \                     ??Motor_Timer_25:
+   \   00000284   ........           CALL    Alarm1_Out
+   \   00000288   C017               RJMP    ??Motor_Timer_22
+    477                  }
+    478                  else Alarm1_Off();
+   \                     ??Motor_Timer_24:
+   \   0000028A   ........           CALL    Alarm1_Off
+   \   0000028E   C014               RJMP    ??Motor_Timer_22
+    479                else if(Pressure_Status==HIGH_PWM_PRESSURE)
+   \                     ??Motor_Timer_23:
+   \   00000290   9100....           LDS     R16, Pressure_Status
+   \   00000294   3005               CPI     R16, 5
+   \   00000296   F481               BRNE    ??Motor_Timer_22
+    480                  if(Motor_Close_Stop==0){
+   \   00000298   9100....           LDS     R16, Motor_Close_Stop
+   \   0000029C   2300               TST     R16
+   \   0000029E   F451               BRNE    ??Motor_Timer_26
+    481                    if(Motor_Status == MOTER_CLOSE)
+   \   000002A0   9100....           LDS     R16, Motor_Status
+   \   000002A4   3001               CPI     R16, 1
+   \   000002A6   F419               BRNE    ??Motor_Timer_27
+    482                      Alarm2_Off();
+   \   000002A8   ........           CALL    Alarm2_Off
+   \   000002AC   C005               RJMP    ??Motor_Timer_22
+    483                    else Alarm2_Out();
+   \                     ??Motor_Timer_27:
+   \   000002AE   ........           CALL    Alarm2_Out
+   \   000002B2   C002               RJMP    ??Motor_Timer_22
+    484                  }
+    485                  else Alarm2_Off();
+   \                     ??Motor_Timer_26:
+   \   000002B4   ........           CALL    Alarm2_Off
+    486              }
+    487              if(PWM_Count>=PWM_ALL_COUNT)PWM_Count=0;
+   \                     ??Motor_Timer_22:
+   \   000002B8   ....               LDI     R30, LOW(PWM_Count)
+   \   000002BA   ....               LDI     R31, (PWM_Count) >> 8
+   \   000002BC   8100               LD      R16, Z
+   \   000002BE   8111               LDD     R17, Z+1
+   \   000002C0   3808               CPI     R16, 136
+   \   000002C2   E123               LDI     R18, 19
+   \   000002C4   0712               CPC     R17, R18
+   \   000002C6   F030               BRCS    ??Motor_Timer_15
+   \   000002C8   ....               LDI     R30, LOW(PWM_Count)
+   \   000002CA   ....               LDI     R31, (PWM_Count) >> 8
+   \   000002CC   E000               LDI     R16, 0
+   \   000002CE   8300               ST      Z, R16
+   \   000002D0   E000               LDI     R16, 0
+   \   000002D2   8301               STD     Z+1, R16
+    488            }
+    489            
+    490          
+    491          }
+   \                     ??Motor_Timer_15:
+   \   000002D4   9189               LD      R24, Y+
+   \   000002D6   9199               LD      R25, Y+
+   \   000002D8   9508               RET
+   \   000002DA                      REQUIRE _A_PORTC
+    492          
+    493          
+    494          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    495          void Motor_Operation(void)
+   \                     Motor_Operation:
+    496          {
+    497            
+    498            Motor_Get_Pressure_Status();
+   \   00000000   ....               RCALL   Motor_Get_Pressure_Status
+    499            Motor_Change_Status_Process();
+   \   00000002   ....               RCALL   Motor_Change_Status_Process
+    500            Motor_Control();
+   \   00000004   ....               RCALL   Motor_Control
+    501            
+    502            Motor_AutoZero_Process();
+   \   00000006   ....               RCALL   Motor_AutoZero_Process
+    503            Motor_Get_OverCurrent_Value();
+   \   00000008   ....               RCALL   Motor_Get_OverCurrent_Value
+    504            
+    505          }
+   \   0000000A   9508               RET
+
+   \                                 In  segment NEAR_ID, align 1, keep-with-next
+   \                     `?<Initializer for PWM_Off_Count>`:
+   \   00000000   1356               DC16 4950
+
+   Maximum stack usage in bytes:
+
+   CSTACK RSTACK Function
+   ------ ------ --------
+      0      2   Motor_AutoZero_Process
+        0      2   -> ADC_Auto_Zero_Process
+      0      2   Motor_Change_Status_Process
+        0      2   -> Motor_REG_Initialize
+      0      2   Motor_Control
+        0      2   -> Alarm1_Off
+        0      2   -> Alarm1_Out
+        0      2   -> Alarm2_Off
+        0      2   -> Alarm2_Out
+      0      2   Motor_Get_LimitSwitch_Value
+      0      2   Motor_Get_OverCurrent_Value
+      0      2   Motor_Get_Pressure_Status
+      0      2   Motor_Operation
+        0      2   -> Motor_AutoZero_Process
+        0      2   -> Motor_Change_Status_Process
+        0      2   -> Motor_Control
+        0      2   -> Motor_Get_OverCurrent_Value
+        0      2   -> Motor_Get_Pressure_Status
+      0      2   Motor_REG_Initialize
+      2      2   Motor_Timer
+        2      2   -> Alarm1_Off
+        2      2   -> Alarm1_Out
+        2      2   -> Alarm2_Off
+        2      2   -> Alarm2_Out
+        2      2   -> Motor_REG_Initialize
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       2  ?<Initializer for PWM_Off_Count>
+      14  Motor_AutoZero_Process
+     174  Motor_Change_Status_Process
+       1  Motor_Close_Stop
+     126  Motor_Control
+     240  Motor_Get_LimitSwitch_Value
+      52  Motor_Get_OverCurrent_Value
+     314  Motor_Get_Pressure_Status
+       1  Motor_Open_Stop
+      12  Motor_Operation
+      64  Motor_REG_Initialize
+       1  Motor_Status
+       1  Motor_Status_Cnt
+       1  Motor_Status_old
+     730  Motor_Timer
+       1  OverCurrent_Status
+       2  PWM_Count
+       2  PWM_Current_Value
+       1  PWM_Enable
+       2  PWM_Off_Count
+       1  Pressure_Old_Status
+       1  Pressure_Status
+       2  Timer_Motor_OverCurrent_Cnt
+       1  Timer_Motor_OverCurrent_Reg
+       4  Timer_Motor_TimeOver_Cnt
+       1  Timer_Motor_TimeOver_Reg
+       1  _A_PORTC
+      12  -- Other
+
+ 
+     1 byte  in segment ABSOLUTE
+ 1 726 bytes in segment CODE
+    12 bytes in segment INITTAB
+     2 bytes in segment NEAR_I
+     2 bytes in segment NEAR_ID
+    21 bytes in segment NEAR_Z
+ 
+ 1 728 bytes of CODE memory (+ 12 bytes shared)
+    23 bytes of DATA memory (+  1 byte  shared)
+
+Errors: none
+Warnings: none

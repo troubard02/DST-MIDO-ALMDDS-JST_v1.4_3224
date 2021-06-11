@@ -1,0 +1,45 @@
+#ifndef __FND_DISPLAY_H
+#define __FND_DISPLAY_H
+
+
+
+
+
+
+void FND_NUMtoCHAR_Transfer(int16_t reg);
+
+void Fnd_Display(void);
+void Fnd_Put_Data_Timer(void);
+void Fnd_Display_Timer(void);
+
+
+extern uint8_t Display_Mode;
+extern uint16_t Display_Delay_Cnt;
+extern uint8_t Display_Number_Enable;
+extern uint8_t FND_value[3]; 
+enum{
+  D_Init_Mode,
+  D_Zero_Setting_Mode,
+  D_High_Setting_Mode,
+  D_Standard_Setting_Mode,
+  D_AutoZero_Mode,
+};
+
+#define FND_S (0x02+0x04+0x10+0x20+0x80)
+#define FND_E (0x02+0x04+0x08+0x10+0x80)
+#define FND_t (0x02+0x04+0x08+0x10)
+#define FND_H (0x02+0x04+0x08+0x20+0x40)
+#define FND_Z (0x02+0x08+0x10+0x40+0x80)
+#define FND_o (0x08+0x10+0x20+0x02)
+#define FND_F (0x02+0x04+0x08+0x80)
+#define FND_P (0x02+0x04+0x08+0x40+0x80)
+#define FND__ (0x10)
+#define FND_u (0x08+0x10+0x20)
+
+
+
+
+
+
+
+#endif

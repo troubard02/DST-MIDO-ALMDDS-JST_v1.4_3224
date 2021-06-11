@@ -1,0 +1,1705 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR      27/Dec/2020  15:46:51
+// Copyright 1996-2019 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for Atmel AVR
+//
+//    Source file  =  
+//        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\motor.c
+//    Command line =  
+//        -f C:\Users\troubard\AppData\Local\Temp\EWB15E.tmp
+//        ("C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\motor.c" --cpu=m168pa -ms
+//        -o "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj" -lC
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List" -lA
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List"
+//        --initializers_in_flash --no_cse --no_inline --no_code_motion
+//        --no_cross_call --no_clustering --no_tbaa --debug -e -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver\" -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver\" -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\" -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\" --eeprom_size 512 --dlib
+//        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+//        8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
+//    Locale       =  Korean_KOR.949
+//    List file    =  
+//        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List\motor.s90
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME motor
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega168PA"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+        RTMODEL "__vtable_memory", "__nearflash"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?need_segment_init
+
+        PUBWEAK `?<Segment init: NEAR_I>`
+        PUBWEAK `?<Segment init: NEAR_Z>`
+        PUBLIC Motor_AutoZero_Process
+        PUBLIC Motor_Change_Status_Process
+        PUBLIC Motor_Close_Stop
+        PUBLIC Motor_Control
+        PUBLIC Motor_Get_LimitSwitch_Value
+        PUBLIC Motor_Get_OverCurrent_Value
+        PUBLIC Motor_Get_Pressure_Status
+        PUBLIC Motor_Open_Stop
+        PUBLIC Motor_Operation
+        PUBLIC Motor_REG_Initialize
+        PUBLIC Motor_Status
+        PUBLIC Motor_Status_Cnt
+        PUBLIC Motor_Status_old
+        PUBLIC Motor_Timer
+        PUBLIC OverCurrent_Status
+        PUBLIC PWM_Count
+        PUBLIC PWM_Current_Value
+        PUBLIC PWM_Enable
+        PUBLIC PWM_Off_Count
+        PUBLIC Pressure_Old_Status
+        PUBLIC Pressure_Status
+        PUBLIC Timer_Motor_OverCurrent_Cnt
+        PUBLIC Timer_Motor_OverCurrent_Reg
+        PUBLIC Timer_Motor_TimeOver_Cnt
+        PUBLIC Timer_Motor_TimeOver_Reg
+        PUBWEAK _A_PORTC
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_Y Y DATA
+          CFI StackFrame CFA_SP SP DATA
+          CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+          CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+          CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+          CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+          CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+          CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+          CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+          CFI ResourceParts SP SPH, SPL
+          CFI ResourceParts Y R29, R28
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign 1
+          CFI ReturnAddress ?Ret CODE
+          CFI CFA_Y Y+0
+          CFI CFA_SP SP+2
+          CFI ?RetPad 0
+          CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+          CFI ?RetLow Frame(CFA_SP, 0)
+          CFI ?Ret Concat
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI R8 SameValue
+          CFI R9 SameValue
+          CFI R10 SameValue
+          CFI R11 SameValue
+          CFI R12 SameValue
+          CFI R13 SameValue
+          CFI R14 SameValue
+          CFI R15 SameValue
+          CFI R16 Undefined
+          CFI R17 Undefined
+          CFI R18 Undefined
+          CFI R19 Undefined
+          CFI R20 Undefined
+          CFI R21 Undefined
+          CFI R22 Undefined
+          CFI R23 Undefined
+          CFI R24 SameValue
+          CFI R25 SameValue
+          CFI R26 SameValue
+          CFI R27 SameValue
+          CFI R28 Undefined
+          CFI R29 Undefined
+          CFI R30 Undefined
+          CFI R31 Undefined
+          CFI ?RetHighByteMask SameValue
+          CFI SPH Undefined
+          CFI SPL Undefined
+          CFI EndCommon cfiCommon0
+        
+        EXTERN ADC_Auto_Zero_Process
+        EXTERN ADC_Motor_Switch_Value
+        EXTERN ADC_Overcurrent_Value
+        EXTERN Alarm1_Off
+        EXTERN Alarm1_Out
+        EXTERN Alarm2_Off
+        EXTERN Alarm2_Out
+        EXTERN Real_Pressure_Value
+        EXTERN Standard_Pressure_Value
+        EXTERN System_Mode
+
+// C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\motor.c
+//    1 #include "include.h"
+
+        ASEGN ABSOLUTE:DATA:NOROOT,028H
+// union <unnamed> volatile __io _A_PORTC
+_A_PORTC:
+        DS8 1
+//    2 
+//    3 
+//    4 
+//    5 
+//    6 uint8_t Motor_Status;
+//    7 #define MOTER_CLOSE 1
+//    8 #define MOTER_ACT 2
+//    9 #define MOTER_OPEN 3
+//   10 #define MOTER_OFF 4
+//   11 #define MOTER_AUTO_ZERO 5
+//   12 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   13 uint8_t OverCurrent_Status;
+OverCurrent_Status:
+        DS8 1
+//   14 #define OVERCURRENT 1
+//   15 #define NORMALCURRENT 0
+//   16 
+//   17 uint16_t PWM_Count;
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   18 uint8_t PWM_Enable;
+PWM_Enable:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   19 uint8_t Timer_Motor_TimeOver_Reg;
+Timer_Motor_TimeOver_Reg:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   20 uint32_t Timer_Motor_TimeOver_Cnt;
+Timer_Motor_TimeOver_Cnt:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   21 uint8_t Timer_Motor_OverCurrent_Reg;
+Timer_Motor_OverCurrent_Reg:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   22 uint16_t Timer_Motor_OverCurrent_Cnt;
+Timer_Motor_OverCurrent_Cnt:
+        DS8 2
+//   23 
+//   24 #define OVER_CURRENT_TIME 300 // 300* 0.2ms = 60ms
+//   25 #define TIME_OVER_TIME 150000 // 60000 * 0.2ms = 12000ms
+//   26 
+//   27 
+//   28 #define PWM_ALL_COUNT 5000 // 5000 * 0.2ms = 1000ms 
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//   29 uint16_t PWM_Off_Count=4950;
+PWM_Off_Count:
+        DS8 2
+        REQUIRE `?<Initializer for PWM_Off_Count>`
+//   30 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   31 int16_t PWM_Current_Value;
+PWM_Current_Value:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   32 uint16_t PWM_Count;
+PWM_Count:
+        DS8 2
+//   33 
+//   34 
+//   35 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   36 void Motor_REG_Initialize(void)
+Motor_REG_Initialize:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function Motor_REG_Initialize
+          CFI NoCalls
+//   37 {
+//   38   PWM_Count=0; 
+        LDI     R30, LOW(PWM_Count)
+        LDI     R31, (PWM_Count) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//   39   PWM_Enable=0;
+        LDI     R16, 0
+        STS     PWM_Enable, R16
+//   40   Timer_Motor_TimeOver_Reg=0;
+        LDI     R16, 0
+        STS     Timer_Motor_TimeOver_Reg, R16
+//   41   Timer_Motor_TimeOver_Cnt=0;
+        LDI     R30, LOW(Timer_Motor_TimeOver_Cnt)
+        LDI     R31, (Timer_Motor_TimeOver_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+        LDI     R16, 0
+        STD     Z+2, R16
+        LDI     R16, 0
+        STD     Z+3, R16
+//   42   Timer_Motor_OverCurrent_Reg=0;
+        LDI     R16, 0
+        STS     Timer_Motor_OverCurrent_Reg, R16
+//   43   Timer_Motor_OverCurrent_Cnt=0;
+        LDI     R30, LOW(Timer_Motor_OverCurrent_Cnt)
+        LDI     R31, (Timer_Motor_OverCurrent_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//   44   
+//   45 }
+        RET
+          CFI EndBlock cfiBlock0
+//   46 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   47 uint8_t Pressure_Status;
+Pressure_Status:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   48 uint8_t Pressure_Old_Status;
+Pressure_Old_Status:
+        DS8 1
+//   49 #define NO_PRESSURE 1
+//   50 #define LOW_PRESSURE 2
+//   51 #define LOW_PWM_PRESSURE 3
+//   52 #define MIDDLE_PRESSURE 4
+//   53 #define HIGH_PWM_PRESSURE 5
+//   54 #define HIGH_PRESSURE 6
+//   55 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   56 uint8_t Motor_Status;
+Motor_Status:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   57 uint8_t Motor_Close_Stop;
+Motor_Close_Stop:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   58 uint8_t Motor_Open_Stop;
+Motor_Open_Stop:
+        DS8 1
+//   59 
+//   60 
+//   61 #define LOW_PRESSURE_DIFF_VALUE 5
+//   62 #define HIGH_PRESSURE_DIFF_VALUE 5
+//   63 #define LOW_PWM_DIFF_VALUE 0
+//   64 #define HIGH_PWM_DIFF_VALUE 0
+//   65 
+//   66 
+//   67 //#define STANDARD_PRESSURE 50
+//   68 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   69 void Motor_Get_Pressure_Status(void)
+Motor_Get_Pressure_Status:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function Motor_Get_Pressure_Status
+          CFI NoCalls
+//   70 {
+        MOVW    R21:R20, R25:R24
+//   71   
+//   72   if(System_Mode==S_Run_Mode){
+        LDS     R16, System_Mode
+        CPI     R16, 1
+        BREQ    $+2+2
+        RJMP    ??Motor_Get_Pressure_Status_0
+//   73     
+//   74     // ���� �з��� ���� �з�-3 ���� �۾����� 
+//   75     if((Real_Pressure_Value<Standard_Pressure_Value-LOW_PRESSURE_DIFF_VALUE)){//3
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R24, Z
+        LDD     R25, Z+1
+        SBIW    R25:R24, 5
+        CP      R16, R24
+        CPC     R17, R25
+        BRGE    ??Motor_Get_Pressure_Status_1
+//   76       
+//   77       if(Pressure_Status==LOW_PWM_PRESSURE){
+        LDS     R16, Pressure_Status
+        CPI     R16, 3
+        BRNE    ??Motor_Get_Pressure_Status_2
+//   78         if(Real_Pressure_Value==Standard_Pressure_Value-LOW_PRESSURE_DIFF_VALUE-1){//4
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R24, Z
+        LDD     R25, Z+1
+        SBIW    R25:R24, 6
+        CP      R16, R24
+        CPC     R17, R25
+        BRNE    $+2+2
+        RJMP    ??Motor_Get_Pressure_Status_3
+//   79           
+//   80         }
+//   81         else{
+//   82           Pressure_Status=LOW_PRESSURE;
+        LDI     R16, 2
+        STS     Pressure_Status, R16
+        RJMP    ??Motor_Get_Pressure_Status_3
+//   83         }
+//   84       }
+//   85       else Pressure_Status=LOW_PRESSURE;
+??Motor_Get_Pressure_Status_2:
+        LDI     R16, 2
+        STS     Pressure_Status, R16
+        RJMP    ??Motor_Get_Pressure_Status_3
+//   86     }
+//   87     // ���� �з��� ���� �з� -3�� ���� �з� ���̿� ������ 
+//   88     else if((Real_Pressure_Value>=Standard_Pressure_Value-LOW_PRESSURE_DIFF_VALUE) //3
+//   89             &&(Real_Pressure_Value<Standard_Pressure_Value-LOW_PWM_DIFF_VALUE))//0
+??Motor_Get_Pressure_Status_1:
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R24, Z
+        LDD     R25, Z+1
+        SBIW    R25:R24, 5
+        CP      R16, R24
+        CPC     R17, R25
+        BRLT    ??Motor_Get_Pressure_Status_4
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        CP      R16, R18
+        CPC     R17, R19
+        BRGE    ??Motor_Get_Pressure_Status_4
+//   90       Pressure_Status=LOW_PWM_PRESSURE;
+        LDI     R16, 3
+        STS     Pressure_Status, R16
+        RJMP    ??Motor_Get_Pressure_Status_3
+//   91     // ���� �з��� ���ؾз� �̸� 
+//   92     /*
+//   93     else if((Real_Pressure_Value<=Standard_Pressure_Value+HIGH_PWM_DIFF_VALUE)
+//   94             &&(Real_Pressure_Value>=Standard_Pressure_Value-LOW_PWM_DIFF_VALUE))
+//   95     */
+//   96     else if(Real_Pressure_Value==Standard_Pressure_Value)
+??Motor_Get_Pressure_Status_4:
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        CP      R16, R18
+        CPC     R17, R19
+        BRNE    ??Motor_Get_Pressure_Status_5
+//   97       Pressure_Status=MIDDLE_PRESSURE;
+        LDI     R16, 4
+        STS     Pressure_Status, R16
+        RJMP    ??Motor_Get_Pressure_Status_3
+//   98     // ���� �з��� ���� �з� +3�� ���ؾз� ���̿� ������ 
+//   99     else if((Real_Pressure_Value>=Standard_Pressure_Value+HIGH_PWM_DIFF_VALUE)&&
+//  100             (Real_Pressure_Value<Standard_Pressure_Value+HIGH_PRESSURE_DIFF_VALUE))
+??Motor_Get_Pressure_Status_5:
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        CP      R16, R18
+        CPC     R17, R19
+        BRLT    ??Motor_Get_Pressure_Status_6
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R24, Z
+        LDD     R25, Z+1
+        ADIW    R25:R24, 5
+        CP      R16, R24
+        CPC     R17, R25
+        BRGE    ??Motor_Get_Pressure_Status_6
+//  101       Pressure_Status=HIGH_PWM_PRESSURE;
+        LDI     R16, 5
+        STS     Pressure_Status, R16
+        RJMP    ??Motor_Get_Pressure_Status_3
+//  102     // ���� �з��� ���� �з� +3 ���� ũ�� 200 �̳��� ������ 
+//  103     else if((Real_Pressure_Value>Standard_Pressure_Value+HIGH_PRESSURE_DIFF_VALUE))
+??Motor_Get_Pressure_Status_6:
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R24, Z
+        LDD     R25, Z+1
+        ADIW    R25:R24, 5
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        CP      R24, R16
+        CPC     R25, R17
+        BRGE    ??Motor_Get_Pressure_Status_3
+//  104     {
+//  105     
+//  106       if(Pressure_Status==HIGH_PWM_PRESSURE){
+        LDS     R16, Pressure_Status
+        CPI     R16, 5
+        BRNE    ??Motor_Get_Pressure_Status_7
+//  107         if(Real_Pressure_Value==Standard_Pressure_Value+HIGH_PRESSURE_DIFF_VALUE+1){
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R24, Z
+        LDD     R25, Z+1
+        ADIW    R25:R24, 6
+        CP      R16, R24
+        CPC     R17, R25
+        BREQ    ??Motor_Get_Pressure_Status_3
+//  108         }
+//  109         else{
+//  110           Pressure_Status=HIGH_PRESSURE;
+        LDI     R16, 6
+        STS     Pressure_Status, R16
+        RJMP    ??Motor_Get_Pressure_Status_3
+//  111         }
+//  112       }
+//  113       else Pressure_Status=HIGH_PRESSURE;      
+??Motor_Get_Pressure_Status_7:
+        LDI     R16, 6
+        STS     Pressure_Status, R16
+        RJMP    ??Motor_Get_Pressure_Status_3
+//  114   
+//  115     }
+//  116     
+//  117 
+//  118     
+//  119   }
+//  120   else if(System_Mode==S_Stop_Mode)Pressure_Status=NO_PRESSURE;
+??Motor_Get_Pressure_Status_0:
+        LDS     R16, System_Mode
+        CPI     R16, 2
+        BRNE    ??Motor_Get_Pressure_Status_3
+        LDI     R16, 1
+        STS     Pressure_Status, R16
+//  121   
+//  122 
+//  123 }
+??Motor_Get_Pressure_Status_3:
+        MOVW    R25:R24, R21:R20
+          CFI R24 R20
+        RET
+          CFI EndBlock cfiBlock1
+//  124 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  125 void Motor_Change_Status_Process(void)
+Motor_Change_Status_Process:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function Motor_Change_Status_Process
+//  126 {
+//  127   
+//  128   /*  ��� ��ȭ�� ���� �� , Timer_Motor_TimeOver_Reg,
+//  129       Motor_Open_Stop, Motor_Close_Stop ���� */
+//  130   if(Pressure_Status!=Pressure_Old_Status){
+        LDS     R16, Pressure_Status
+        LDS     R17, Pressure_Old_Status
+        CP      R16, R17
+        BRNE    $+2+2
+        RJMP    ??Motor_Change_Status_Process_0
+//  131     //������ ���ؼ� ��� ��ȭ�� ������ �ѹ� �����Ѵ�. 
+//  132     
+//  133     Motor_REG_Initialize();//���õ� Ÿ�̸ӵ��� ������ �ʱ�ȭ ���ش�. 
+          CFI FunCall Motor_REG_Initialize
+        RCALL   Motor_REG_Initialize
+//  134     
+//  135     switch(Pressure_Status){
+        LDS     R16, Pressure_Status
+        SUBI    R16, 1
+        BREQ    ??Motor_Change_Status_Process_1
+        DEC     R16
+        BREQ    ??Motor_Change_Status_Process_2
+        DEC     R16
+        BREQ    ??Motor_Change_Status_Process_3
+        DEC     R16
+        BREQ    ??Motor_Change_Status_Process_4
+        DEC     R16
+        BREQ    ??Motor_Change_Status_Process_5
+        DEC     R16
+        BRNE    ??Motor_Change_Status_Process_6
+//  136     case NO_PRESSURE:
+//  137     case HIGH_PRESSURE:
+//  138       if((Pressure_Old_Status)==HIGH_PWM_PRESSURE){
+??Motor_Change_Status_Process_1:
+        LDS     R16, Pressure_Old_Status
+        CPI     R16, 5
+        BRNE    ??Motor_Change_Status_Process_7
+//  139         // HIGH_PWM ���� HIGH�� �ö� ��� 
+//  140         if(Motor_Status== MOTER_CLOSE){
+        LDS     R16, Motor_Status
+        CPI     R16, 1
+        BRNE    ??Motor_Change_Status_Process_8
+//  141           //���Ͱ� �̹� ���� ��쿡�� 
+//  142           Motor_Close_Stop=1;
+        LDI     R16, 1
+        STS     Motor_Close_Stop, R16
+        RJMP    ??Motor_Change_Status_Process_6
+//  143         }
+//  144         else {
+//  145           //���Ͱ� �� ���� ��쿡�� 
+//  146           Timer_Motor_TimeOver_Reg=1;// Ÿ�̸� ���� 
+??Motor_Change_Status_Process_8:
+        LDI     R16, 1
+        STS     Timer_Motor_TimeOver_Reg, R16
+//  147           Motor_Open_Stop=0;//
+        LDI     R16, 0
+        STS     Motor_Open_Stop, R16
+        RJMP    ??Motor_Change_Status_Process_6
+//  148         }
+//  149       }
+//  150       else {
+//  151         // ������ ��忡�� HIGH�� �ö� ��� 
+//  152           Timer_Motor_TimeOver_Reg=1;// Ÿ�̸� ���� 
+??Motor_Change_Status_Process_7:
+        LDI     R16, 1
+        STS     Timer_Motor_TimeOver_Reg, R16
+//  153           Motor_Open_Stop=0;//
+        LDI     R16, 0
+        STS     Motor_Open_Stop, R16
+//  154       }
+//  155     break;
+        RJMP    ??Motor_Change_Status_Process_6
+//  156     case LOW_PRESSURE:
+//  157       if(Pressure_Old_Status==LOW_PWM_PRESSURE){ 
+??Motor_Change_Status_Process_2:
+        LDS     R16, Pressure_Old_Status
+        CPI     R16, 3
+        BRNE    ??Motor_Change_Status_Process_9
+//  158         // LOW_PWM ���� LOW�� ������ ��� 
+//  159         if(Motor_Status== MOTER_OPEN){
+        LDS     R16, Motor_Status
+        CPI     R16, 3
+        BRNE    ??Motor_Change_Status_Process_10
+//  160           // ���Ͱ� �̹� ���µ� �����̸� 
+//  161           Motor_Open_Stop=1;
+        LDI     R16, 1
+        STS     Motor_Open_Stop, R16
+        RJMP    ??Motor_Change_Status_Process_6
+//  162         }
+//  163         else {
+//  164           // ���Ͱ� �� ���� �����̸� 
+//  165           Timer_Motor_TimeOver_Reg=1;
+??Motor_Change_Status_Process_10:
+        LDI     R16, 1
+        STS     Timer_Motor_TimeOver_Reg, R16
+//  166           Motor_Close_Stop=0;
+        LDI     R16, 0
+        STS     Motor_Close_Stop, R16
+        RJMP    ??Motor_Change_Status_Process_6
+//  167         }
+//  168       }
+//  169       else {
+//  170         // ������ ��忡�� �ö�� �����̸� 
+//  171           Timer_Motor_TimeOver_Reg=1;//
+??Motor_Change_Status_Process_9:
+        LDI     R16, 1
+        STS     Timer_Motor_TimeOver_Reg, R16
+//  172           Motor_Close_Stop=0;//
+        LDI     R16, 0
+        STS     Motor_Close_Stop, R16
+//  173       }
+//  174     
+//  175     break;
+        RJMP    ??Motor_Change_Status_Process_6
+//  176     case LOW_PWM_PRESSURE:
+//  177       Motor_Close_Stop=0;
+??Motor_Change_Status_Process_3:
+        LDI     R16, 0
+        STS     Motor_Close_Stop, R16
+//  178       
+//  179     break;
+        RJMP    ??Motor_Change_Status_Process_6
+//  180     case MIDDLE_PRESSURE:
+//  181 
+//  182     break;
+??Motor_Change_Status_Process_4:
+        RJMP    ??Motor_Change_Status_Process_6
+//  183     case HIGH_PWM_PRESSURE:
+//  184       Motor_Open_Stop=0;
+??Motor_Change_Status_Process_5:
+        LDI     R16, 0
+        STS     Motor_Open_Stop, R16
+//  185     break;
+//  186     }
+//  187     Pressure_Old_Status=Pressure_Status;
+??Motor_Change_Status_Process_6:
+        LDS     R16, Pressure_Status
+        STS     Pressure_Old_Status, R16
+//  188     
+//  189     
+//  190   }  
+//  191 }
+??Motor_Change_Status_Process_0:
+        RET
+          CFI EndBlock cfiBlock2
+//  192 
+//  193 
+//  194 
+//  195 
+//  196 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  197 void Motor_Control(void)
+Motor_Control:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function Motor_Control
+//  198 {
+//  199   
+//  200   //if(Motor_Delay_Timer_Reg!=1){
+//  201   
+//  202   /* ������ ���¿� ���� ���͸� �����Ѵ�. */
+//  203   switch(Pressure_Status){
+        LDS     R16, Pressure_Status
+        SUBI    R16, 1
+        BREQ    ??Motor_Control_0
+        DEC     R16
+        BREQ    ??Motor_Control_1
+        DEC     R16
+        BREQ    ??Motor_Control_2
+        DEC     R16
+        BREQ    ??Motor_Control_3
+        DEC     R16
+        BREQ    ??Motor_Control_4
+        DEC     R16
+        BREQ    ??Motor_Control_5
+        RJMP    ??Motor_Control_6
+//  204   case NO_PRESSURE:
+//  205     if(Motor_Close_Stop==0){ // ���Ͱ� �� ������ ���� �����̸� 
+??Motor_Control_0:
+        LDS     R16, Motor_Close_Stop
+        TST     R16
+        BRNE    ??Motor_Control_7
+//  206         Alarm2_Out();//���� 
+          CFI FunCall Alarm2_Out
+        CALL    Alarm2_Out
+        RET
+//  207     }
+//  208     else 
+//  209       Alarm2_Off();
+??Motor_Control_7:
+          CFI FunCall Alarm2_Off
+        CALL    Alarm2_Off
+//  210     break;
+        RET
+//  211   case LOW_PRESSURE:
+//  212     if(Motor_Open_Stop==0){// ���Ͱ� �� ������ ���� �����̸� 
+??Motor_Control_1:
+        LDS     R16, Motor_Open_Stop
+        TST     R16
+        BRNE    ??Motor_Control_8
+//  213       Alarm1_Out();//����
+          CFI FunCall Alarm1_Out
+        CALL    Alarm1_Out
+        RET
+//  214   }
+//  215     else 
+//  216       Alarm1_Off();
+??Motor_Control_8:
+          CFI FunCall Alarm1_Off
+        CALL    Alarm1_Off
+//  217     break;
+        RET
+//  218   case LOW_PWM_PRESSURE:
+//  219     PWM_Enable=1;
+??Motor_Control_2:
+        LDI     R16, 1
+        STS     PWM_Enable, R16
+//  220     break;
+        RET
+//  221   case MIDDLE_PRESSURE:
+//  222 
+//  223     Alarm1_Off();
+??Motor_Control_3:
+          CFI FunCall Alarm1_Off
+        CALL    Alarm1_Off
+//  224     Alarm2_Off();
+          CFI FunCall Alarm2_Off
+        CALL    Alarm2_Off
+//  225     break;
+        RET
+//  226   case HIGH_PWM_PRESSURE:
+//  227     PWM_Enable=1;
+??Motor_Control_4:
+        LDI     R16, 1
+        STS     PWM_Enable, R16
+//  228     break;
+        RET
+//  229   case HIGH_PRESSURE:
+//  230     if(Motor_Close_Stop==0){
+??Motor_Control_5:
+        LDS     R16, Motor_Close_Stop
+        TST     R16
+        BRNE    ??Motor_Control_9
+//  231       Alarm2_Out();//����
+          CFI FunCall Alarm2_Out
+        CALL    Alarm2_Out
+        RET
+//  232     }
+//  233     else 
+//  234       Alarm2_Off();
+??Motor_Control_9:
+          CFI FunCall Alarm2_Off
+        CALL    Alarm2_Off
+//  235     break;
+        RET
+//  236   default:
+//  237 
+//  238     Alarm1_Off();
+??Motor_Control_6:
+          CFI FunCall Alarm1_Off
+        CALL    Alarm1_Off
+//  239     Alarm2_Off();
+          CFI FunCall Alarm2_Off
+        CALL    Alarm2_Off
+//  240     break;
+//  241   }
+//  242   
+//  243 }
+        RET
+          CFI EndBlock cfiBlock3
+//  244 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//  245 uint8_t Motor_Status_old;
+Motor_Status_old:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//  246 uint8_t Motor_Status_Cnt;
+Motor_Status_Cnt:
+        DS8 1
+//  247 
+//  248 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  249 void Motor_Get_LimitSwitch_Value(void)
+Motor_Get_LimitSwitch_Value:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function Motor_Get_LimitSwitch_Value
+          CFI NoCalls
+//  250 {
+//  251   
+//  252   if((ADC_Motor_Switch_Value>400)&&(ADC_Motor_Switch_Value<550)){
+        LDI     R30, LOW(ADC_Motor_Switch_Value)
+        LDI     R31, (ADC_Motor_Switch_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        SUBI    R16, 145
+        SBCI    R17, 1
+        CPI     R16, 149
+        LDI     R18, 0
+        CPC     R17, R18
+        BRCC    ??Motor_Get_LimitSwitch_Value_0
+//  253     if(Motor_Status_old!=Motor_Status){
+        LDS     R16, Motor_Status_old
+        LDS     R17, Motor_Status
+        CP      R16, R17
+        BREQ    ??Motor_Get_LimitSwitch_Value_1
+//  254       if(Motor_Status_old==MOTER_ACT)
+        LDS     R16, Motor_Status_old
+        CPI     R16, 2
+        BRNE    ??Motor_Get_LimitSwitch_Value_2
+//  255         Motor_Status=MOTER_ACT;
+        LDI     R16, 2
+        STS     Motor_Status, R16
+//  256       Motor_Status_old = MOTER_ACT;
+??Motor_Get_LimitSwitch_Value_2:
+        LDI     R16, 2
+        STS     Motor_Status_old, R16
+        RET
+//  257     }
+//  258     else Motor_Status_old = MOTER_ACT;
+??Motor_Get_LimitSwitch_Value_1:
+        LDI     R16, 2
+        STS     Motor_Status_old, R16
+        RET
+//  259   }
+//  260   else if((ADC_Motor_Switch_Value>580)&&(ADC_Motor_Switch_Value<=800)){
+??Motor_Get_LimitSwitch_Value_0:
+        LDI     R30, LOW(ADC_Motor_Switch_Value)
+        LDI     R31, (ADC_Motor_Switch_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        SUBI    R16, 69
+        SBCI    R17, 2
+        CPI     R16, 220
+        LDI     R18, 0
+        CPC     R17, R18
+        BRCC    ??Motor_Get_LimitSwitch_Value_3
+//  261     
+//  262 
+//  263     if(Motor_Status_old!=Motor_Status){
+        LDS     R16, Motor_Status_old
+        LDS     R17, Motor_Status
+        CP      R16, R17
+        BREQ    ??Motor_Get_LimitSwitch_Value_4
+//  264       if(Motor_Status_old==MOTER_OPEN)
+        LDS     R16, Motor_Status_old
+        CPI     R16, 3
+        BRNE    ??Motor_Get_LimitSwitch_Value_5
+//  265         Motor_Status=MOTER_OPEN;
+        LDI     R16, 3
+        STS     Motor_Status, R16
+//  266       Motor_Status_old = MOTER_OPEN;
+??Motor_Get_LimitSwitch_Value_5:
+        LDI     R16, 3
+        STS     Motor_Status_old, R16
+        RET
+//  267     }    
+//  268     else Motor_Status_old = MOTER_OPEN;
+??Motor_Get_LimitSwitch_Value_4:
+        LDI     R16, 3
+        STS     Motor_Status_old, R16
+        RET
+//  269   }
+//  270   else if(ADC_Motor_Switch_Value>800){
+??Motor_Get_LimitSwitch_Value_3:
+        LDI     R30, LOW(ADC_Motor_Switch_Value)
+        LDI     R31, (ADC_Motor_Switch_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        CPI     R16, 33
+        LDI     R18, 3
+        CPC     R17, R18
+        BRCS    ??Motor_Get_LimitSwitch_Value_6
+//  271 
+//  272 
+//  273     
+//  274     if(Motor_Status_old!=Motor_Status){
+        LDS     R16, Motor_Status_old
+        LDS     R17, Motor_Status
+        CP      R16, R17
+        BREQ    ??Motor_Get_LimitSwitch_Value_7
+//  275       if(Motor_Status_old==MOTER_CLOSE)
+        LDS     R16, Motor_Status_old
+        CPI     R16, 1
+        BRNE    ??Motor_Get_LimitSwitch_Value_8
+//  276         Motor_Status=MOTER_CLOSE;
+        LDI     R16, 1
+        STS     Motor_Status, R16
+//  277       Motor_Status_old = MOTER_CLOSE;
+??Motor_Get_LimitSwitch_Value_8:
+        LDI     R16, 1
+        STS     Motor_Status_old, R16
+        RET
+//  278     }    
+//  279     else Motor_Status_old = MOTER_CLOSE;
+??Motor_Get_LimitSwitch_Value_7:
+        LDI     R16, 1
+        STS     Motor_Status_old, R16
+        RET
+//  280   }
+//  281   
+//  282   else if(ADC_Motor_Switch_Value<200){
+??Motor_Get_LimitSwitch_Value_6:
+        LDI     R30, LOW(ADC_Motor_Switch_Value)
+        LDI     R31, (ADC_Motor_Switch_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        CPI     R16, 200
+        LDI     R18, 0
+        CPC     R17, R18
+        BRCC    ??Motor_Get_LimitSwitch_Value_9
+//  283 
+//  284     
+//  285     if(Motor_Status_old!=Motor_Status){
+        LDS     R16, Motor_Status_old
+        LDS     R17, Motor_Status
+        CP      R16, R17
+        BREQ    ??Motor_Get_LimitSwitch_Value_10
+//  286       if(Motor_Status_old==MOTER_AUTO_ZERO)
+        LDS     R16, Motor_Status_old
+        CPI     R16, 5
+        BRNE    ??Motor_Get_LimitSwitch_Value_11
+//  287         Motor_Status=MOTER_AUTO_ZERO;
+        LDI     R16, 5
+        STS     Motor_Status, R16
+//  288       Motor_Status_old = MOTER_AUTO_ZERO;
+??Motor_Get_LimitSwitch_Value_11:
+        LDI     R16, 5
+        STS     Motor_Status_old, R16
+        RET
+//  289     }    
+//  290     else Motor_Status_old = MOTER_AUTO_ZERO;
+??Motor_Get_LimitSwitch_Value_10:
+        LDI     R16, 5
+        STS     Motor_Status_old, R16
+//  291   }
+//  292 }
+??Motor_Get_LimitSwitch_Value_9:
+        RET
+          CFI EndBlock cfiBlock4
+//  293   
+//  294   
+//  295 
+//  296 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  297 void Motor_AutoZero_Process(void)
+Motor_AutoZero_Process:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function Motor_AutoZero_Process
+//  298 {
+//  299   
+//  300   if(Motor_Status == MOTER_AUTO_ZERO)
+        LDS     R16, Motor_Status
+        CPI     R16, 5
+        BRNE    ??Motor_AutoZero_Process_0
+//  301     ADC_Auto_Zero_Process();
+          CFI FunCall ADC_Auto_Zero_Process
+        CALL    ADC_Auto_Zero_Process
+//  302   
+//  303 }
+??Motor_AutoZero_Process_0:
+        RET
+          CFI EndBlock cfiBlock5
+//  304 
+//  305 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  306 void Motor_Get_OverCurrent_Value(void)
+Motor_Get_OverCurrent_Value:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function Motor_Get_OverCurrent_Value
+          CFI NoCalls
+//  307 {
+//  308   
+//  309   /* ����Ŀ��Ʈ�� �Է��� �޾� Timer_Motor_OverCurrent_Reg�� �����Ѵ�.. */
+//  310   
+//  311   if(ADC_Overcurrent_Value>200){
+        LDI     R30, LOW(ADC_Overcurrent_Value)
+        LDI     R31, (ADC_Overcurrent_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        CPI     R16, 201
+        LDI     R18, 0
+        CPC     R17, R18
+        BRCS    ??Motor_Get_OverCurrent_Value_0
+//  312     if(Timer_Motor_OverCurrent_Reg!=1){
+        LDS     R16, Timer_Motor_OverCurrent_Reg
+        CPI     R16, 1
+        BREQ    ??Motor_Get_OverCurrent_Value_1
+//  313       Timer_Motor_OverCurrent_Reg=1;
+        LDI     R16, 1
+        STS     Timer_Motor_OverCurrent_Reg, R16
+        RET
+//  314     }
+//  315   }
+//  316   else {
+//  317     Timer_Motor_OverCurrent_Reg=0;
+??Motor_Get_OverCurrent_Value_0:
+        LDI     R16, 0
+        STS     Timer_Motor_OverCurrent_Reg, R16
+//  318     Timer_Motor_OverCurrent_Cnt=0;
+        LDI     R30, LOW(Timer_Motor_OverCurrent_Cnt)
+        LDI     R31, (Timer_Motor_OverCurrent_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//  319   }
+//  320     
+//  321 }
+??Motor_Get_OverCurrent_Value_1:
+        RET
+          CFI EndBlock cfiBlock6
+//  322 
+//  323 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  324 void Motor_Timer(void)
+Motor_Timer:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function Motor_Timer
+//  325 {
+        ST      -Y, R25
+          CFI R25 Frame(CFA_Y, -1)
+          CFI CFA_Y Y+1
+        ST      -Y, R24
+          CFI R24 Frame(CFA_Y, -2)
+          CFI CFA_Y Y+2
+//  326   
+//  327    /////////////// OVERCURRENT SENSEING TIMER ////////////////////
+//  328   /*System_Mode <= S_OverCurrent_Error_Mode */
+//  329   
+//  330   if(Timer_Motor_OverCurrent_Reg==1){
+        LDS     R16, Timer_Motor_OverCurrent_Reg
+        CPI     R16, 1
+        BRNE    ??Motor_Timer_0
+//  331     Timer_Motor_OverCurrent_Cnt++;
+        LDI     R30, LOW(Timer_Motor_OverCurrent_Cnt)
+        LDI     R31, (Timer_Motor_OverCurrent_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        SUBI    R16, 255
+        SBCI    R17, 255
+        ST      Z, R16
+        STD     Z+1, R17
+//  332     if(Timer_Motor_OverCurrent_Cnt==5000){// 0.2ms * = 2000
+        LDI     R30, LOW(Timer_Motor_OverCurrent_Cnt)
+        LDI     R31, (Timer_Motor_OverCurrent_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        CPI     R16, 136
+        LDI     R18, 19
+        CPC     R17, R18
+        BRNE    ??Motor_Timer_0
+//  333 
+//  334       Timer_Motor_OverCurrent_Cnt=0;
+        LDI     R30, LOW(Timer_Motor_OverCurrent_Cnt)
+        LDI     R31, (Timer_Motor_OverCurrent_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//  335       Timer_Motor_OverCurrent_Reg=2;
+        LDI     R16, 2
+        STS     Timer_Motor_OverCurrent_Reg, R16
+//  336       Alarm1_Off();
+          CFI FunCall Alarm1_Off
+        CALL    Alarm1_Off
+//  337       Alarm2_Off();
+          CFI FunCall Alarm2_Off
+        CALL    Alarm2_Off
+//  338       
+//  339       Motor_REG_Initialize();
+          CFI FunCall Motor_REG_Initialize
+        RCALL   Motor_REG_Initialize
+//  340       //System_Mode=S_OverCurrent_Error_Mode;
+//  341       //PORTC |= 0x08;// Ȯ�� ��ȣ 
+//  342       
+//  343       switch(Pressure_Status){
+        LDS     R16, Pressure_Status
+        SUBI    R16, 1
+        BREQ    ??Motor_Timer_1
+        DEC     R16
+        BREQ    ??Motor_Timer_2
+        SUBI    R16, 4
+        BREQ    ??Motor_Timer_3
+        RJMP    ??Motor_Timer_0
+//  344       case NO_PRESSURE: // if the system is in off mode..
+//  345         Motor_Close_Stop=1; 
+??Motor_Timer_1:
+        LDI     R16, 1
+        STS     Motor_Close_Stop, R16
+//  346         PORTC&=(~0x08);
+        CBI     0x08, 0x03
+//  347         
+//  348         break;
+        RJMP    ??Motor_Timer_0
+//  349       case LOW_PRESSURE: // if the system is in run mode.. and low pressure mode  
+//  350         Motor_Open_Stop=1;
+??Motor_Timer_2:
+        LDI     R16, 1
+        STS     Motor_Open_Stop, R16
+//  351         PORTC |= 0x08;// Ȯ�� ��ȣ 
+        SBI     0x08, 0x03
+//  352         break;
+        RJMP    ??Motor_Timer_0
+//  353       case HIGH_PRESSURE:
+//  354         Motor_Close_Stop=1;
+??Motor_Timer_3:
+        LDI     R16, 1
+        STS     Motor_Close_Stop, R16
+//  355         //PORTC&=(~0x08);
+//  356         break;
+//  357       default:
+//  358         break;
+//  359       }
+//  360       
+//  361     }
+//  362   }
+//  363 
+//  364   if(Pressure_Status==HIGH_PRESSURE)PORTC |= 0x08;// Ȯ�� ��ȣ 
+??Motor_Timer_0:
+        LDS     R16, Pressure_Status
+        CPI     R16, 6
+        BRNE    ??Motor_Timer_4
+        SBI     0x08, 0x03
+//  365   ////////////////// MOTOR TIMEOVER TIMER ///////////////////////
+//  366   /**/
+//  367   if(Timer_Motor_TimeOver_Reg==1){
+??Motor_Timer_4:
+        LDS     R16, Timer_Motor_TimeOver_Reg
+        CPI     R16, 1
+        BREQ    $+2+2
+        RJMP    ??Motor_Timer_5
+//  368     Timer_Motor_TimeOver_Cnt++;
+        LDI     R30, LOW(Timer_Motor_TimeOver_Cnt)
+        LDI     R31, (Timer_Motor_TimeOver_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        SUBI    R16, 255
+        SBCI    R17, 255
+        SBCI    R18, 255
+        SBCI    R19, 255
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//  369     
+//  370     if((Timer_Motor_TimeOver_Cnt<TIME_OVER_TIME)){
+        LDI     R30, LOW(Timer_Motor_TimeOver_Cnt)
+        LDI     R31, (Timer_Motor_TimeOver_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        CPI     R16, 240
+        LDI     R20, 73
+        CPC     R17, R20
+        LDI     R20, 2
+        CPC     R18, R20
+        LDI     R20, 0
+        CPC     R19, R20
+        BRCC    ??Motor_Timer_6
+//  371 
+//  372       switch(Pressure_Status){
+        LDS     R16, Pressure_Status
+        SUBI    R16, 1
+        BREQ    ??Motor_Timer_7
+        DEC     R16
+        BREQ    ??Motor_Timer_8
+        SUBI    R16, 4
+        BRNE    ??Motor_Timer_6
+//  373       case NO_PRESSURE:
+//  374       case HIGH_PRESSURE:
+//  375         if(Motor_Status == MOTER_CLOSE){
+??Motor_Timer_7:
+        LDS     R16, Motor_Status
+        CPI     R16, 1
+        BRNE    ??Motor_Timer_9
+//  376           Motor_Close_Stop=1;
+        LDI     R16, 1
+        STS     Motor_Close_Stop, R16
+//  377         }
+//  378         if(Motor_Status == MOTER_ACT){
+??Motor_Timer_9:
+        LDS     R16, Motor_Status
+        CPI     R16, 2
+        BRNE    ??Motor_Timer_6
+//  379           Motor_Close_Stop=0;
+        LDI     R16, 0
+        STS     Motor_Close_Stop, R16
+//  380         }
+//  381         
+//  382         //if(Pressure_Status==NO_PRESSURE)PORTC&=(~0x08);
+//  383         break;
+        RJMP    ??Motor_Timer_6
+//  384       case LOW_PRESSURE:
+//  385         if(Motor_Status == MOTER_OPEN){//������ ������ Ȯ�ν�ȣ�� �����ش�. 
+??Motor_Timer_8:
+        LDS     R16, Motor_Status
+        CPI     R16, 3
+        BRNE    ??Motor_Timer_10
+//  386           Motor_Open_Stop=1;
+        LDI     R16, 1
+        STS     Motor_Open_Stop, R16
+//  387           PORTC |= 0x08;// Ȯ�� ��ȣ 
+        SBI     0x08, 0x03
+//  388         }
+//  389         if(Motor_Status == MOTER_ACT){
+??Motor_Timer_10:
+        LDS     R16, Motor_Status
+        CPI     R16, 2
+        BRNE    ??Motor_Timer_6
+//  390           Motor_Open_Stop=0;
+        LDI     R16, 0
+        STS     Motor_Open_Stop, R16
+//  391         }          
+//  392         break;
+//  393       default:
+//  394         break;
+//  395       }
+//  396   
+//  397     }
+//  398     
+//  399     if(Timer_Motor_TimeOver_Cnt>=TIME_OVER_TIME ){
+??Motor_Timer_6:
+        LDI     R30, LOW(Timer_Motor_TimeOver_Cnt)
+        LDI     R31, (Timer_Motor_TimeOver_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        CPI     R16, 240
+        LDI     R20, 73
+        CPC     R17, R20
+        LDI     R20, 2
+        CPC     R18, R20
+        LDI     R20, 0
+        CPC     R19, R20
+        BRCS    ??Motor_Timer_5
+//  400       Timer_Motor_TimeOver_Cnt=0;
+        LDI     R30, LOW(Timer_Motor_TimeOver_Cnt)
+        LDI     R31, (Timer_Motor_TimeOver_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+        LDI     R16, 0
+        STD     Z+2, R16
+        LDI     R16, 0
+        STD     Z+3, R16
+//  401       Timer_Motor_TimeOver_Reg=2;
+        LDI     R16, 2
+        STS     Timer_Motor_TimeOver_Reg, R16
+//  402       if((Pressure_Status==NO_PRESSURE)||(Pressure_Status==HIGH_PRESSURE))
+        LDS     R16, Pressure_Status
+        CPI     R16, 1
+        BREQ    ??Motor_Timer_11
+        LDS     R16, Pressure_Status
+        CPI     R16, 6
+        BRNE    ??Motor_Timer_12
+//  403         Motor_Close_Stop=1;
+??Motor_Timer_11:
+        LDI     R16, 1
+        STS     Motor_Close_Stop, R16
+        RJMP    ??Motor_Timer_13
+//  404       else if((Pressure_Status==LOW_PRESSURE))
+??Motor_Timer_12:
+        LDS     R16, Pressure_Status
+        CPI     R16, 2
+        BRNE    ??Motor_Timer_13
+//  405         Motor_Open_Stop=1;
+        LDI     R16, 1
+        STS     Motor_Open_Stop, R16
+//  406       
+//  407       if(Pressure_Status==NO_PRESSURE)PORTC&=(~0x08);
+??Motor_Timer_13:
+        LDS     R16, Pressure_Status
+        CPI     R16, 1
+        BRNE    ??Motor_Timer_5
+        CBI     0x08, 0x03
+//  408     }
+//  409     
+//  410   }
+//  411     
+//  412   if(System_Mode==S_Stop_Mode)
+??Motor_Timer_5:
+        LDS     R16, System_Mode
+        CPI     R16, 2
+        BRNE    ??Motor_Timer_14
+//  413     if(Motor_Status == MOTER_CLOSE) //0V �� ������ 
+        LDS     R16, Motor_Status
+        CPI     R16, 1
+        BRNE    ??Motor_Timer_14
+//  414     PORTC&=(~0x08);
+        CBI     0x08, 0x03
+//  415 
+//  416   
+//  417   if(PWM_Enable==1){
+??Motor_Timer_14:
+        LDS     R16, PWM_Enable
+        CPI     R16, 1
+        BREQ    $+2+2
+        RJMP    ??Motor_Timer_15
+//  418 
+//  419     switch(Pressure_Status){
+        LDS     R16, Pressure_Status
+        SUBI    R16, 1
+        BREQ    ??Motor_Timer_16
+        DEC     R16
+        BREQ    ??Motor_Timer_16
+        DEC     R16
+        BREQ    ??Motor_Timer_17
+        DEC     R16
+        BREQ    ??Motor_Timer_16
+        DEC     R16
+        BREQ    ??Motor_Timer_18
+        RJMP    ??Motor_Timer_16
+//  420     case LOW_PRESSURE:
+//  421       
+//  422       break;
+//  423     case LOW_PWM_PRESSURE:
+//  424       
+//  425       if(Real_Pressure_Value > Standard_Pressure_Value-6){
+??Motor_Timer_17:
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R24, Z
+        LDD     R25, Z+1
+        SBIW    R25:R24, 6
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        CP      R24, R16
+        CPC     R25, R17
+        BRGE    ??Motor_Timer_19
+//  426         PWM_Off_Count = 4850;//970ms  /* 2020-02-09 Modify */
+        LDI     R30, LOW(PWM_Off_Count)
+        LDI     R31, (PWM_Off_Count) >> 8
+        LDI     R16, 242
+        LDI     R17, 18
+        ST      Z, R16
+        STD     Z+1, R17
+        RJMP    ??Motor_Timer_16
+//  427         //PWM_Off_Count = 4500;// 900ms
+//  428       }
+//  429       
+//  430       
+//  431       else { /* 2020-02-09 Modify */
+//  432         //PWM_Off_Count = Standard_Pressure_Value*5;
+//  433         PWM_Off_Count = 4500;// 900ms
+??Motor_Timer_19:
+        LDI     R30, LOW(PWM_Off_Count)
+        LDI     R31, (PWM_Off_Count) >> 8
+        LDI     R16, 148
+        LDI     R17, 17
+        ST      Z, R16
+        STD     Z+1, R17
+//  434       }
+//  435       
+//  436 
+//  437       break;
+        RJMP    ??Motor_Timer_16
+//  438     case MIDDLE_PRESSURE:
+//  439       break;
+//  440     case HIGH_PWM_PRESSURE:
+//  441       
+//  442       if(Real_Pressure_Value < Standard_Pressure_Value+6){
+??Motor_Timer_18:
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R24, Z
+        LDD     R25, Z+1
+        ADIW    R25:R24, 6
+        CP      R16, R24
+        CPC     R17, R25
+        BRGE    ??Motor_Timer_20
+//  443         PWM_Off_Count = 4850;//970ms  /* 2020-02-09 Modify */ 
+        LDI     R30, LOW(PWM_Off_Count)
+        LDI     R31, (PWM_Off_Count) >> 8
+        LDI     R16, 242
+        LDI     R17, 18
+        ST      Z, R16
+        STD     Z+1, R17
+        RJMP    ??Motor_Timer_16
+//  444         //PWM_Off_Count = 4500;// 900ms 
+//  445       }
+//  446       
+//  447       else { /* 2020-02-09 Modify */
+//  448         //PWM_Off_Count = Standard_Pressure_Value*5;
+//  449         PWM_Off_Count = 4500;// 900ms
+??Motor_Timer_20:
+        LDI     R30, LOW(PWM_Off_Count)
+        LDI     R31, (PWM_Off_Count) >> 8
+        LDI     R16, 148
+        LDI     R17, 17
+        ST      Z, R16
+        STD     Z+1, R17
+//  450       }
+//  451       
+//  452 
+//  453       break;
+//  454     case HIGH_PRESSURE:
+//  455       break;
+//  456     case NO_PRESSURE:
+//  457       break;
+//  458     default:
+//  459       break;
+//  460     }
+//  461     
+//  462     
+//  463     
+//  464     PWM_Count++;
+??Motor_Timer_16:
+        LDI     R30, LOW(PWM_Count)
+        LDI     R31, (PWM_Count) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        SUBI    R16, 255
+        SBCI    R17, 255
+        ST      Z, R16
+        STD     Z+1, R17
+//  465     if(PWM_Count<PWM_Off_Count){// ������ 4500
+        LDI     R30, LOW(PWM_Count)
+        LDI     R31, (PWM_Count) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(PWM_Off_Count)
+        LDI     R31, (PWM_Off_Count) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        CP      R16, R18
+        CPC     R17, R19
+        BRCC    ??Motor_Timer_21
+//  466       Alarm1_Off();
+          CFI FunCall Alarm1_Off
+        CALL    Alarm1_Off
+//  467       Alarm2_Off();
+          CFI FunCall Alarm2_Off
+        CALL    Alarm2_Off
+        RJMP    ??Motor_Timer_22
+//  468     }
+//  469     else if((PWM_Count>=PWM_Off_Count)&&(PWM_Count<PWM_ALL_COUNT)){ // ������ 4500 5000
+??Motor_Timer_21:
+        LDI     R30, LOW(PWM_Count)
+        LDI     R31, (PWM_Count) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(PWM_Off_Count)
+        LDI     R31, (PWM_Off_Count) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        CP      R16, R18
+        CPC     R17, R19
+        BRCS    ??Motor_Timer_22
+        LDI     R30, LOW(PWM_Count)
+        LDI     R31, (PWM_Count) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        CPI     R16, 136
+        LDI     R18, 19
+        CPC     R17, R18
+        BRCC    ??Motor_Timer_22
+//  470       if(Pressure_Status==LOW_PWM_PRESSURE)
+        LDS     R16, Pressure_Status
+        CPI     R16, 3
+        BRNE    ??Motor_Timer_23
+//  471         if(Motor_Open_Stop==0){
+        LDS     R16, Motor_Open_Stop
+        TST     R16
+        BRNE    ??Motor_Timer_24
+//  472           if(Motor_Status == MOTER_OPEN){// ������ ������ Ȯ�ν�ȣ�� �����ش�. 
+        LDS     R16, Motor_Status
+        CPI     R16, 3
+        BRNE    ??Motor_Timer_25
+//  473             PORTC |= 0x08;// Ȯ�� ��ȣ 
+        SBI     0x08, 0x03
+//  474             Alarm1_Off();
+          CFI FunCall Alarm1_Off
+        CALL    Alarm1_Off
+        RJMP    ??Motor_Timer_22
+//  475           }
+//  476           else Alarm1_Out();
+??Motor_Timer_25:
+          CFI FunCall Alarm1_Out
+        CALL    Alarm1_Out
+        RJMP    ??Motor_Timer_22
+//  477         }
+//  478         else Alarm1_Off();
+??Motor_Timer_24:
+          CFI FunCall Alarm1_Off
+        CALL    Alarm1_Off
+        RJMP    ??Motor_Timer_22
+//  479       else if(Pressure_Status==HIGH_PWM_PRESSURE)
+??Motor_Timer_23:
+        LDS     R16, Pressure_Status
+        CPI     R16, 5
+        BRNE    ??Motor_Timer_22
+//  480         if(Motor_Close_Stop==0){
+        LDS     R16, Motor_Close_Stop
+        TST     R16
+        BRNE    ??Motor_Timer_26
+//  481           if(Motor_Status == MOTER_CLOSE)
+        LDS     R16, Motor_Status
+        CPI     R16, 1
+        BRNE    ??Motor_Timer_27
+//  482             Alarm2_Off();
+          CFI FunCall Alarm2_Off
+        CALL    Alarm2_Off
+        RJMP    ??Motor_Timer_22
+//  483           else Alarm2_Out();
+??Motor_Timer_27:
+          CFI FunCall Alarm2_Out
+        CALL    Alarm2_Out
+        RJMP    ??Motor_Timer_22
+//  484         }
+//  485         else Alarm2_Off();
+??Motor_Timer_26:
+          CFI FunCall Alarm2_Off
+        CALL    Alarm2_Off
+//  486     }
+//  487     if(PWM_Count>=PWM_ALL_COUNT)PWM_Count=0;
+??Motor_Timer_22:
+        LDI     R30, LOW(PWM_Count)
+        LDI     R31, (PWM_Count) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        CPI     R16, 136
+        LDI     R18, 19
+        CPC     R17, R18
+        BRCS    ??Motor_Timer_15
+        LDI     R30, LOW(PWM_Count)
+        LDI     R31, (PWM_Count) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//  488   }
+//  489   
+//  490 
+//  491 }
+??Motor_Timer_15:
+        LD      R24, Y+
+          CFI R24 SameValue
+          CFI CFA_Y Y+1
+        LD      R25, Y+
+          CFI R25 SameValue
+          CFI CFA_Y Y+0
+        RET
+          CFI EndBlock cfiBlock7
+        REQUIRE _A_PORTC
+//  492 
+//  493 
+//  494 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  495 void Motor_Operation(void)
+Motor_Operation:
+          CFI Block cfiBlock8 Using cfiCommon0
+          CFI Function Motor_Operation
+//  496 {
+//  497   
+//  498   Motor_Get_Pressure_Status();
+          CFI FunCall Motor_Get_Pressure_Status
+        RCALL   Motor_Get_Pressure_Status
+//  499   Motor_Change_Status_Process();
+          CFI FunCall Motor_Change_Status_Process
+        RCALL   Motor_Change_Status_Process
+//  500   Motor_Control();
+          CFI FunCall Motor_Control
+        RCALL   Motor_Control
+//  501   
+//  502   Motor_AutoZero_Process();
+          CFI FunCall Motor_AutoZero_Process
+        RCALL   Motor_AutoZero_Process
+//  503   Motor_Get_OverCurrent_Value();
+          CFI FunCall Motor_Get_OverCurrent_Value
+        RCALL   Motor_Get_OverCurrent_Value
+//  504   
+//  505 }
+        RET
+          CFI EndBlock cfiBlock8
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_Z>`:
+        DC16    SFE(NEAR_Z) - SFB(NEAR_Z)
+        DC16    SFB(NEAR_Z)
+        DC16    0
+        REQUIRE ?need_segment_init
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for PWM_Off_Count>`:
+        DC16 4950
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_I>`:
+        DC16    SFE(NEAR_I) - SFB(NEAR_I)
+        DC16    SFB(NEAR_I)
+        DC16    SFB(NEAR_ID)
+        REQUIRE ?need_segment_init
+
+        END
+// 
+//     1 byte  in segment ABSOLUTE
+// 1 726 bytes in segment CODE
+//    12 bytes in segment INITTAB
+//     2 bytes in segment NEAR_I
+//     2 bytes in segment NEAR_ID
+//    21 bytes in segment NEAR_Z
+// 
+// 1 728 bytes of CODE memory (+ 12 bytes shared)
+//    23 bytes of DATA memory (+  1 byte  shared)
+//
+//Errors: none
+//Warnings: none

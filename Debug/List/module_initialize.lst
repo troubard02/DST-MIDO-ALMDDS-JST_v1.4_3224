@@ -1,0 +1,376 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR       27/Dec/2020  15:43:07
+# Copyright 1996-2019 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for Atmel AVR
+#
+#    Source file  =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\module_initialize.c
+#    Command line =  
+#        -f C:\Users\troubard\AppData\Local\Temp\EW483D.tmp
+#        ("C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\module_initialize.c"
+#        --cpu=m168pa -ms -o
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj" -lC
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List" -lA
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List"
+#        --initializers_in_flash --no_cse --no_inline --no_code_motion
+#        --no_cross_call --no_clustering --no_tbaa --debug -e -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\" -I
+#        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\" --eeprom_size 512 --dlib
+#        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
+#    Locale       =  Korean_KOR.949
+#    List file    =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List\module_initialize.lst
+#    Object file  =  
+#        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+#        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\module_initialize.r90
+#
+###############################################################################
+
+C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\module_initialize.c
+      1          #include "include.h"
+
+   \                                 In  segment ABSOLUTE, at 0xb4
+   \   union <unnamed> volatile __io _A_OCR2B
+   \                     _A_OCR2B:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xb3
+   \   union <unnamed> volatile __io _A_OCR2A
+   \                     _A_OCR2A:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xb1
+   \   union <unnamed> volatile __io _A_TCCR2B
+   \                     _A_TCCR2B:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xb0
+   \   union <unnamed> volatile __io _A_TCCR2A
+   \                     _A_TCCR2A:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x70
+   \   union <unnamed> volatile __io _A_TIMSK2
+   \                     _A_TIMSK2:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2b
+   \   union <unnamed> volatile __io _A_PORTD
+   \                     _A_PORTD:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2a
+   \   union <unnamed> volatile __io _A_DDRD
+   \                     _A_DDRD:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x28
+   \   union <unnamed> volatile __io _A_PORTC
+   \                     _A_PORTC:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x27
+   \   union <unnamed> volatile __io _A_DDRC
+   \                     _A_DDRC:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x25
+   \   union <unnamed> volatile __io _A_PORTB
+   \                     _A_PORTB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x24
+   \   union <unnamed> volatile __io _A_DDRB
+   \                     _A_DDRB:
+   \   00000000                      DS8 1
+      2          
+      3          
+      4          
+      5          
+      6          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+      7          void Gpio_Initialize(void)
+   \                     Gpio_Initialize:
+      8          {
+      9              
+     10            DDRB = 0xEF;  // PB0 : MSIGA, PB1: SSIGB, PB2 : MSIGB, PB3 : FND_5
+   \   00000000   EE0F               LDI     R16, 239
+   \   00000002   B904               OUT     0x04, R16
+     11                          // PB4 : Start Signal Input PB5 : FND DIGIT1, PB6 : FND DIGIT2, PB7 : FND DIGIT3
+     12            PORTB = 0x10; // PB4 : PULL-UP
+   \   00000004   E100               LDI     R16, 16
+   \   00000006   B905               OUT     0x05, R16
+     13            DDRC = 0x08;  // PC0 : Limit Switch in(ADC), PC1 : Limit Current Value in(A/D), 
+   \   00000008   E008               LDI     R16, 8
+   \   0000000A   B907               OUT     0x07, R16
+     14                          // PC2 : VR2 IN(A/D), PC3 : ST Signal Out, PC4 : SDA 
+     15                          // PC5 : SCL, PC6 : RST
+     16            PORTC = 0x00; // PC3 : PULL-UP
+   \   0000000C   E000               LDI     R16, 0
+   \   0000000E   B908               OUT     0x08, R16
+     17            DDRD = 0xff;  // PD0 : SSIGB , PD1 : USART TXD, PD2..PD7 : FND A..G  
+   \   00000010   EF0F               LDI     R16, 255
+   \   00000012   B90A               OUT     0x0A, R16
+     18            PORTD = 0x00;
+   \   00000014   E000               LDI     R16, 0
+   \   00000016   B90B               OUT     0x0B, R16
+     19          
+     20          
+     21          
+     22          }
+   \   00000018   9508               RET
+   \   0000001A                      REQUIRE _A_DDRB
+   \   0000001A                      REQUIRE _A_PORTB
+   \   0000001A                      REQUIRE _A_DDRC
+   \   0000001A                      REQUIRE _A_PORTC
+   \   0000001A                      REQUIRE _A_DDRD
+   \   0000001A                      REQUIRE _A_PORTD
+     23          
+     24          
+     25          
+     26          
+     27          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     28          void Timer2_Initialize(void)
+   \                     Timer2_Initialize:
+     29          {
+     30          
+     31            TCCR2A = 0x02;
+   \   00000000   E002               LDI     R16, 2
+   \   00000002   9300....           STS     _A_TCCR2A, R16
+     32            TCCR2B = 0x03;
+   \   00000006   E003               LDI     R16, 3
+   \   00000008   9300....           STS     _A_TCCR2B, R16
+     33            OCR2A = 50;
+   \   0000000C   E302               LDI     R16, 50
+   \   0000000E   9300....           STS     _A_OCR2A, R16
+     34            OCR2B = 50;
+   \   00000012   E302               LDI     R16, 50
+   \   00000014   9300....           STS     _A_OCR2B, R16
+     35            TIMSK2 = 0x06;
+   \   00000018   E006               LDI     R16, 6
+   \   0000001A   9300....           STS     _A_TIMSK2, R16
+     36          
+     37          }
+   \   0000001E   9508               RET
+   \   00000020                      REQUIRE _A_TCCR2A
+   \   00000020                      REQUIRE _A_TCCR2B
+   \   00000020                      REQUIRE _A_OCR2A
+   \   00000020                      REQUIRE _A_OCR2B
+   \   00000020                      REQUIRE _A_TIMSK2
+     38          
+     39          
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+     40          uint16_t Timer2_A_Cnt,Timer2_B_Cnt;
+   \                     Timer2_A_Cnt:
+   \   00000000                      DS8 2
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \                     Timer2_B_Cnt:
+   \   00000000                      DS8 2
+     41          
+     42          #pragma   vector=TIMER2_COMPA_vect // 0.2ms 
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     43          __interrupt void timer2_isr1()
+   \                     timer2_isr1:
+     44          { 
+   \   00000000   938A               ST      -Y, R24
+   \   00000002   93FA               ST      -Y, R31
+   \   00000004   93EA               ST      -Y, R30
+   \   00000006   923A               ST      -Y, R3
+   \   00000008   922A               ST      -Y, R2
+   \   0000000A   921A               ST      -Y, R1
+   \   0000000C   920A               ST      -Y, R0
+   \   0000000E   937A               ST      -Y, R23
+   \   00000010   936A               ST      -Y, R22
+   \   00000012   935A               ST      -Y, R21
+   \   00000014   934A               ST      -Y, R20
+   \   00000016   933A               ST      -Y, R19
+   \   00000018   932A               ST      -Y, R18
+   \   0000001A   931A               ST      -Y, R17
+   \   0000001C   930A               ST      -Y, R16
+   \   0000001E   B78F               IN      R24, 0x3F
+     45            __disable_interrupt();
+   \   00000020   94F8               CLI
+     46            //Fnd_Put_Data_Timer();
+     47            //Switch_Timer();
+     48            //ADC_Delay_Timer();
+     49            //Fnd_Display_Timer();
+     50            Motor_Timer();
+   \   00000022   ........           CALL    Motor_Timer
+     51            ADC_Delay_Timer();
+   \   00000026   ........           CALL    ADC_Delay_Timer
+     52            Switch_Timer();
+   \   0000002A   ........           CALL    Switch_Timer
+     53            Fnd_Put_Data_Timer();
+   \   0000002E   ........           CALL    Fnd_Put_Data_Timer
+     54            Fnd_Display_Timer();
+   \   00000032   ........           CALL    Fnd_Display_Timer
+     55          
+     56            System_Initialize_Timer();
+   \   00000036   ........           CALL    System_Initialize_Timer
+     57            __enable_interrupt();
+   \   0000003A   9478               SEI
+     58          }
+   \   0000003C   BF8F               OUT     0x3F, R24
+   \   0000003E   9109               LD      R16, Y+
+   \   00000040   9119               LD      R17, Y+
+   \   00000042   9129               LD      R18, Y+
+   \   00000044   9139               LD      R19, Y+
+   \   00000046   9149               LD      R20, Y+
+   \   00000048   9159               LD      R21, Y+
+   \   0000004A   9169               LD      R22, Y+
+   \   0000004C   9179               LD      R23, Y+
+   \   0000004E   9009               LD      R0, Y+
+   \   00000050   9019               LD      R1, Y+
+   \   00000052   9029               LD      R2, Y+
+   \   00000054   9039               LD      R3, Y+
+   \   00000056   91E9               LD      R30, Y+
+   \   00000058   91F9               LD      R31, Y+
+   \   0000005A   9189               LD      R24, Y+
+   \   0000005C   9518               RETI
+     59          
+     60          
+     61          #pragma   vector=TIMER2_COMPB_vect // 0.2ms 
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     62          __interrupt void timer2_isr2()
+   \                     timer2_isr2:
+     63          { 
+   \   00000000   938A               ST      -Y, R24
+   \   00000002   93FA               ST      -Y, R31
+   \   00000004   93EA               ST      -Y, R30
+   \   00000006   923A               ST      -Y, R3
+   \   00000008   922A               ST      -Y, R2
+   \   0000000A   921A               ST      -Y, R1
+   \   0000000C   920A               ST      -Y, R0
+   \   0000000E   937A               ST      -Y, R23
+   \   00000010   936A               ST      -Y, R22
+   \   00000012   935A               ST      -Y, R21
+   \   00000014   934A               ST      -Y, R20
+   \   00000016   933A               ST      -Y, R19
+   \   00000018   932A               ST      -Y, R18
+   \   0000001A   931A               ST      -Y, R17
+   \   0000001C   930A               ST      -Y, R16
+   \   0000001E   B78F               IN      R24, 0x3F
+     64            __disable_interrupt();
+   \   00000020   94F8               CLI
+     65            Timer2_B_Cnt++;
+   \   00000022   ....               LDI     R30, LOW(Timer2_B_Cnt)
+   \   00000024   ....               LDI     R31, (Timer2_B_Cnt) >> 8
+   \   00000026   8100               LD      R16, Z
+   \   00000028   8111               LDD     R17, Z+1
+   \   0000002A   5F0F               SUBI    R16, 255
+   \   0000002C   4F1F               SBCI    R17, 255
+   \   0000002E   8300               ST      Z, R16
+   \   00000030   8311               STD     Z+1, R17
+     66            Usart_Timer();
+   \   00000032   ........           CALL    Usart_Timer
+     67            Twi_Timer();
+   \   00000036   ........           CALL    Twi_Timer
+     68            __enable_interrupt();
+   \   0000003A   9478               SEI
+     69          }
+   \   0000003C   BF8F               OUT     0x3F, R24
+   \   0000003E   9109               LD      R16, Y+
+   \   00000040   9119               LD      R17, Y+
+   \   00000042   9129               LD      R18, Y+
+   \   00000044   9139               LD      R19, Y+
+   \   00000046   9149               LD      R20, Y+
+   \   00000048   9159               LD      R21, Y+
+   \   0000004A   9169               LD      R22, Y+
+   \   0000004C   9179               LD      R23, Y+
+   \   0000004E   9009               LD      R0, Y+
+   \   00000050   9019               LD      R1, Y+
+   \   00000052   9029               LD      R2, Y+
+   \   00000054   9039               LD      R3, Y+
+   \   00000056   91E9               LD      R30, Y+
+   \   00000058   91F9               LD      R31, Y+
+   \   0000005A   9189               LD      R24, Y+
+   \   0000005C   9518               RETI
+
+   \                                 In  segment INTVEC, offset 0x1c, root
+   \                     `??timer2_isr1::??INTVEC 28`:
+   \   0000001C   ........           JMP     timer2_isr1
+
+   \                                 In  segment INTVEC, offset 0x20, root
+   \                     `??timer2_isr2::??INTVEC 32`:
+   \   00000020   ........           JMP     timer2_isr2
+     70          
+     71          
+
+   Maximum stack usage in bytes:
+
+   CSTACK RSTACK Function
+   ------ ------ --------
+      0      2   Gpio_Initialize
+      0      2   Timer2_Initialize
+     15      2   timer2_isr1
+       15      2   -> ADC_Delay_Timer
+       15      2   -> Fnd_Display_Timer
+       15      2   -> Fnd_Put_Data_Timer
+       15      2   -> Motor_Timer
+       15      2   -> Switch_Timer
+       15      2   -> System_Initialize_Timer
+     15      2   timer2_isr2
+       15      2   -> Twi_Timer
+       15      2   -> Usart_Timer
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      26  Gpio_Initialize
+       2  Timer2_A_Cnt
+       2  Timer2_B_Cnt
+      32  Timer2_Initialize
+       1  _A_DDRB
+       1  _A_DDRC
+       1  _A_DDRD
+       1  _A_OCR2A
+       1  _A_OCR2B
+       1  _A_PORTB
+       1  _A_PORTC
+       1  _A_PORTD
+       1  _A_TCCR2A
+       1  _A_TCCR2B
+       1  _A_TIMSK2
+      94  timer2_isr1
+       4  timer2_isr1::??INTVEC 28
+      94  timer2_isr2
+       4  timer2_isr2::??INTVEC 32
+       6  -- Other
+
+ 
+  11 bytes in segment ABSOLUTE
+ 246 bytes in segment CODE
+   6 bytes in segment INITTAB
+   8 bytes in segment INTVEC
+   4 bytes in segment NEAR_Z
+ 
+ 246 bytes of CODE memory (+ 14 bytes shared)
+   4 bytes of DATA memory (+ 11 bytes shared)
+
+Errors: none
+Warnings: none

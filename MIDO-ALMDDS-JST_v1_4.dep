@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>2</fileVersion>
+    <fileChecksum>3017059372</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\Debug\List\motor.lst</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+            <file>$PROJ_DIR$\Debug\List\switch.s90</file>
+            <file>$PROJ_DIR$\Source\adc.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\math.h</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom168pa.inc</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\module_initialize.r90</file>
+            <file>$PROJ_DIR$\Debug\List\ps-33d.s90</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\xtgmath.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\motor.pbi</file>
+            <file>$PROJ_DIR$\Debug\List\system_mode.lst</file>
+            <file>$PROJ_DIR$\Source\ps-33d.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$TOOLKIT_DIR$\inc\ina90.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_mode.pbi</file>
+            <file>$PROJ_DIR$\Source\module_initialize.h</file>
+            <file>$PROJ_DIR$\Debug\List\ps-33d.lst</file>
+            <file>$PROJ_DIR$\Debug\List\MIDO-ALMDDS-JST_v1_4.map</file>
+            <file>$PROJ_DIR$\Debug\Obj\fnd_display.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+            <file>$PROJ_DIR$\Debug\List\fnd_display.lst</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$TOOLKIT_DIR$\inc\iom168pa.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\usart.pbi</file>
+            <file>$PROJ_DIR$\Source\usart.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\fnd_display.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\alarm.pbi</file>
+            <file>$PROJ_DIR$\Source\motor.c</file>
+            <file>$PROJ_DIR$\Source\usart.c</file>
+            <file>$PROJ_DIR$\Debug\List\main.lst</file>
+            <file>$PROJ_DIR$\Source\adc.c</file>
+            <file>$PROJ_DIR$\Source\include.h</file>
+            <file>$PROJ_DIR$\Source\main.c</file>
+            <file>$PROJ_DIR$\Source\switch.c</file>
+            <file>$PROJ_DIR$\Source\motor.h</file>
+            <file>$PROJ_DIR$\Source\system_mode.c</file>
+            <file>$PROJ_DIR$\Source\alarm.c</file>
+            <file>$PROJ_DIR$\Source\ps-33d.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\switch.r90</file>
+            <file>$PROJ_DIR$\Debug\List\module_initialize.lst</file>
+            <file>$PROJ_DIR$\Source\module_initialize.c</file>
+            <file>$PROJ_DIR$\Source\switch.h</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.h</file>
+            <file>$PROJ_DIR$\Source\drivers\atmel_driver\avr_gpio_driver.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\switch.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\stdlib.h</file>
+            <file>$PROJ_DIR$\Source\drivers\min_driver\type_conversion_util.c</file>
+            <file>$PROJ_DIR$\Source\fnd_display.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\avr_gpio_driver.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\usart.r90</file>
+            <file>$PROJ_DIR$\Debug\List\adc.lst</file>
+            <file>$PROJ_DIR$\Debug\Obj\motor.r90</file>
+            <file>$PROJ_DIR$\Source\drivers\atmel_driver\avr_twi_master_driver.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\ps-33d.r90</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+            <file>$PROJ_DIR$\Source\drivers\atmel_driver\avr_twi_master_driver.h</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\avr_gpio_driver.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\module_initialize.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_mode.r90</file>
+            <file>$PROJ_DIR$\Debug\List\adc.s90</file>
+            <file>$PROJ_DIR$\Debug\List\alarm.lst</file>
+            <file>$PROJ_DIR$\Debug\List\switch.lst</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\ystdio.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\avr_twi_master_driver.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc.pbi</file>
+            <file>$PROJ_DIR$\Debug\List\usart.lst</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\ymath.h</file>
+            <file>$PROJ_DIR$\Debug\List\alarm.s90</file>
+            <file>$PROJ_DIR$\Source\main.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\MIDO-ALMDDS-JST_v1_4.hex</file>
+            <file>$PROJ_DIR$\Source\fnd_display.h</file>
+            <file>$PROJ_DIR$\Debug\List\module_initialize.s90</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+            <file>$PROJ_DIR$\Source\drivers\atmel_driver\avr_gpio_driver.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\alarm.r90</file>
+            <file>$PROJ_DIR$\Debug\List\main.s90</file>
+            <file>$PROJ_DIR$\Debug\List\motor.s90</file>
+            <file>$PROJ_DIR$\Debug\List\fnd_display.s90</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm168pa.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\ps-33d.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\type_conversion_util.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\MIDO-ALMDDS-JST_v1_4.pbd</file>
+            <file>$PROJ_DIR$\Debug\List\system_mode.s90</file>
+            <file>$TOOLKIT_DIR$\inc\comp_a90.h</file>
+            <file>$PROJ_DIR$\Source\alarm.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\avr_twi_master_driver.pbi</file>
+            <file>$PROJ_DIR$\Debug\List\usart.s90</file>
+            <file>$PROJ_DIR$\Source\system_mode.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\MIDO-ALMDDS-JST_v1_4.d90</file>
+            <file>$PROJ_DIR$\Source\drivers\min_driver\type_conversion_util.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\type_conversion_util.r90</file>
+            <file>$TOOLKIT_DIR$\inc\inavr.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\stdio.h</file>
+        </outputs>
+        <file>
+            <name>$PROJ_DIR$\Source\motor.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 12</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 83 0 55</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 23 16 1 63 4 19 98 59 101 26 5 14 28 93 60 2 10 102 58 99 49 75 77 45 38 96 80 69 7 46 79 25 6 35 92 86 73</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 35 102 23 59 1 46 79 7 63 2 69 26 25 6 58 16 101 86 92 5 73 10 99 49 14 75 19 77 28 45 4 38 93 96 98 80 60</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Source\usart.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 27</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 95 72 53</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 23 59 16 1 63 4 19 98 101 26 5 14 28 93 60 2 10 102 58 99 49 75 77 45 38 96 80 69 7 46 79 25 6 35 92 86 73</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 35 102 23 59 1 46 79 7 63 2 69 26 25 6 58 16 101 86 92 5 73 10 99 49 14 75 19 77 28 45 4 38 93 96 98 80 60</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Source\adc.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 71</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 66 54 17</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 23 38 102 49 59 79 101 77 80 58 99 75 45 96 69 7 46 26 16 5 14 19 28 4 93 98 60 2 1 63 25 6 10 35 92 86 73</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 35 102 23 59 1 46 79 7 63 2 69 26 25 6 58 16 101 86 92 5 73 10 99 49 14 75 19 77 28 45 4 38 93 96 98 80 60</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Source\main.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 11</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 82 33 15</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 77 101 80 102 49 38 59 79 23 58 99 75 45 96 69 7 46 10 26 16 5 14 19 28 4 93 98 60 2 1 63 25 6 35 92 86 73</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 35 102 23 59 1 46 79 7 63 2 69 26 25 6 58 16 101 86 92 5 73 10 99 49 14 75 19 77 28 45 4 38 93 96 98 80 60</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Source\switch.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 48</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 3 68 42</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 2 59 14 26 93 25 5 28 60 101 16 19 4 98 23 1 63 10 102 58 99 49 75 77 45 38 96 80 69 7 46 79 6 35 92 86 73</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 35 102 23 59 1 46 79 7 63 2 69 26 25 6 58 16 101 86 92 5 73 10 99 49 14 75 19 77 28 45 4 38 93 96 98 80 60</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Source\system_mode.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 18</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 91 13 65</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 59 23 49 79 102 38 101 77 80 58 99 75 45 96 69 7 46 10 26 16 5 14 19 28 4 93 98 60 2 1 63 25 6 35 92 86 73</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 35 102 23 59 1 46 79 7 63 2 69 26 25 6 58 16 101 86 92 5 73 10 99 49 14 75 19 77 28 45 4 38 93 96 98 80 60</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Source\alarm.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 30</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 74 67 81</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 80 101 77 102 49 38 59 79 23 58 99 75 45 96 69 7 46 10 26 16 5 14 19 28 4 93 98 60 2 1 63 25 6 35 92 86 73</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 35 102 23 59 1 46 79 7 63 2 69 26 25 6 58 16 101 86 92 5 73 10 99 49 14 75 19 77 28 45 4 38 93 96 98 80 60</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Source\ps-33d.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 88</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 9 20 57</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 80 101 77 102 49 38 59 79 23 58 99 75 45 96 69 7 46 10 26 16 5 14 19 28 4 93 98 60 2 1 63 25 6 35 92 86 73</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 35 102 23 59 1 46 79 7 63 2 69 26 25 6 58 16 101 86 92 5 73 10 99 49 14 75 19 77 28 45 4 38 93 96 98 80 60</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Source\module_initialize.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 64</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 78 43 8</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 69 7 75 58 96 23 99 45 46 101 102 49 77 38 80 59 79 10 26 16 5 14 19 28 4 93 98 60 2 1 63 25 6 35 92 86 73</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 35 102 23 59 1 46 79 7 63 2 69 26 25 6 58 16 101 86 92 5 73 10 99 49 14 75 19 77 28 45 4 38 93 96 98 80 60</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Source\drivers\atmel_driver\avr_gpio_driver.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 62</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 52</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 77 101 80 102 49 38 59 79 58 99 75 45 96 69 23 7 46 10 26 16 5 14 19 28 4 93 98 60 2 1 63 25 6 35 92 86 73</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Source\drivers\min_driver\type_conversion_util.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 89</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 100</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 77 101 80 102 49 38 59 79 23 58 99 75 45 96 69 7 46 10 26 16 5 14 19 28 4 93 98 60 2 1 63 25 6 35 92 86 73</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Source\fnd_display.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 22</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 84 24 29</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 6 23 26 93 25 14 2 59 5 28 60 16 19 4 98 1 63 102 58 101 99 49 75 77 45 38 96 80 69 7 46 79 10 35 92 86 73</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 35 102 23 59 1 46 79 7 63 2 69 26 25 6 58 16 101 86 92 5 73 10 99 49 14 75 19 77 28 45 4 38 93 96 98 80 60</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Source\drivers\atmel_driver\avr_twi_master_driver.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 94</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 70</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 77 101 80 102 49 38 59 79 58 99 75 45 96 69 23 7 46 10 26 16 5 14 19 28 4 93 98 60 2 1 63 25 6 35 92 86 73</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\MIDO-ALMDDS-JST_v1_4.hex</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 21</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 87 61 17 81 52 70 29 15 8 55 57 42 65 100 53 85</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\MIDO-ALMDDS-JST_v1_4.d90</name>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 87 61 17 81 52 70 29 15 8 55 57 42 65 100 53 85</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 76 21</file>
+                </tool>
+            </outputs>
+        </file>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+    </configuration>
+</project>

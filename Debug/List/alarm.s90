@@ -1,0 +1,613 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR      27/Dec/2020  15:41:44
+// Copyright 1996-2019 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for Atmel AVR
+//
+//    Source file  =  
+//        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\alarm.c
+//    Command line =  
+//        -f C:\Users\troubard\AppData\Local\Temp\EW3A1.tmp
+//        ("C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\alarm.c" --cpu=m168pa -ms
+//        -o "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj" -lC
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List" -lA
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List"
+//        --initializers_in_flash --no_cse --no_inline --no_code_motion
+//        --no_cross_call --no_clustering --no_tbaa --debug -e -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver\" -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver\" -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\" -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\" --eeprom_size 512 --dlib
+//        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+//        8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
+//    Locale       =  Korean_KOR.949
+//    List file    =  
+//        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List\alarm.s90
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME alarm
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega168PA"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+        RTMODEL "__vtable_memory", "__nearflash"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?need_segment_init
+
+        PUBWEAK `?<Segment init: NEAR_Z>`
+        PUBLIC Alarm1_Off
+        PUBLIC Alarm1_Out
+        PUBLIC Alarm2_Off
+        PUBLIC Alarm2_Out
+        PUBLIC Temp_PortB
+        PUBLIC Temp_PortD
+        PUBWEAK _A_PINB
+        PUBWEAK _A_PIND
+        PUBWEAK _A_PORTB
+        PUBWEAK _A_PORTD
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_Y Y DATA
+          CFI StackFrame CFA_SP SP DATA
+          CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+          CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+          CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+          CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+          CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+          CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+          CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+          CFI ResourceParts SP SPH, SPL
+          CFI ResourceParts Y R29, R28
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign 1
+          CFI ReturnAddress ?Ret CODE
+          CFI CFA_Y Y+0
+          CFI CFA_SP SP+2
+          CFI ?RetPad 0
+          CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+          CFI ?RetLow Frame(CFA_SP, 0)
+          CFI ?Ret Concat
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI R8 SameValue
+          CFI R9 SameValue
+          CFI R10 SameValue
+          CFI R11 SameValue
+          CFI R12 SameValue
+          CFI R13 SameValue
+          CFI R14 SameValue
+          CFI R15 SameValue
+          CFI R16 Undefined
+          CFI R17 Undefined
+          CFI R18 Undefined
+          CFI R19 Undefined
+          CFI R20 Undefined
+          CFI R21 Undefined
+          CFI R22 Undefined
+          CFI R23 Undefined
+          CFI R24 SameValue
+          CFI R25 SameValue
+          CFI R26 SameValue
+          CFI R27 SameValue
+          CFI R28 Undefined
+          CFI R29 Undefined
+          CFI R30 Undefined
+          CFI R31 Undefined
+          CFI ?RetHighByteMask SameValue
+          CFI SPH Undefined
+          CFI SPL Undefined
+          CFI EndCommon cfiCommon0
+        
+        EXTERN Motor_Status
+
+// C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\alarm.c
+//    1 #include "include.h"
+
+        ASEGN ABSOLUTE:DATA:NOROOT,02bH
+// union <unnamed> volatile __io _A_PORTD
+_A_PORTD:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,029H
+// union <unnamed> volatile __io _A_PIND
+_A_PIND:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,025H
+// union <unnamed> volatile __io _A_PORTB
+_A_PORTB:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,023H
+// union <unnamed> volatile __io _A_PINB
+_A_PINB:
+        DS8 1
+//    2 
+//    3 
+//    4 
+//    5 #define ALARM1_MASKB 0x01
+//    6 #define ALARM1_MASKD 0x01
+//    7 #define ALARM2_MASKB1 0x02
+//    8 #define ALARM2_MASKB2 0x04
+//    9 #define ALARM2_MASKB 0x06
+//   10 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   11 uint8_t Temp_PortB,Temp_PortD;
+Temp_PortB:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+Temp_PortD:
+        DS8 1
+//   12 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   13 void Alarm1_Off(void)
+Alarm1_Off:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function Alarm1_Off
+          CFI NoCalls
+//   14 {
+//   15   
+//   16   ///////////////////// ALARM2 ALL OFF /////////////////////////
+//   17 
+//   18   __disable_interrupt();
+        CLI
+//   19   Temp_PortB = PINB&(~ALARM2_MASKB); // VDD : PB1, OFF
+        IN      R16, 0x03
+        ANDI    R16, 0xF9
+        STS     Temp_PortB, R16
+//   20   Temp_PortB |= START_PORT_VALUE; // START PULL UP
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x10
+        ST      Z, R16
+//   21   PORTB = Temp_PortB;  
+        LDS     R16, Temp_PortB
+        OUT     0x05, R16
+//   22   __enable_interrupt();
+        SEI
+//   23   
+//   24   __delay_cycles(10);
+        LDI     R16, 3
+        DEC     R16
+        BRNE    $-2
+        NOP
+//   25   ///////////////////// ALARM1 OFF ///////////////////////////// 
+//   26   __disable_interrupt();
+        CLI
+//   27   Temp_PortB = PINB&(~ALARM1_MASKB); // VDD : PB0, OFF
+        IN      R16, 0x03
+        ANDI    R16, 0xFE
+        STS     Temp_PortB, R16
+//   28   Temp_PortB |= START_PORT_VALUE; // START PULL UP
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x10
+        ST      Z, R16
+//   29   PORTB = Temp_PortB;
+        LDS     R16, Temp_PortB
+        OUT     0x05, R16
+//   30   Temp_PortD = PIND&(~ALARM1_MASKD); // VDD : PD0, OFF
+        IN      R16, 0x09
+        ANDI    R16, 0xFE
+        STS     Temp_PortD, R16
+//   31   PORTD = Temp_PortD;  
+        LDS     R16, Temp_PortD
+        OUT     0x0B, R16
+//   32   
+//   33   
+//   34   Temp_PortD = PIND&(~ALARM1_MASKD); // GND : PD0, ON
+        IN      R16, 0x09
+        ANDI    R16, 0xFE
+        STS     Temp_PortD, R16
+//   35   Temp_PortD |= ALARM1_MASKD;
+        LDI     R30, LOW(Temp_PortD)
+        LDI     R31, (Temp_PortD) >> 8
+        LD      R16, Z
+        ORI     R16, 0x01
+        ST      Z, R16
+//   36   PORTD = Temp_PortD;
+        LDS     R16, Temp_PortD
+        OUT     0x0B, R16
+//   37   
+//   38   
+//   39   
+//   40   
+//   41   Temp_PortB = PINB&(~ALARM2_MASKB2); // GND : PB2, ON
+        IN      R16, 0x03
+        ANDI    R16, 0xFB
+        STS     Temp_PortB, R16
+//   42   Temp_PortB |= ALARM2_MASKB2;
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x04
+        ST      Z, R16
+//   43   Temp_PortB |= START_PORT_VALUE; // START PULL UP
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x10
+        ST      Z, R16
+//   44   PORTB = Temp_PortB;
+        LDS     R16, Temp_PortB
+        OUT     0x05, R16
+//   45   __enable_interrupt();
+        SEI
+//   46   
+//   47 }
+        RET
+          CFI EndBlock cfiBlock0
+        REQUIRE _A_PINB
+        REQUIRE _A_PORTB
+        REQUIRE _A_PIND
+        REQUIRE _A_PORTD
+//   48 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   49 void Alarm2_Off(void)
+Alarm2_Off:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function Alarm2_Off
+          CFI NoCalls
+//   50 {
+//   51   
+//   52   
+//   53   ////////////////////// ALARM1  All OFF//////////////////////
+//   54   
+//   55   __disable_interrupt();
+        CLI
+//   56   Temp_PortB = PINB&(~ALARM1_MASKB); // VDD : PB0, OFF
+        IN      R16, 0x03
+        ANDI    R16, 0xFE
+        STS     Temp_PortB, R16
+//   57   Temp_PortB |= START_PORT_VALUE; // START PULL UP
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x10
+        ST      Z, R16
+//   58   PORTB = Temp_PortB;
+        LDS     R16, Temp_PortB
+        OUT     0x05, R16
+//   59   Temp_PortD = PIND&(~ALARM1_MASKD); // VDD : PD0, OFF
+        IN      R16, 0x09
+        ANDI    R16, 0xFE
+        STS     Temp_PortD, R16
+//   60   PORTD = Temp_PortD;  
+        LDS     R16, Temp_PortD
+        OUT     0x0B, R16
+//   61   __enable_interrupt();
+        SEI
+//   62   __delay_cycles(10);
+        LDI     R16, 3
+        DEC     R16
+        BRNE    $-2
+        NOP
+//   63   
+//   64   /////////////////////// ALARM2 OFF //////////////////////////
+//   65   __disable_interrupt();
+        CLI
+//   66   Temp_PortB = PINB&(~ALARM2_MASKB1); // VDD : PB1, OFF
+        IN      R16, 0x03
+        ANDI    R16, 0xFD
+        STS     Temp_PortB, R16
+//   67   Temp_PortB |= START_PORT_VALUE; // START PULL UP
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x10
+        ST      Z, R16
+//   68   PORTB = Temp_PortB;
+        LDS     R16, Temp_PortB
+        OUT     0x05, R16
+//   69   __enable_interrupt();
+        SEI
+//   70   __delay_cycles(10);
+        LDI     R16, 3
+        DEC     R16
+        BRNE    $-2
+        NOP
+//   71   __disable_interrupt();
+        CLI
+//   72   Temp_PortB = PINB&(~ALARM2_MASKB2); // GND : PB2, ON
+        IN      R16, 0x03
+        ANDI    R16, 0xFB
+        STS     Temp_PortB, R16
+//   73   Temp_PortB |= ALARM2_MASKB2;
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x04
+        ST      Z, R16
+//   74   Temp_PortB |= START_PORT_VALUE; // START PULL UP
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x10
+        ST      Z, R16
+//   75   PORTB = Temp_PortB;
+        LDS     R16, Temp_PortB
+        OUT     0x05, R16
+//   76   
+//   77   Temp_PortD = PIND&(~ALARM1_MASKD); // GND : PD0, ON
+        IN      R16, 0x09
+        ANDI    R16, 0xFE
+        STS     Temp_PortD, R16
+//   78   Temp_PortD |= ALARM1_MASKD;
+        LDI     R30, LOW(Temp_PortD)
+        LDI     R31, (Temp_PortD) >> 8
+        LD      R16, Z
+        ORI     R16, 0x01
+        ST      Z, R16
+//   79   PORTD = Temp_PortD;
+        LDS     R16, Temp_PortD
+        OUT     0x0B, R16
+//   80   __enable_interrupt();  
+        SEI
+//   81 }
+        RET
+          CFI EndBlock cfiBlock1
+        REQUIRE _A_PINB
+        REQUIRE _A_PORTB
+        REQUIRE _A_PIND
+        REQUIRE _A_PORTD
+//   82 
+//   83 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   84 void Alarm1_Out(void)
+Alarm1_Out:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function Alarm1_Out
+//   85 {
+//   86   
+//   87   
+//   88   if(Motor_Status==MOTER_OPEN){
+        LDS     R16, Motor_Status
+        CPI     R16, 3
+        BRNE    ??Alarm1_Out_0
+//   89     //Alarm_All_Off();
+//   90     Alarm1_Off();
+          CFI FunCall Alarm1_Off
+        RCALL   Alarm1_Off
+        RET
+//   91     
+//   92   }
+//   93   else {
+//   94     
+//   95   ///////////////////// ALARM2 OFF /////////////////////////  
+//   96     
+//   97   __disable_interrupt();
+??Alarm1_Out_0:
+        CLI
+//   98   Temp_PortB = PINB&(~ALARM2_MASKB); // ALARM2 OFF 
+        IN      R16, 0x03
+        ANDI    R16, 0xF9
+        STS     Temp_PortB, R16
+//   99   Temp_PortB |= START_PORT_VALUE; // START PULL UP
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x10
+        ST      Z, R16
+//  100   PORTB = Temp_PortB;
+        LDS     R16, Temp_PortB
+        OUT     0x05, R16
+//  101   __enable_interrupt(); 
+        SEI
+//  102   
+//  103   __delay_cycles(10);
+        LDI     R16, 3
+        DEC     R16
+        BRNE    $-2
+        NOP
+//  104   ///////////////////// ALARM1 ON //////////////////////////
+//  105   
+//  106   __disable_interrupt();
+        CLI
+//  107   Temp_PortB = PINB&(~ALARM1_MASKB); // VDD : PB0,  ON
+        IN      R16, 0x03
+        ANDI    R16, 0xFE
+        STS     Temp_PortB, R16
+//  108   Temp_PortB |= ALARM1_MASKB;
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x01
+        ST      Z, R16
+//  109   Temp_PortB |= START_PORT_VALUE; // START PULL UP
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x10
+        ST      Z, R16
+//  110   PORTB = Temp_PortB;
+        LDS     R16, Temp_PortB
+        OUT     0x05, R16
+//  111   
+//  112   Temp_PortD = PIND&(~ALARM1_MASKD); // GND : PD0, ON
+        IN      R16, 0x09
+        ANDI    R16, 0xFE
+        STS     Temp_PortD, R16
+//  113   Temp_PortD |= ALARM1_MASKD;
+        LDI     R30, LOW(Temp_PortD)
+        LDI     R31, (Temp_PortD) >> 8
+        LD      R16, Z
+        ORI     R16, 0x01
+        ST      Z, R16
+//  114   PORTD = Temp_PortD;
+        LDS     R16, Temp_PortD
+        OUT     0x0B, R16
+//  115   __enable_interrupt(); 
+        SEI
+//  116   
+//  117   }
+//  118   
+//  119 }
+        RET
+          CFI EndBlock cfiBlock2
+        REQUIRE _A_PINB
+        REQUIRE _A_PORTB
+        REQUIRE _A_PIND
+        REQUIRE _A_PORTD
+//  120 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  121 void Alarm2_Out(void)
+Alarm2_Out:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function Alarm2_Out
+//  122 {
+//  123   
+//  124   
+//  125   if(Motor_Status==MOTER_CLOSE){
+        LDS     R16, Motor_Status
+        CPI     R16, 1
+        BRNE    ??Alarm2_Out_0
+//  126     Alarm2_Off();
+          CFI FunCall Alarm2_Off
+        RCALL   Alarm2_Off
+        RET
+//  127     //Alarm_All_Off();
+//  128     
+//  129   }
+//  130   else {
+//  131   
+//  132   ///////////////////// ALARM1 OFF /////////////////////////
+//  133   __disable_interrupt();
+??Alarm2_Out_0:
+        CLI
+//  134   Temp_PortB = PINB&(~ALARM1_MASKB); // VDD : PB0, OFF
+        IN      R16, 0x03
+        ANDI    R16, 0xFE
+        STS     Temp_PortB, R16
+//  135   Temp_PortB |= START_PORT_VALUE; // START PULL UP
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x10
+        ST      Z, R16
+//  136   PORTB = Temp_PortB;
+        LDS     R16, Temp_PortB
+        OUT     0x05, R16
+//  137   
+//  138   Temp_PortD = PIND&(~ALARM1_MASKD); // GND : PD0, OFF
+        IN      R16, 0x09
+        ANDI    R16, 0xFE
+        STS     Temp_PortD, R16
+//  139   PORTD = Temp_PortD;
+        LDS     R16, Temp_PortD
+        OUT     0x0B, R16
+//  140   __enable_interrupt(); 
+        SEI
+//  141   
+//  142   __delay_cycles(10);
+        LDI     R16, 3
+        DEC     R16
+        BRNE    $-2
+        NOP
+//  143   ///////////////////// ALARM2 ON //////////////////////////
+//  144   __disable_interrupt();
+        CLI
+//  145   Temp_PortB = PINB&(~ALARM2_MASKB); // VDD : PB1, ON
+        IN      R16, 0x03
+        ANDI    R16, 0xF9
+        STS     Temp_PortB, R16
+//  146   Temp_PortB |= ALARM2_MASKB;        // GND : PB2, ON
+        LDS     R16, Temp_PortB
+        ORI     R16, 0x06
+        STS     Temp_PortB, R16
+//  147   Temp_PortB |= START_PORT_VALUE; // START PULL UP
+        LDI     R30, LOW(Temp_PortB)
+        LDI     R31, (Temp_PortB) >> 8
+        LD      R16, Z
+        ORI     R16, 0x10
+        ST      Z, R16
+//  148   PORTB = Temp_PortB;
+        LDS     R16, Temp_PortB
+        OUT     0x05, R16
+//  149   __enable_interrupt(); 
+        SEI
+//  150   
+//  151   }
+//  152   
+//  153 }
+        RET
+          CFI EndBlock cfiBlock3
+        REQUIRE _A_PINB
+        REQUIRE _A_PORTB
+        REQUIRE _A_PIND
+        REQUIRE _A_PORTD
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_Z>`:
+        DC16    SFE(NEAR_Z) - SFB(NEAR_Z)
+        DC16    SFB(NEAR_Z)
+        DC16    0
+        REQUIRE ?need_segment_init
+
+        END
+// 
+//   4 bytes in segment ABSOLUTE
+// 502 bytes in segment CODE
+//   6 bytes in segment INITTAB
+//   2 bytes in segment NEAR_Z
+// 
+// 502 bytes of CODE memory (+ 6 bytes shared)
+//   2 bytes of DATA memory (+ 4 bytes shared)
+//
+//Errors: none
+//Warnings: none

@@ -1,0 +1,772 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V6.11.1.50453 for Atmel AVR       12/Jun/2019  11:27:19 /
+// Copyright 1996-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Source file  =  C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  /
+//                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                     /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Source\zsc31014.c           /
+//    Command line =  "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Source\zsc31014.c"          /
+//                    --cpu=m168pa -ms -o "C:\Users\troub\CloudStation\Public /
+//                    \3. DST\7. DH-OWC\3. FIRMWARE\2.                        /
+//                    MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Deb /
+//                    ug\Obj\" -lC "C:\Users\troub\CloudStation\Public\3.     /
+//                    DST\7. DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.    /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\" -lA            /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\"                /
+//                    --initializers_in_flash --no_cse --no_inline            /
+//                    --no_code_motion --no_cross_call --no_clustering        /
+//                    --no_tbaa --debug -e -I "C:\Users\troub\CloudStation\Pu /
+//                    blic\3. DST\7. DH-OWC\3. FIRMWARE\2.                    /
+//                    MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Sou /
+//                    rce\drivers\min_driver\" -I                             /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Source\drivers\atmel_driver /
+//                    \" -I "C:\Users\troub\CloudStation\Public\3. DST\7.     /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Source\" -I                 /
+//                    "C:\Users\troub\CloudStation\Public\3. DST\7.           /
+//                    DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.           /
+//                    MIDO-ALMDDS-JST_v1_4_190606\" --eeprom_size 512 --dlib  /
+//                    --dlib_config "C:\Program Files (x86)\IAR               /
+//                    Systems\Embedded Workbench                              /
+//                    6.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol            /
+//    List file    =  C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3.  /
+//                    FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1.                     /
+//                    MIDO-ALMDDS-JST_v1_4_190606\Debug\List\zsc31014.s90     /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME zsc31014
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega168PA"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?EPILOGUE_B4_L09
+        EXTERN ?EPILOGUE_B8_L09
+        EXTERN ?F2SL_L04
+        EXTERN ?F_DIV_L04
+        EXTERN ?F_MUL_L04
+        EXTERN ?PROLOGUE4_L09
+        EXTERN ?PROLOGUE8_L09
+        EXTERN ?Register_R4_is_cg_reg
+        EXTERN ?Register_R5_is_cg_reg
+        EXTERN ?Register_R6_is_cg_reg
+        EXTERN ?Register_R7_is_cg_reg
+        EXTERN ?SL2F_L04
+        EXTERN ?need_segment_init
+
+        PUBWEAK `?<Segment init: NEAR_I>`
+        PUBWEAK `?<Segment init: NEAR_Z>`
+        PUBLIC ADC_Span_Set_1_Point
+        PUBLIC ADC_Zero_Set_1_Point
+        PUBLIC Cal_Pressure_1_Coef
+        PUBLIC Cal_Pressure_2_Coef
+        PUBLIC Cal_Pressure_3_Coef
+        PUBLIC Pressure_PA_Value
+        PUBLIC Scale_Span_Set_1_Value
+        PUBLIC Scale_Zero_Set_1_Value
+        PUBLIC TWI_Operation
+        FUNCTION TWI_Operation,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC Twi_Adc_Cal_Real_Value
+        FUNCTION Twi_Adc_Cal_Real_Value,0203H
+        ARGFRAME RSTACK, 0, STACK
+        LOCFRAME CSTACK, 14, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC Twi_Adc_Get_Pressure_Sensor_Value
+        FUNCTION Twi_Adc_Get_Pressure_Sensor_Value,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC Twi_Adc_Push_Coef
+        FUNCTION Twi_Adc_Push_Coef,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        LOCFRAME RSTACK, 4, STACK
+        PUBLIC Twi_Data_Buf
+        PUBLIC Twi_Delay_Timer_Cnt
+        PUBLIC Twi_Delay_Timer_Reg
+        PUBLIC Twi_Raw_Value
+        PUBLIC Twi_Read_Buf
+        PUBLIC Twi_Timer
+        FUNCTION Twi_Timer,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME RSTACK, 2, STACK
+        PUBLIC Twi_Write_Buf
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_Y Y DATA
+          CFI StackFrame CFA_SP SP DATA
+          CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+          CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+          CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+          CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+          CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+          CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+          CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+          CFI ResourceParts SP SPH, SPL
+          CFI ResourceParts Y R29, R28
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign 1
+          CFI ReturnAddress ?Ret CODE
+          CFI CFA_Y Y+0
+          CFI CFA_SP SP+2
+          CFI ?RetPad 0
+          CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+          CFI ?RetLow Frame(CFA_SP, 0)
+          CFI ?Ret Concat
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI R8 SameValue
+          CFI R9 SameValue
+          CFI R10 SameValue
+          CFI R11 SameValue
+          CFI R12 SameValue
+          CFI R13 SameValue
+          CFI R14 SameValue
+          CFI R15 SameValue
+          CFI R16 Undefined
+          CFI R17 Undefined
+          CFI R18 Undefined
+          CFI R19 Undefined
+          CFI R20 Undefined
+          CFI R21 Undefined
+          CFI R22 Undefined
+          CFI R23 Undefined
+          CFI R24 SameValue
+          CFI R25 SameValue
+          CFI R26 SameValue
+          CFI R27 SameValue
+          CFI R28 Undefined
+          CFI R29 Undefined
+          CFI R30 Undefined
+          CFI R31 Undefined
+          CFI ?RetHighByteMask SameValue
+          CFI SPH Undefined
+          CFI SPL Undefined
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign 1
+          CFI ReturnAddress ?Ret CODE
+          CFI CFA_Y Y+6
+          CFI CFA_SP SP+2
+          CFI ?RetPad 0
+          CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+          CFI ?RetLow Frame(CFA_SP, 0)
+          CFI ?Ret Concat
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI R8 SameValue
+          CFI R9 SameValue
+          CFI R10 SameValue
+          CFI R11 SameValue
+          CFI R12 SameValue
+          CFI R13 SameValue
+          CFI R14 SameValue
+          CFI R15 SameValue
+          CFI R16 Undefined
+          CFI R17 Undefined
+          CFI R18 Undefined
+          CFI R19 Undefined
+          CFI R20 Undefined
+          CFI R21 Undefined
+          CFI R22 Undefined
+          CFI R23 Undefined
+          CFI R24 SameValue
+          CFI R25 SameValue
+          CFI R26 SameValue
+          CFI R27 SameValue
+          CFI R28 Undefined
+          CFI R29 Undefined
+          CFI R30 Undefined
+          CFI R31 Undefined
+          CFI ?RetHighByteMask SameValue
+          CFI SPH Undefined
+          CFI SPL Undefined
+          CFI EndCommon cfiCommon1
+        
+        EXTERN TWI_Start_Transceiver_With_Data
+        FUNCTION TWI_Start_Transceiver_With_Data,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN TWI_Transceiver_Busy
+        FUNCTION TWI_Transceiver_Busy,0202H
+        ARGFRAME RSTACK, 0, STACK
+        EXTERN TWI_buf
+
+// C:\Users\troub\CloudStation\Public\3. DST\7. DH-OWC\3. FIRMWARE\2. MIDO-ALMDDS-JST_v1_4\1. MIDO-ALMDDS-JST_v1_4_190606\Source\zsc31014.c
+//    1 #include "include.h"
+//    2 
+//    3 
+//    4 
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//    5 uint8_t Twi_Write_Buf[10]={0x50,0xAA};
+Twi_Write_Buf:
+        DS8 10
+        REQUIRE `?<Initializer for Twi_Write_Buf>`
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//    6 uint8_t Twi_Read_Buf[10]={0x51,0x00};
+Twi_Read_Buf:
+        DS8 10
+        REQUIRE `?<Initializer for Twi_Read_Buf>`
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//    7 uint8_t Twi_Data_Buf[10];
+Twi_Data_Buf:
+        DS8 10
+//    8 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//    9 uint8_t Twi_Delay_Timer_Reg;
+Twi_Delay_Timer_Reg:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   10 uint16_t Twi_Delay_Timer_Cnt;
+Twi_Delay_Timer_Cnt:
+        DS8 2
+//   11 
+//   12 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   13 uint32_t Twi_Raw_Value;
+Twi_Raw_Value:
+        DS8 4
+//   14 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   15 void Twi_Timer(void)
+Twi_Timer:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function Twi_Timer
+//   16 {
+//   17   if(Twi_Delay_Timer_Reg==1){
+        LDS     R16, Twi_Delay_Timer_Reg
+        CPI     R16, 1
+        BRNE    ??Twi_Timer_0
+//   18     Twi_Delay_Timer_Cnt++;
+        LDI     R30, LOW(Twi_Delay_Timer_Cnt)
+        LDI     R31, (Twi_Delay_Timer_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        SUBI    R16, 255
+        SBCI    R17, 255
+        ST      Z, R16
+        STD     Z+1, R17
+//   19     if(Twi_Delay_Timer_Cnt>25){
+        LDS     R30, Twi_Delay_Timer_Cnt
+        LDS     R31, (Twi_Delay_Timer_Cnt + 1)
+        SBIW    R31:R30, 26
+        BRCS    ??Twi_Timer_0
+//   20       Twi_Delay_Timer_Cnt=0;
+        LDI     R16, 0
+        LDI     R17, 0
+        STS     Twi_Delay_Timer_Cnt, R16
+        STS     (Twi_Delay_Timer_Cnt + 1), R17
+//   21       Twi_Delay_Timer_Reg=2;
+        LDI     R16, 2
+        STS     Twi_Delay_Timer_Reg, R16
+//   22     }
+//   23   }
+//   24 }
+??Twi_Timer_0:
+        RET
+          CFI EndBlock cfiBlock0
+//   25 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   26 void TWI_Operation(void)
+TWI_Operation:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function TWI_Operation
+//   27 {
+        FUNCALL TWI_Operation, TWI_Start_Transceiver_With_Data
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        FUNCALL TWI_Operation, TWI_Transceiver_Busy
+        LOCFRAME CSTACK, 2, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        ST      -Y, R25
+          CFI R25 Frame(CFA_Y, -1)
+          CFI CFA_Y Y+1
+        ST      -Y, R24
+          CFI R24 Frame(CFA_Y, -2)
+          CFI CFA_Y Y+2
+//   28   //TWI_Start_Transceiver_With_Data(Twi_Write_Buf,2);
+//   29   Twi_Delay_Timer_Reg=1;
+        LDI     R16, 1
+        STS     Twi_Delay_Timer_Reg, R16
+//   30   while(Twi_Delay_Timer_Reg){
+??TWI_Operation_0:
+        LDS     R16, Twi_Delay_Timer_Reg
+        TST     R16
+        BREQ    ??TWI_Operation_1
+//   31   
+//   32     if(Twi_Delay_Timer_Reg==2)break;
+        LDS     R16, Twi_Delay_Timer_Reg
+        CPI     R16, 2
+        BRNE    ??TWI_Operation_0
+//   33   }
+//   34   TWI_Start_Transceiver_With_Data(Twi_Read_Buf,3);
+??TWI_Operation_1:
+        LDI     R18, 3
+        LDI     R16, LOW(Twi_Read_Buf)
+        LDI     R17, (Twi_Read_Buf) >> 8
+        CALL    TWI_Start_Transceiver_With_Data
+//   35   while(TWI_Transceiver_Busy());                // Wait until TWI is ready for next transmission.
+??TWI_Operation_2:
+        CALL    TWI_Transceiver_Busy
+        TST     R16
+        BRNE    ??TWI_Operation_2
+//   36 
+//   37   __disable_interrupt();
+        CLI
+//   38 
+//   39   for(uint16_t i=0;i<3;i++)
+        LDI     R24, 0
+        LDI     R25, 0
+        RJMP    ??TWI_Operation_3
+//   40     Twi_Data_Buf[i]=TWI_buf[i];
+??TWI_Operation_4:
+        MOVW    R31:R30, R25:R24
+        SUBI    R30, LOW((-(TWI_buf) & 0xFFFF))
+        SBCI    R31, (-(TWI_buf) & 0xFFFF) >> 8
+        LD      R16, Z
+        MOVW    R31:R30, R25:R24
+        SUBI    R30, LOW((-(Twi_Data_Buf) & 0xFFFF))
+        SBCI    R31, (-(Twi_Data_Buf) & 0xFFFF) >> 8
+        ST      Z, R16
+        ADIW    R25:R24, 1
+??TWI_Operation_3:
+        CPI     R24, 3
+        LDI     R16, 0
+        CPC     R25, R16
+        BRCS    ??TWI_Operation_4
+//   41 
+//   42   
+//   43   Twi_Raw_Value = Twi_Data_Buf[1];
+        LDS     R16, (Twi_Data_Buf + 1)
+        LDI     R17, 0
+        LDI     R18, 0
+        LDI     R19, 0
+        LDI     R30, LOW(Twi_Raw_Value)
+        LDI     R31, (Twi_Raw_Value) >> 8
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//   44   Twi_Raw_Value = (Twi_Raw_Value<<8)+Twi_Data_Buf[2];
+        LDI     R30, LOW(Twi_Raw_Value)
+        LDI     R31, (Twi_Raw_Value) >> 8
+        LD      R20, Z
+        LDD     R21, Z+1
+        LDD     R22, Z+2
+        MOV     R23, R22
+        MOV     R22, R21
+        MOV     R21, R20
+        LDI     R20, 0
+        LDS     R16, (Twi_Data_Buf + 2)
+        LDI     R17, 0
+        LDI     R18, 0
+        LDI     R19, 0
+        ADD     R20, R16
+        ADC     R21, R17
+        ADC     R22, R18
+        ADC     R23, R19
+        LDI     R30, LOW(Twi_Raw_Value)
+        LDI     R31, (Twi_Raw_Value) >> 8
+        ST      Z, R20
+        STD     Z+1, R21
+        STD     Z+2, R22
+        STD     Z+3, R23
+//   45   //Twi_Raw_Value = (Twi_Raw_Value<<8)+Twi_Data_Buf[4];
+//   46   __enable_interrupt();
+        SEI
+//   47   
+//   48 }
+        LD      R24, Y+
+          CFI R24 SameValue
+          CFI CFA_Y Y+1
+        LD      R25, Y+
+          CFI R25 SameValue
+          CFI CFA_Y Y+0
+        RET
+          CFI EndBlock cfiBlock1
+//   49 
+//   50 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   51 int16_t Scale_Zero_Set_1_Value,Scale_Span_Set_1_Value;
+Scale_Zero_Set_1_Value:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+Scale_Span_Set_1_Value:
+        DS8 2
+//   52 
+//   53 #define SCALE_ZERO_SET_1 0
+//   54 #define SCALE_SPAN_SET_1 500
+//   55 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   56 float Cal_Pressure_1_Coef,Cal_Pressure_2_Coef,Cal_Pressure_3_Coef;
+Cal_Pressure_1_Coef:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+Cal_Pressure_2_Coef:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+Cal_Pressure_3_Coef:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   57 int32_t ADC_Zero_Set_1_Point,ADC_Span_Set_1_Point;
+ADC_Zero_Set_1_Point:
+        DS8 4
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+ADC_Span_Set_1_Point:
+        DS8 4
+//   58 
+//   59 
+//   60 
+//   61 #define ADC_ZERO_SET_1  1638
+//   62 #define ADC_SPAN_SET_1 14745
+//   63 
+//   64 /*
+//   65 #define ADC_ZERO_SET_1  2516582
+//   66 #define ADC_SPAN_SET_1 14260633
+//   67 */
+//   68 
+//   69 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   70 int16_t Pressure_PA_Value;
+Pressure_PA_Value:
+        DS8 2
+//   71 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   72 void Twi_Adc_Push_Coef(void)
+Twi_Adc_Push_Coef:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function Twi_Adc_Push_Coef
+//   73 {
+        CALL    ?PROLOGUE4_L09
+          CFI R27 Frame(CFA_Y, -1)
+          CFI R26 Frame(CFA_Y, -2)
+          CFI R25 Frame(CFA_Y, -3)
+          CFI R24 Frame(CFA_Y, -4)
+          CFI CFA_Y Y+4
+//   74   Scale_Zero_Set_1_Value = SCALE_ZERO_SET_1;
+        LDI     R16, 0
+        LDI     R17, 0
+        STS     Scale_Zero_Set_1_Value, R16
+        STS     (Scale_Zero_Set_1_Value + 1), R17
+//   75   Scale_Span_Set_1_Value = SCALE_SPAN_SET_1;
+        LDI     R16, 244
+        LDI     R17, 1
+        STS     Scale_Span_Set_1_Value, R16
+        STS     (Scale_Span_Set_1_Value + 1), R17
+//   76 
+//   77   ADC_Zero_Set_1_Point = ADC_ZERO_SET_1;
+        LDI     R16, 102
+        LDI     R17, 6
+        LDI     R18, 0
+        LDI     R19, 0
+        LDI     R30, LOW(ADC_Zero_Set_1_Point)
+        LDI     R31, (ADC_Zero_Set_1_Point) >> 8
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//   78   ADC_Span_Set_1_Point = ADC_SPAN_SET_1;
+        LDI     R16, 153
+        LDI     R17, 57
+        LDI     R18, 0
+        LDI     R19, 0
+        LDI     R30, LOW(ADC_Span_Set_1_Point)
+        LDI     R31, (ADC_Span_Set_1_Point) >> 8
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//   79 
+//   80   Cal_Pressure_1_Coef = (float)(Scale_Span_Set_1_Value-Scale_Zero_Set_1_Value)
+//   81     /((int32_t)ADC_Span_Set_1_Point - (int32_t)ADC_Zero_Set_1_Point);
+        LDS     R16, Scale_Span_Set_1_Value
+        LDS     R17, (Scale_Span_Set_1_Value + 1)
+        LDS     R18, Scale_Zero_Set_1_Value
+        LDS     R19, (Scale_Zero_Set_1_Value + 1)
+        SUB     R16, R18
+        SBC     R17, R19
+        MOV     R18, R17
+        LSL     R18
+        SBC     R18, R18
+        MOV     R19, R18
+        CALL    ?SL2F_L04
+        MOVW    R25:R24, R17:R16
+        MOVW    R27:R26, R19:R18
+        LDI     R30, LOW(ADC_Span_Set_1_Point)
+        LDI     R31, (ADC_Span_Set_1_Point) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        LDI     R30, LOW(ADC_Zero_Set_1_Point)
+        LDI     R31, (ADC_Zero_Set_1_Point) >> 8
+        LD      R20, Z
+        LDD     R21, Z+1
+        LDD     R22, Z+2
+        LDD     R23, Z+3
+        SUB     R16, R20
+        SBC     R17, R21
+        SBC     R18, R22
+        SBC     R19, R23
+        CALL    ?SL2F_L04
+        MOVW    R21:R20, R17:R16
+        MOVW    R23:R22, R19:R18
+        MOVW    R17:R16, R25:R24
+        MOVW    R19:R18, R27:R26
+        CALL    ?F_DIV_L04
+        LDI     R30, LOW(Cal_Pressure_1_Coef)
+        LDI     R31, (Cal_Pressure_1_Coef) >> 8
+        ST      Z, R16
+        STD     Z+1, R17
+        STD     Z+2, R18
+        STD     Z+3, R19
+//   82 }
+        LDI     R30, 4
+        JMP     ?EPILOGUE_B4_L09
+          CFI EndBlock cfiBlock2
+//   83 
+//   84 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   85 int16_t Twi_Adc_Cal_Real_Value(int32_t value,
+Twi_Adc_Cal_Real_Value:
+          CFI Block cfiBlock3 Using cfiCommon1
+          CFI Function Twi_Adc_Cal_Real_Value
+//   86                                      int32_t ADC_Zero_Set_Point,
+//   87                                      int16_t Scale_Zero_Set_Value,
+//   88                                      float Cal_Pressure_Coff)
+//   89 {
+        CALL    ?PROLOGUE8_L09
+          CFI R7 Frame(CFA_Y, -7)
+          CFI R6 Frame(CFA_Y, -8)
+          CFI R5 Frame(CFA_Y, -9)
+          CFI R4 Frame(CFA_Y, -10)
+          CFI R27 Frame(CFA_Y, -11)
+          CFI R26 Frame(CFA_Y, -12)
+          CFI R25 Frame(CFA_Y, -13)
+          CFI R24 Frame(CFA_Y, -14)
+          CFI CFA_Y Y+14
+        REQUIRE ?Register_R4_is_cg_reg
+        REQUIRE ?Register_R5_is_cg_reg
+        REQUIRE ?Register_R6_is_cg_reg
+        REQUIRE ?Register_R7_is_cg_reg
+        LDD     R24, Y+8
+        LDD     R25, Y+9
+        LDD     R4, Y+10
+        LDD     R5, Y+11
+        LDD     R6, Y+12
+        LDD     R7, Y+13
+//   90   
+//   91   int16_t Real_Value;
+//   92   __disable_interrupt();
+        CLI
+//   93   Real_Value = (int32_t)(((int32_t)value-(int32_t)ADC_Zero_Set_Point) 
+//   94                      * Cal_Pressure_Coff);
+        SUB     R16, R20
+        SBC     R17, R21
+        SBC     R18, R22
+        SBC     R19, R23
+        CALL    ?SL2F_L04
+        MOVW    R21:R20, R5:R4
+        MOVW    R23:R22, R7:R6
+        CALL    ?F_MUL_L04
+        CALL    ?F2SL_L04
+//   95   Real_Value = Scale_Zero_Set_Value + Real_Value;    
+        ADD     R16, R24
+        ADC     R17, R25
+//   96 
+//   97   __enable_interrupt();  
+        SEI
+//   98 
+//   99   return Real_Value;
+        LDI     R30, 14
+        JMP     ?EPILOGUE_B8_L09
+          CFI EndBlock cfiBlock3
+//  100 
+//  101 }
+//  102 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  103 void Twi_Adc_Get_Pressure_Sensor_Value(void)
+Twi_Adc_Get_Pressure_Sensor_Value:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function Twi_Adc_Get_Pressure_Sensor_Value
+//  104 {
+//  105   Pressure_PA_Value = Twi_Adc_Cal_Real_Value(Twi_Raw_Value,
+//  106                                          ADC_Zero_Set_1_Point,
+//  107                                          Scale_Zero_Set_1_Value,
+//  108                                          Cal_Pressure_1_Coef);
+        FUNCALL Twi_Adc_Get_Pressure_Sensor_Value, Twi_Adc_Cal_Real_Value
+        LOCFRAME CSTACK, 6, STACK
+        LOCFRAME RSTACK, 2, STACK
+        ARGFRAME RSTACK, 0, STACK
+        LDI     R30, LOW(Cal_Pressure_1_Coef)
+        LDI     R31, (Cal_Pressure_1_Coef) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        ST      -Y, R19
+          CFI CFA_Y Y+1
+        ST      -Y, R18
+          CFI CFA_Y Y+2
+        ST      -Y, R17
+          CFI CFA_Y Y+3
+        ST      -Y, R16
+          CFI CFA_Y Y+4
+        LDS     R16, Scale_Zero_Set_1_Value
+        LDS     R17, (Scale_Zero_Set_1_Value + 1)
+        ST      -Y, R17
+          CFI CFA_Y Y+5
+        ST      -Y, R16
+          CFI CFA_Y Y+6
+        LDI     R30, LOW(ADC_Zero_Set_1_Point)
+        LDI     R31, (ADC_Zero_Set_1_Point) >> 8
+        LD      R20, Z
+        LDD     R21, Z+1
+        LDD     R22, Z+2
+        LDD     R23, Z+3
+        LDI     R30, LOW(Twi_Raw_Value)
+        LDI     R31, (Twi_Raw_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDD     R18, Z+2
+        LDD     R19, Z+3
+        RCALL   Twi_Adc_Cal_Real_Value
+          CFI CFA_Y Y+0
+        STS     Pressure_PA_Value, R16
+        STS     (Pressure_PA_Value + 1), R17
+//  109   //Adc_Real_Pressure_Value = Pressure_PA_Value;
+//  110   __disable_interrupt();
+        CLI
+//  111   //Adc_Real_Pressure_Value = Pressure_PA_Value - ADC_AutoZero_Point;
+//  112   __enable_interrupt();
+        SEI
+//  113 }
+        RET
+          CFI EndBlock cfiBlock4
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for Twi_Write_Buf>`:
+        DC8 80, 170, 0, 0, 0, 0, 0, 0, 0, 0
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_I>`:
+        DC16    SFE(NEAR_I) - SFB(NEAR_I)
+        DC16    SFB(NEAR_I)
+        DC16    SFB(NEAR_ID)
+        REQUIRE ?need_segment_init
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for Twi_Read_Buf>`:
+        DC8 81, 0, 0, 0, 0, 0, 0, 0, 0, 0
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_Z>`:
+        DC16    SFE(NEAR_Z) - SFB(NEAR_Z)
+        DC16    SFB(NEAR_Z)
+        DC16    0
+        REQUIRE ?need_segment_init
+
+        END
+//  114 
+// 
+// 508 bytes in segment CODE
+//  12 bytes in segment INITTAB
+//  20 bytes in segment NEAR_I
+//  20 bytes in segment NEAR_ID
+//  43 bytes in segment NEAR_Z
+// 
+// 528 bytes of CODE memory (+ 12 bytes shared)
+//  63 bytes of DATA memory
+//
+//Errors: none
+//Warnings: none

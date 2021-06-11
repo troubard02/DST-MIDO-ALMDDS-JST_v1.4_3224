@@ -1,0 +1,949 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR      27/Dec/2020  15:41:45
+// Copyright 1996-2019 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for Atmel AVR
+//
+//    Source file  =  
+//        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\usart.c
+//    Command line =  
+//        -f C:\Users\troubard\AppData\Local\Temp\EW908.tmp
+//        ("C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\usart.c" --cpu=m168pa -ms
+//        -o "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj" -lC
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List" -lA
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List"
+//        --initializers_in_flash --no_cse --no_inline --no_code_motion
+//        --no_cross_call --no_clustering --no_tbaa --debug -e -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver\" -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver\" -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\" -I
+//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\" --eeprom_size 512 --dlib
+//        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+//        8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
+//    Locale       =  Korean_KOR.949
+//    List file    =  
+//        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List\usart.s90
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME usart
+
+        RTMODEL "__64bit_doubles", "disabled"
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__cpu", "3"
+        RTMODEL "__cpu_name", "ATmega168PA"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__enhanced_core", "enabled"
+        RTMODEL "__has_elpm", "false"
+        RTMODEL "__memory_model", "2"
+        RTMODEL "__rt_version", "3"
+        RTMODEL "__vtable_memory", "__nearflash"
+
+        RSEG CSTACK:DATA:NOROOT(0)
+        RSEG RSTACK:DATA:NOROOT(0)
+
+        EXTERN ?EPILOGUE_B4_L09
+        EXTERN ?PROLOGUE4_L09
+        EXTERN ?need_segment_init
+
+        PUBWEAK `?<Segment init: NEAR_I>`
+        PUBWEAK `?<Segment init: NEAR_Z>`
+        PUBWEAK `??USART_RX_VECT::??INTVEC 72`
+        PUBWEAK `??USART_TX_VECT::??INTVEC 80`
+        PUBLIC USART_Check_Flag
+        PUBLIC USART_Data
+        PUBLIC USART_Mode
+        PUBLIC USART_Order
+        PUBLIC USART_RX_VECT
+        PUBLIC USART_Rxc_Buf
+        PUBLIC USART_Rxc_Cnt
+        PUBLIC USART_Rxc_Complete_Flag
+        PUBLIC USART_STRUCT
+        PUBLIC USART_TX_VECT
+        PUBLIC USART_Txc_Buf
+        PUBLIC USART_Txc_Cnt
+        PUBLIC USART_Txc_Complete_Flag
+        PUBLIC USART_Txd_Start_Flag
+        PUBLIC Uasrt_Initialize
+        PUBLIC Usart_Delay_Timer_Cnt
+        PUBLIC Usart_Delay_Timer_Reg
+        PUBLIC Usart_Operation
+        PUBLIC Usart_Reg_Initialize
+        PUBLIC Usart_Send_Start_Byte
+        PUBLIC Usart_Timer
+        PUBLIC Usart_Transaction_Delay_Timer
+        PUBLIC Usart_Transaction_Delay_Timer_Cnt
+        PUBLIC Usart_Transaction_Delay_Timer_Reg
+        PUBLIC Usart_Txd_Buf
+        PUBLIC Usart_Txd_Cnt
+        PUBWEAK _A_UBRR0
+        PUBWEAK _A_UCSR0A
+        PUBWEAK _A_UCSR0B
+        PUBWEAK _A_UCSR0C
+        PUBWEAK _A_UDR0
+        PUBWEAK __?EEARH
+        PUBWEAK __?EEARL
+        PUBWEAK __?EECR
+        PUBWEAK __?EEDR
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_Y Y DATA
+          CFI StackFrame CFA_SP SP DATA
+          CFI VirtualResource ?RetPad:1, ?RetHigh:8, ?RetLow:8, ?Ret:17
+          CFI Resource R0:8, R1:8, R2:8, R3:8, R4:8, R5:8, R6:8, R7:8, R8:8, R9:8
+          CFI Resource R10:8, R11:8, R12:8, R13:8, R14:8, R15:8, R16:8, R17:8
+          CFI Resource R18:8, R19:8, R20:8, R21:8, R22:8, R23:8, R24:8, R25:8
+          CFI Resource R26:8, R27:8, R28:8, R29:8, R30:8, R31:8
+          CFI Resource ?RetHighByteMask:8, SP:16, SPH:8, SPL:8, Y:16
+          CFI ResourceParts ?Ret ?RetHigh, ?RetLow, ?RetPad
+          CFI ResourceParts SP SPH, SPL
+          CFI ResourceParts Y R29, R28
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign 1
+          CFI ReturnAddress ?Ret CODE
+          CFI CFA_Y Y+0
+          CFI CFA_SP SP+2
+          CFI ?RetPad 0
+          CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+          CFI ?RetLow Frame(CFA_SP, 0)
+          CFI ?Ret Concat
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI R8 SameValue
+          CFI R9 SameValue
+          CFI R10 SameValue
+          CFI R11 SameValue
+          CFI R12 SameValue
+          CFI R13 SameValue
+          CFI R14 SameValue
+          CFI R15 SameValue
+          CFI R16 SameValue
+          CFI R17 SameValue
+          CFI R18 SameValue
+          CFI R19 SameValue
+          CFI R20 SameValue
+          CFI R21 SameValue
+          CFI R22 SameValue
+          CFI R23 SameValue
+          CFI R24 SameValue
+          CFI R25 SameValue
+          CFI R26 SameValue
+          CFI R27 SameValue
+          CFI R28 Undefined
+          CFI R29 Undefined
+          CFI R30 SameValue
+          CFI R31 SameValue
+          CFI ?RetHighByteMask SameValue
+          CFI SPH Undefined
+          CFI SPL Undefined
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign 1
+          CFI ReturnAddress ?Ret CODE
+          CFI CFA_Y Y+0
+          CFI CFA_SP SP+2
+          CFI ?RetPad 0
+          CFI ?RetHigh and(load(1, DATA, sub(CFA_SP, 1)), ?RetHighByteMask)
+          CFI ?RetLow Frame(CFA_SP, 0)
+          CFI ?Ret Concat
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI R8 SameValue
+          CFI R9 SameValue
+          CFI R10 SameValue
+          CFI R11 SameValue
+          CFI R12 SameValue
+          CFI R13 SameValue
+          CFI R14 SameValue
+          CFI R15 SameValue
+          CFI R16 Undefined
+          CFI R17 Undefined
+          CFI R18 Undefined
+          CFI R19 Undefined
+          CFI R20 Undefined
+          CFI R21 Undefined
+          CFI R22 Undefined
+          CFI R23 Undefined
+          CFI R24 SameValue
+          CFI R25 SameValue
+          CFI R26 SameValue
+          CFI R27 SameValue
+          CFI R28 Undefined
+          CFI R29 Undefined
+          CFI R30 Undefined
+          CFI R31 Undefined
+          CFI ?RetHighByteMask SameValue
+          CFI SPH Undefined
+          CFI SPL Undefined
+          CFI EndCommon cfiCommon1
+        
+USART_RX_VECT       SYMBOL "USART_RX_VECT"
+`??USART_RX_VECT::??INTVEC 72` SYMBOL "??INTVEC 72", USART_RX_VECT
+USART_TX_VECT       SYMBOL "USART_TX_VECT"
+`??USART_TX_VECT::??INTVEC 80` SYMBOL "??INTVEC 80", USART_TX_VECT
+
+        EXTERN Real_Pressure_Value
+        EXTERN Standard_Pressure_Value
+        EXTERN System_Mode
+
+// C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\usart.c
+//    1 #include "include.h"
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0c6H
+// union <unnamed> volatile __io _A_UDR0
+_A_UDR0:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0c4H
+// union <unnamed> volatile __io _A_UBRR0
+_A_UBRR0:
+        DS8 2
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0c2H
+// union <unnamed> volatile __io _A_UCSR0C
+_A_UCSR0C:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0c1H
+// union <unnamed> volatile __io _A_UCSR0B
+_A_UCSR0B:
+        DS8 1
+
+        ASEGN ABSOLUTE:DATA:NOROOT,0c0H
+// union <unnamed> volatile __io _A_UCSR0A
+_A_UCSR0A:
+        DS8 1
+//    2 
+//    3 
+//    4 
+//    5 
+//    6 
+//    7 
+//    8 
+//    9 #define FOSC 8000000
+//   10 #define BAUD 9600
+//   11 #define MYUBRR FOSC/16/BAUD-1
+//   12 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   13 uint8_t USART_Mode;
+USART_Mode:
+        DS8 1
+//   14 #define RX_MODE 0 
+//   15 #define TX_MODE 1
+//   16 
+//   17 #define STX_HEADFILE 0x02 // '@'
+//   18 
+//   19 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   20 uint8_t USART_Rxc_Complete_Flag,USART_Txc_Complete_Flag;
+USART_Rxc_Complete_Flag:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+USART_Txc_Complete_Flag:
+        DS8 1
+//   21 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   22 uint8_t USART_Check_Flag;
+USART_Check_Flag:
+        DS8 1
+//   23 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   24 uint8_t USART_Txc_Buf[10];
+USART_Txc_Buf:
+        DS8 10
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   25 uint8_t USART_Txc_Cnt;
+USART_Txc_Cnt:
+        DS8 1
+//   26 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   27 uint8_t USART_Rxc_Buf[10];
+USART_Rxc_Buf:
+        DS8 10
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   28 uint8_t USART_Rxc_Cnt;
+USART_Rxc_Cnt:
+        DS8 1
+//   29 
+//   30 
+//   31 #define USART_TRANSMIT_BUFFER_SIZE 10
+//   32 #define USART_RECEIVE_BUFFER_SIZE 10
+//   33 
+//   34 #define USART_TRANSMIT_DATA_SIZE 5
+//   35 #define USART_RECEIVE_DATA_SIZE 5
+//   36 
+//   37 
+//   38 #define TIMER_ON 1
+//   39 #define TIMER_OFF 0
+//   40 #define TIMER_STOP 2
+//   41 
+//   42 #define USART_TIMEROUT 500
+//   43 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   44 uint8_t USART_Order;
+USART_Order:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   45 uint8_t USART_Data;
+USART_Data:
+        DS8 1
+//   46 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   47 uint8_t USART_Txd_Start_Flag;
+USART_Txd_Start_Flag:
+        DS8 1
+//   48 
+//   49 typedef struct USART_BASIC_STRUCT           
+//   50 {                          
+//   51   unsigned char Txd_Count;
+//   52   unsigned char Rxd_Count;
+//   53   unsigned char Txd_Buffer[USART_TRANSMIT_BUFFER_SIZE+1];
+//   54   unsigned char Rxd_Buffer[USART_RECEIVE_BUFFER_SIZE+1];
+//   55   unsigned char Schedule_M_Timer_REG;
+//   56   unsigned int Schedule_M_Timer_CNT;
+//   57 
+//   58   unsigned char Schedule_TX_Timer_Reg;
+//   59   unsigned int Schedule_TX_Timer_Cnt;
+//   60 
+//   61   unsigned char Schedule_RX_Timer_Reg;
+//   62   unsigned int Schedule_RX_Timer_Cnt;
+//   63 
+//   64   unsigned char Txd_Checksum;
+//   65   unsigned char Rxd_Checksum;
+//   66 
+//   67  
+//   68 }USART_BASIC_STRUCT;
+//   69 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   70 struct USART_BASIC_STRUCT USART_STRUCT;
+USART_STRUCT:
+        DS8 35
+//   71 
+
+        RSEG NEAR_I:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_I>`
+//   72 uint8_t Usart_Txd_Buf[10]={0x01,0x02,0x03,0x04};
+Usart_Txd_Buf:
+        DS8 10
+        REQUIRE `?<Initializer for Usart_Txd_Buf>`
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   73 uint16_t Usart_Txd_Cnt;
+Usart_Txd_Cnt:
+        DS8 2
+//   74 #pragma   vector=USART_RX_vect
+
+        RSEG CODE:CODE:NOROOT(1)
+        CALL_GRAPH_ROOT USART_RX_VECT, "interrupt"
+//   75 __interrupt void USART_RX_VECT()
+USART_RX_VECT:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function USART_RX_VECT
+          CFI NoCalls
+//   76 {
+        ST      -Y, R16
+          CFI R16 Frame(CFA_Y, -1)
+          CFI CFA_Y Y+1
+        IN      R16, 0x3F
+//   77 
+//   78   
+//   79   //uint8_t USART_Rxc_Data;
+//   80   __disable_interrupt();
+        CLI
+//   81   /*
+//   82 
+//   83   USART_Rxc_Data = UDR0;
+//   84   
+//   85   Usart_Rxd_Buf[Usart_Rxd_Cnt++]=USART_Rxc_Data;
+//   86   if(Usart_Rxd_Cnt>490)Usart_Rxd_Cnt=0;
+//   87   
+//   88 
+//   89   
+//   90   if(USART_Mode == RX_MODE){
+//   91 
+//   92     if(USART_STRUCT.Rxd_Count==0){
+//   93       if(USART_Rxc_Data == STX_HEADFILE){
+//   94         USART_STRUCT.Rxd_Buffer[0]=STX_HEADFILE;
+//   95         USART_STRUCT.Rxd_Count++;
+//   96         USART_STRUCT.Schedule_RX_Timer_Cnt=0;
+//   97         USART_STRUCT.Schedule_RX_Timer_Reg=1;
+//   98       }
+//   99     }
+//  100     else {
+//  101       if(USART_STRUCT.Rxd_Count<=USART_RECEIVE_DATA_SIZE){
+//  102         USART_STRUCT.Rxd_Buffer[USART_STRUCT.Rxd_Count++] = USART_Rxc_Data;
+//  103         if(USART_STRUCT.Rxd_Count==USART_RECEIVE_DATA_SIZE){
+//  104           USART_Rxc_Complete_Flag=1;
+//  105         }
+//  106       }
+//  107       
+//  108     }
+//  109   }*/
+//  110   __enable_interrupt();
+        SEI
+//  111   
+//  112 }
+        OUT     0x3F, R16
+        LD      R16, Y+
+          CFI R16 SameValue
+          CFI CFA_Y Y+0
+        RETI
+          CFI EndBlock cfiBlock0
+//  113 
+//  114 #pragma   vector=USART_TX_vect
+
+        RSEG CODE:CODE:NOROOT(1)
+        CALL_GRAPH_ROOT USART_TX_VECT, "interrupt"
+//  115 __interrupt void USART_TX_VECT()
+USART_TX_VECT:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function USART_TX_VECT
+          CFI NoCalls
+//  116 {
+        ST      -Y, R31
+          CFI R31 Frame(CFA_Y, -1)
+          CFI CFA_Y Y+1
+        ST      -Y, R30
+          CFI R30 Frame(CFA_Y, -2)
+          CFI CFA_Y Y+2
+        ST      -Y, R18
+          CFI R18 Frame(CFA_Y, -3)
+          CFI CFA_Y Y+3
+        ST      -Y, R17
+          CFI R17 Frame(CFA_Y, -4)
+          CFI CFA_Y Y+4
+        ST      -Y, R16
+          CFI R16 Frame(CFA_Y, -5)
+          CFI CFA_Y Y+5
+        IN      R18, 0x3F
+//  117   __disable_interrupt();
+        CLI
+//  118 
+//  119   if(USART_Mode==TX_MODE){
+        LDS     R16, USART_Mode
+        CPI     R16, 1
+        BRNE    ??USART_TX_VECT_0
+//  120 
+//  121   
+//  122     //while(1){
+//  123       //if((UCSR0A&0x20)==0x20)break;
+//  124     //}
+//  125 
+//  126     if(USART_STRUCT.Txd_Count<USART_TRANSMIT_DATA_SIZE){
+        LDS     R16, USART_STRUCT
+        CPI     R16, 5
+        BRCC    ??USART_TX_VECT_1
+//  127       UDR0 = USART_STRUCT.Txd_Buffer[USART_STRUCT.Txd_Count];
+        LDS     R16, USART_STRUCT
+        LDI     R17, 0
+        MOVW    R31:R30, R17:R16
+        SUBI    R30, LOW((-(USART_STRUCT) & 0xFFFF))
+        SBCI    R31, (-(USART_STRUCT) & 0xFFFF) >> 8
+        LDD     R16, Z+2
+        STS     _A_UDR0, R16
+//  128       USART_STRUCT.Txd_Count++;
+        LDS     R16, USART_STRUCT
+        INC     R16
+        STS     USART_STRUCT, R16
+        RJMP    ??USART_TX_VECT_0
+//  129     }
+//  130     else {
+//  131       USART_Txc_Complete_Flag=1;
+??USART_TX_VECT_1:
+        LDI     R16, 1
+        STS     USART_Txc_Complete_Flag, R16
+//  132     }
+//  133   
+//  134   }
+//  135   
+//  136 }
+??USART_TX_VECT_0:
+        OUT     0x3F, R18
+        LD      R16, Y+
+          CFI R16 SameValue
+          CFI CFA_Y Y+4
+        LD      R17, Y+
+          CFI R17 SameValue
+          CFI CFA_Y Y+3
+        LD      R18, Y+
+          CFI R18 SameValue
+          CFI CFA_Y Y+2
+        LD      R30, Y+
+          CFI R30 SameValue
+          CFI CFA_Y Y+1
+        LD      R31, Y+
+          CFI R31 SameValue
+          CFI CFA_Y Y+0
+        RETI
+          CFI EndBlock cfiBlock1
+        REQUIRE _A_UDR0
+//  137 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  138 void Usart_Reg_Initialize(void)
+Usart_Reg_Initialize:
+          CFI Block cfiBlock2 Using cfiCommon1
+          CFI Function Usart_Reg_Initialize
+          CFI NoCalls
+//  139 {
+//  140 
+//  141   USART_STRUCT.Schedule_RX_Timer_Cnt=0;
+        LDI     R30, LOW(USART_STRUCT)
+        LDI     R31, (USART_STRUCT) >> 8
+        LDI     R16, 0
+        STD     Z+31, R16
+        LDI     R16, 0
+        STD     Z+32, R16
+//  142   USART_STRUCT.Schedule_RX_Timer_Reg=0;
+        LDI     R16, 0
+        STS     (USART_STRUCT + 30), R16
+//  143   USART_STRUCT.Schedule_TX_Timer_Cnt=0;
+        LDI     R30, LOW(USART_STRUCT)
+        LDI     R31, (USART_STRUCT) >> 8
+        LDI     R16, 0
+        STD     Z+28, R16
+        LDI     R16, 0
+        STD     Z+29, R16
+//  144   USART_STRUCT.Schedule_TX_Timer_Reg=0;
+        LDI     R16, 0
+        STS     (USART_STRUCT + 27), R16
+//  145 
+//  146   USART_STRUCT.Rxd_Count=0;
+        LDI     R16, 0
+        STS     (USART_STRUCT + 1), R16
+//  147   USART_STRUCT.Txd_Count=0;
+        LDI     R16, 0
+        STS     USART_STRUCT, R16
+//  148 
+//  149 }
+        RET
+          CFI EndBlock cfiBlock2
+//  150 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  151 void Usart_Send_Start_Byte(uint8_t Data)
+Usart_Send_Start_Byte:
+??Usart_Send_Start_Byte_0:
+          CFI Block cfiBlock3 Using cfiCommon1
+          CFI Function Usart_Send_Start_Byte
+          CFI NoCalls
+//  152 {
+//  153   //while(!(UCSRA&(0x20)==0x20))
+//  154 
+//  155   while(1){
+//  156     if((UCSR0A&0x20)==0x20)break;
+        LDS     R17, _A_UCSR0A
+        MOV     R18, R17
+        SBRS    R18, 5
+        RJMP    ??Usart_Send_Start_Byte_0
+//  157   }
+//  158   UDR0 = Data;
+        STS     _A_UDR0, R16
+//  159 
+//  160 }
+        RET
+          CFI EndBlock cfiBlock3
+        REQUIRE _A_UCSR0A
+        REQUIRE _A_UDR0
+//  161 
+//  162 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//  163 uint8_t Usart_Transaction_Delay_Timer_Reg;
+Usart_Transaction_Delay_Timer_Reg:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//  164 uint16_t Usart_Transaction_Delay_Timer_Cnt;
+Usart_Transaction_Delay_Timer_Cnt:
+        DS8 2
+
+        RSEG CODE:CODE:NOROOT(1)
+//  165 void Usart_Transaction_Delay_Timer(void)
+Usart_Transaction_Delay_Timer:
+          CFI Block cfiBlock4 Using cfiCommon1
+          CFI Function Usart_Transaction_Delay_Timer
+          CFI NoCalls
+//  166 {
+//  167   /*
+//  168   if(Usart_Transaction_Delay_Timer_Reg==1){
+//  169     Usart_Transaction_Delay_Timer_Cnt++;
+//  170     if(Usart_Transaction_Delay_Timer_Cnt>5){
+//  171       Usart_Transaction_Delay_Timer_Cnt=0;
+//  172       Usart_Transaction_Delay_Timer_Reg=2;
+//  173     }
+//  174   }
+//  175   if(Usart_Transaction_Delay_Timer_Reg==2){
+//  176 
+//  177     UCSRB = (0<<RXCIE)|(1<<TXCIE)|(0<<RXEN)|(1<<TXEN);
+//  178       
+//  179     USART_Mode = TX_MODE;
+//  180     Usart_Send_Start_Byte(STX_HEADFILE);
+//  181     USART_STRUCT.Txd_Count++;
+//  182     USART_STRUCT.Schedule_TX_Timer_Reg=TIMER_ON;
+//  183 
+//  184     Usart_Transaction_Delay_Timer_Reg=0;
+//  185 
+//  186   }
+//  187 */
+//  188 
+//  189 
+//  190 }
+        RET
+          CFI EndBlock cfiBlock4
+//  191 
+//  192 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//  193 uint8_t Usart_Delay_Timer_Reg;
+Usart_Delay_Timer_Reg:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//  194 uint16_t Usart_Delay_Timer_Cnt;
+Usart_Delay_Timer_Cnt:
+        DS8 2
+//  195 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  196 void Usart_Timer(void)
+Usart_Timer:
+          CFI Block cfiBlock5 Using cfiCommon1
+          CFI Function Usart_Timer
+//  197 {
+        CALL    ?PROLOGUE4_L09
+          CFI R27 Frame(CFA_Y, -1)
+          CFI R26 Frame(CFA_Y, -2)
+          CFI R25 Frame(CFA_Y, -3)
+          CFI R24 Frame(CFA_Y, -4)
+          CFI CFA_Y Y+4
+//  198 
+//  199   if(Usart_Delay_Timer_Reg==1){
+        LDS     R16, Usart_Delay_Timer_Reg
+        CPI     R16, 1
+        BRNE    ??Usart_Timer_0
+//  200     Usart_Delay_Timer_Cnt++;
+        LDI     R30, LOW(Usart_Delay_Timer_Cnt)
+        LDI     R31, (Usart_Delay_Timer_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        SUBI    R16, 255
+        SBCI    R17, 255
+        ST      Z, R16
+        STD     Z+1, R17
+//  201     if(Usart_Delay_Timer_Cnt>50){
+        LDI     R26, LOW(Usart_Delay_Timer_Cnt)
+        LDI     R27, (Usart_Delay_Timer_Cnt) >> 8
+        LD      R30, X+
+        LD      R31, X
+        SBIW    R31:R30, 51
+        BRCS    ??Usart_Timer_0
+//  202       Usart_Delay_Timer_Cnt=0; 
+        LDI     R30, LOW(Usart_Delay_Timer_Cnt)
+        LDI     R31, (Usart_Delay_Timer_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//  203       
+//  204       USART_STRUCT.Txd_Count=0;
+        LDI     R16, 0
+        STS     USART_STRUCT, R16
+//  205       for(uint16_t i=0;i<USART_TRANSMIT_DATA_SIZE;i++)
+        LDI     R24, 0
+        LDI     R25, 0
+        RJMP    ??Usart_Timer_1
+//  206         USART_STRUCT.Txd_Buffer[i] = Usart_Txd_Buf[i];
+??Usart_Timer_2:
+        MOVW    R31:R30, R25:R24
+        SUBI    R30, LOW((-(Usart_Txd_Buf) & 0xFFFF))
+        SBCI    R31, (-(Usart_Txd_Buf) & 0xFFFF) >> 8
+        LD      R16, Z
+        MOVW    R31:R30, R25:R24
+        SUBI    R30, LOW((-(USART_STRUCT) & 0xFFFF))
+        SBCI    R31, (-(USART_STRUCT) & 0xFFFF) >> 8
+        STD     Z+2, R16
+        ADIW    R25:R24, 1
+??Usart_Timer_1:
+        CPI     R24, 5
+        LDI     R16, 0
+        CPC     R25, R16
+        BRCS    ??Usart_Timer_2
+//  207 
+//  208       Usart_Send_Start_Byte(STX_HEADFILE);
+        LDI     R16, 2
+          CFI FunCall Usart_Send_Start_Byte
+        RCALL   Usart_Send_Start_Byte
+//  209       USART_STRUCT.Txd_Count++;
+        LDS     R16, USART_STRUCT
+        INC     R16
+        STS     USART_STRUCT, R16
+//  210 
+//  211     }
+//  212   }
+//  213       
+//  214 }
+??Usart_Timer_0:
+        LDI     R30, 4
+        JMP     ?EPILOGUE_B4_L09
+          CFI EndBlock cfiBlock5
+//  215 
+//  216 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  217 void Usart_Operation(void)
+Usart_Operation:
+          CFI Block cfiBlock6 Using cfiCommon1
+          CFI Function Usart_Operation
+          CFI NoCalls
+//  218 {
+//  219   uint16_t Usart_CheckSum_Value;
+//  220   uint8_t Usart_CheckSum;
+//  221   
+//  222   uint8_t Pressure_Value;
+//  223     
+//  224   __disable_interrupt();
+        CLI
+//  225  
+//  226   if(Real_Pressure_Value>200)Pressure_Value=200;
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R18, Z
+        LDD     R19, Z+1
+        CPI     R18, 201
+        LDI     R17, 0
+        CPC     R19, R17
+        BRLT    ??Usart_Operation_0
+        LDI     R16, 200
+//  227   if(Real_Pressure_Value<0)Pressure_Value=0;
+??Usart_Operation_0:
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LDD     R19, Z+1
+        TST     R19
+        BRPL    ??Usart_Operation_1
+        LDI     R16, 0
+//  228   Usart_Txd_Buf[0] = STX_HEADFILE;
+??Usart_Operation_1:
+        LDI     R17, 2
+        STS     Usart_Txd_Buf, R17
+//  229   Usart_Txd_Buf[1] = System_Mode;  
+        LDS     R17, System_Mode
+        STS     (Usart_Txd_Buf + 1), R17
+//  230   Usart_Txd_Buf[2] = Standard_Pressure_Value;
+        LDI     R30, LOW(Standard_Pressure_Value)
+        LDI     R31, (Standard_Pressure_Value) >> 8
+        LD      R18, Z
+        STS     (Usart_Txd_Buf + 2), R18
+//  231   Usart_Txd_Buf[3] = Pressure_Value;
+        STS     (Usart_Txd_Buf + 3), R16
+//  232 
+//  233  
+//  234   Usart_CheckSum_Value = Usart_Txd_Buf[0] + 
+//  235                          Usart_Txd_Buf[1] +
+//  236                          Usart_Txd_Buf[2] +
+//  237                          Usart_Txd_Buf[3];
+        LDS     R18, Usart_Txd_Buf
+        LDS     R16, (Usart_Txd_Buf + 1)
+        ADD     R18, R16
+        LDS     R16, (Usart_Txd_Buf + 2)
+        ADD     R18, R16
+        LDS     R16, (Usart_Txd_Buf + 3)
+        ADD     R18, R16
+//  238   Usart_CheckSum = (uint8_t)Usart_CheckSum_Value;
+//  239 
+//  240   Usart_Txd_Buf[4] = Usart_CheckSum;
+        STS     (Usart_Txd_Buf + 4), R18
+//  241   __enable_interrupt();
+        SEI
+//  242   /*
+//  243   if(Usart_Delay_Timer_Reg==2){
+//  244     Usart_Send_Start_Byte(0xAB);
+//  245     Usart_Delay_Timer_Reg=1;
+//  246   }*/
+//  247 /*
+//  248   if(USART_Txd_Start_Flag==1){
+//  249     Usart_Send_Start_Byte(STX_HEADFILE);
+//  250     USART_Txd_Start_Flag=0;
+//  251   }
+//  252 
+//  253 */
+//  254 
+//  255 }
+        RET
+          CFI EndBlock cfiBlock6
+//  256 
+//  257 
+//  258 
+//  259 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  260 void Uasrt_Initialize(void)
+Uasrt_Initialize:
+          CFI Block cfiBlock7 Using cfiCommon1
+          CFI Function Uasrt_Initialize
+          CFI NoCalls
+//  261 {
+//  262 
+//  263   uint16_t ubrr=103;
+        LDI     R16, 103
+        LDI     R17, 0
+//  264 
+//  265   /* Set Baud Rate */
+//  266   UBRR0H=(uint8_t)(ubrr>>8);
+        MOVW    R19:R18, R17:R16
+        MOV     R18, R19
+        STS     197, R18
+//  267   UBRR0L=(uint8_t)ubrr;
+        STS     _A_UBRR0, R16
+//  268 
+//  269   UCSR0A = (1<<U2X0);
+        LDI     R16, 2
+        STS     _A_UCSR0A, R16
+//  270 
+//  271   /* Enable Receiver and Transmitter  
+//  272   UCSRB = (1<<RXCIE)|(1<<TXCIE)|(1<<RXEN)|(1<<TXEN);*/
+//  273 
+//  274   /* Enable Transmitter Module */
+//  275   UCSR0B = (0<<RXDIE0)|(1<<TXCIE0)|(0<<RXEN0)|(1<<TXEN0);
+        LDI     R16, 72
+        STS     _A_UCSR0B, R16
+//  276 
+//  277   /* Enable Receiver Module 
+//  278   UCSRB = (1<<RXCIE)|(0<<TXCIE)|(1<<RXEN)|(0<<TXEN);*/
+//  279   
+//  280   /* Set Frame Format : 8data, 1 stop bit, none parity bit */
+//  281   UCSR0C = (0<<UMSEL01)|(0<<UMSEL00)|(0<<UPM01)|(0<<UPM00)
+//  282           |(0<<USBS0)|(1<<UCSZ01)|(1<<UCSZ00)|(0<<UCSZ00);
+        LDI     R16, 6
+        STS     _A_UCSR0C, R16
+//  283 
+//  284   USART_Mode = TX_MODE;
+        LDI     R16, 1
+        STS     USART_Mode, R16
+//  285   Usart_Delay_Timer_Reg=1;
+        LDI     R16, 1
+        STS     Usart_Delay_Timer_Reg, R16
+//  286 
+//  287 
+//  288 }
+        RET
+          CFI EndBlock cfiBlock7
+        REQUIRE _A_UBRR0
+        REQUIRE _A_UCSR0A
+        REQUIRE _A_UCSR0B
+        REQUIRE _A_UCSR0C
+
+        ASEGN ABSOLUTE:DATA:NOROOT,01fH
+__?EECR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,020H
+__?EEDR:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,021H
+__?EEARL:
+
+        ASEGN ABSOLUTE:DATA:NOROOT,022H
+__?EEARH:
+
+        COMMON INTVEC:CODE:ROOT(1)
+        ORG 72
+`??USART_RX_VECT::??INTVEC 72`:
+        JMP     USART_RX_VECT
+
+        COMMON INTVEC:CODE:ROOT(1)
+        ORG 80
+`??USART_TX_VECT::??INTVEC 80`:
+        JMP     USART_TX_VECT
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_Z>`:
+        DC16    SFE(NEAR_Z) - SFB(NEAR_Z)
+        DC16    SFB(NEAR_Z)
+        DC16    0
+        REQUIRE ?need_segment_init
+
+        RSEG NEAR_ID:CODE:NOROOT(0)
+`?<Initializer for Usart_Txd_Buf>`:
+        DC8 1, 2, 3, 4, 0, 0, 0, 0, 0, 0
+
+        RSEG INITTAB:CODE:NOROOT(0)
+`?<Segment init: NEAR_I>`:
+        DC16    SFE(NEAR_I) - SFB(NEAR_I)
+        DC16    SFB(NEAR_I)
+        DC16    SFB(NEAR_ID)
+        REQUIRE ?need_segment_init
+
+        END
+// 
+//   6 bytes in segment ABSOLUTE
+// 410 bytes in segment CODE
+//  12 bytes in segment INITTAB
+//   8 bytes in segment INTVEC
+//  10 bytes in segment NEAR_I
+//  10 bytes in segment NEAR_ID
+//  72 bytes in segment NEAR_Z
+// 
+// 420 bytes of CODE memory (+ 20 bytes shared)
+//  82 bytes of DATA memory (+  6 bytes shared)
+//
+//Errors: none
+//Warnings: none
