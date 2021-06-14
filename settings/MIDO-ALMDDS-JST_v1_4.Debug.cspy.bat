@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\settings\MIDO-ALMDDS-JST_v1_4.Debug.general.xcl" --backend -f "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\settings\MIDO-ALMDDS-JST_v1_4.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\settings\MIDO-ALMDDS-JST_v1_4.Debug.general.xcl" --backend -f "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\settings\MIDO-ALMDDS-JST_v1_4.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\settings\MIDO-ALMDDS-JST_v1_4.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\settings\MIDO-ALMDDS-JST_v1_4.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\settings\MIDO-ALMDDS-JST_v1_4.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\settings\MIDO-ALMDDS-JST_v1_4.Debug.driver.xcl" 
 
 @echo off 
 :end

@@ -9,6 +9,7 @@ void Gpio_Initialize(void)
     
   DDRB = 0xEF;  // PB0 : MSIGA, PB1: SSIGB, PB2 : MSIGB, PB3 : FND_5
                 // PB4 : Start Signal Input PB5 : FND DIGIT1, PB6 : FND DIGIT2, PB7 : FND DIGIT3
+
   PORTB = 0x10; // PB4 : PULL-UP
   DDRC = 0x08;  // PC0 : Limit Switch in(ADC), PC1 : Limit Current Value in(A/D), 
                 // PC2 : VR2 IN(A/D), PC3 : ST Signal Out, PC4 : SDA 
@@ -43,10 +44,7 @@ uint16_t Timer2_A_Cnt,Timer2_B_Cnt;
 __interrupt void timer2_isr1()
 { 
   __disable_interrupt();
-  //Fnd_Put_Data_Timer();
-  //Switch_Timer();
-  //ADC_Delay_Timer();
-  //Fnd_Display_Timer();
+
   Motor_Timer();
   ADC_Delay_Timer();
   Switch_Timer();
@@ -54,6 +52,8 @@ __interrupt void timer2_isr1()
   Fnd_Display_Timer();
 
   System_Initialize_Timer();
+  Sys_AZ_Delay_Timer();
+  Sys_AZ_Interval_Timer();
   __enable_interrupt();
 }
 

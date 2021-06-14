@@ -1,27 +1,27 @@
-"C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\usart.c"
+"C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\usart.c"
 -std=c99
 -ferror-limit=0
 -fbracket-depth=512
 -I
-C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver
+C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\drivers\min_driver
 -I
-C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver
+C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\drivers\atmel_driver
 -I
-C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source
+C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source
 -I
-C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4
+C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\avr\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\avr\inc\dlib\c
 -I
-C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver
+C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\drivers\min_driver
 -I
-C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver
+C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\drivers\atmel_driver
 -I
-C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source
+C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source
 -I
-C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4
+C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0

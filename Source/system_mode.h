@@ -22,6 +22,7 @@ enum{
 void RD_EEP_Value(void);
 void System_Initialize_Timer(void);
 void System_Operation(void);
-
+void Sys_AZ_Delay_Timer(void);
+void Sys_AZ_Interval_Timer(void);
 
 #endif

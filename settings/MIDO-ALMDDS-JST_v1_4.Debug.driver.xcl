@@ -10,6 +10,8 @@
 
 "512" 
 
+"--avrone_jtag_clock=100000" 
+
 "--jtagice_leave_timers_running" 
 
 "--drv_communication=USB" 

@@ -1,39 +1,43 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR      27/Dec/2020  15:43:07
+// IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR      11/Jun/2021  17:14:50
 // Copyright 1996-2019 IAR Systems AB.
 // PC-locked license - IAR Embedded Workbench for Atmel AVR
 //
 //    Source file  =  
-//        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\module_initialize.c
+//        C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4.
+//        MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\module_initialize.c
 //    Command line =  
-//        -f C:\Users\troubard\AppData\Local\Temp\EW483D.tmp
-//        ("C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\module_initialize.c"
-//        --cpu=m168pa -ms -o
-//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj" -lC
-//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List" -lA
-//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List"
+//        -f C:\Users\troub\AppData\Local\Temp\EW888C.tmp
+//        ("C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4.
+//        MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\module_initialize.c"
+//        --cpu=m168pa -ms -o "C:\Users\troub\CloudStation\Github\GitHub_DST\1.
+//        Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj"
+//        -lC "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\List" -lA
+//        "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\List"
 //        --initializers_in_flash --no_cse --no_inline --no_code_motion
 //        --no_cross_call --no_clustering --no_tbaa --debug -e -I
-//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver\" -I
-//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver\" -I
-//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\" -I
-//        "C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\" --eeprom_size 512 --dlib
-//        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
-//        8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
+//        "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4.
+//        MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\drivers\min_driver\" -I
+//        "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4.
+//        MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\drivers\atmel_driver\" -I
+//        "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\" -I
+//        "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\" --eeprom_size 512
+//        --dlib --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded
+//        Workbench 8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
 //    Locale       =  Korean_KOR.949
 //    List file    =  
-//        C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List\module_initialize.s90
+//        C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4.
+//        MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\List\module_initialize.s90
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -200,11 +204,13 @@ timer2_isr2         SYMBOL "timer2_isr2"
         EXTERN Fnd_Put_Data_Timer
         EXTERN Motor_Timer
         EXTERN Switch_Timer
+        EXTERN Sys_AZ_Delay_Timer
+        EXTERN Sys_AZ_Interval_Timer
         EXTERN System_Initialize_Timer
         EXTERN Twi_Timer
         EXTERN Usart_Timer
 
-// C:\Users\troubard\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\module_initialize.c
+// C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\module_initialize.c
 //    1 #include "include.h"
 
         ASEGN ABSOLUTE:DATA:NOROOT,0b4H
@@ -279,27 +285,28 @@ Gpio_Initialize:
         LDI     R16, 239
         OUT     0x04, R16
 //   11                 // PB4 : Start Signal Input PB5 : FND DIGIT1, PB6 : FND DIGIT2, PB7 : FND DIGIT3
-//   12   PORTB = 0x10; // PB4 : PULL-UP
+//   12 
+//   13   PORTB = 0x10; // PB4 : PULL-UP
         LDI     R16, 16
         OUT     0x05, R16
-//   13   DDRC = 0x08;  // PC0 : Limit Switch in(ADC), PC1 : Limit Current Value in(A/D), 
+//   14   DDRC = 0x08;  // PC0 : Limit Switch in(ADC), PC1 : Limit Current Value in(A/D), 
         LDI     R16, 8
         OUT     0x07, R16
-//   14                 // PC2 : VR2 IN(A/D), PC3 : ST Signal Out, PC4 : SDA 
-//   15                 // PC5 : SCL, PC6 : RST
-//   16   PORTC = 0x00; // PC3 : PULL-UP
+//   15                 // PC2 : VR2 IN(A/D), PC3 : ST Signal Out, PC4 : SDA 
+//   16                 // PC5 : SCL, PC6 : RST
+//   17   PORTC = 0x00; // PC3 : PULL-UP
         LDI     R16, 0
         OUT     0x08, R16
-//   17   DDRD = 0xff;  // PD0 : SSIGB , PD1 : USART TXD, PD2..PD7 : FND A..G  
+//   18   DDRD = 0xff;  // PD0 : SSIGB , PD1 : USART TXD, PD2..PD7 : FND A..G  
         LDI     R16, 255
         OUT     0x0A, R16
-//   18   PORTD = 0x00;
+//   19   PORTD = 0x00;
         LDI     R16, 0
         OUT     0x0B, R16
-//   19 
 //   20 
 //   21 
-//   22 }
+//   22 
+//   23 }
         RET
           CFI EndBlock cfiBlock0
         REQUIRE _A_DDRB
@@ -308,37 +315,37 @@ Gpio_Initialize:
         REQUIRE _A_PORTC
         REQUIRE _A_DDRD
         REQUIRE _A_PORTD
-//   23 
 //   24 
 //   25 
 //   26 
 //   27 
+//   28 
 
         RSEG CODE:CODE:NOROOT(1)
-//   28 void Timer2_Initialize(void)
+//   29 void Timer2_Initialize(void)
 Timer2_Initialize:
           CFI Block cfiBlock1 Using cfiCommon0
           CFI Function Timer2_Initialize
           CFI NoCalls
-//   29 {
-//   30 
-//   31   TCCR2A = 0x02;
+//   30 {
+//   31 
+//   32   TCCR2A = 0x02;
         LDI     R16, 2
         STS     _A_TCCR2A, R16
-//   32   TCCR2B = 0x03;
+//   33   TCCR2B = 0x03;
         LDI     R16, 3
         STS     _A_TCCR2B, R16
-//   33   OCR2A = 50;
+//   34   OCR2A = 50;
         LDI     R16, 50
         STS     _A_OCR2A, R16
-//   34   OCR2B = 50;
+//   35   OCR2B = 50;
         LDI     R16, 50
         STS     _A_OCR2B, R16
-//   35   TIMSK2 = 0x06;
+//   36   TIMSK2 = 0x06;
         LDI     R16, 6
         STS     _A_TIMSK2, R16
-//   36 
-//   37 }
+//   37 
+//   38 }
         RET
           CFI EndBlock cfiBlock1
         REQUIRE _A_TCCR2A
@@ -346,12 +353,12 @@ Timer2_Initialize:
         REQUIRE _A_OCR2A
         REQUIRE _A_OCR2B
         REQUIRE _A_TIMSK2
-//   38 
 //   39 
+//   40 
 
         RSEG NEAR_Z:DATA:NOROOT(0)
         REQUIRE `?<Segment init: NEAR_Z>`
-//   40 uint16_t Timer2_A_Cnt,Timer2_B_Cnt;
+//   41 uint16_t Timer2_A_Cnt,Timer2_B_Cnt;
 Timer2_A_Cnt:
         DS8 2
 
@@ -359,16 +366,16 @@ Timer2_A_Cnt:
         REQUIRE `?<Segment init: NEAR_Z>`
 Timer2_B_Cnt:
         DS8 2
-//   41 
-//   42 #pragma   vector=TIMER2_COMPA_vect // 0.2ms 
+//   42 
+//   43 #pragma   vector=TIMER2_COMPA_vect // 0.2ms 
 
         RSEG CODE:CODE:NOROOT(1)
         CALL_GRAPH_ROOT timer2_isr1, "interrupt"
-//   43 __interrupt void timer2_isr1()
+//   44 __interrupt void timer2_isr1()
 timer2_isr1:
           CFI Block cfiBlock2 Using cfiCommon1
           CFI Function timer2_isr1
-//   44 { 
+//   45 { 
         ST      -Y, R24
           CFI R24 Frame(CFA_Y, -1)
           CFI CFA_Y Y+1
@@ -415,31 +422,34 @@ timer2_isr1:
           CFI R16 Frame(CFA_Y, -15)
           CFI CFA_Y Y+15
         IN      R24, 0x3F
-//   45   __disable_interrupt();
+//   46   __disable_interrupt();
         CLI
-//   46   //Fnd_Put_Data_Timer();
-//   47   //Switch_Timer();
-//   48   //ADC_Delay_Timer();
-//   49   //Fnd_Display_Timer();
-//   50   Motor_Timer();
+//   47 
+//   48   Motor_Timer();
           CFI FunCall Motor_Timer
         CALL    Motor_Timer
-//   51   ADC_Delay_Timer();
+//   49   ADC_Delay_Timer();
           CFI FunCall ADC_Delay_Timer
         CALL    ADC_Delay_Timer
-//   52   Switch_Timer();
+//   50   Switch_Timer();
           CFI FunCall Switch_Timer
         CALL    Switch_Timer
-//   53   Fnd_Put_Data_Timer();
+//   51   Fnd_Put_Data_Timer();
           CFI FunCall Fnd_Put_Data_Timer
         CALL    Fnd_Put_Data_Timer
-//   54   Fnd_Display_Timer();
+//   52   Fnd_Display_Timer();
           CFI FunCall Fnd_Display_Timer
         CALL    Fnd_Display_Timer
-//   55 
-//   56   System_Initialize_Timer();
+//   53 
+//   54   System_Initialize_Timer();
           CFI FunCall System_Initialize_Timer
         CALL    System_Initialize_Timer
+//   55   Sys_AZ_Delay_Timer();
+          CFI FunCall Sys_AZ_Delay_Timer
+        CALL    Sys_AZ_Delay_Timer
+//   56   Sys_AZ_Interval_Timer();
+          CFI FunCall Sys_AZ_Interval_Timer
+        CALL    Sys_AZ_Interval_Timer
 //   57   __enable_interrupt();
         SEI
 //   58 }
@@ -651,12 +661,12 @@ __?EEARH:
 //   71 
 // 
 //  11 bytes in segment ABSOLUTE
-// 246 bytes in segment CODE
+// 254 bytes in segment CODE
 //   6 bytes in segment INITTAB
 //   8 bytes in segment INTVEC
 //   4 bytes in segment NEAR_Z
 // 
-// 246 bytes of CODE memory (+ 14 bytes shared)
+// 254 bytes of CODE memory (+ 14 bytes shared)
 //   4 bytes of DATA memory (+ 11 bytes shared)
 //
 //Errors: none

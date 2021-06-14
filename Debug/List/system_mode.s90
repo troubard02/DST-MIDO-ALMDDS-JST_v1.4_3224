@@ -1,38 +1,41 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR      29/Dec/2020  21:04:16
+// IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR      11/Jun/2021  18:01:51
 // Copyright 1996-2019 IAR Systems AB.
 // PC-locked license - IAR Embedded Workbench for Atmel AVR
 //
 //    Source file  =  
 //        C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\system_mode.c
+//        System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\system_mode.c
 //    Command line =  
-//        -f C:\Users\troub\AppData\Local\Temp\EWD733.tmp
+//        -f C:\Users\troub\AppData\Local\Temp\EW9574.tmp
 //        ("C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\system_mode.c"
+//        System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\system_mode.c"
 //        --cpu=m168pa -ms -o "C:\Users\troub\CloudStation\Github\GitHub_DST\1.
-//        Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj" -lC
+//        Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj"
+//        -lC "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
+//        System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\List" -lA
 //        "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List" -lA
-//        "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List"
+//        System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\List"
 //        --initializers_in_flash --no_cse --no_inline --no_code_motion
 //        --no_cross_call --no_clustering --no_tbaa --debug -e -I
 //        "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\min_driver\" -I
+//        System\4.
+//        MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\drivers\min_driver\" -I
 //        "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\drivers\atmel_driver\" -I
+//        System\4.
+//        MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\drivers\atmel_driver\" -I
 //        "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\" -I
+//        System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\" -I
 //        "C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\" --eeprom_size 512 --dlib
-//        --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
-//        8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
+//        System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\" --eeprom_size 512
+//        --dlib --dlib_config "C:\Program Files (x86)\IAR Systems\Embedded
+//        Workbench 8.0\avr\LIB\DLIB\dlAVR-3s-ec_mul-sf-n.h" -Ol)
 //    Locale       =  Korean_KOR.949
 //    List file    =  
 //        C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
-//        System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\List\system_mode.s90
+//        System\4.
+//        MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\List\system_mode.s90
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -61,11 +64,25 @@
         PUBLIC EEP_Span_ADC_Point
         PUBLIC EEP_Zero_ADC_Point
         PUBLIC RD_EEP_Value
+        PUBLIC Sys_AZ_1S_Timer_Cnt
+        PUBLIC Sys_AZ_Delay_Timer
+        PUBLIC Sys_AZ_Delay_Timer_Cnt
+        PUBLIC Sys_AZ_Delay_Timer_Reg
+        PUBLIC Sys_AZ_Delay_Timer_Start
+        PUBLIC Sys_AZ_Delay_Timer_Stop
+        PUBLIC Sys_AZ_Interval_1S_Timer_Cnt
+        PUBLIC Sys_AZ_Interval_Flag
+        PUBLIC Sys_AZ_Interval_Timer
+        PUBLIC Sys_AZ_Interval_Timer_Cnt
+        PUBLIC Sys_AZ_Interval_Timer_Reg
+        PUBLIC Sys_AZ_Interval_Timer_Start
+        PUBLIC Sys_AZ_Interval_Timer_Stop
         PUBLIC Sys_Run_Access_Enable
         PUBLIC System_Auto_Zero_Function
         PUBLIC System_Initialize_Timer
         PUBLIC System_Initialize_Timer_Cnt
         PUBLIC System_Initialize_Timer_Reg
+        PUBLIC System_Interval_Auto_Zero_Function
         PUBLIC System_Mode
         PUBLIC System_Operation
         PUBWEAK __?EEARH
@@ -138,8 +155,9 @@
         EXTERN EEP_AutoZero_ADC_Point
         EXTERN Pressure_PA_Value
         EXTERN Start_Switch_State
+        EXTERN abs
 
-// C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Source\system_mode.c
+// C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\system_mode.c
 //    1 #include "include.h"
 //    2 
 //    3 
@@ -287,68 +305,506 @@ System_Auto_Zero_Function:
           CFI FunCall __eeput16_16
         CALL    __eeput16_16
 //   50 
-//   51 }
+//   51   
+//   52   
+//   53   //Display_Delay_Cnt=0;
+//   54   //Display_Mode=D_AutoZero_Mode;  
+//   55 
+//   56 }
         RET
           CFI EndBlock cfiBlock2
-//   52 
+//   57 
+//   58 //////////////////////////////////////////////////////////////////////////
+//   59 /////////////////// 1 Minute Delay Switch On AZ Function /////////////////
+//   60 //////////////////////////////////////////////////////////////////////////
+//   61 
 
         RSEG NEAR_Z:DATA:NOROOT(0)
         REQUIRE `?<Segment init: NEAR_Z>`
-//   53 uint8_t Sys_Run_Access_Enable;
-Sys_Run_Access_Enable:
+//   62 uint8_t Sys_AZ_Delay_Timer_Reg;
+Sys_AZ_Delay_Timer_Reg:
         DS8 1
 
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   63 uint8_t Sys_AZ_1S_Timer_Cnt;
+Sys_AZ_1S_Timer_Cnt:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   64 uint16_t Sys_AZ_Delay_Timer_Cnt;
+Sys_AZ_Delay_Timer_Cnt:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//   65 uint8_t Sys_Run_Access_Enable;
+Sys_Run_Access_Enable:
+        DS8 1
+//   66 
+//   67 
+
         RSEG CODE:CODE:NOROOT(1)
-//   54 void System_Operation(void)
-System_Operation:
+//   68 void Sys_AZ_Delay_Timer_Stop(void)
+Sys_AZ_Delay_Timer_Stop:
           CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function Sys_AZ_Delay_Timer_Stop
+          CFI NoCalls
+//   69 {
+//   70 
+//   71   Sys_AZ_1S_Timer_Cnt=0;
+        LDI     R16, 0
+        STS     Sys_AZ_1S_Timer_Cnt, R16
+//   72   Sys_AZ_Delay_Timer_Cnt=0;
+        LDI     R30, LOW(Sys_AZ_Delay_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Delay_Timer_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//   73   Sys_AZ_Delay_Timer_Reg=0;
+        LDI     R16, 0
+        STS     Sys_AZ_Delay_Timer_Reg, R16
+//   74 
+//   75 
+//   76 }
+        RET
+          CFI EndBlock cfiBlock3
+//   77 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   78 void Sys_AZ_Delay_Timer_Start(void)
+Sys_AZ_Delay_Timer_Start:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function Sys_AZ_Delay_Timer_Start
+          CFI NoCalls
+//   79 {
+//   80 
+//   81   Sys_AZ_1S_Timer_Cnt=0;
+        LDI     R16, 0
+        STS     Sys_AZ_1S_Timer_Cnt, R16
+//   82   Sys_AZ_Delay_Timer_Cnt=0;
+        LDI     R30, LOW(Sys_AZ_Delay_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Delay_Timer_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//   83   Sys_AZ_Delay_Timer_Reg=1;
+        LDI     R16, 1
+        STS     Sys_AZ_Delay_Timer_Reg, R16
+//   84 
+//   85 }
+        RET
+          CFI EndBlock cfiBlock4
+//   86 
+
+        RSEG CODE:CODE:NOROOT(1)
+//   87 void Sys_AZ_Delay_Timer(void)
+Sys_AZ_Delay_Timer:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function Sys_AZ_Delay_Timer
+          CFI NoCalls
+//   88 {
+//   89 
+//   90 
+//   91   /* Make 1 Minute Timer */
+//   92   if(Sys_AZ_Delay_Timer_Reg==1){
+        LDS     R16, Sys_AZ_Delay_Timer_Reg
+        CPI     R16, 1
+        BRNE    ??Sys_AZ_Delay_Timer_0
+//   93 
+//   94 
+//   95     Sys_AZ_Delay_Timer_Cnt++;
+        LDI     R30, LOW(Sys_AZ_Delay_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Delay_Timer_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        SUBI    R16, 255
+        SBCI    R17, 255
+        ST      Z, R16
+        STD     Z+1, R17
+//   96     if(Sys_AZ_Delay_Timer_Cnt>5000){
+        LDI     R30, LOW(Sys_AZ_Delay_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Delay_Timer_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        CPI     R16, 137
+        LDI     R18, 19
+        CPC     R17, R18
+        BRCS    ??Sys_AZ_Delay_Timer_1
+//   97 
+//   98       Sys_AZ_Delay_Timer_Cnt=0;
+        LDI     R30, LOW(Sys_AZ_Delay_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Delay_Timer_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//   99       Sys_AZ_1S_Timer_Cnt++;
+        LDS     R16, Sys_AZ_1S_Timer_Cnt
+        INC     R16
+        STS     Sys_AZ_1S_Timer_Cnt, R16
+//  100 
+//  101     }
+//  102 
+//  103     if(Sys_AZ_1S_Timer_Cnt>60){
+??Sys_AZ_Delay_Timer_1:
+        LDS     R16, Sys_AZ_1S_Timer_Cnt
+        CPI     R16, 61
+        BRCS    ??Sys_AZ_Delay_Timer_0
+//  104 
+//  105       Sys_AZ_1S_Timer_Cnt=0;
+        LDI     R16, 0
+        STS     Sys_AZ_1S_Timer_Cnt, R16
+//  106       Sys_AZ_Delay_Timer_Reg=2; // Complete 1 Minute Timer 
+        LDI     R16, 2
+        STS     Sys_AZ_Delay_Timer_Reg, R16
+//  107       
+//  108       //Sys_Run_Access_Enable=0;
+//  109     }
+//  110 
+//  111   }
+//  112 
+//  113 }
+??Sys_AZ_Delay_Timer_0:
+        RET
+          CFI EndBlock cfiBlock5
+//  114 
+//  115 
+//  116 //////////////////////////////////////////////////////////////////////////
+//  117 ////////////////////// 1 Hour Interval AZ Function ///////////////////////
+//  118 //////////////////////////////////////////////////////////////////////////
+//  119 
+//  120 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  121 void System_Interval_Auto_Zero_Function(void)
+System_Interval_Auto_Zero_Function:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function System_Interval_Auto_Zero_Function
+//  122 {
+//  123 
+//  124   if(abs(Pressure_PA_Value)<15){
+        LDI     R30, LOW(Pressure_PA_Value)
+        LDI     R31, (Pressure_PA_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+          CFI FunCall abs
+        CALL    abs
+        CPI     R16, 15
+        SBCI    R17, 0
+        BRGE    ??System_Interval_Auto_Zero_Function_0
+//  125 
+//  126     __disable_interrupt();
+        CLI
+//  127     ADC_AutoZero_Point = Pressure_PA_Value;
+        LDI     R30, LOW(Pressure_PA_Value)
+        LDI     R31, (Pressure_PA_Value) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R30, LOW(ADC_AutoZero_Point)
+        LDI     R31, (ADC_AutoZero_Point) >> 8
+        ST      Z, R16
+        STD     Z+1, R17
+//  128     __enable_interrupt();
+        SEI
+//  129     EEP_AutoZero_ADC_Point = ADC_AutoZero_Point;
+        LDI     R30, LOW(ADC_AutoZero_Point)
+        LDI     R31, (ADC_AutoZero_Point) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        LDI     R20, LOW(EEP_AutoZero_ADC_Point)
+        LDI     R21, (EEP_AutoZero_ADC_Point) >> 8
+          CFI FunCall __eeput16_16
+        CALL    __eeput16_16
+//  130 
+//  131 
+//  132 
+//  133 
+//  134   }
+//  135   
+//  136   //Display_Delay_Cnt=0;
+//  137   //Display_Mode=D_AutoZero_Mode;
+//  138 
+//  139 }
+??System_Interval_Auto_Zero_Function_0:
+        RET
+          CFI EndBlock cfiBlock6
+//  140 
+//  141 
+//  142 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//  143 uint8_t Sys_AZ_Interval_Timer_Reg;
+Sys_AZ_Interval_Timer_Reg:
+        DS8 1
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//  144 uint16_t Sys_AZ_Interval_1S_Timer_Cnt;
+Sys_AZ_Interval_1S_Timer_Cnt:
+        DS8 2
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//  145 uint16_t Sys_AZ_Interval_Timer_Cnt;
+Sys_AZ_Interval_Timer_Cnt:
+        DS8 2
+//  146 
+
+        RSEG NEAR_Z:DATA:NOROOT(0)
+        REQUIRE `?<Segment init: NEAR_Z>`
+//  147 uint8_t Sys_AZ_Interval_Flag;
+Sys_AZ_Interval_Flag:
+        DS8 1
+//  148 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  149 void Sys_AZ_Interval_Timer_Stop(void)
+Sys_AZ_Interval_Timer_Stop:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function Sys_AZ_Interval_Timer_Stop
+          CFI NoCalls
+//  150 {
+//  151 
+//  152   Sys_AZ_Interval_1S_Timer_Cnt=0;
+        LDI     R30, LOW(Sys_AZ_Interval_1S_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Interval_1S_Timer_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//  153   Sys_AZ_Interval_Timer_Cnt=0;
+        LDI     R30, LOW(Sys_AZ_Interval_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Interval_Timer_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//  154   Sys_AZ_Interval_Timer_Reg=0;
+        LDI     R16, 0
+        STS     Sys_AZ_Interval_Timer_Reg, R16
+//  155 
+//  156 }
+        RET
+          CFI EndBlock cfiBlock7
+//  157 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  158 void Sys_AZ_Interval_Timer_Start(void)
+Sys_AZ_Interval_Timer_Start:
+          CFI Block cfiBlock8 Using cfiCommon0
+          CFI Function Sys_AZ_Interval_Timer_Start
+          CFI NoCalls
+//  159 {
+//  160 
+//  161   Sys_AZ_Interval_1S_Timer_Cnt=0;
+        LDI     R30, LOW(Sys_AZ_Interval_1S_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Interval_1S_Timer_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//  162   Sys_AZ_Interval_Timer_Cnt=0;
+        LDI     R30, LOW(Sys_AZ_Interval_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Interval_Timer_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//  163   Sys_AZ_Interval_Timer_Reg=1;
+        LDI     R16, 1
+        STS     Sys_AZ_Interval_Timer_Reg, R16
+//  164 
+//  165 }
+        RET
+          CFI EndBlock cfiBlock8
+//  166 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  167 void Sys_AZ_Interval_Timer(void)
+Sys_AZ_Interval_Timer:
+          CFI Block cfiBlock9 Using cfiCommon0
+          CFI Function Sys_AZ_Interval_Timer
+//  168 {
+//  169 
+//  170 
+//  171   /* Make 1 Minute Timer */
+//  172   if(Sys_AZ_Interval_Timer_Reg==1){
+        LDS     R16, Sys_AZ_Interval_Timer_Reg
+        CPI     R16, 1
+        BRNE    ??Sys_AZ_Interval_Timer_0
+//  173 
+//  174 
+//  175     Sys_AZ_Interval_Timer_Cnt++;
+        LDI     R30, LOW(Sys_AZ_Interval_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Interval_Timer_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        SUBI    R16, 255
+        SBCI    R17, 255
+        ST      Z, R16
+        STD     Z+1, R17
+//  176     if(Sys_AZ_Interval_Timer_Cnt>5000){
+        LDI     R30, LOW(Sys_AZ_Interval_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Interval_Timer_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        CPI     R16, 137
+        LDI     R18, 19
+        CPC     R17, R18
+        BRCS    ??Sys_AZ_Interval_Timer_1
+//  177 
+//  178       Sys_AZ_Interval_Timer_Cnt=0;
+        LDI     R30, LOW(Sys_AZ_Interval_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Interval_Timer_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//  179       Sys_AZ_Interval_1S_Timer_Cnt++;
+        LDI     R30, LOW(Sys_AZ_Interval_1S_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Interval_1S_Timer_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        SUBI    R16, 255
+        SBCI    R17, 255
+        ST      Z, R16
+        STD     Z+1, R17
+//  180 
+//  181     }
+//  182     
+//  183     // Complete 1 Hour Timer 
+//  184     if(Sys_AZ_Interval_1S_Timer_Cnt>3600){ // 60*60= 3600
+??Sys_AZ_Interval_Timer_1:
+        LDI     R30, LOW(Sys_AZ_Interval_1S_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Interval_1S_Timer_Cnt) >> 8
+        LD      R16, Z
+        LDD     R17, Z+1
+        CPI     R16, 17
+        LDI     R18, 14
+        CPC     R17, R18
+        BRCS    ??Sys_AZ_Interval_Timer_0
+//  185 
+//  186       Sys_AZ_Interval_1S_Timer_Cnt=0;
+        LDI     R30, LOW(Sys_AZ_Interval_1S_Timer_Cnt)
+        LDI     R31, (Sys_AZ_Interval_1S_Timer_Cnt) >> 8
+        LDI     R16, 0
+        ST      Z, R16
+        LDI     R16, 0
+        STD     Z+1, R16
+//  187       //Sys_AZ_Interval_Timer_Reg=2; 
+//  188       Sys_AZ_Interval_Flag=1;
+        LDI     R16, 1
+        STS     Sys_AZ_Interval_Flag, R16
+//  189       Sys_AZ_Interval_Timer_Start();
+          CFI FunCall Sys_AZ_Interval_Timer_Start
+        RCALL   Sys_AZ_Interval_Timer_Start
+//  190       //Sys_Run_Access_Enable=0;
+//  191     }
+//  192 
+//  193   }
+//  194 
+//  195 }
+??Sys_AZ_Interval_Timer_0:
+        RET
+          CFI EndBlock cfiBlock9
+//  196 
+//  197 
+//  198 
+
+        RSEG CODE:CODE:NOROOT(1)
+//  199 void System_Operation(void)
+System_Operation:
+          CFI Block cfiBlock10 Using cfiCommon0
           CFI Function System_Operation
-//   55 {
-//   56 
-//   57 
-//   58   if(System_Initialize_Timer_Reg==1){
+//  200 {
+//  201 
+//  202 
+//  203   if(System_Initialize_Timer_Reg==1){
         LDS     R16, System_Initialize_Timer_Reg
         CPI     R16, 1
         BRNE    ??System_Operation_0
-//   59 
-//   60     if(Start_Switch_State==KEY_COMPLETE_STATE){
+//  204 
+//  205     if(Start_Switch_State==KEY_COMPLETE_STATE){
         LDS     R16, Start_Switch_State
         CPI     R16, 2
         BRNE    ??System_Operation_1
-//   61       if(Sys_Run_Access_Enable==0){
+//  206       if(Sys_Run_Access_Enable==0){
         LDS     R16, Sys_Run_Access_Enable
         TST     R16
         BRNE    ??System_Operation_2
-//   62         System_Auto_Zero_Function();
+//  207         System_Auto_Zero_Function();
           CFI FunCall System_Auto_Zero_Function
         RCALL   System_Auto_Zero_Function
-//   63         Sys_Run_Access_Enable=1;
+//  208         Sys_Run_Access_Enable=1;
         LDI     R16, 1
         STS     Sys_Run_Access_Enable, R16
-//   64       }
-//   65       System_Mode = S_Run_Mode;
+//  209         Sys_AZ_Delay_Timer_Start();
+          CFI FunCall Sys_AZ_Delay_Timer_Start
+        RCALL   Sys_AZ_Delay_Timer_Start
+//  210 
+//  211       }
+//  212 
+//  213       Sys_AZ_Interval_Timer_Reg=1;
 ??System_Operation_2:
         LDI     R16, 1
+        STS     Sys_AZ_Interval_Timer_Reg, R16
+//  214 
+//  215       if(Sys_AZ_Interval_Flag==1){
+        LDS     R16, Sys_AZ_Interval_Flag
+        CPI     R16, 1
+        BRNE    ??System_Operation_3
+//  216         Sys_AZ_Interval_Flag=0;
+        LDI     R16, 0
+        STS     Sys_AZ_Interval_Flag, R16
+//  217 
+//  218         System_Interval_Auto_Zero_Function();
+          CFI FunCall System_Interval_Auto_Zero_Function
+        RCALL   System_Interval_Auto_Zero_Function
+//  219 
+//  220       }
+//  221 
+//  222 
+//  223       System_Mode = S_Run_Mode;
+??System_Operation_3:
+        LDI     R16, 1
         STS     System_Mode, R16
         RET
-//   66     }
-//   67     else {
-//   68       Sys_Run_Access_Enable=0;
+//  224     }
+//  225     else {
+//  226 
+//  227       /* 1 Minute Timer Complete & Start Signal Off */
+//  228       if(Sys_AZ_Delay_Timer_Reg==2)
 ??System_Operation_1:
+        LDS     R16, Sys_AZ_Delay_Timer_Reg
+        CPI     R16, 2
+        BRNE    ??System_Operation_4
+//  229         Sys_Run_Access_Enable=0;
         LDI     R16, 0
         STS     Sys_Run_Access_Enable, R16
-//   69       System_Mode = S_Stop_Mode;
+//  230 
+//  231       /* Stop 1 Hour Timer */
+//  232       Sys_AZ_Interval_Timer_Stop();
+??System_Operation_4:
+          CFI FunCall Sys_AZ_Interval_Timer_Stop
+        RCALL   Sys_AZ_Interval_Timer_Stop
+//  233 
+//  234       System_Mode = S_Stop_Mode;
         LDI     R16, 2
         STS     System_Mode, R16
-//   70     }
-//   71 
-//   72   
-//   73   }
-//   74 
-//   75 }
+//  235     }
+//  236 
+//  237   
+//  238   }
+//  239 
+//  240 }
 ??System_Operation_0:
         RET
-          CFI EndBlock cfiBlock3
+          CFI EndBlock cfiBlock10
 
         ASEGN ABSOLUTE:DATA:NOROOT,01fH
 __?EECR:
@@ -370,16 +826,16 @@ __?EEARH:
         REQUIRE ?need_segment_init
 
         END
-//   76 
-//   77 
+//  241 
+//  242 
 // 
-// 170 bytes in segment CODE
+// 566 bytes in segment CODE
 //   4 bytes in segment EEPROM_N
 //   6 bytes in segment INITTAB
-//   5 bytes in segment NEAR_Z
+//  15 bytes in segment NEAR_Z
 // 
-// 170 bytes of CODE  memory (+ 6 bytes shared)
-//   5 bytes of DATA  memory
+// 566 bytes of CODE  memory (+ 6 bytes shared)
+//  15 bytes of DATA  memory
 //   4 bytes of XDATA memory
 //
 //Errors: none

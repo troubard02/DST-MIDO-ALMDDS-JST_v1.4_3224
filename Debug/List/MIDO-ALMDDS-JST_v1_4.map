@@ -2,63 +2,63 @@
 #                                                                              #
 #      IAR Universal Linker V6.6.1.103                                         #
 #                                                                              #
-#           Link time     =  29/Dec/2020  21:04:16                             #
+#           Link time     =  12/Jun/2021  14:49:41                             #
 #           Target CPU    =  A90                                               #
 #           List file     =  "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\List\MIDO-ALMDDS-JST_v1_4.map"             #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\List\MIDO-ALMDDS-JST_v1_4.map"    #
 #           Output file 1 =  "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Exe\MIDO-ALMDDS-JST_v1_4.hex"              #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Exe\MIDO-ALMDDS-JST_v1_4.hex"     #
 #                            Format: intel-extended                            #
-#           Command line  =  -f C:\Users\troub\AppData\Local\Temp\EWD82E.tmp   #
+#           Command line  =  -f C:\Users\troub\AppData\Local\Temp\EW48E.tmp    #
 #                            ("C:\Users\troub\CloudStation\Github\GitHub_DST\1 #
-#                            . Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1. #
-#                            4\Debug\Obj\adc.r90"                              #
+#                            . Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST #
+#                            _v1.4_3224\Debug\Obj\adc.r90"                     #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Obj\alarm.r90"                             #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Obj\alarm.r90"                    #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Obj\avr_gpio_driver.r90"                   #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Obj\avr_gpio_driver.r90"          #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Obj\avr_twi_master_driver.r90"             #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Obj\avr_twi_master_driver.r90"    #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Obj\fnd_display.r90"                       #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Obj\fnd_display.r90"              #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Obj\main.r90"                              #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Obj\main.r90"                     #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Obj\module_initialize.r90"                 #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Obj\module_initialize.r90"        #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Obj\motor.r90"                             #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Obj\motor.r90"                    #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Obj\ps-33d.r90"                            #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Obj\ps-33d.r90"                   #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Obj\switch.r90"                            #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Obj\switch.r90"                   #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Obj\system_mode.r90"                       #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Obj\system_mode.r90"              #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Obj\type_conversion_util.r90"              #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Obj\type_conversion_util.r90"     #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Obj\usart.r90"                             #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Obj\usart.r90"                    #
 #                            -o                                                #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\Exe\MIDO-ALMDDS-JST_v1_4.hex"              #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\Exe\MIDO-ALMDDS-JST_v1_4.hex"     #
 #                            -Fintel-extended -l                               #
 #                            "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
-#                             Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4 #
-#                            \Debug\List\MIDO-ALMDDS-JST_v1_4.map"             #
+#                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
+#                            v1.4_3224\Debug\List\MIDO-ALMDDS-JST_v1_4.map"    #
 #                            -xmsni                                            #
 #                            "-IC:\Program Files (x86)\IAR Systems\Embedded Wo #
 #                            rkbench 8.0\avr\LIB\"                             #
@@ -136,7 +136,7 @@
                 *                                      *
                 ****************************************
 
-       Program entry at : CODE      00001728  Relocatable, from module : ?C_STARTUP
+       Program entry at : CODE      00001894  Relocatable, from module : ?C_STARTUP
 
 
 
@@ -223,7 +223,7 @@ Absolute parts
            _..X_INTVEC_SIZE        00000068 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\adc.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\adc.r90
   PROGRAM MODULE, NAME : adc
 
   SEGMENTS IN THE MODULE
@@ -271,6 +271,7 @@ EEPROM_N
            EEP_AutoZero_ADC_Point
                                    00000000        RD_EEP_Value (system_mode)
                                                    System_Auto_Zero_Function (system_mode)
+                                                   System_Interval_Auto_Zero_Function (system_mode)
     -------------------------------------------------------------------------
 NEAR_Z
   Relative segment, address: DATA 00000230 - 00000231 (0x2 bytes), align: 0
@@ -279,6 +280,7 @@ NEAR_Z
            =====                   =======         ======
            ADC_AutoZero_Point      00000230        RD_EEP_Value (system_mode)
                                                    System_Auto_Zero_Function (system_mode)
+                                                   System_Interval_Auto_Zero_Function (system_mode)
                                                    Twi_Adc_Get_Pressure_Sensor_Value (ps-33d)
     -------------------------------------------------------------------------
 NEAR_Z
@@ -452,7 +454,7 @@ RSTACK
   Segment part 10. NOT NEEDED.
     -------------------------------------------------------------------------
 INITTAB
-  Relative segment, address: CODE 00001CA2 - 00001CA7 (0x6 bytes), align: 0
+  Relative segment, address: CODE 00001E0E - 00001E13 (0x6 bytes), align: 0
   Segment part 13.            Intra module refs:   ADC_AutoZero_Point
                                                    ADC_Delay_Timer_Cnt
                                                    ADC_Delay_Timer_Reg
@@ -487,6 +489,13 @@ INITTAB
                                                    Start_Port_Value (switch)
                                                    Start_Switch_State (switch)
                                                    Switch_Hold_Timer_Cnt (switch)
+                                                   Sys_AZ_1S_Timer_Cnt (system_mode)
+                                                   Sys_AZ_Delay_Timer_Cnt (system_mode)
+                                                   Sys_AZ_Delay_Timer_Reg (system_mode)
+                                                   Sys_AZ_Interval_1S_Timer_Cnt (system_mode)
+                                                   Sys_AZ_Interval_Flag (system_mode)
+                                                   Sys_AZ_Interval_Timer_Cnt (system_mode)
+                                                   Sys_AZ_Interval_Timer_Reg (system_mode)
                                                    Sys_Run_Access_Enable (system_mode)
                                                    System_Initialize_Timer_Cnt (system_mode)
                                                    System_Initialize_Timer_Reg (system_mode)
@@ -514,11 +523,11 @@ INITTAB
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            ?<Segment init: NEAR_Z>
-                                   00001CA2 
+                                   00001E0E 
 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\alarm.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\alarm.r90
   PROGRAM MODULE, NAME : alarm
 
   SEGMENTS IN THE MODULE
@@ -676,7 +685,7 @@ INITTAB
 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\avr_gpio_driver.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\avr_gpio_driver.r90
   PROGRAM MODULE, NAME : avr_gpio_driver
 
   SEGMENTS IN THE MODULE
@@ -778,7 +787,7 @@ RSTACK
 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\avr_twi_master_driver.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\avr_twi_master_driver.r90
   PROGRAM MODULE, NAME : avr_twi_master_driver
 
   SEGMENTS IN THE MODULE
@@ -866,7 +875,6 @@ CODE
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TWI_Master_Initialise   00000454        main (main)
-               RSTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 CODE
   Relative segment, address: CODE 0000046E - 00000477 (0xa bytes), align: 1
@@ -874,7 +882,6 @@ CODE
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TWI_Transceiver_Busy    0000046E        TWI_Operation (ps-33d)
-               RSTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 CODE
   Segment part 22. NOT NEEDED.
@@ -884,15 +891,13 @@ CODE
                calls direct
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000478 - 000004CD (0x56 bytes), align: 1
+  Relative segment, address: CODE 00000478 - 000004C7 (0x50 bytes), align: 1
   Segment part 23.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TWI_Start_Transceiver_With_Data
                                    00000478        TWI_Operation (ps-33d)
                calls direct
-               CSTACK = 00000000 ( 00000004 )
-               RSTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 CODE
   Segment part 24. NOT NEEDED.
@@ -910,14 +915,12 @@ CODE
                calls direct
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000004CE - 000005DF (0x112 bytes), align: 1
+  Relative segment, address: CODE 000004C8 - 000005D1 (0x10a bytes), align: 1
   Segment part 26.            Intra module refs:   twi_isr::??INTVEC 96
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           twi_isr                 000004CE 
+           twi_isr                 000004C8 
                interrupt function
-               CSTACK = 00000000 ( 00000008 )
-               RSTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_Z
   Relative segment, address: DATA 00000258 - 00000258 (0x1 bytes), align: 0
@@ -979,11 +982,11 @@ INITTAB
                                    
     -------------------------------------------------------------------------
 NEAR_ID
-  Relative segment, address: CODE 00001CAE - 00001CAE (0x1 bytes), align: 0
+  Relative segment, address: CODE 00001E1A - 00001E1A (0x1 bytes), align: 0
   Segment part 16.            Intra module refs:   TWI_state
     -------------------------------------------------------------------------
 INITTAB
-  Relative segment, address: CODE 00001CA8 - 00001CAD (0x6 bytes), align: 0
+  Relative segment, address: CODE 00001E14 - 00001E19 (0x6 bytes), align: 0
   Segment part 17.            Intra module refs:   FND_char (fnd_display)
                                                    FND_select (fnd_display)
                                                    PWM_Off_Count (motor)
@@ -994,11 +997,11 @@ INITTAB
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            ?<Segment init: NEAR_I>
-                                   00001CA8 
+                                   00001E14 
 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\fnd_display.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\fnd_display.r90
   PROGRAM MODULE, NAME : fnd_display
 
   SEGMENTS IN THE MODULE
@@ -1081,12 +1084,12 @@ NEAR_Z
            Display_Number_Enable   0000025D 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000005E0 - 000006AB (0xcc bytes), align: 1
+  Relative segment, address: CODE 000005D2 - 0000069D (0xcc bytes), align: 1
   Segment part 26.            Intra module refs:   Fnd_Display
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            FND_NUMtoCHAR_Transfer
-                                   000005E0 
+                                   000005D2 
                calls direct
     -------------------------------------------------------------------------
 NEAR_Z
@@ -1116,26 +1119,26 @@ NEAR_Z
            SYSTEM_MODE             
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000006AC - 0000075F (0xb4 bytes), align: 1
+  Relative segment, address: CODE 0000069E - 00000751 (0xb4 bytes), align: 1
   Segment part 27.            Intra module refs:   Fnd_Display_Timer
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Fnd_Flicking_Rutine     000006AC 
+           Fnd_Flicking_Rutine     0000069E 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000760 - 00000831 (0xd2 bytes), align: 1
+  Relative segment, address: CODE 00000752 - 00000823 (0xd2 bytes), align: 1
   Segment part 28.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Fnd_Display_Timer       00000760        timer2_isr1 (module_initialize)
+           Fnd_Display_Timer       00000752        timer2_isr1 (module_initialize)
                calls direct
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000832 - 000008D9 (0xa8 bytes), align: 1
+  Relative segment, address: CODE 00000824 - 000008CB (0xa8 bytes), align: 1
   Segment part 29.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Fnd_Display             00000832        main (main)
+           Fnd_Display             00000824        main (main)
                calls direct
     -------------------------------------------------------------------------
 NEAR_Z
@@ -1154,25 +1157,25 @@ NEAR_Z
            Display_Delay_Reg       
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000008DA - 000008E1 (0x8 bytes), align: 1
+  Relative segment, address: CODE 000008CC - 000008D3 (0x8 bytes), align: 1
   Segment part 30.            Intra module refs:   Fnd_Put_Data_Timer
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Fnd_All_Off             000008DA 
+           Fnd_All_Off             000008CC 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000008E2 - 00000901 (0x20 bytes), align: 1
+  Relative segment, address: CODE 000008D4 - 000008F3 (0x20 bytes), align: 1
   Segment part 31.            Intra module refs:   Fnd_Put_Data_Timer
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Fnd_Get_Port_Value      000008E2 
+           Fnd_Get_Port_Value      000008D4 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000902 - 00000A31 (0x130 bytes), align: 1
+  Relative segment, address: CODE 000008F4 - 00000A23 (0x130 bytes), align: 1
   Segment part 32.            Intra module refs:   Segment part 33
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Fnd_Put_Data_Timer      00000902        timer2_isr1 (module_initialize)
+           Fnd_Put_Data_Timer      000008F4        timer2_isr1 (module_initialize)
                calls direct
     -------------------------------------------------------------------------
 ABSOLUTE
@@ -1206,7 +1209,7 @@ RSTACK
   Segment part 10. NOT NEEDED.
     -------------------------------------------------------------------------
 NEAR_ID
-  Relative segment, address: CODE 00001CAF - 00001CBA (0xc bytes), align: 0
+  Relative segment, address: CODE 00001E1B - 00001E26 (0xc bytes), align: 0
   Segment part 12.            Intra module refs:   FND_char
     -------------------------------------------------------------------------
 INITTAB
@@ -1224,7 +1227,7 @@ INITTAB
                                    
     -------------------------------------------------------------------------
 NEAR_ID
-  Relative segment, address: CODE 00001CBB - 00001CBD (0x3 bytes), align: 0
+  Relative segment, address: CODE 00001E27 - 00001E29 (0x3 bytes), align: 0
   Segment part 17.            Intra module refs:   FND_select
     -------------------------------------------------------------------------
 SWITCH
@@ -1233,17 +1236,17 @@ SWITCH
 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\main.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\main.r90
   PROGRAM MODULE, NAME : main
 
   SEGMENTS IN THE MODULE
   ======================
 CODE
-  Relative segment, address: CODE 00000A32 - 00000A6D (0x3c bytes), align: 1
+  Relative segment, address: CODE 00000A24 - 00000A5F (0x3c bytes), align: 1
   Segment part 7.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           main                    00000A32        ?cstartup_call_main (?C_STARTUP)
+           main                    00000A24        ?cstartup_call_main (?C_STARTUP)
                calls direct
     -------------------------------------------------------------------------
 ABSOLUTE
@@ -1278,7 +1281,7 @@ RSTACK
 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\module_initialize.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\module_initialize.r90
   PROGRAM MODULE, NAME : module_initialize
 
   SEGMENTS IN THE MODULE
@@ -1391,18 +1394,18 @@ ABSOLUTE
            DDRB                    00000024 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000A6E - 00000A87 (0x1a bytes), align: 1
+  Relative segment, address: CODE 00000A60 - 00000A79 (0x1a bytes), align: 1
   Segment part 23.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Gpio_Initialize         00000A6E        main (main)
+           Gpio_Initialize         00000A60        main (main)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000A88 - 00000AA7 (0x20 bytes), align: 1
+  Relative segment, address: CODE 00000A7A - 00000A99 (0x20 bytes), align: 1
   Segment part 24.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Timer2_Initialize       00000A88        main (main)
+           Timer2_Initialize       00000A7A        main (main)
     -------------------------------------------------------------------------
 NEAR_Z
   Segment part 20. NOT NEEDED.
@@ -1418,20 +1421,20 @@ NEAR_Z
            Timer2_B_Cnt            00000264 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000AA8 - 00000B05 (0x5e bytes), align: 1
+  Relative segment, address: CODE 00000A9A - 00000AFF (0x66 bytes), align: 1
   Segment part 25.            Intra module refs:   timer2_isr1::??INTVEC 28
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           timer2_isr1             00000AA8 
+           timer2_isr1             00000A9A 
                interrupt function
                calls direct
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000B06 - 00000B63 (0x5e bytes), align: 1
+  Relative segment, address: CODE 00000B00 - 00000B5D (0x5e bytes), align: 1
   Segment part 26.            Intra module refs:   timer2_isr2::??INTVEC 32
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           timer2_isr2             00000B06 
+           timer2_isr2             00000B00 
                interrupt function
                calls direct
     -------------------------------------------------------------------------
@@ -1490,7 +1493,7 @@ INITTAB
 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\motor.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\motor.r90
   PROGRAM MODULE, NAME : motor
 
   SEGMENTS IN THE MODULE
@@ -1580,12 +1583,12 @@ NEAR_Z
            PWM_Count               0000026F 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000B64 - 00000BA3 (0x40 bytes), align: 1
+  Relative segment, address: CODE 00000B5E - 00000B9D (0x40 bytes), align: 1
   Segment part 27.            Intra module refs:   Motor_Change_Status_Process
                                                    Motor_Timer
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Motor_REG_Initialize    00000B64 
+           Motor_REG_Initialize    00000B5E 
     -------------------------------------------------------------------------
 NEAR_Z
   Relative segment, address: DATA 00000271 - 00000271 (0x1 bytes), align: 0
@@ -1634,28 +1637,28 @@ NEAR_Z
            Motor_Open_Stop         00000275 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000BA4 - 00000CDD (0x13a bytes), align: 1
+  Relative segment, address: CODE 00000B9E - 00000CD7 (0x13a bytes), align: 1
   Segment part 28.            Intra module refs:   Motor_Operation
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Motor_Get_Pressure_Status
-                                   00000BA4 
+                                   00000B9E 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000CDE - 00000D8B (0xae bytes), align: 1
+  Relative segment, address: CODE 00000CD8 - 00000D85 (0xae bytes), align: 1
   Segment part 29.            Intra module refs:   Motor_Operation
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Motor_Change_Status_Process
-                                   00000CDE 
+                                   00000CD8 
                calls direct
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000D8C - 00000E09 (0x7e bytes), align: 1
+  Relative segment, address: CODE 00000D86 - 00000E03 (0x7e bytes), align: 1
   Segment part 30.            Intra module refs:   Motor_Operation
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Motor_Control           00000D8C 
+           Motor_Control           00000D86 
                calls direct
     -------------------------------------------------------------------------
 NEAR_Z
@@ -1672,44 +1675,44 @@ NEAR_Z
            Motor_Status_Cnt        
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000E0A - 00000EF9 (0xf0 bytes), align: 1
+  Relative segment, address: CODE 00000E04 - 00000EF3 (0xf0 bytes), align: 1
   Segment part 31.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Motor_Get_LimitSwitch_Value
-                                   00000E0A        ADC_CONVERSION_VECT (adc)
+                                   00000E04        ADC_CONVERSION_VECT (adc)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000EFA - 00000F07 (0xe bytes), align: 1
+  Relative segment, address: CODE 00000EF4 - 00000F01 (0xe bytes), align: 1
   Segment part 32.            Intra module refs:   Motor_Operation
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Motor_AutoZero_Process
-                                   00000EFA 
+                                   00000EF4 
                calls direct
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000F08 - 00000F3B (0x34 bytes), align: 1
+  Relative segment, address: CODE 00000F02 - 00000F35 (0x34 bytes), align: 1
   Segment part 33.            Intra module refs:   Motor_Operation
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Motor_Get_OverCurrent_Value
-                                   00000F08 
+                                   00000F02 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00000F3C - 00001215 (0x2da bytes), align: 1
+  Relative segment, address: CODE 00000F36 - 0000120F (0x2da bytes), align: 1
   Segment part 34.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Motor_Timer             00000F3C        timer2_isr1 (module_initialize)
+           Motor_Timer             00000F36        timer2_isr1 (module_initialize)
                calls direct
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001216 - 00001221 (0xc bytes), align: 1
+  Relative segment, address: CODE 00001210 - 0000121B (0xc bytes), align: 1
   Segment part 35.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Motor_Operation         00001216        main (main)
+           Motor_Operation         00001210        main (main)
                calls direct
     -------------------------------------------------------------------------
 ABSOLUTE
@@ -1750,7 +1753,7 @@ INITTAB
                                    
     -------------------------------------------------------------------------
 NEAR_ID
-  Relative segment, address: CODE 00001CBE - 00001CBF (0x2 bytes), align: 0
+  Relative segment, address: CODE 00001E2A - 00001E2B (0x2 bytes), align: 0
   Segment part 16.            Intra module refs:   PWM_Off_Count
     -------------------------------------------------------------------------
 INITTAB
@@ -1762,7 +1765,7 @@ INITTAB
 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\ps-33d.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\ps-33d.r90
   PROGRAM MODULE, NAME : ps-33d
 
   SEGMENTS IN THE MODULE
@@ -1812,18 +1815,18 @@ NEAR_Z
            Twi_Raw_Value           00000284 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001222 - 0000125D (0x3c bytes), align: 1
+  Relative segment, address: CODE 0000121C - 00001257 (0x3c bytes), align: 1
   Segment part 25.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Twi_Timer               00001222        timer2_isr2 (module_initialize)
+           Twi_Timer               0000121C        timer2_isr2 (module_initialize)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000125E - 00001333 (0xd6 bytes), align: 1
+  Relative segment, address: CODE 00001258 - 0000132D (0xd6 bytes), align: 1
   Segment part 26.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           TWI_Operation           0000125E        main (main)
+           TWI_Operation           00001258        main (main)
                calls direct
     -------------------------------------------------------------------------
 NEAR_Z
@@ -1885,31 +1888,32 @@ NEAR_Z
            =====                   =======         ======
            Pressure_PA_Value       00000298        ADC_Auto_Zero_Process (adc)
                                                    System_Auto_Zero_Function (system_mode)
+                                                   System_Interval_Auto_Zero_Function (system_mode)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001334 - 000013DD (0xaa bytes), align: 1
+  Relative segment, address: CODE 0000132E - 000013D7 (0xaa bytes), align: 1
   Segment part 27.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Twi_Adc_Push_Coef       00001334        main (main)
+           Twi_Adc_Push_Coef       0000132E        main (main)
                calls direct
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000013DE - 00001409 (0x2c bytes), align: 1
+  Relative segment, address: CODE 000013D8 - 00001403 (0x2c bytes), align: 1
   Segment part 28.            Intra module refs:   Twi_Adc_Get_Pressure_Sensor_Value
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Twi_Adc_Cal_Real_Value
-                                   000013DE 
+                                   000013D8 
                calls direct
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000140A - 0000146D (0x64 bytes), align: 1
+  Relative segment, address: CODE 00001404 - 00001467 (0x64 bytes), align: 1
   Segment part 29.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Twi_Adc_Get_Pressure_Sensor_Value
-                                   0000140A        main (main)
+                                   00001404        main (main)
                calls direct
     -------------------------------------------------------------------------
 ABSOLUTE
@@ -1943,7 +1947,7 @@ RSTACK
   Segment part 6. NOT NEEDED.
     -------------------------------------------------------------------------
 NEAR_ID
-  Relative segment, address: CODE 00001CC0 - 00001CC9 (0xa bytes), align: 0
+  Relative segment, address: CODE 00001E2C - 00001E35 (0xa bytes), align: 0
   Segment part 8.             Intra module refs:   Twi_Write_Buf
     -------------------------------------------------------------------------
 INITTAB
@@ -1954,7 +1958,7 @@ INITTAB
                                    
     -------------------------------------------------------------------------
 NEAR_ID
-  Relative segment, address: CODE 00001CCA - 00001CD3 (0xa bytes), align: 0
+  Relative segment, address: CODE 00001E36 - 00001E3F (0xa bytes), align: 0
   Segment part 11.            Intra module refs:   Twi_Read_Buf
     -------------------------------------------------------------------------
 INITTAB
@@ -1966,7 +1970,7 @@ INITTAB
 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\switch.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\switch.r90
   PROGRAM MODULE, NAME : switch
 
   SEGMENTS IN THE MODULE
@@ -2008,26 +2012,26 @@ NEAR_Z
            Switch_Hold_Timer_Cnt   0000029C 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000146E - 000014BD (0x50 bytes), align: 1
+  Relative segment, address: CODE 00001468 - 000014B7 (0x50 bytes), align: 1
   Segment part 13.            Intra module refs:   Switch_Start_Check
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Switch_Hold_Get_Delay   0000146E 
+           Switch_Hold_Get_Delay   00001468 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000014BE - 000014D7 (0x1a bytes), align: 1
+  Relative segment, address: CODE 000014B8 - 000014D1 (0x1a bytes), align: 1
   Segment part 14.            Intra module refs:   Switch_Timer
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Switch_Start_Check      000014BE 
+           Switch_Start_Check      000014B8 
                calls direct
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000014D8 - 00001507 (0x30 bytes), align: 1
+  Relative segment, address: CODE 000014D2 - 00001501 (0x30 bytes), align: 1
   Segment part 15.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Switch_Timer            000014D8        timer2_isr1 (module_initialize)
+           Switch_Timer            000014D2        timer2_isr1 (module_initialize)
                calls direct
     -------------------------------------------------------------------------
 ABSOLUTE
@@ -2069,7 +2073,7 @@ INITTAB
 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\system_mode.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\system_mode.r90
   PROGRAM MODULE, NAME : system_mode
 
   SEGMENTS IN THE MODULE
@@ -2098,11 +2102,11 @@ NEAR_Z
                                                    Usart_Operation (usart)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001508 - 00001519 (0x12 bytes), align: 1
-  Segment part 14.
+  Relative segment, address: CODE 00001502 - 00001513 (0x12 bytes), align: 1
+  Segment part 21.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           RD_EEP_Value            00001508        main (main)
+           RD_EEP_Value            00001502        main (main)
                calls direct
     -------------------------------------------------------------------------
 NEAR_Z
@@ -2123,35 +2127,156 @@ NEAR_Z
                                    000002A0 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000151A - 00001555 (0x3c bytes), align: 1
-  Segment part 15.
+  Relative segment, address: CODE 00001514 - 0000154F (0x3c bytes), align: 1
+  Segment part 22.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            System_Initialize_Timer
-                                   0000151A        timer2_isr1 (module_initialize)
+                                   00001514        timer2_isr1 (module_initialize)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001556 - 0000157B (0x26 bytes), align: 1
-  Segment part 16.            Intra module refs:   System_Operation
+  Relative segment, address: CODE 00001550 - 00001575 (0x26 bytes), align: 1
+  Segment part 23.            Intra module refs:   System_Operation
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            System_Auto_Zero_Function
-                                   00001556 
+                                   00001550 
                calls direct
     -------------------------------------------------------------------------
 NEAR_Z
   Relative segment, address: DATA 000002A2 - 000002A2 (0x1 bytes), align: 0
-  Segment part 13.            Intra module refs:   System_Operation
+  Segment part 13.            Intra module refs:   Sys_AZ_Delay_Timer
+                                                   Sys_AZ_Delay_Timer_Start
+                                                   System_Operation
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Sys_Run_Access_Enable   000002A2 
+           Sys_AZ_Delay_Timer_Reg
+                                   000002A2 
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000002A3 - 000002A3 (0x1 bytes), align: 0
+  Segment part 14.            Intra module refs:   Sys_AZ_Delay_Timer
+                                                   Sys_AZ_Delay_Timer_Start
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Sys_AZ_1S_Timer_Cnt     000002A3 
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000002A4 - 000002A5 (0x2 bytes), align: 0
+  Segment part 15.            Intra module refs:   Sys_AZ_Delay_Timer
+                                                   Sys_AZ_Delay_Timer_Start
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Sys_AZ_Delay_Timer_Cnt
+                                   000002A4 
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000002A6 - 000002A6 (0x1 bytes), align: 0
+  Segment part 16.            Intra module refs:   System_Operation
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Sys_Run_Access_Enable   000002A6 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000157C - 000015B1 (0x36 bytes), align: 1
-  Segment part 17.
+  Segment part 24. NOT NEEDED.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           System_Operation        0000157C        main (main)
+           Sys_AZ_Delay_Timer_Stop
+                                   
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001576 - 0000158F (0x1a bytes), align: 1
+  Segment part 25.            Intra module refs:   System_Operation
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Sys_AZ_Delay_Timer_Start
+                                   00001576 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 00001590 - 000015E3 (0x54 bytes), align: 1
+  Segment part 26.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Sys_AZ_Delay_Timer      00001590        timer2_isr1 (module_initialize)
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000015E4 - 0000161B (0x38 bytes), align: 1
+  Segment part 27.            Intra module refs:   System_Operation
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           System_Interval_Auto_Zero_Function
+                                   000015E4 
+               calls direct
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000002A7 - 000002A7 (0x1 bytes), align: 0
+  Segment part 17.            Intra module refs:   Sys_AZ_Interval_Timer
+                                                   Sys_AZ_Interval_Timer_Start
+                                                   Sys_AZ_Interval_Timer_Stop
+                                                   System_Operation
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Sys_AZ_Interval_Timer_Reg
+                                   000002A7 
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000002A8 - 000002A9 (0x2 bytes), align: 0
+  Segment part 18.            Intra module refs:   Sys_AZ_Interval_Timer
+                                                   Sys_AZ_Interval_Timer_Start
+                                                   Sys_AZ_Interval_Timer_Stop
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Sys_AZ_Interval_1S_Timer_Cnt
+                                   000002A8 
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000002AA - 000002AB (0x2 bytes), align: 0
+  Segment part 19.            Intra module refs:   Sys_AZ_Interval_Timer
+                                                   Sys_AZ_Interval_Timer_Start
+                                                   Sys_AZ_Interval_Timer_Stop
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Sys_AZ_Interval_Timer_Cnt
+                                   000002AA 
+    -------------------------------------------------------------------------
+NEAR_Z
+  Relative segment, address: DATA 000002AC - 000002AC (0x1 bytes), align: 0
+  Segment part 20.            Intra module refs:   Sys_AZ_Interval_Timer
+                                                   System_Operation
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Sys_AZ_Interval_Flag    000002AC 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000161C - 0000163B (0x20 bytes), align: 1
+  Segment part 28.            Intra module refs:   System_Operation
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Sys_AZ_Interval_Timer_Stop
+                                   0000161C 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000163C - 0000165B (0x20 bytes), align: 1
+  Segment part 29.            Intra module refs:   Sys_AZ_Interval_Timer
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Sys_AZ_Interval_Timer_Start
+                                   0000163C 
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 0000165C - 000016C5 (0x6a bytes), align: 1
+  Segment part 30.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Sys_AZ_Interval_Timer   0000165C        timer2_isr1 (module_initialize)
+               calls direct
+    -------------------------------------------------------------------------
+CODE
+  Relative segment, address: CODE 000016C6 - 0000171D (0x58 bytes), align: 1
+  Segment part 31.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           System_Operation        000016C6        main (main)
                calls direct
     -------------------------------------------------------------------------
 ABSOLUTE
@@ -2193,7 +2318,7 @@ INITTAB
 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\type_conversion_util.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\type_conversion_util.r90
   PROGRAM MODULE, NAME : type_conversion_util
 
   SEGMENTS IN THE MODULE
@@ -2223,6 +2348,7 @@ CODE
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Trans_Scale_Cal_Value   
+               calls direct
     -------------------------------------------------------------------------
 ABSOLUTE
   Segment part 1. TENTATIVE. Used definition from adc
@@ -2256,7 +2382,7 @@ RSTACK
 
     *************************************************************************
 
-  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\MIDO-ALMDDS-JST_v1.4\Debug\Obj\usart.r90
+  FILE NAME : C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Debug\Obj\usart.r90
   PROGRAM MODULE, NAME : usart
 
   SEGMENTS IN THE MODULE
@@ -2316,12 +2442,12 @@ ABSOLUTE
            UCSR0A                  000000C0 
     -------------------------------------------------------------------------
 NEAR_Z
-  Relative segment, address: DATA 000002A3 - 000002A3 (0x1 bytes), align: 0
+  Relative segment, address: DATA 000002AD - 000002AD (0x1 bytes), align: 0
   Segment part 14.            Intra module refs:   USART_TX_VECT
                                                    Uasrt_Initialize
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           USART_Mode              000002A3 
+           USART_Mode              000002AD 
     -------------------------------------------------------------------------
 NEAR_Z
   Segment part 16. NOT NEEDED.
@@ -2331,12 +2457,12 @@ NEAR_Z
                                    
     -------------------------------------------------------------------------
 NEAR_Z
-  Relative segment, address: DATA 000002A4 - 000002A4 (0x1 bytes), align: 0
+  Relative segment, address: DATA 000002AE - 000002AE (0x1 bytes), align: 0
   Segment part 17.            Intra module refs:   USART_TX_VECT
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            USART_Txc_Complete_Flag
-                                   000002A4 
+                                   000002AE 
     -------------------------------------------------------------------------
 NEAR_Z
   Segment part 18. NOT NEEDED.
@@ -2387,12 +2513,12 @@ NEAR_Z
            USART_Txd_Start_Flag    
     -------------------------------------------------------------------------
 NEAR_Z
-  Relative segment, address: DATA 000002A5 - 000002C7 (0x23 bytes), align: 0
+  Relative segment, address: DATA 000002AF - 000002D1 (0x23 bytes), align: 0
   Segment part 26.            Intra module refs:   USART_TX_VECT
                                                    Usart_Timer
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           USART_STRUCT            000002A5 
+           USART_STRUCT            000002AF 
     -------------------------------------------------------------------------
 NEAR_I
   Relative segment, address: DATA 00000226 - 0000022F (0xa bytes), align: 0
@@ -2409,19 +2535,19 @@ NEAR_Z
            Usart_Txd_Cnt           
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000015B2 - 000015BF (0xe bytes), align: 1
+  Relative segment, address: CODE 0000171E - 0000172B (0xe bytes), align: 1
   Segment part 35.            Intra module refs:   USART_RX_VECT::??INTVEC 72
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           USART_RX_VECT           000015B2 
+           USART_RX_VECT           0000171E 
                interrupt function
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000015C0 - 0000160F (0x50 bytes), align: 1
+  Relative segment, address: CODE 0000172C - 0000177B (0x50 bytes), align: 1
   Segment part 36.            Intra module refs:   USART_TX_VECT::??INTVEC 80
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           USART_TX_VECT           000015C0 
+           USART_TX_VECT           0000172C 
                interrupt function
     -------------------------------------------------------------------------
 CODE
@@ -2431,11 +2557,11 @@ CODE
            Usart_Reg_Initialize    
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001610 - 0000161F (0x10 bytes), align: 1
+  Relative segment, address: CODE 0000177C - 0000178B (0x10 bytes), align: 1
   Segment part 38.            Intra module refs:   Usart_Timer
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Usart_Send_Start_Byte   00001610 
+           Usart_Send_Start_Byte   0000177C 
     -------------------------------------------------------------------------
 NEAR_Z
   Segment part 31. NOT NEEDED.
@@ -2459,41 +2585,41 @@ CODE
                                    
     -------------------------------------------------------------------------
 NEAR_Z
-  Relative segment, address: DATA 000002C8 - 000002C8 (0x1 bytes), align: 0
+  Relative segment, address: DATA 000002D2 - 000002D2 (0x1 bytes), align: 0
   Segment part 33.            Intra module refs:   Uasrt_Initialize
                                                    Usart_Timer
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Usart_Delay_Timer_Reg   000002C8 
+           Usart_Delay_Timer_Reg   000002D2 
     -------------------------------------------------------------------------
 NEAR_Z
-  Relative segment, address: DATA 000002C9 - 000002CA (0x2 bytes), align: 0
+  Relative segment, address: DATA 000002D3 - 000002D4 (0x2 bytes), align: 0
   Segment part 34.            Intra module refs:   Usart_Timer
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Usart_Delay_Timer_Cnt   000002C9 
+           Usart_Delay_Timer_Cnt   000002D3 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001620 - 0000168D (0x6e bytes), align: 1
+  Relative segment, address: CODE 0000178C - 000017F9 (0x6e bytes), align: 1
   Segment part 40.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Usart_Timer             00001620        timer2_isr2 (module_initialize)
+           Usart_Timer             0000178C        timer2_isr2 (module_initialize)
                calls direct
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000168E - 000016E7 (0x5a bytes), align: 1
+  Relative segment, address: CODE 000017FA - 00001853 (0x5a bytes), align: 1
   Segment part 41.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Usart_Operation         0000168E        main (main)
+           Usart_Operation         000017FA        main (main)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000016E8 - 00001717 (0x30 bytes), align: 1
+  Relative segment, address: CODE 00001854 - 00001883 (0x30 bytes), align: 1
   Segment part 42.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Uasrt_Initialize        000016E8        main (main)
+           Uasrt_Initialize        00001854        main (main)
     -------------------------------------------------------------------------
 ABSOLUTE
   Segment part 6. TENTATIVE. Used definition from adc
@@ -2549,7 +2675,7 @@ INITTAB
                                    
     -------------------------------------------------------------------------
 NEAR_ID
-  Relative segment, address: CODE 00001CD4 - 00001CDD (0xa bytes), align: 0
+  Relative segment, address: CODE 00001E40 - 00001E49 (0xa bytes), align: 0
   Segment part 28.            Intra module refs:   Usart_Txd_Buf
     -------------------------------------------------------------------------
 INITTAB
@@ -2567,11 +2693,11 @@ INITTAB
   SEGMENTS IN THE MODULE
   ======================
 CODE
-  Relative segment, address: CODE 00001718, align: 1
+  Relative segment, address: CODE 00001884, align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           _exit                   00001718        ?cstartup_call_main (?C_STARTUP)
+           _exit                   00001884        ?cstartup_call_main (?C_STARTUP)
                                                    exit (?exit)
     -------------------------------------------------------------------------
 CODE
@@ -2593,7 +2719,7 @@ CODE
   Segment part 4. NOT NEEDED.
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001718 - 0000171B (0x4 bytes), align: 1
+  Relative segment, address: CODE 00001884 - 00001887 (0x4 bytes), align: 1
   Segment part 5.             Intra module refs:   _exit
 
     -------------------------------------------------------------------------
@@ -2620,12 +2746,13 @@ RSTACK
   SEGMENTS IN THE MODULE
   ======================
 CODE
-  Relative segment, address: CODE 0000171C - 00001727 (0xc bytes), align: 1
+  Relative segment, address: CODE 00001888 - 00001893 (0xc bytes), align: 1
   Segment part 3.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           abs                     0000171C        FND_NUMtoCHAR_Transfer (fnd_display)
+           abs                     00001888        FND_NUMtoCHAR_Transfer (fnd_display)
                                                    Fnd_Display (fnd_display)
+                                                   System_Interval_Auto_Zero_Function (system_mode)
     -------------------------------------------------------------------------
 CSTACK
   Segment part 1. NOT NEEDED.
@@ -2728,13 +2855,13 @@ RSTACK
   Segment part 1. NOT NEEDED.
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001728, align: 1
+  Relative segment, address: CODE 00001894, align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __program_start         00001728        Absolute parts (?ABS_ENTRY_MOD)
-           ?C_STARTUP              00001728        ?RESET (?RESET)
-           __RESTART               00001728 
+           __program_start         00001894        Absolute parts (?ABS_ENTRY_MOD)
+           ?C_STARTUP              00001894        ?RESET (?RESET)
+           __RESTART               00001894 
     -------------------------------------------------------------------------
 CODE
   Segment part 3. NOT NEEDED.
@@ -2751,7 +2878,7 @@ CODE
                                    
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001728 - 00001733 (0xc bytes), align: 1
+  Relative segment, address: CODE 00001894 - 0000189F (0xc bytes), align: 1
   Segment part 5.             Intra module refs:   Segment part 2
     -------------------------------------------------------------------------
 CODE
@@ -2762,18 +2889,18 @@ CODE
                                    
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001734 - 00001737 (0x4 bytes), align: 1
+  Relative segment, address: CODE 000018A0 - 000018A3 (0x4 bytes), align: 1
   Segment part 7.             Intra module refs:   Segment part 5
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?call_low_level_init    00001734 
+           ?call_low_level_init    000018A0 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001738 - 0000173F (0x8 bytes), align: 1
+  Relative segment, address: CODE 000018A4 - 000018AB (0x8 bytes), align: 1
   Segment part 8.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?need_segment_init      00001738        ?<Segment init: NEAR_I> (avr_twi_master_driver)
+           ?need_segment_init      000018A4        ?<Segment init: NEAR_I> (avr_twi_master_driver)
                                                    ?<Segment init: NEAR_Z> (adc)
     -------------------------------------------------------------------------
 DIFUNCT
@@ -2786,11 +2913,11 @@ CODE
            ?call_ctors             
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001740 - 0000174B (0xc bytes), align: 1
+  Relative segment, address: CODE 000018AC - 000018B7 (0xc bytes), align: 1
   Segment part 11.            Intra module refs:   ?call_low_level_init
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?cstartup_call_main     00001740 
+           ?cstartup_call_main     000018AC 
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?EEPROM_16
@@ -2798,27 +2925,27 @@ CODE
   SEGMENTS IN THE MODULE
   ======================
 CODE
-  Relative segment, address: CODE 0000174C - 00001751 (0x6 bytes), align: 1
+  Relative segment, address: CODE 000018B8 - 000018BD (0x6 bytes), align: 1
   Segment part 0.             Intra module refs:   ?eeget16
                                                    __eeput16_16
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?eewait                 0000174C 
+           ?eewait                 000018B8 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001752 - 00001755 (0x4 bytes), align: 1
+  Relative segment, address: CODE 000018BE - 000018C1 (0x4 bytes), align: 1
   Segment part 1.             Intra module refs:   __eeget16_16
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?eeget16_inc            00001752 
+           ?eeget16_inc            000018BE 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001756 - 0000175F (0xa bytes), align: 1
+  Relative segment, address: CODE 000018C2 - 000018CB (0xa bytes), align: 1
   Segment part 2.             Intra module refs:   ?eeget16_inc
                                                    __eeget16_16
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?eeget16                00001756 
+           ?eeget16                000018C2 
     -------------------------------------------------------------------------
 CODE
   Segment part 3. NOT NEEDED.
@@ -2833,11 +2960,11 @@ CODE
            __eeget8_16             
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001760 - 00001769 (0xa bytes), align: 1
+  Relative segment, address: CODE 000018CC - 000018D5 (0xa bytes), align: 1
   Segment part 6.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __eeget16_16            00001760        RD_EEP_Value (system_mode)
+           __eeget16_16            000018CC        RD_EEP_Value (system_mode)
     -------------------------------------------------------------------------
 CODE
   Segment part 7. NOT NEEDED.
@@ -2858,19 +2985,19 @@ CODE
            __eeget64_16            
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000176A - 0000176D (0x4 bytes), align: 1
+  Relative segment, address: CODE 000018D6 - 000018D9 (0x4 bytes), align: 1
   Segment part 10.            Intra module refs:   __eeput16_16
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?eeput16_inc            0000176A 
+           ?eeput16_inc            000018D6 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000176E - 0000177B (0xe bytes), align: 1
+  Relative segment, address: CODE 000018DA - 000018E7 (0xe bytes), align: 1
   Segment part 11.            Intra module refs:   ?eeput16_inc
                                                    __eeput16_16
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?eeput16                0000176E 
+           ?eeput16                000018DA 
     -------------------------------------------------------------------------
 CODE
   Segment part 12. NOT NEEDED.
@@ -2885,12 +3012,13 @@ CODE
            __eeput8_16             
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000177C - 00001789 (0xe bytes), align: 1
+  Relative segment, address: CODE 000018E8 - 000018F5 (0xe bytes), align: 1
   Segment part 15.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __eeput16_16            0000177C        ADC_Auto_Zero_Process (adc)
+           __eeput16_16            000018E8        ADC_Auto_Zero_Process (adc)
                                                    System_Auto_Zero_Function (system_mode)
+                                                   System_Interval_Auto_Zero_Function (system_mode)
     -------------------------------------------------------------------------
 CODE
   Segment part 16. NOT NEEDED.
@@ -2916,11 +3044,11 @@ CODE
   SEGMENTS IN THE MODULE
   ======================
 CODE
-  Relative segment, address: CODE 0000178A - 0000178D (0x4 bytes), align: 1
+  Relative segment, address: CODE 000018F6 - 000018F9 (0x4 bytes), align: 1
   Segment part 3.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           exit                    0000178A        ?cstartup_call_main (?C_STARTUP)
+           exit                    000018F6        ?cstartup_call_main (?C_STARTUP)
                calls direct
     -------------------------------------------------------------------------
 CSTACK
@@ -2941,18 +3069,18 @@ CODE
            ?US_DIVMOD_S_L02        
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000178E - 00001793 (0x6 bytes), align: 1
+  Relative segment, address: CODE 000018FA - 000018FF (0x6 bytes), align: 1
   Segment part 1.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?US_DIVMOD_L02          0000178E        ?SS_DIVMOD_L02 (?SS_DIVMOD_L02)
+           ?US_DIVMOD_L02          000018FA        ?SS_DIVMOD_L02 (?SS_DIVMOD_L02)
                                                    ADC_Get_Standard_Pressure_Value (adc)
     -------------------------------------------------------------------------
 CODE
   Segment part 2. NOT NEEDED.
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001794 - 000017B3 (0x20 bytes), align: 1
+  Relative segment, address: CODE 00001900 - 0000191F (0x20 bytes), align: 1
   Segment part 3.             Intra module refs:   ?US_DIVMOD_L02
 
     -------------------------------------------------------------------------
@@ -2967,25 +3095,25 @@ CODE
            ?SS_DIVMOD_S_L02        
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000017B4 - 000017D3 (0x20 bytes), align: 1
+  Relative segment, address: CODE 00001920 - 0000193F (0x20 bytes), align: 1
   Segment part 1.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?SS_DIVMOD_L02          000017B4        FND_NUMtoCHAR_Transfer (fnd_display)
+           ?SS_DIVMOD_L02          00001920        FND_NUMtoCHAR_Transfer (fnd_display)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000017D4 - 000017DB (0x8 bytes), align: 1
+  Relative segment, address: CODE 00001940 - 00001947 (0x8 bytes), align: 1
   Segment part 2.             Intra module refs:   ?SS_DIVMOD_L02
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?NEG_P                  000017D4 
+           ?NEG_P                  00001940 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000017DC - 000017E3 (0x8 bytes), align: 1
+  Relative segment, address: CODE 00001948 - 0000194F (0x8 bytes), align: 1
   Segment part 3.             Intra module refs:   ?SS_DIVMOD_L02
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?NEG_Q                  000017DC 
+           ?NEG_Q                  00001948 
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?UL_SHR_L03
@@ -2993,11 +3121,11 @@ CODE
   SEGMENTS IN THE MODULE
   ======================
 CODE
-  Relative segment, address: CODE 000017E4 - 000017F1 (0xe bytes), align: 1
+  Relative segment, address: CODE 00001950 - 0000195D (0xe bytes), align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?UL_SHR_L03             000017EC        ?SKIP8 (?FLOATS_L04)
+           ?UL_SHR_L03             00001958        ?SKIP8 (?FLOATS_L04)
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?UL_DIVMOD_L03
@@ -3040,11 +3168,11 @@ CODE
            ?SL_DIVMOD_L03          
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000017F2 - 00001801 (0x10 bytes), align: 1
+  Relative segment, address: CODE 0000195E - 0000196D (0x10 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?L_NEG_L03              000017F2        ?SKIP8 (?FLOATS_L04)
+           ?L_NEG_L03              0000195E        ?SKIP8 (?FLOATS_L04)
                                                    ?SL2F_L04 (?FLOATS_L04)
     -------------------------------------------------------------------------
 CODE
@@ -3059,56 +3187,56 @@ CODE
   SEGMENTS IN THE MODULE
   ======================
 CODE
-  Relative segment, address: CODE 00001802 - 00001811 (0x10 bytes), align: 1
+  Relative segment, address: CODE 0000196E - 0000197D (0x10 bytes), align: 1
   Segment part 0.             Intra module refs:   ?F_ADD_L04
                                                    ?F_DIV_L04
                                                    ?F_MUL_L04
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?F_UNPACK_L04           00001802 
+           ?F_UNPACK_L04           0000196E 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001812 - 00001823 (0x12 bytes), align: 1
+  Relative segment, address: CODE 0000197E - 0000198F (0x12 bytes), align: 1
   Segment part 1.             Intra module refs:   ?F2SL_L04
                                                    ?F_UNPACK_L04
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?F_UNPACK_1_L04         00001812 
+           ?F_UNPACK_1_L04         0000197E 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001824 - 0000186B (0x48 bytes), align: 1
+  Relative segment, address: CODE 00001990 - 000019D7 (0x48 bytes), align: 1
   Segment part 2.             Intra module refs:   ?F_ADD_L04
                                                    ?F_DIV_L04
                                                    ?F_MUL_L04
                                                    ?SL2F_2
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?F_ROUND_L04            00001838 
+           ?F_ROUND_L04            000019A4 
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?F_NORMALIZE_L04        00001824 
+           ?F_NORMALIZE_L04        00001990 
     -------------------------------------------------------------------------
 CODE
   Segment part 3. NOT NEEDED.
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000186C - 0000186D (0x2 bytes), align: 1
+  Relative segment, address: CODE 000019D8 - 000019D9 (0x2 bytes), align: 1
   Segment part 4.             Intra module refs:   ?F_ROUND_L04
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000186E - 00001877 (0xa bytes), align: 1
+  Relative segment, address: CODE 000019DA - 000019E3 (0xa bytes), align: 1
   Segment part 5.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?SL2F_L04               0000186E        Twi_Adc_Cal_Real_Value (ps-33d)
+           ?SL2F_L04               000019DA        Twi_Adc_Cal_Real_Value (ps-33d)
                                                    Twi_Adc_Push_Coef (ps-33d)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001878 - 00001885 (0xe bytes), align: 1
+  Relative segment, address: CODE 000019E4 - 000019F1 (0xe bytes), align: 1
   Segment part 6.             Intra module refs:   ?SL2F_L04
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?SL2F_2                 00001878 
+           ?SL2F_2                 000019E4 
     -------------------------------------------------------------------------
 CODE
   Segment part 7. NOT NEEDED.
@@ -3117,31 +3245,31 @@ CODE
            ?UL2F_L04               
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001886 - 000018B1 (0x2c bytes), align: 1
+  Relative segment, address: CODE 000019F2 - 00001A1D (0x2c bytes), align: 1
   Segment part 8.             Intra module refs:   ?F_ADD_L04
                                                    ?F_DIV_L04
                                                    ?F_MUL_L04
                                                    ?TEST_Q_L04
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?TEST_P_L04             00001886 
+           ?TEST_P_L04             000019F2 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000018B2 - 000018CF (0x1e bytes), align: 1
+  Relative segment, address: CODE 00001A1E - 00001A3B (0x1e bytes), align: 1
   Segment part 9.             Intra module refs:   ?F_ADD_L04
                                                    ?F_DIV_L04
                                                    ?F_MUL_L04
                                                    Segment part 16
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?TEST_Q_L04             000018B2 
+           ?TEST_Q_L04             00001A1E 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000018D0 - 0000196D (0x9e bytes), align: 1
+  Relative segment, address: CODE 00001A3C - 00001AD9 (0x9e bytes), align: 1
   Segment part 10.            Intra module refs:   Segment part 16
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?F_ADD_L04              000018F0 
+           ?F_ADD_L04              00001A5C 
     -------------------------------------------------------------------------
 CODE
   Segment part 11. NOT NEEDED.
@@ -3150,53 +3278,53 @@ CODE
            ?F_SUB_L04              
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000196E - 00001973 (0x6 bytes), align: 1
+  Relative segment, address: CODE 00001ADA - 00001ADF (0x6 bytes), align: 1
   Segment part 12.            Intra module refs:   ?F2SL_L04
                                                    ?F_ADD_L04
                                                    ?F_DIV_L04
                                                    ?F_MUL_L04
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?F_ZERO_L04             0000196E 
+           ?F_ZERO_L04             00001ADA 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001974 - 00001979 (0x6 bytes), align: 1
+  Relative segment, address: CODE 00001AE0 - 00001AE5 (0x6 bytes), align: 1
   Segment part 13.            Intra module refs:   ?F_INFINITE_L04
                                                    ?F_NAN_L04
                                                    ?F_ZERO_L04
            LOCAL                   ADDRESS         
            =====                   =======         
-           PX                      00001974 
+           PX                      00001AE0 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 0000197A - 00001981 (0x8 bytes), align: 1
+  Relative segment, address: CODE 00001AE6 - 00001AED (0x8 bytes), align: 1
   Segment part 14.            Intra module refs:   ?F_DIV_L04
                                                    ?F_MUL_L04
                                                    Segment part 4
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?F_INFINITE_L04         0000197A 
+           ?F_INFINITE_L04         00001AE6 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001982 - 00001987 (0x6 bytes), align: 1
+  Relative segment, address: CODE 00001AEE - 00001AF3 (0x6 bytes), align: 1
   Segment part 15.            Intra module refs:   ?F_ADD_L04
                                                    ?F_DIV_L04
                                                    ?F_MUL_L04
                                                    Segment part 16
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?F_NAN_L04              00001982 
+           ?F_NAN_L04              00001AEE 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001988 - 000019A1 (0x1a bytes), align: 1
+  Relative segment, address: CODE 00001AF4 - 00001B0D (0x1a bytes), align: 1
   Segment part 16.            Intra module refs:   ?F_MUL_L04
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 000019A2 - 00001A6B (0xca bytes), align: 1
+  Relative segment, address: CODE 00001B0E - 00001BD7 (0xca bytes), align: 1
   Segment part 17.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?F_MUL_L04              000019A2        Twi_Adc_Cal_Real_Value (ps-33d)
+           ?F_MUL_L04              00001B0E        Twi_Adc_Cal_Real_Value (ps-33d)
     -------------------------------------------------------------------------
 CODE
   Segment part 18. NOT NEEDED.
@@ -3220,11 +3348,11 @@ CODE
            ?F_CMP_GE_L04           
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001A6C - 00001B6F (0x104 bytes), align: 1
+  Relative segment, address: CODE 00001BD8 - 00001CDB (0x104 bytes), align: 1
   Segment part 22.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?F_DIV_L04              00001A8C        Twi_Adc_Push_Coef (ps-33d)
+           ?F_DIV_L04              00001BF8        Twi_Adc_Push_Coef (ps-33d)
     -------------------------------------------------------------------------
 CODE
   Segment part 23. NOT NEEDED.
@@ -3233,18 +3361,18 @@ CODE
            ?F2UL_L04               
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001B70 - 00001B7F (0x10 bytes), align: 1
+  Relative segment, address: CODE 00001CDC - 00001CEB (0x10 bytes), align: 1
   Segment part 24.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?F2SL_L04               00001B70        Twi_Adc_Cal_Real_Value (ps-33d)
+           ?F2SL_L04               00001CDC        Twi_Adc_Cal_Real_Value (ps-33d)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001B80 - 00001BAD (0x2e bytes), align: 1
+  Relative segment, address: CODE 00001CEC - 00001D19 (0x2e bytes), align: 1
   Segment part 25.            Intra module refs:   ?F2SL_L04
            LOCAL                   ADDRESS         
            =====                   =======         
-           ?SKIP8                  00001B80 
+           ?SKIP8                  00001CEC 
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?xV_SWITCH_L06
@@ -3255,18 +3383,18 @@ CODE
   Segment part 0. NOT NEEDED.
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001BAE - 00001BAF (0x2 bytes), align: 1
+  Relative segment, address: CODE 00001D1A - 00001D1B (0x2 bytes), align: 1
   Segment part 1.             Intra module refs:   ?SV_SWITCH_L06
            LOCAL                   ADDRESS         
            =====                   =======         
-           GET_INFO_S              00001BAE 
+           GET_INFO_S              00001D1A 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001BB0 - 00001BBB (0xc bytes), align: 1
+  Relative segment, address: CODE 00001D1C - 00001D27 (0xc bytes), align: 1
   Segment part 2.             Intra module refs:   GET_INFO_S
            LOCAL                   ADDRESS         
            =====                   =======         
-           GET_INFO_C              00001BB0 
+           GET_INFO_C              00001D1C 
     -------------------------------------------------------------------------
 CODE
   Segment part 3. NOT NEEDED.
@@ -3275,18 +3403,18 @@ CODE
            ?CV_SWITCH_L06          
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001BBC - 00001BC1 (0x6 bytes), align: 1
+  Relative segment, address: CODE 00001D28 - 00001D2D (0x6 bytes), align: 1
   Segment part 4.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?SV_SWITCH_L06          00001BBC        Fnd_Put_Data_Timer (fnd_display)
+           ?SV_SWITCH_L06          00001D28        Fnd_Put_Data_Timer (fnd_display)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001BC2 - 00001BC7 (0x6 bytes), align: 1
+  Relative segment, address: CODE 00001D2E - 00001D33 (0x6 bytes), align: 1
   Segment part 5.             Intra module refs:   ?SV_SWITCH_L06
            LOCAL                   ADDRESS         
            =====                   =======         
-           P_0_S                   00001BC2 
+           P_0_S                   00001D2E 
     -------------------------------------------------------------------------
 CODE
   Segment part 6. NOT NEEDED.
@@ -3295,11 +3423,11 @@ CODE
            ?LV_SWITCH_L06          
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001BC8 - 00001C33 (0x6c bytes), align: 1
+  Relative segment, address: CODE 00001D34 - 00001D9F (0x6c bytes), align: 1
   Segment part 7.             Intra module refs:   P_0_S
            LOCAL                   ADDRESS         
            =====                   =======         
-           CHECK_LOW_LIMIT         00001BC8 
+           CHECK_LOW_LIMIT         00001D34 
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?PROLOGUE_L09
@@ -3379,37 +3507,36 @@ CODE
            ?PROLOGUE5_L09          
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001C34 - 00001C35 (0x2 bytes), align: 1
+  Relative segment, address: CODE 00001DA0 - 00001DA1 (0x2 bytes), align: 1
   Segment part 12.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?PROLOGUE4_L09          00001C34        TWI_Start_Transceiver_With_Data (avr_twi_master_driver)
-                                                   Twi_Adc_Push_Coef (ps-33d)
+           ?PROLOGUE4_L09          00001DA0        Twi_Adc_Push_Coef (ps-33d)
                                                    Usart_Timer (usart)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001C36 - 00001C37 (0x2 bytes), align: 1
+  Relative segment, address: CODE 00001DA2 - 00001DA3 (0x2 bytes), align: 1
   Segment part 13.            Intra module refs:   ?PROLOGUE4_L09
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?PROLOGUE3_L09          00001C36 
+           ?PROLOGUE3_L09          00001DA2 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001C38 - 00001C39 (0x2 bytes), align: 1
+  Relative segment, address: CODE 00001DA4 - 00001DA5 (0x2 bytes), align: 1
   Segment part 14.            Intra module refs:   ?PROLOGUE3_L09
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?PROLOGUE2_L09          00001C38 
+           ?PROLOGUE2_L09          00001DA4 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001C3A - 00001C3B (0x2 bytes), align: 1
+  Relative segment, address: CODE 00001DA6 - 00001DA7 (0x2 bytes), align: 1
   Segment part 15.            Intra module refs:   ?PROLOGUE2_L09
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?PROLOGUE1_L09          00001C3A 
+           ?PROLOGUE1_L09          00001DA6 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001C3C - 00001C3D (0x2 bytes), align: 1
+  Relative segment, address: CODE 00001DA8 - 00001DA9 (0x2 bytes), align: 1
   Segment part 16.            Intra module refs:   ?PROLOGUE1_L09
 
     -------------------------------------------------------------------------
@@ -3490,41 +3617,40 @@ CODE
            ?EPILOGUE_B5_L09        
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001C3E - 00001C3F (0x2 bytes), align: 1
+  Relative segment, address: CODE 00001DAA - 00001DAB (0x2 bytes), align: 1
   Segment part 12.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?EPILOGUE_B4_L09        00001C3E        TWI_Start_Transceiver_With_Data (avr_twi_master_driver)
-                                                   Twi_Adc_Push_Coef (ps-33d)
+           ?EPILOGUE_B4_L09        00001DAA        Twi_Adc_Push_Coef (ps-33d)
                                                    Usart_Timer (usart)
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001C40 - 00001C41 (0x2 bytes), align: 1
+  Relative segment, address: CODE 00001DAC - 00001DAD (0x2 bytes), align: 1
   Segment part 13.            Intra module refs:   ?EPILOGUE_B4_L09
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?EPILOGUE_B3_L09        00001C40 
+           ?EPILOGUE_B3_L09        00001DAC 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001C42 - 00001C43 (0x2 bytes), align: 1
+  Relative segment, address: CODE 00001DAE - 00001DAF (0x2 bytes), align: 1
   Segment part 14.            Intra module refs:   ?EPILOGUE_B3_L09
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?EPILOGUE_B2_L09        00001C42 
+           ?EPILOGUE_B2_L09        00001DAE 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001C44 - 00001C45 (0x2 bytes), align: 1
+  Relative segment, address: CODE 00001DB0 - 00001DB1 (0x2 bytes), align: 1
   Segment part 15.            Intra module refs:   ?EPILOGUE_B2_L09
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?EPILOGUE_B1_L09        00001C44 
+           ?EPILOGUE_B1_L09        00001DB0 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001C46 - 00001C4F (0xa bytes), align: 1
+  Relative segment, address: CODE 00001DB2 - 00001DBB (0xa bytes), align: 1
   Segment part 16.            Intra module refs:   ?EPILOGUE_B1_L09
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?EPILOGUE_B0_L09        00001C46 
+           ?EPILOGUE_B0_L09        00001DB2 
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?REGISTER_CGREGR4_L10
@@ -3628,11 +3754,11 @@ CODE
   SEGMENTS IN THE MODULE
   ======================
 CODE
-  Relative segment, address: CODE 00001C50 - 00001C53 (0x4 bytes), align: 1
+  Relative segment, address: CODE 00001DBC - 00001DBF (0x4 bytes), align: 1
   Segment part 3.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __low_level_init        00001C50        ?call_low_level_init (?C_STARTUP)
+           __low_level_init        00001DBC        ?call_low_level_init (?C_STARTUP)
     -------------------------------------------------------------------------
 CSTACK
   Segment part 1. NOT NEEDED.
@@ -3646,25 +3772,25 @@ RSTACK
   SEGMENTS IN THE MODULE
   ======================
 CODE
-  Relative segment, address: CODE 00001C54 - 00001C5F (0xc bytes), align: 1
+  Relative segment, address: CODE 00001DC0 - 00001DCB (0xc bytes), align: 1
   Segment part 3.             Intra module refs:   __segment_init
            LOCAL                   ADDRESS         
            =====                   =======         
-           __memclr                00001C54 
+           __memclr                00001DC0 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001C60 - 00001C6B (0xc bytes), align: 1
+  Relative segment, address: CODE 00001DCC - 00001DD7 (0xc bytes), align: 1
   Segment part 4.             Intra module refs:   __segment_init
            LOCAL                   ADDRESS         
            =====                   =======         
-           __flashcpy              00001C60 
+           __flashcpy              00001DCC 
     -------------------------------------------------------------------------
 CODE
-  Relative segment, address: CODE 00001C6C - 00001C9F (0x34 bytes), align: 1
+  Relative segment, address: CODE 00001DD8 - 00001E0B (0x34 bytes), align: 1
   Segment part 5.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __segment_init          00001C6C        ?need_segment_init (?C_STARTUP)
+           __segment_init          00001DD8        ?need_segment_init (?C_STARTUP)
                calls direct
     -------------------------------------------------------------------------
 CSTACK
@@ -3730,11 +3856,11 @@ NEAR_HEAP
   SEGMENTS IN THE MODULE
   ======================
 CODE
-  Relative segment, address: CODE 00001CA0 - 00001CA1 (0x2 bytes), align: 1
+  Relative segment, address: CODE 00001E0C - 00001E0D (0x2 bytes), align: 1
   Segment part 3.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __exit                  00001CA0        Segment part 5 (?_exit)
+           __exit                  00001E0C        Segment part 5 (?_exit)
     -------------------------------------------------------------------------
 CSTACK
   Segment part 1. NOT NEEDED.
@@ -3880,23 +4006,23 @@ alarm                    502      2
   + shared                               4
 avr_gpio_driver
   + shared                               1
-avr_twi_master_driver    397     20      4
+avr_twi_master_driver    383     20      4
   + shared                 6
   + common               100
 fnd_display            1 141     26
 main                      60
-module_initialize        246      2      8
+module_initialize        254      2      8
   + common                36
 motor                  1 728     19
 ps-33d                   608     55
 switch                   154      4
-system_mode              170      5
+system_mode              540     15
 usart                    368     50      6
   + common                84
 N/A (command line)              256
 N/A (alignment)
 ----------             -----    ---     --      -
-Total:                 7 290    459     27      2
+Total:                 7 654    469     27      2
   + common               100
 
 
@@ -3912,9 +4038,9 @@ SEGMENT              SPACE    START ADDRESS   END ADDRESS     SIZE  TYPE  ALIGN
 INTVEC               CODE          00000000 - 00000063          64   com    1
 ?FILL1               CODE          00000064 - 00000067           4   rel    0
 SWITCH               CODE          00000068 - 0000007B          14   rel    1
-CODE                 CODE          0000007C - 00001CA1        1C26   rel    1
-INITTAB              CODE          00001CA2 - 00001CAD           C   rel    0
-NEAR_ID              CODE          00001CAE - 00001CDD          30   rel    0
+CODE                 CODE          0000007C - 00001E0D        1D92   rel    1
+INITTAB              CODE          00001E0E - 00001E19           C   rel    0
+NEAR_ID              CODE          00001E1A - 00001E49          30   rel    0
 ABSOLUTE             DATA               0000001F                     rel    0
                      DATA               00000020                   
                      DATA               00000021                   
@@ -3933,7 +4059,7 @@ ABSOLUTE             DATA               0000001F                     rel    0
 CSTACK               DATA          00000100 - 0000017F          80   dse    0
 RSTACK               DATA          00000180 - 000001FF          80   dse    0
 NEAR_I               DATA          00000200 - 0000022F          30   rel    0
-NEAR_Z               DATA          00000230 - 000002CA          9B   rel    0
+NEAR_Z               DATA          00000230 - 000002D4          A5   rel    0
 EEPROM_I             XDATA              00000000                     dse    0
 EEPROM_N             XDATA         00000000 - 00000001           2   rel    0
 
@@ -3943,8 +4069,8 @@ EEPROM_N             XDATA         00000000 - 00000001           2   rel    0
                 *                                      *
                 ****************************************
 
- 7 386 bytes of CODE  memory (+             4 range fill )
-   459 bytes of DATA  memory (+ 27 absolute )
+ 7 750 bytes of CODE  memory (+             4 range fill )
+   469 bytes of DATA  memory (+ 27 absolute )
      2 bytes of XDATA memory
 
 Errors: none
