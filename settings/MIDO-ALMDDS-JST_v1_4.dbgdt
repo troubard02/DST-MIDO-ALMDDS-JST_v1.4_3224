@@ -1058,7 +1058,7 @@
                     <item>Sys_AZ_Interval_1S_Timer_Cnt</item>
                     <item>Sys_AZ_Interval_Flag</item>
                     <item>Start_Switch_State</item>
-                    <item></item>
+                    <item />
                 </expressions>
                 <col-names>
                     <item>Expression</item>

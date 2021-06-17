@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR      11/Jun/2021  12:51:10
+// IAR C/C++ Compiler V7.20.4.1567 for Microchip AVR      15/Jun/2021  10:34:59
 // Copyright 1996-2019 IAR Systems AB.
 // PC-locked license - IAR Embedded Workbench for Atmel AVR
 //
@@ -8,7 +8,7 @@
 //        C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
 //        System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\usart.c
 //    Command line =  
-//        -f C:\Users\troub\AppData\Local\Temp\EW249E.tmp
+//        -f C:\Users\troub\AppData\Local\Temp\EWEBE8.tmp
 //        ("C:\Users\troub\CloudStation\Github\GitHub_DST\1. Remove Smoke
 //        System\4. MIDO\DST-MIDO-ALMDDS-JST_v1.4_3224\Source\usart.c"
 //        --cpu=m168pa -ms -o "C:\Users\troub\CloudStation\Github\GitHub_DST\1.
@@ -768,41 +768,48 @@ Usart_Operation:
 //  226   if(Real_Pressure_Value>200)Pressure_Value=200;
         LDI     R30, LOW(Real_Pressure_Value)
         LDI     R31, (Real_Pressure_Value) >> 8
-        LD      R18, Z
-        LDD     R19, Z+1
-        CPI     R18, 201
-        LDI     R17, 0
-        CPC     R19, R17
+        LD      R16, Z
+        LDD     R17, Z+1
+        CPI     R16, 201
+        LDI     R18, 0
+        CPC     R17, R18
         BRLT    ??Usart_Operation_0
         LDI     R16, 200
-//  227   if(Real_Pressure_Value<0)Pressure_Value=0;
+        RJMP    ??Usart_Operation_1
+//  227   else if(Real_Pressure_Value<0)Pressure_Value=0;
 ??Usart_Operation_0:
         LDI     R30, LOW(Real_Pressure_Value)
         LDI     R31, (Real_Pressure_Value) >> 8
-        LDD     R19, Z+1
-        TST     R19
-        BRPL    ??Usart_Operation_1
+        LDD     R17, Z+1
+        TST     R17
+        BRPL    ??Usart_Operation_2
         LDI     R16, 0
-//  228   Usart_Txd_Buf[0] = STX_HEADFILE;
+        RJMP    ??Usart_Operation_1
+//  228   else Pressure_Value = Real_Pressure_Value;
+??Usart_Operation_2:
+        LDI     R30, LOW(Real_Pressure_Value)
+        LDI     R31, (Real_Pressure_Value) >> 8
+        LD      R16, Z
+//  229   Usart_Txd_Buf[0] = STX_HEADFILE;
 ??Usart_Operation_1:
         LDI     R17, 2
         STS     Usart_Txd_Buf, R17
-//  229   Usart_Txd_Buf[1] = System_Mode;  
+//  230   Usart_Txd_Buf[1] = System_Mode;  
         LDS     R17, System_Mode
         STS     (Usart_Txd_Buf + 1), R17
-//  230   Usart_Txd_Buf[2] = Standard_Pressure_Value;
+//  231   Usart_Txd_Buf[2] = Standard_Pressure_Value;
         LDI     R30, LOW(Standard_Pressure_Value)
         LDI     R31, (Standard_Pressure_Value) >> 8
         LD      R18, Z
         STS     (Usart_Txd_Buf + 2), R18
-//  231   Usart_Txd_Buf[3] = Pressure_Value;
+//  232   Usart_Txd_Buf[3] = Pressure_Value;
         STS     (Usart_Txd_Buf + 3), R16
-//  232 
-//  233  
-//  234   Usart_CheckSum_Value = Usart_Txd_Buf[0] + 
-//  235                          Usart_Txd_Buf[1] +
-//  236                          Usart_Txd_Buf[2] +
-//  237                          Usart_Txd_Buf[3];
+//  233 
+//  234  
+//  235   Usart_CheckSum_Value = Usart_Txd_Buf[0] + 
+//  236                          Usart_Txd_Buf[1] +
+//  237                          Usart_Txd_Buf[2] +
+//  238                          Usart_Txd_Buf[3];
         LDS     R18, Usart_Txd_Buf
         LDS     R16, (Usart_Txd_Buf + 1)
         ADD     R18, R16
@@ -810,83 +817,83 @@ Usart_Operation:
         ADD     R18, R16
         LDS     R16, (Usart_Txd_Buf + 3)
         ADD     R18, R16
-//  238   Usart_CheckSum = (uint8_t)Usart_CheckSum_Value;
-//  239 
-//  240   Usart_Txd_Buf[4] = Usart_CheckSum;
+//  239   Usart_CheckSum = (uint8_t)Usart_CheckSum_Value;
+//  240 
+//  241   Usart_Txd_Buf[4] = Usart_CheckSum;
         STS     (Usart_Txd_Buf + 4), R18
-//  241   __enable_interrupt();
+//  242   __enable_interrupt();
         SEI
-//  242   /*
-//  243   if(Usart_Delay_Timer_Reg==2){
-//  244     Usart_Send_Start_Byte(0xAB);
-//  245     Usart_Delay_Timer_Reg=1;
-//  246   }*/
-//  247 /*
-//  248   if(USART_Txd_Start_Flag==1){
-//  249     Usart_Send_Start_Byte(STX_HEADFILE);
-//  250     USART_Txd_Start_Flag=0;
-//  251   }
-//  252 
-//  253 */
-//  254 
-//  255 }
+//  243   /*
+//  244   if(Usart_Delay_Timer_Reg==2){
+//  245     Usart_Send_Start_Byte(0xAB);
+//  246     Usart_Delay_Timer_Reg=1;
+//  247   }*/
+//  248 /*
+//  249   if(USART_Txd_Start_Flag==1){
+//  250     Usart_Send_Start_Byte(STX_HEADFILE);
+//  251     USART_Txd_Start_Flag=0;
+//  252   }
+//  253 
+//  254 */
+//  255 
+//  256 }
         RET
           CFI EndBlock cfiBlock6
-//  256 
 //  257 
 //  258 
 //  259 
+//  260 
 
         RSEG CODE:CODE:NOROOT(1)
-//  260 void Uasrt_Initialize(void)
+//  261 void Uasrt_Initialize(void)
 Uasrt_Initialize:
           CFI Block cfiBlock7 Using cfiCommon1
           CFI Function Uasrt_Initialize
           CFI NoCalls
-//  261 {
-//  262 
-//  263   uint16_t ubrr=103;
+//  262 {
+//  263 
+//  264   uint16_t ubrr=103;
         LDI     R16, 103
         LDI     R17, 0
-//  264 
-//  265   /* Set Baud Rate */
-//  266   UBRR0H=(uint8_t)(ubrr>>8);
+//  265 
+//  266   /* Set Baud Rate */
+//  267   UBRR0H=(uint8_t)(ubrr>>8);
         MOVW    R19:R18, R17:R16
         MOV     R18, R19
         STS     197, R18
-//  267   UBRR0L=(uint8_t)ubrr;
+//  268   UBRR0L=(uint8_t)ubrr;
         STS     _A_UBRR0, R16
-//  268 
-//  269   UCSR0A = (1<<U2X0);
+//  269 
+//  270   UCSR0A = (1<<U2X0);
         LDI     R16, 2
         STS     _A_UCSR0A, R16
-//  270 
-//  271   /* Enable Receiver and Transmitter  
-//  272   UCSRB = (1<<RXCIE)|(1<<TXCIE)|(1<<RXEN)|(1<<TXEN);*/
-//  273 
-//  274   /* Enable Transmitter Module */
-//  275   UCSR0B = (0<<RXDIE0)|(1<<TXCIE0)|(0<<RXEN0)|(1<<TXEN0);
+//  271 
+//  272   /* Enable Receiver and Transmitter  
+//  273   UCSRB = (1<<RXCIE)|(1<<TXCIE)|(1<<RXEN)|(1<<TXEN);*/
+//  274 
+//  275   /* Enable Transmitter Module */
+//  276   UCSR0B = (0<<RXDIE0)|(1<<TXCIE0)|(0<<RXEN0)|(1<<TXEN0);
         LDI     R16, 72
         STS     _A_UCSR0B, R16
-//  276 
-//  277   /* Enable Receiver Module 
-//  278   UCSRB = (1<<RXCIE)|(0<<TXCIE)|(1<<RXEN)|(0<<TXEN);*/
-//  279   
-//  280   /* Set Frame Format : 8data, 1 stop bit, none parity bit */
-//  281   UCSR0C = (0<<UMSEL01)|(0<<UMSEL00)|(0<<UPM01)|(0<<UPM00)
-//  282           |(0<<USBS0)|(1<<UCSZ01)|(1<<UCSZ00)|(0<<UCSZ00);
+//  277 
+//  278   /* Enable Receiver Module 
+//  279   UCSRB = (1<<RXCIE)|(0<<TXCIE)|(1<<RXEN)|(0<<TXEN);*/
+//  280   
+//  281   /* Set Frame Format : 8data, 1 stop bit, none parity bit */
+//  282   UCSR0C = (0<<UMSEL01)|(0<<UMSEL00)|(0<<UPM01)|(0<<UPM00)
+//  283           |(0<<USBS0)|(1<<UCSZ01)|(1<<UCSZ00)|(0<<UCSZ00);
         LDI     R16, 6
         STS     _A_UCSR0C, R16
-//  283 
-//  284   USART_Mode = TX_MODE;
+//  284 
+//  285   USART_Mode = TX_MODE;
         LDI     R16, 1
         STS     USART_Mode, R16
-//  285   Usart_Delay_Timer_Reg=1;
+//  286   Usart_Delay_Timer_Reg=1;
         LDI     R16, 1
         STS     Usart_Delay_Timer_Reg, R16
-//  286 
 //  287 
-//  288 }
+//  288 
+//  289 }
         RET
           CFI EndBlock cfiBlock7
         REQUIRE _A_UBRR0
@@ -937,14 +944,14 @@ __?EEARH:
         END
 // 
 //   6 bytes in segment ABSOLUTE
-// 410 bytes in segment CODE
+// 420 bytes in segment CODE
 //  12 bytes in segment INITTAB
 //   8 bytes in segment INTVEC
 //  10 bytes in segment NEAR_I
 //  10 bytes in segment NEAR_ID
 //  72 bytes in segment NEAR_Z
 // 
-// 420 bytes of CODE memory (+ 20 bytes shared)
+// 430 bytes of CODE memory (+ 20 bytes shared)
 //  82 bytes of DATA memory (+  6 bytes shared)
 //
 //Errors: none

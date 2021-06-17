@@ -224,7 +224,8 @@ void Usart_Operation(void)
   __disable_interrupt();
  
   if(Real_Pressure_Value>200)Pressure_Value=200;
-  if(Real_Pressure_Value<0)Pressure_Value=0;
+  else if(Real_Pressure_Value<0)Pressure_Value=0;
+  else Pressure_Value = Real_Pressure_Value;
   Usart_Txd_Buf[0] = STX_HEADFILE;
   Usart_Txd_Buf[1] = System_Mode;  
   Usart_Txd_Buf[2] = Standard_Pressure_Value;
