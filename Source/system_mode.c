@@ -121,7 +121,7 @@ void Sys_AZ_Delay_Timer(void)
 void System_Interval_Auto_Zero_Function(void)
 {
 
-  if(abs(Pressure_PA_Value)<15){
+  if(abs(Real_Pressure_Value)<=15){
 
     __disable_interrupt();
     ADC_AutoZero_Point = Pressure_PA_Value;

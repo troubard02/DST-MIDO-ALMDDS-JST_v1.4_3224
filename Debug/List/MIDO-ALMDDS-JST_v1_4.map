@@ -2,7 +2,7 @@
 #                                                                              #
 #      IAR Universal Linker V6.6.1.103                                         #
 #                                                                              #
-#           Link time     =  15/Jun/2021  10:34:59                             #
+#           Link time     =  05/Jul/2021  16:08:09                             #
 #           Target CPU    =  A90                                               #
 #           List file     =  "C:\Users\troub\CloudStation\Github\GitHub_DST\1. #
 #                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
@@ -11,7 +11,7 @@
 #                             Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST_ #
 #                            v1.4_3224\Debug\Exe\MIDO-ALMDDS-JST_v1_4.hex"     #
 #                            Format: intel-extended                            #
-#           Command line  =  -f C:\Users\troub\AppData\Local\Temp\EWECA4.tmp   #
+#           Command line  =  -f C:\Users\troub\AppData\Local\Temp\EWB079.tmp   #
 #                            ("C:\Users\troub\CloudStation\Github\GitHub_DST\1 #
 #                            . Remove Smoke System\4. MIDO\DST-MIDO-ALMDDS-JST #
 #                            _v1.4_3224\Debug\Obj\adc.r90"                     #
@@ -363,6 +363,7 @@ NEAR_Z
            Real_Pressure_Value     00000242        Fnd_Display (fnd_display)
                                                    Motor_Get_Pressure_Status (motor)
                                                    Motor_Timer (motor)
+                                                   System_Interval_Auto_Zero_Function (system_mode)
                                                    Twi_Adc_Get_Pressure_Sensor_Value (ps-33d)
                                                    Usart_Operation (usart)
     -------------------------------------------------------------------------
